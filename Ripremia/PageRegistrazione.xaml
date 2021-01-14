@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EcoServiceApp.PageRegistrazione" BackgroundColor="#f0f0ef">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <AbsoluteLayout HorizontalOptions="FillAndExpand" >
+
+                    <StackLayout HorizontalOptions="CenterAndExpand" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0.5,0" >
+                        <Label  FontSize = "Large" FontAttributes="Bold" Margin="{OnPlatform Android='10, 10,10,10 ', iOS='10,30,10,0'}"   Style="{StaticResource NewFont}" Text="Crea un nuovo account&#10;per accedere ai Servizi Ecolan" HorizontalTextAlignment="Center"/>
+
+                        <Label Margin="15, 10,1,0" Padding="0" FontFamily="" Style="{StaticResource LabReg}" Text="Nome"/>
+                        <Entry x:Name="TxtNome" TextTransform="Uppercase" Margin="10,1,10,5" Placeholder="Nome" Style="{StaticResource EntryReg}" />
+                        <Label x:Name="AlertNome" Margin="15, 0,1,0" FontFamily="" TextColor="Red" FontSize = "Small"   Text="Inserire un nome!" IsVisible="false"/>
+
+
+                        <Label  Margin="15, 10,1,0" FontFamily="" Style="{StaticResource LabReg}"  Text="Cognome"/>
+                        <Entry x:Name="TxtCognome" TextTransform="Uppercase" Margin="10,1,10,0" Placeholder="Cognome" Style="{StaticResource EntryReg}" />
+                        <Label  x:Name="AlertCognome" Margin="15, 0,1,0" FontFamily="" TextColor="Red" FontSize = "Small"   Text="Inserire un cognome!" IsVisible="false"/>
+
+                        <Label  Margin="15, 10,1,0" FontFamily="" Style="{StaticResource LabReg}"  Text="Codice fiscale"/>
+                        <Entry x:Name="TxtCodFiscale" TextTransform="Uppercase" Margin="10,1,10,0" Placeholder="Codice fiscale"  TextChanged="TxtCodFiscale_TextChanged" Style="{StaticResource EntryReg}" />
+                        <Label x:Name="AlertCodFisc" Margin="15, 0,1,0" FontFamily="" TextColor="Red" FontSize = "Small"   Text="Inserire un codice fiscale valido!" IsVisible="false"/>
+
+
+                        <Label  Margin="15, 10,1,0" FontFamily="" Style="{StaticResource LabReg}" Text="E-mail"/>
+                        <Entry x:Name="TxtEmail" Margin="10,1,10,0" Placeholder="E-mail" Style="{StaticResource EntryReg}" TextTransform="Lowercase"  Keyboard="Email"/>
+                        <Label  x:Name="AlertEmail" Margin="15, 0,1,0" FontFamily="" TextColor="Red" FontSize = "Small"   Text="Inserire una e-mail valida!" IsVisible="false"/>
+
+                        <Label  Margin="15, 10,1,0" FontFamily=""  Style="{StaticResource LabReg}"  Text="Password"/>
+
+                        <StackLayout Orientation="Horizontal" Margin="10,1,10,0" >
+                            <Entry  x:Name="TxtPassword" HorizontalOptions="FillAndExpand" IsPassword="True"  Placeholder="Password" Style="{StaticResource EntryReg}" />
+                            <ImageButton x:Name="BtnShowPass" Source="eye1"  HorizontalOptions="End" BackgroundColor="#f4f4f4" Margin="-12,1,0,0" Clicked="BtnShowPass_Clicked" />
+                        </StackLayout>
+
+                        <Label x:Name="AlertPassword" Margin="15, 0,1,0" FontFamily="" TextColor="Red" FontSize = "Small"   Text="Inserisci una password valida di almeno 8 caratteri, un numero, una lettera maiuscola e un carattere speciale ($,#,%,..)!" IsVisible="false"/>
+
+                        <Label  Margin="15, 10,1,0" FontFamily="" Style="{StaticResource LabReg}"   Text="Codice famiglia" />
+                        <StackLayout Orientation="Horizontal" Margin="0,0,0,0"  >
+                            <Entry x:Name="txtCodFamiglia" TextTransform="Uppercase"  Margin="10,1,0,0" Placeholder="Codice famiglia" Style="{StaticResource EntryReg}" />
+                            <ImageButton  x:Name="BtnInfoCodice"  Source="info" HeightRequest="40" BackgroundColor="Transparent" Padding="0,1,10,1"  Clicked="BtnInfoCodice_Clicked"/>
+                        </StackLayout>
+                        <Label x:Name="AlertCodFamiglia" Margin="15, 0,1,0" FontFamily="" TextColor="Red" FontSize = "Small"   Text="Non è un codice valido! Se non possiedi un codice famiglia lascia il campo vuoto, potrai inserirlo in un secondo momento." IsVisible="false"/>
+
+                        <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" >
+                            <CheckBox x:Name="CheckPrivacy" Margin="10, 5,1,0" CheckedChanged="CheckPrivacy_CheckedChanged" Color="#7ca137" />
+                            <Label VerticalOptions="Start" Text="Ho letto l'informativa sulla privacy e accetto le condizioni generali d'uso dell'app"  TextTransform="None"  Padding="0,10,0,0"  BackgroundColor="Transparent" TextColor="Gray" FontSize="Small" WidthRequest="310" />
+                        </StackLayout>
+                        <Label x:Name="AlertPrivacy" Margin="15, 0,1,0" FontFamily="" TextColor="Red" FontSize = "Small"   Text="Per proseguire devi accettare l'informativa sulla privacy" IsVisible="false"/>
+
+                        <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand">
+                            <CheckBox x:Name="CheckTrattamento" Margin="10, 5,1,0" Color="#7ca137" />
+                            <Label VerticalOptions="Start" Text="Autorizzo il trattamento dei miei dati per finalità di marketing"  TextTransform="None"   Padding="0,10,0,0"  BackgroundColor="Transparent" TextColor="Gray" FontSize="Small" WidthRequest="310"/>
+                        </StackLayout>
+                        <Label x:Name="AlertTrattamento" Margin="15, 0,1,0" FontFamily="" TextColor="Red" FontSize = "Small"   Text="Per proseguire devi accettare il trattamento dei dati" IsVisible="false"/>
+
+
+                        <Button x:Name="BtnRegistrati" IsEnabled="False" Text="REGISTRATI" Margin="10,35,10,0" HorizontalOptions="Center" Style="{StaticResource BtnDarkDisable}" WidthRequest="310" Clicked="BtnRegistrati_Clicked"/>
+                        
+                        <Button x:Name="BtnReturnLog" Margin="10,10,10,10" Text="Sei già registrato? ACCEDI"  HorizontalOptions="Center"  Style="{StaticResource BtnTranspGreen}" Clicked="BtnReturnLog_Clicked"/>
+
+                    </StackLayout>
+
+
+
+                </AbsoluteLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

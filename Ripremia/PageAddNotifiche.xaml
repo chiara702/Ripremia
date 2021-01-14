@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EcoServiceApp.PageAddNotifiche">
+    <ContentPage.Content>
+        
+        
+        
+        <Grid BackgroundColor="LightGray">
+
+            <!-- menù grid -->
+            <!--
+            <ecoserviceapp:ViewMenuTop x:Name="MenuTop" ></ecoserviceapp:ViewMenuTop>-->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <StackLayout Grid.Row="0" Orientation="Horizontal"  BackgroundColor="DarkRed" Padding="0,35,0,0"  >
+                <ImageButton Source="GoBack" HeightRequest="30" BackgroundColor="Transparent" Margin="20,15,10,20" Clicked="BtnIndietro_Clicked"/>
+                <Label Text="AGGIUNGI NOTIFICHE" Style="{StaticResource UserFontGreen}" TextColor="White" VerticalOptions="Center" FontSize="22" />
+                <!--<Image Source="RipremiaW" HeightRequest="25" Margin="10,0,10,5"  HorizontalOptions="Center" VerticalOptions="Center" />-->
+            </StackLayout>
+
+            <!-- corpo centrale -->
+
+            <ScrollView Grid.Row="1"  Style="{StaticResource Scrollbackground}" Margin="0,0,0,0">
+                <StackLayout Margin="10,0,10,0">
+
+                    <Label Margin="15, 10,1,0" Padding="0" FontFamily="" Style="{StaticResource LabReg}" Text="Mittente"/>
+                    <Entry x:Name="TxtMittente" IsEnabled="False" TextTransform="Uppercase" Margin="10,1,10,5" Placeholder="" Style="{StaticResource EntryReg}" BackgroundColor="White" />
+                    
+                    <!--<Label Margin="15, 10,1,0" Padding="0" FontFamily="" Style="{StaticResource LabReg}" Text="Tema"/>
+                    
+
+
+                    <Label Margin="15, 10,1,0" Padding="0" FontFamily="" Style="{StaticResource LabReg}" Text="Destinatari"/>-->
+
+                    <StackLayout Spacing="0">
+                        <Label Margin="15, 10,1,0" Text="Tema della notifica" FontFamily="" Style="{StaticResource LabReg}"  />
+                        <Frame BackgroundColor="White" HasShadow="False" Margin="10,5,15,10">
+                            <StackLayout Spacing="0" Orientation="Horizontal" Margin="-10,-10,-10,-5" Padding="0" >
+                                <StackLayout  >
+                                    <StackLayout Orientation="Horizontal" >
+                                        <Image Source="InfoNote" HeightRequest="22" />
+                                        <RadioButton x:Name="RadioIcon0" Content="Comunicazioni generali" GroupName="tema"  IsChecked="true" />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" >
+                                        <Image Source="AttenzioneNote" HeightRequest="22" />
+                                        <RadioButton x:Name="RadioIcon1" Content="Pubblica utilità" GroupName="tema" />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" >
+                                        <Image Source="AltroNote" HeightRequest="22" />
+                                        <RadioButton x:Name="RadioIcon2" Content="Varie" GroupName="tema" />
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                            </Frame>
+                    </StackLayout>
+                    <!--<StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand">
+                        <CheckBox x:Name="CheckTrattamento" Margin="10, 5,1,0" Color="#7ca137" />
+                        <Label VerticalOptions="Start" Text="Abilità validità per data"  TextTransform="None"   Padding="0,10,0,0"  BackgroundColor="Transparent" TextColor="Gray" FontSize="Small" WidthRequest="310"/>
+                    </StackLayout>-->
+                    
+                    <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" >
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                            <Label Margin="15, 10,1,0" Padding="0" FontFamily="" Style="{StaticResource LabReg}" Text="Data pubblicazione"/>
+                            <DatePicker x:Name="DataPubblicazione" VerticalOptions="CenterAndExpand"  Margin="10,1,20,5" HorizontalOptions="FillAndExpand"  BackgroundColor="White">
+                                <DatePicker.Format>dd-MM-yyyy</DatePicker.Format>
+                            </DatePicker>
+                                <!--<Entry x:Name="TxtDataPubblicazione"  TextTransform="Uppercase" Margin="10,1,10,5" Placeholder="Comune/Gestore" Style="{StaticResource EntryReg}" />-->
+                        </StackLayout>
+
+                        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                            <Label Margin="15, 10,1,0" Padding="0" FontFamily="" Style="{StaticResource LabReg}" Text="Data scadenza"/>
+                            <DatePicker x:Name="DataScadenza" VerticalOptions="FillAndExpand"  Margin="10,1,10,5" HorizontalOptions="FillAndExpand" BackgroundColor="White">
+                                <DatePicker.Format>dd-MM-yyyy</DatePicker.Format>
+                            </DatePicker>
+                            <!--<Entry x:Name="DataScadenza" TextTransform="Uppercase" Margin="10,1,10,5" Placeholder="Comune/Gestore" Style="{StaticResource EntryReg}" />-->
+                        </StackLayout>
+                    </StackLayout>
+
+                    <Label Margin="15, 10,1,0" Padding="0" FontFamily="" Style="{StaticResource LabReg}" Text="Oggetto"/>
+                    <Entry x:Name="TxtOggetto"  Margin="10,1,10,5"  Placeholder="Oggetto" Style="{StaticResource EntryReg}" BackgroundColor="White" />
+
+                    <Label Margin="15, 10,1,0" FontFamily="" Style="{StaticResource LabReg}"  Text="Testo della notifica"/>
+                    <Editor x:Name="TxtDescrizione" MaxLength="400" HeightRequest="150"   Margin="10,1,10,5" Placeholder="Testo della notifica" Style="{StaticResource EntryReg}"  BackgroundColor="White" />
+
+
+                    <StackLayout Orientation="Horizontal" VerticalOptions="Center" Margin="0, 15,0,0">
+                        <Label Margin="15, 5,1,0" Padding="0" FontFamily="" Style="{StaticResource LabReg}" Text="Notifica push?"/>
+                        <RadioButton x:Name="RadioPushSi" Content="SI"  />
+                        <RadioButton x:Name="RadioPushNo" Content="NO"  IsChecked="true"  />
+                    </StackLayout>
+
+                    <StackLayout Margin="0, 10,0,10" x:Name="StackDestinatari" >
+                        <Label Margin="15, 10,1,0" Padding="0" FontFamily="" Style="{StaticResource LabReg}" Text="Destinatari" VerticalOptions="Center" />
+                        <Frame Margin="10,0,10,0"  BackgroundColor="White" HasShadow="False">
+                            <StackLayout >
+                                <RadioButton x:Name="RadioTuttiComuni" Margin="0, 0,1,0" Content="Invia a tutti i comuni" />
+                                <RadioButton x:Name="RadioComune" Margin="0, 10,1,0" Content="Invia al seguente comune"/>
+                                <Picker x:Name="PickerComune" Margin="25, 0,10,0"  Title="Seleziona un comune" BackgroundColor="White" />
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+                    
+                    <Label Margin="15, 10,1,0" Padding="0" FontFamily="" Style="{StaticResource LabReg}" Text="Link" />
+                    <Entry x:Name="TxtLink" Keyboard="Url" Margin="10,1,10,5"  Placeholder="URL" Style="{StaticResource EntryReg}" BackgroundColor="White" />
+
+                    <Button  x:Name="BtnInviaNotifica"  Text="INVIA NOTIFICA" FontFamily="SanzFont" Margin="10,30,10,10" HorizontalOptions="FillAndExpand" Style="{StaticResource BtnDark}" BackgroundColor="DarkRed" HeightRequest="60" Clicked="BtnInviaNotifica_Clicked" />
+                    <Button  x:Name="BtnIIndietro"  Text="TORNA AL MENU' PRINCIPALE" FontFamily="SanzFont" Margin="5,30,10,30" HorizontalOptions="FillAndExpand" Style="{StaticResource BtnDark}"  BackgroundColor="Gray" HeightRequest="60" Clicked="BtnIIndietro_Clicked" />
+
+
+
+                </StackLayout>
+            </ScrollView>
+
+
+
+
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

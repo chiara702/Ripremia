@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:behaviors="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="EcoServiceApp.PagePrenotazioni">
+    <ContentPage.Content>
+        <Grid BackgroundColor="#f0f0ef">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <StackLayout Grid.Row="0" Orientation="Horizontal"  BackgroundColor="#7ca137" Padding="0,35,0,0"  >
+                <ImageButton Source="GoBack" HeightRequest="30" BackgroundColor="Transparent" Margin="20,15,10,20" Clicked="BtnIndietro_Clicked"/>
+                <Label Text="PRENOTAZIONI RITIRI" Style="{StaticResource UserFontGreen}" TextColor="White" VerticalOptions="Center" FontSize="22" />
+            </StackLayout>
+            
+            <StackLayout Grid.Row="1" >
+                <Label x:Name="txtNotice" IsVisible="false" Margin="10,10,10,10" Text="Non sono presenti richieste di prenotazione! " Style="{StaticResource UserFontGreen}"/>
+            </StackLayout>
+            <ScrollView Grid.Row="1" Margin="10,0,10,0">
+
+                <StackLayout BindableLayout.ItemsSource="{Binding Prenotazioni}" HorizontalOptions="FillAndExpand">
+                    <BindableLayout.ItemTemplate>
+
+
+                        <DataTemplate >
+                            <Frame BackgroundColor="White" CornerRadius="10" Margin="5,5,5,5"  HasShadow="{OnPlatform Android='true ', iOS='false'}">
+                                <behaviors:Expander Margin="0" >
+
+                                    <behaviors:Expander.Header>
+                                        <!--<Frame BorderColor="AliceBlue" CornerRadius="10">-->
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand"  Margin="5,0,5,0">
+                                            <Image Source="{Binding SourceIcona}" HeightRequest="50" Margin="0,0,0,0"/>
+                                            <Label Text="Data richiesta" Style="{StaticResource UserFont}" VerticalOptions="Center" TextTransform="Uppercase" FontSize="15" Margin="5,0,0,0" />
+                                            <Label Text="{Binding DataCreazione}" Style="{StaticResource UserFontGreen}" VerticalOptions="Center" FontSize="15" Margin="5,0,0,0" />
+                                                <Image Source="expand.png" HorizontalOptions="EndAndExpand" VerticalOptions="Center">
+                                                    <Image.Triggers>
+                                                        <DataTrigger TargetType="Image"
+                                                             Binding="{Binding Source={RelativeSource AncestorType={x:Type behaviors:Expander}}, Path=IsExpanded}"
+                                                             Value="True">
+                                                            <Setter Property="Source"
+                                                            Value="collapse.png" />
+                                                        </DataTrigger>
+                                                    </Image.Triggers>
+                                                </Image>
+                                        </StackLayout>
+                                        <!--</Frame>-->
+                                    </behaviors:Expander.Header>
+                                    <behaviors:Expander.ContentTemplate>
+
+                                        <DataTemplate >
+
+                                            <Grid Padding="5">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="auto" />
+                                                    <RowDefinition Height="*" />
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*" />
+                                                    <!--<ColumnDefinition Width="0" />-->
+                                                </Grid.ColumnDefinitions>
+                                                <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+                                                    <Label Grid.Row="0" Text="Note" Style="{StaticResource UserFontGreen}" FontFamily="" FontSize="16" Margin="5,10,0,0" FontAttributes="Bold" />
+                                                    <Label Grid.Row="0" Text="{Binding Note}" Style="{StaticResource UserFont}" FontFamily="" FontSize="14" Margin="5,0,0,10" />
+                                                </StackLayout>
+                                                <StackLayout Grid.Row="1" Orientation="Horizontal">
+                                                    <Image Source="Numutili" HeightRequest="20" Margin="0,0,0,0"/>
+                                                    <Label  Text="{Binding Telefono}" Style="{StaticResource UserFont}" VerticalOptions="Center" FontFamily="" />
+                                                </StackLayout>
+                                                <StackLayout  Grid.Row="2" VerticalOptions="Center" Margin="0,5,0,5" HorizontalOptions="FillAndExpand" >
+                                                    <StackLayout Orientation="Horizontal">
+                                                        <Label Grid.Row="0" Text="Ririto Confermato" VerticalOptions="Center" Style="{StaticResource UserFont}"  FontFamily="" FontSize="18" Margin="5,5,0,0" FontAttributes="Bold" />
+                                                        <Label Grid.Row="0" HorizontalOptions="EndAndExpand" VerticalOptions="Center" Text="{Binding ConfermaRitiro}"  Style="{StaticResource UserFont}" Margin="0,5,0,0" TextColor="Red" FontFamily="" FontSize="16"   />
+                                                    </StackLayout>
+                                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" IsVisible="{Binding DataRitiroVisible}">
+                                                        <Label Grid.Row="0" Text="Data prevista per il ritiro" VerticalOptions="Center" Style="{StaticResource UserFont}" FontFamily="" FontSize="18" Margin="5,5,0,0" FontAttributes="Bold" />
+                                                        <Label Grid.Row="0" HorizontalOptions="EndAndExpand" VerticalOptions="Center" Text="{Binding DataRitiro}" Style="{StaticResource UserFont}" Margin="0,5,0,0"  TextColor="Red"  FontFamily="" FontSize="16"  />
+                                                    </StackLayout>
+                                                </StackLayout>
+
+                                                <!--<Button Grid.Row="2" Text="Rispondi" IsVisible="{Binding ConfermaRitiro}" BackgroundColor="Aqua" Style="{StaticResource BtnLight}"  HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="50" Margin="0,5,0,5" />-->
+                                            </Grid>
+
+                                        </DataTemplate>
+
+                                    </behaviors:Expander.ContentTemplate>
+                                </behaviors:Expander>
+                            </Frame>
+                        </DataTemplate>
+
+                    </BindableLayout.ItemTemplate>
+
+                </StackLayout>
+
+            </ScrollView>
+
+
+
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>

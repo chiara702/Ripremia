@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Grid 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="EcoServiceApp.ViewMenuTop"
+    RowSpacing="0" ColumnSpacing="0" BackgroundColor="Transparent" Padding="0,5,0,0" VerticalOptions="Start"  >
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="64"></RowDefinition>
+            <RowDefinition Height="45"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="44"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="44"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.Margin>
+            <OnPlatform x:TypeArguments="Thickness">
+                <On Platform="iOS" Value="0,30,0,0" />
+                <On Platform="Android, WinPhone, Windows" Value="0,0,0,50" />
+            </OnPlatform>
+        </Grid.Margin>
+
+        <Image Source="ondaS" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="3"  Aspect="AspectFill"  VerticalOptions="End" Margin="0,-55,0,0"  />
+
+
+        <ContentView Grid.Row="0" Grid.Column="0">
+            <Image Source="MenuWhite" Margin="20,2,0,2" HorizontalOptions="Center" VerticalOptions="Center" />
+            <ContentView.GestureRecognizers>
+                <TapGestureRecognizer x:Name="ImgMenu" Tapped="ImgMenu_Tapped" />
+            </ContentView.GestureRecognizers>
+        </ContentView>
+
+        <ContentView Grid.Row="0" Grid.Column="1">
+            <Image Source="RipremiaW" HeightRequest="28" Margin="0,0,0,5"
+			   HorizontalOptions="Center" VerticalOptions="Center" />
+        </ContentView>
+
+        <ContentView Grid.Row="0" Grid.Column="2" Margin="0,5,5,0" HorizontalOptions="Start" >
+            <ImageButton x:Name="BtnBell" Source="Bell" Clicked="BtnBell_Clicked" WidthRequest="23"  Margin="0,15,0,10" BackgroundColor="Transparent"  />
+        </ContentView>
+
+    </Grid>
+</Grid>

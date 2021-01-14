@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CarouselPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EcoServiceApp.PagePresentazione">
+    <ContentPage>
+        <ContentPage.Padding>
+            <OnPlatform x:TypeArguments="Thickness">
+                <On Platform="iOS, Android" Value="0,0,0,0" />
+            </OnPlatform>
+        </ContentPage.Padding>
+        <Grid RowSpacing="0" ColumnSpacing="0" BackgroundColor="#636159" Margin="0" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Image HorizontalOptions="FillAndExpand" Grid.Row="0" Grid.RowSpan="2" Margin="0" Source="Introdark1.jpg" />
+            <Button Grid.Row="1" x:Name="BtnSalta0" Text="Salta" Clicked="BtnSalta_Clicked" Style="{StaticResource BtnSkip}"/>
+
+        </Grid>
+    </ContentPage>
+
+    <ContentPage>
+        <ContentPage.Padding>
+            <OnPlatform x:TypeArguments="Thickness">
+                <On Platform="iOS, Android" Value="0,0,0,0" />
+            </OnPlatform>
+        </ContentPage.Padding>
+        <Grid RowSpacing="0" ColumnSpacing="0" BackgroundColor="#636159" Margin="0" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Image HorizontalOptions="FillAndExpand" Grid.Row="0" Grid.RowSpan="2" Margin="0" Source="Introdark2.jpg" />
+            <Button Grid.Row="1" x:Name="BtnSalta1" Text="Salta" Clicked="BtnSalta_Clicked" Style="{StaticResource BtnSkip}"/>
+
+        </Grid>
+    </ContentPage>
+
+    <ContentPage>
+        <ContentPage.Padding>
+            <OnPlatform x:TypeArguments="Thickness">
+                <On Platform="iOS, Android" Value="0,0,0,0" />
+            </OnPlatform>
+        </ContentPage.Padding>
+        <Grid RowSpacing="0" ColumnSpacing="0" BackgroundColor="#636159" Margin="0" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Image HorizontalOptions="FillAndExpand" Grid.Row="0" Grid.RowSpan="2" Margin="0" Source="Introdark3.jpg" />
+            <Button Grid.Row="1" x:Name="BtnSalta2" Text="Salta" Clicked="BtnSalta_Clicked" Style="{StaticResource BtnSkip}" />
+
+        </Grid>
+    </ContentPage>
+
+    <ContentPage>
+        <ContentPage.Padding>
+            <OnPlatform x:TypeArguments="Thickness">
+                <On Platform="iOS, Android" Value="0,0,0,0" />
+            </OnPlatform>
+        </ContentPage.Padding>
+        <Grid RowSpacing="0" ColumnSpacing="0" BackgroundColor="#636159" Margin="0" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Image HorizontalOptions="FillAndExpand" Grid.Row="0" Grid.RowSpan="2" Margin="0" Source="Introdark4.jpg" />
+            <Button Grid.Row="1" x:Name="BtnSalta3" Text="Salta" Clicked="BtnSalta_Clicked" Style="{StaticResource BtnSkip}" />
+
+        </Grid>
+    </ContentPage>
+
+    <ContentPage x:Name="FinalPageComune">
+        <ContentPage.Padding>
+            <OnPlatform x:TypeArguments="Thickness">
+                <On Platform="iOS, Android" Value="0,0,0,0" />
+            </OnPlatform>
+        </ContentPage.Padding>
+        <Grid RowSpacing="0" ColumnSpacing="0" HorizontalOptions="FillAndExpand" BackgroundColor="#636159" Margin="0" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="2*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Image HorizontalOptions="FillAndExpand" Grid.Row="0" Grid.RowSpan="2" Margin="0" Source="Introdark5.jpg" />
+            <StackLayout Grid.Row="1" VerticalOptions="Start" HorizontalOptions="Center" Margin="50,40,50,5">
+                <Entry  x:Name="TxtComuneTari" VerticalTextAlignment="Center" Placeholder="Comune di residenza" PlaceholderColor="LightGray" TextColor="#636159" TextTransform="Uppercase" BackgroundColor="White" FontSize="Medium"  />
+                <Button x:Name="BtnConfermaComune" Text="PROCEDI" HorizontalOptions="Center" Margin="0"  Style="{StaticResource BtnLight}" WidthRequest="310" Clicked="BtnConfermaComune_Clicked" />
+
+
+            </StackLayout>
+        </Grid>
+    </ContentPage>
+
+    
+</CarouselPage>

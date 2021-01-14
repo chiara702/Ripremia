@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms" xmlns:zxcm="clr-namespace:ZXing.Common;assembly=zxing.portable"
+             x:Class="EcoServiceApp.PageOffLine">
+    <ContentPage.Content >
+        <Grid BackgroundColor="#7ca137">
+            <Image Grid.Row="0" Source="ErrorOffline"  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
+            <zxing:ZXingBarcodeImageView x:Name="BarCodeId"
+                            Grid.Row="0"
+                            BarcodeFormat="QR_CODE"
+                            BarcodeValue="1" WidthRequest="120" HeightRequest="120"
+                            InputTransparent="True" IsVisible="false" Margin="100,0,100,0">
+                <zxing:ZXingBarcodeImageView.BarcodeOptions>
+                    <zxcm:EncodingOptions PureBarcode="True" Width="120" Height="120"  />
+                </zxing:ZXingBarcodeImageView.BarcodeOptions>
+            </zxing:ZXingBarcodeImageView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

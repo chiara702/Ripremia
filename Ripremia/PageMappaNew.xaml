@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps" xmlns:ecoserviceapp="clr-namespace:EcoServiceApp"
+             x:Class="EcoServiceApp.PageMappaNew" BackgroundColor="White">
+    <ContentPage.Content>
+        <Grid>
+
+
+
+
+          
+
+            <!-- corpo centrale -->
+
+            <!--       <StackLayout Style="{StaticResource Stackbackground}">  -->
+       
+            <Grid Margin="0,0,0,0" Padding="0,0,0,0" RowSpacing="0" BackgroundColor="Transparent">
+              
+                
+                
+                <maps:Map Grid.Column="0" x:Name="map1" HorizontalOptions="FillAndExpand" Margin="0,0,0,0">
+                    <x:Arguments>
+                        <!--
+                            <maps:MapSpan>
+                                <x:Arguments>
+                                    <maps:Position>
+                                        <x:Arguments>
+                                            <x:Double>42.002731</x:Double>
+                                            <x:Double>14.996115</x:Double>
+                                        </x:Arguments>
+                                    </maps:Position>
+                                    <x:Double>0.05</x:Double>e
+                                    <x:Double>0.05</x:Double>
+                                </x:Arguments>
+                            </maps:MapSpan>-->
+                    </x:Arguments>
+                    <maps:Map.Pins>
+
+                    </maps:Map.Pins>
+
+
+                </maps:Map>
+
+
+                <ImageButton  x:Name="BtnShowAllPoint" Source="ShowAll" VerticalOptions="Start" HorizontalOptions="End"  Margin="15,160,25,0" BackgroundColor="Transparent" Clicked="BtnShowAllPoint_Clicked" />
+                <Frame x:Name="FrmInfoservice" HeightRequest="600" IsVisible="false" BackgroundColor="White" Margin="10,100,10,10" CornerRadius="30">
+                    <Image   Source="InfoIcon"  Margin="0"  VerticalOptions="FillAndExpand"  />
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="TapInfoservice" Tapped="TapInfoservice_Tapped" />
+                    </Frame.GestureRecognizers>
+                </Frame>
+
+                <Frame Grid.Column="0" VerticalOptions="End"  x:Name="FrmDettagli" IsVisible="false" HorizontalOptions="FillAndExpand" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0,0" CornerRadius="10" BackgroundColor="White" Margin="5,0,5,10" Padding="0,0,0,0" HasShadow="True" HeightRequest="150" >
+                    <Grid Margin="10,5,10,5" RowSpacing="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="25" />
+                            <RowDefinition Height="25" />
+                            <RowDefinition Height="60" />
+                        </Grid.RowDefinitions>
+
+                        <BoxView Grid.Row="0" BackgroundColor="Transparent" />
+                        <BoxView Grid.Row="1" BackgroundColor="Transparent"/>
+                        <BoxView Grid.Row="2" BackgroundColor="Transparent" />
+                        <BoxView Grid.Row="3"  BackgroundColor="Transparent"/>
+
+                        <Label x:Name="LblDenominazione" Grid.Row="0" FontSize="18" TextColor="#7ca137" Text="DENOMINAZIONE ECOISOLA O PARCO" HorizontalOptions="Start" VerticalOptions="Center" TextTransform="Uppercase" Style="{StaticResource UserFont}" />
+                        <Label x:Name="LblIndirizzo" Grid.Row="1" Text="Via Masciangelo, Lanciano (CB)" FontSize="16" HorizontalOptions="Start" VerticalOptions="Center" Style="{StaticResource UserFont}" />
+                        <Label Grid.Row="2"  Text="SERVIZI DISPONIBILI"  FontSize="14" HorizontalOptions="Start" VerticalOptions="Center" Style="{StaticResource UserFont}" />
+                        <ScrollView Grid.Row="3" Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
+                            <StackLayout x:Name="StkIconservice" Orientation="Horizontal" >
+                                <ImageButton x:Name="BtnInfoservice" Source="Infodark" HeightRequest="40" Margin="0"  VerticalOptions="Fill" BackgroundColor="Transparent" Clicked="BtnInfoservice_Clicked"  />
+                                <Image x:Name="ImgH2O" HeightRequest="35" Source="PointAcqua" Margin="0"  VerticalOptions="Fill" />
+                                <Image x:Name="ImgSoap" HeightRequest="35"  Source="PointSapone" Margin="0"  VerticalOptions="Fill" />
+                                <Image x:Name="ImgSacchetti" HeightRequest="35" Source="PointSacchetti" Margin="0"  VerticalOptions="Fill" />
+                                <Image x:Name="ImgOil" HeightRequest="35" Source="PointOlio" Margin="0"  VerticalOptions="Fill" />
+                                <Image x:Name="ImgPet" HeightRequest="35" Source="PointPet" Margin="0"  VerticalOptions="Fill" />
+                                <Image x:Name="ImgBorracce" HeightRequest="35" Source="PointBorracce" Margin="0"  VerticalOptions="Fill" />
+                                <Image x:Name="ImgEbike" HeightRequest="35" Source="PointEbike" Margin="0"  VerticalOptions="Fill" />
+                                <Image x:Name="ImgRicaricaCell" HeightRequest="35" Source="PointRicarica" Margin="0"  VerticalOptions="Fill" />
+                                <Image x:Name="ImgWifiFree" HeightRequest="35" Source="PointWifi" Margin="0"  VerticalOptions="Fill" />
+                            </StackLayout>
+                        </ScrollView>
+                    </Grid>
+
+                </Frame>
+            </Grid>
+            <!--   </StackLayout> -->
+
+            <!-- menù grid -->
+            <ecoserviceapp:ViewMenuTop x:Name="MenuTop" ></ecoserviceapp:ViewMenuTop>
+
+            <!--Menu Laterale-->
+            <ecoserviceapp:ViewMenuLaterale x:Name="MenuLaterale"></ecoserviceapp:ViewMenuLaterale>
+            <!---->
+
+        </Grid>
+
+
+
+
+
+
+
+    </ContentPage.Content>
+</ContentPage>

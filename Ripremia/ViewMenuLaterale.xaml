@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+    <!-- menù laterale -->
+    <Grid x:Name="GridOverlay" IsVisible="false"  ColumnSpacing="0"
+            xmlns="http://xamarin.com/schemas/2014/forms" 
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            x:Class="EcoServiceApp.ViewMenuLaterale"
+            >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.6*"/>
+            <ColumnDefinition Width="0.01*" />
+            <ColumnDefinition Width="0.39*" />
+
+    </Grid.ColumnDefinitions>
+
+    <BoxView Grid.Column="1" BackgroundColor="#636159" x:Name="MenuLaterale2" Opacity="0.3" />
+
+    <StackLayout Padding="0,0,0,0" BackgroundColor="White" x:Name="MenuLaterale"  >
+
+        <Grid BackgroundColor="White" MinimumHeightRequest="160">
+              <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="4*" />
+                    <ColumnDefinition Width="6*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition  Height="200"/>
+            </Grid.RowDefinitions>
+
+            <StackLayout Grid.Row="0"  Grid.Column="0" Grid.ColumnSpan="2"  Spacing="0" Margin="15,10,15,10" >
+                <Image Grid.Row="0"  Grid.Column="0" Grid.ColumnSpan="2" x:Name="ImgLogo"  Source="Ripremialogo"  VerticalOptions="FillAndExpand" Margin="{OnPlatform Android='10,35,10,20 ', iOS='10,100,10,20'}"  />
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="TapCloseMenu3" Tapped="TapCloseMenu_Tapped" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+            </Grid>
+
+        <StackLayout Grid.Row="1" Spacing="15" Orientation="Horizontal"  Margin="20,10,15,0">
+                <Image Source="Usericon"  HeightRequest="30"  WidthRequest="30" />
+                <Label Text="Account" Style="{StaticResource LblSideMenu}" />
+                <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer x:Name="TapPageUtente" Tapped="TapPageUtente_Tapped" />
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+            <StackLayout Spacing="15" Orientation="Horizontal"  Margin="20,0,0,0">
+                <Image Source="Numutili" HeightRequest="30"  WidthRequest="30" />
+                <Label Text="Numeri utili"  Style="{StaticResource LblSideMenu}" />
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="TapNumeriUtili" Tapped="TapNumeriUtili_Tapped"  />
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+            <StackLayout Spacing="15" Orientation="Horizontal" Margin="20,0,0,0">
+                <Image Source="Logout" HeightRequest="30"  WidthRequest="30" />
+                <Label Text="Logout"  Style="{StaticResource LblSideMenu}" />
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="TapLogout" Tapped="TapLogout_Tapped" />
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+        <StackLayout Spacing="15" Orientation="Horizontal" Margin="20,0,0,0">
+            <Image Source="AreaRiservata" HeightRequest="30"  WidthRequest="30" />
+            <Label Text="Area riservata"  Style="{StaticResource LblSideMenu}" />
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer x:Name="TapAreaRiservata" Tapped="TapAreaRiservata_Tapped" />
+            </StackLayout.GestureRecognizers>
+        </StackLayout>
+        <StackLayout VerticalOptions="Center" HorizontalOptions="FillAndExpand" >
+                <Image x:Name="ImgLogoComune"  Source="" HeightRequest="150"  Margin="25,30,25,30"/>
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="TapCloseMenu2" Tapped="TapCloseMenu_Tapped" />
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+        </StackLayout>
+
+        <BoxView x:Name="BoxViewLayer" Grid.Column="1" Grid.ColumnSpan="2">
+            <BoxView.GestureRecognizers>
+                <TapGestureRecognizer x:Name="TapCloseMenu" Tapped="TapCloseMenu_Tapped" />
+            </BoxView.GestureRecognizers>
+        </BoxView>
+
+    </Grid>

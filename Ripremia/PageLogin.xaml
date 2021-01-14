@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EcoServiceApp.PageLogin">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#636159">
+            <Image  Source="RipremiaW"  HorizontalOptions="Center" Margin="{OnPlatform Android='80,50,80,35 ', iOS='80,80,80,35'}" MinimumHeightRequest="100"  />
+            
+            
+            <!--new code-->
+            <ScrollView>
+                <Grid RowSpacing="0" ColumnSpacing="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="150" />
+                        <RowDefinition Height="80" />
+                        <RowDefinition Height="80" />
+                        <RowDefinition Height="80" />
+                        <RowDefinition Height="25" />
+                        <RowDefinition Height="25" />
+                        <RowDefinition Height="25" />
+                        <RowDefinition Height="25" />
+                        <RowDefinition Height="25" />
+                        <RowDefinition Height="40" />
+                        <RowDefinition Height="150" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Frame Grid.Row="0" Grid.RowSpan="11"  CornerRadius="30" BackgroundColor="White" HasShadow="False" Margin="10,0,10,10" Padding="0,0,0,0" >
+                        <Image Grid.Row="7" Grid.RowSpan="7" HorizontalOptions="FillAndExpand" VerticalOptions="End" Source="Sfondo2" Margin="0,0,0,5"  />
+
+                    </Frame>
+
+                    <Image Grid.Row="0" x:Name="ImgLogo" Source="RipremiaW"  HorizontalOptions="FillAndExpand" Aspect="AspectFit" Margin="70,35,70,20"  />
+                    <Label Grid.Row="1" x:Name="LblBenvenutiServizi" TextColor="#636159"  HorizontalTextAlignment="Center" FontSize = "20"  Margin="20, 10,20,10" LineBreakMode="WordWrap" Text="Benvenuti nell'App Ripremia&#10;accedi con le tue credenziali"/>
+
+                    <StackLayout Grid.Row="2" Grid.RowSpan="3" Margin="30,0,30,0">
+                        <Entry x:Name="TxtEmailLog" Margin="10,5,10,5" Placeholder="E-mail"  PlaceholderColor="LightGray" TextColor="#636159" FontSize="Medium" TextTransform="Lowercase" />
+                        <Entry x:Name="TxtPassLog" IsPassword="True" Margin="10,10,10,0" Placeholder="Password" PlaceholderColor="LightGray" TextColor="#636159" FontSize="Medium"  />
+                        <Button x:Name="BtnRecuperaPass" Margin="5,-10,5,0" Text="Hai dimenticato la password? Recupera"  HorizontalOptions="Center" TextColor="#636159" BackgroundColor="Transparent" TextTransform="None" FontSize="Small" Clicked="BtnRecuperaPass_Clicked" />
+                    </StackLayout>
+                    <StackLayout Grid.Row="4" Grid.RowSpan="6" Margin="0,20,0,0" >
+                        <Button x:Name="BtnAccedi" Text="ACCEDI" Margin="10,15,10,0" HorizontalOptions="Center"   WidthRequest="310" Style="{StaticResource BtnLight}" Clicked="BtnAccedi_Clicked" />
+                        <Button  x:Name="BtnRegistrazione2" Text="REGISTRATI" Margin="10,15,10,0" HorizontalOptions="Center"  WidthRequest="310" Style="{StaticResource BtnDark}" Clicked="BtnRegistrazione2_Clicked"/>
+                    </StackLayout>
+
+                </Grid>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

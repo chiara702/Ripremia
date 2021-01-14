@@ -1,0 +1,67 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
+
+namespace EcoServiceApp {
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class ViewMenuLaterale : Grid {
+        public ViewMenuLaterale() {
+            InitializeComponent();
+            var PathLogo = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "LogoComune.png";
+            if (System.IO.File.Exists(PathLogo) == true) {
+                ImgLogoComune.Source = ImageSource.FromFile(PathLogo);
+            }
+            PathLogo = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "Logo.png";
+            if (System.IO.File.Exists(PathLogo) == true) {
+                ImgLogo.Source = ImageSource.FromFile(PathLogo);
+            }
+        }
+
+ 
+
+        public async Task Mostra() {
+            await MenuLaterale.TranslateTo(-250, 0, 1, Easing.Linear);
+            await MenuLaterale2.TranslateTo(-250, 0, 1, Easing.Linear);
+            GridOverlay.IsVisible = true;
+            _ = MenuLaterale.TranslateTo(0, 0, 400, Easing.Linear);
+            await MenuLaterale2.TranslateTo(0, 0, 400, Easing.Linear);
+        }
+
+        
+        
+        private async void TapCloseMenu_Tapped(object sender, EventArgs e) {
+            _ = MenuLaterale.TranslateTo(-250, 0, 400, Easing.Linear);
+            await MenuLaterale2.TranslateTo(-250, 0, 500, Easing.Linear);
+            GridOverlay.IsVisible = false;
+        }
+
+        
+
+        private void TapLogout_Tapped(object sender, EventArgs e) {
+            Xamarin.Essentials.Preferences.Set("Loggato", false);
+            Application.Current.MainPage = new PagePresentazione();
+        }
+
+        private void TapNumeriUtili_Tapped(object sender, EventArgs e) {
+            Application.Current.MainPage = new PageSuperuser();
+
+        }
+
+        private void TapPageUtente_Tapped(object sender, EventArgs e) {
+            var Page = new PageNavigatore();
+            Page.CurrentPage = Page.Children[4];
+            Application.Current.MainPage = Page;
+        }
+
+
+        private void TapAreaRiservata_Tapped(object sender, EventArgs e) {
+            Application.Current.MainPage = new PageAreaRiservata();
+
+        }
+    }
+}

@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EcoServiceApp.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <Style TargetType="ScrollView" x:Key="Scrollbackground">
+                <Setter Property="BackgroundColor" Value="Transparent"  />
+                <!--<Setter Property="BackgroundColor" Value="#f0f0ef"  />-->
+                <Setter Property="Margin" Value="0,100,0,0" />
+                <Setter Property="HorizontalScrollBarVisibility" Value="Never" />
+                <Setter Property="Margin">
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS">0, 100, 0, 0</On>
+                        <On Platform="Android">0, 60, 0, 0</On>
+                    </OnPlatform>
+                </Setter>
+                <Setter Property="Padding">
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS">0, 10, 0, 0</On>
+                        <On Platform="Android">0, 10, 0, 0</On>
+                    </OnPlatform>
+                </Setter>
+            </Style>
+            <Style TargetType="StackLayout" x:Key="Stackbackground">
+                <Setter Property="BackgroundColor" Value="Transparent"  />
+                <Setter Property="Margin" Value="0,55,0,0" />
+            </Style>
+
+            <Style TargetType="Label" x:Key="LblSideMenu">
+                <Setter Property="TextColor" Value="#636159" />
+                <Setter Property="HeightRequest" Value="50" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+                <Setter Property="FontSize" Value="18" />
+            </Style>
+
+            <Style TargetType="Label" x:Key="LabReg">
+                <Setter Property="TextColor" Value="Gray" />
+                <Setter Property="FontSize" Value="Small" />
+            </Style>
+            <Style TargetType="Label" x:Key="LabNumeri">
+                <Setter Property="TextColor" Value="Gray" />
+                <Setter Property="FontSize" Value="18" />
+            </Style>
+            <Style TargetType="Label" x:Key="LabNumeriBig">
+                <Setter Property="TextColor" Value="Gray" />
+                <Setter Property="FontSize" Value="18" />
+            </Style>
+            <Style TargetType="Label" x:Key="NewFont">
+                <Setter Property="TextColor" Value="#7ca137" />
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="FontFamily" Value="SanzFont" />
+            </Style>
+            <Style TargetType="Label" x:Key="UserFont">
+                <Setter Property="TextColor" Value="#636159" />
+                <Setter Property="FontSize" Value="17" />
+                <Setter Property="FontFamily" Value="SanzFont" />
+            </Style>
+            <Style TargetType="Label" x:Key="UserFontGreen">
+                <Setter Property="TextColor" Value="#7ca137" />
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="FontFamily" Value="SanzFont" />
+            </Style>
+            <Style TargetType="Label" x:Key="UserFontwhite">
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontSize" Value="17" />
+                <Setter Property="FontFamily" Value="SanzFont" />
+            </Style>
+            <Style TargetType="Label" x:Key="UserFontwhiteL">
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontSize" Value="18" />
+
+            </Style>
+            <Style TargetType="Label" x:Key="MediumFont">
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontSize" Value="20" />
+                <Setter Property="FontFamily" Value="SanzFont" />
+            </Style>
+
+            <Style TargetType="Entry" x:Key="EntryReg">
+                <Setter Property="PlaceholderColor" Value="LightGray" />
+                <Setter Property="TextColor" Value="#636159"  />
+                <Setter Property="PlaceholderColor" Value="LightGray" />
+                <Setter Property="FontSize" Value="Medium"  />
+                <Setter Property="BackgroundColor" Value="#f4f4f4"  />
+            </Style>
+            <Style TargetType="Entry" x:Key="EntryDisable">
+                <Setter Property="PlaceholderColor" Value="LightGray" />
+                <Setter Property="TextColor" Value="LightGray"  />
+                <Setter Property="PlaceholderColor" Value="LightGray" />
+                <Setter Property="FontSize" Value="Medium"  />
+                <Setter Property="BackgroundColor" Value="#f4f4f4"  />
+            </Style>
+
+            <Style TargetType="Button" x:Key="BtnTranspGreen">
+                <Setter Property="FontAttributes" Value="Bold"  />
+                <Setter Property="TextColor" Value="#7ca137"  />
+                <Setter Property="BackgroundColor" Value="Transparent"  />
+                <Setter Property="TextTransform" Value="None"  />
+                <Setter Property="FontSize" Value="Small"  />
+            </Style>
+
+            <Style TargetType="Button">
+                <Setter Property="CornerRadius" Value="0" />
+            </Style>
+            
+            <Style TargetType="Button" x:Key="BtnDarkDisable">
+                <Setter Property="TextColor" Value="White"  />
+                <Setter Property="BackgroundColor" Value="darkGray"   />
+                <Setter Property="FontSize" Value="20"  />
+            </Style>
+            
+            <Style TargetType="Button" x:Key="BtnDark">
+                <Setter Property="TextColor" Value="White"  />
+                <Setter Property="BackgroundColor" Value="#636159"   />
+                <Setter Property="FontSize" Value="20"  />
+
+            </Style>
+
+            <Style TargetType="Button" x:Key="BtnLight">
+                <Setter Property="TextColor" Value="White"  />
+                <Setter Property="BackgroundColor" Value="#7ca137"   />
+                <Setter Property="FontSize" Value="20"  />
+            </Style>
+
+            <Style TargetType="Button" x:Key="BtnSkip">
+                <Setter Property="TextColor" Value="White"  />
+                <Setter Property="BackgroundColor" Value="Transparent"   />
+                <Setter Property="FontSize" Value="16"  />
+                <Setter Property="VerticalOptions" Value="End" />
+                <Setter Property="Margin" Value="0,0,30,20" />
+                <Setter Property="HorizontalOptions" Value="End" />
+            </Style>
+        </ResourceDictionary>
+
+    </Application.Resources>
+</Application>

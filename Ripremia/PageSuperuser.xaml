@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:ecoserviceapp="clr-namespace:EcoServiceApp"
+			 x:Class="EcoServiceApp.PageSuperuser"  BackgroundColor="White">
+    <ContentPage.Content>
+
+        <Grid BackgroundColor="#f0f0ef">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <StackLayout Grid.Row="0" Orientation="Horizontal"  BackgroundColor="#7ca137" Padding="0,35,0,0">
+                <ImageButton Source="GoBack" HeightRequest="30" BackgroundColor="Transparent" Margin="20,15,10,20" Clicked="BtnIndietro_Clicked"/>
+                <Label Text="NUMERI UTILI" Style="{StaticResource UserFontGreen}" TextColor="White" VerticalOptions="Center" FontSize="22" />
+            </StackLayout>
+
+            <!-- menù grid -->
+            <!--
+			<ecoserviceapp:ViewMenuTop x:Name="MenuTop" ></ecoserviceapp:ViewMenuTop>-->
+
+            <!--corpo centrale-->
+            <ScrollView Grid.Row="1" >
+
+
+
+
+
+                <Grid   Margin="10,10,10,50" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" RowSpacing="0" ColumnSpacing="5">
+                    <Grid.ColumnDefinitions >
+                        <ColumnDefinition Width="0.5*" />
+                        <ColumnDefinition Width="0.5*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition  Height="100"/>
+                        <RowDefinition  Height="100"/>
+                        <RowDefinition  Height="100"/>
+                        <RowDefinition  Height="100"/>
+                        <RowDefinition  Height="100"/>
+                        <RowDefinition  Height="auto"/>
+
+                    </Grid.RowDefinitions>
+
+                    <!--<Frame Grid.Row="0" Grid.RowSpan="6" Grid.Column="0" Grid.ColumnSpan="2" x:Name="FrmOpacity" HasShadow="True" HorizontalOptions="FillAndExpand" CornerRadius="5" BackgroundColor="White" IsVisible="true" >
+
+				</Frame>-->
+
+                    <Image Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" x:Name="ImgLogo"  Source="RipremiaTrasp"  VerticalOptions="FillAndExpand"  Margin="60,0,60,20"   />
+                    <StackLayout Grid.Row="1" Grid.Column="0" Orientation="Horizontal" HorizontalOptions="Start" VerticalOptions="Start"  Margin="5,0,0,0">
+                        <Image   Source="Numutili"  VerticalOptions="Start"  Margin="10,30,5,0" HeightRequest="30"  />
+                        <StackLayout  VerticalOptions="Center">
+                            <Label  Margin="5, 10,5,0" FontFamily="" Style="{StaticResource LabNumeri}" Text="Telefono"  FontAttributes="Bold"  HorizontalTextAlignment="Start"/>
+                            <Label x:Name="TxtTelefono1"  Margin="8, 5,5,0" FontFamily="" Style="{StaticResource LabNumeriBig}" Text="....."  HorizontalTextAlignment="Start" />
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer x:Name="TapTelefono1" Tapped="TapTelefono1_Tapped" />
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout Grid.Row="1" Grid.Column="1" Orientation="Horizontal" HorizontalOptions="Start"  VerticalOptions="Start"   Margin="5,0,0,0">
+                        <Image   Source="orari"  VerticalOptions="Start" Margin="10,30,5,0" HeightRequest="30"  />
+                        <StackLayout  VerticalOptions="Center">
+                            <!--<Label  Margin="5, 10,5,0" FontFamily="" Style="{StaticResource LabNumeri}" Text="Orari"  FontAttributes="Bold"  HorizontalTextAlignment="Start"/>-->
+                            <Label x:Name="TxtOrari1"  Margin="8, 10,5,0" FontFamily="" Style="{StaticResource LabNumeri}" Text="....."  HorizontalTextAlignment="Start" />
+                            <Label x:Name="TxtOrari2"  Margin="8, 5,5,0" FontFamily="" Style="{StaticResource LabNumeri}" Text="....."  HorizontalTextAlignment="Start" />
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalOptions="Start"    Margin="5,0,0,0">
+                        <Image   Source="email"  VerticalOptions="Center" Margin="10,0,5,0" HeightRequest="30"  />
+                        <StackLayout  VerticalOptions="Center">
+                            <Label  Margin="5, 10,5,0" FontFamily="" Style="{StaticResource LabNumeri}" Text="E-mail"  FontAttributes="Bold"  HorizontalTextAlignment="Start"/>
+                            <Label x:Name="TxtEmail"  Margin="8, 5,5,0" FontFamily="" Style="{StaticResource LabNumeriBig}" Text="....."  HorizontalTextAlignment="Start" />
+                        </StackLayout>
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalOptions="Start"    Margin="5,0,0,0">
+                        <Image   Source="www"  VerticalOptions="Center" Margin="10,0,5,0" HeightRequest="30"  />
+                        <StackLayout  VerticalOptions="Center">
+                            <Label  Margin="5, 10,5,0" FontFamily="" Style="{StaticResource LabNumeri}" Text="Sito web"  FontAttributes="Bold"  HorizontalTextAlignment="Start"/>
+                            <Label x:Name="TxtWww"  Margin="8, 5,5,0" FontFamily="" Style="{StaticResource LabNumeriBig}" Text="....."  HorizontalTextAlignment="Start" />
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalOptions="Start"   Margin="5,0,0,0">
+                        <Image   Source="infovarie"  VerticalOptions="Center" Margin="10,0,5,0" HeightRequest="30"  />
+                        <StackLayout  VerticalOptions="Center">
+                            <Label  Margin="5, 10,5,0" FontFamily="" Style="{StaticResource LabNumeri}" Text="Dove siamo?"  FontAttributes="Bold"  HorizontalTextAlignment="Start"/>
+                            <Label x:Name="TxtInfo"  Margin="8, 5,5,0" FontFamily="" Style="{StaticResource LabNumeriBig}" Text="....."  HorizontalTextAlignment="Start" />
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Spacing="0" VerticalOptions="End">
+                        <!--<Button x:Name="BtnCancella"  Text="ANNULLA" Margin="0,0,0,0" VerticalOptions="End" Style="{StaticResource BtnDark}" BackgroundColor="DarkRed" WidthRequest="150" Clicked="BtnCancella_Clicked" />
+					<Button x:Name="BtnOk" Text="CONFERMA" Margin="0,0,0,0" VerticalOptions="End" Style="{StaticResource BtnLight}" WidthRequest="150" Clicked="BtnOk_Clicked" />-->
+                    </StackLayout>
+                </Grid>
+
+            </ScrollView>
+
+            <!--Menu Laterale-->
+            <ecoserviceapp:ViewMenuLaterale x:Name="MenuLaterale"></ecoserviceapp:ViewMenuLaterale>
+            <!---->
+
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

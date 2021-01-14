@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EcoServiceApp.PageRecuperaPass">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#636159">
+
+            <Image Source="RisorsaEcolan" HorizontalOptions="Center" Margin="25,25" WidthRequest="350" />
+
+            <Label HorizontalTextAlignment="Center" Margin="10, 5,10,10" Style="{StaticResource MediumFont}" LineBreakMode="WordWrap" Text="Inserisci la tua e-mail&#10;per recuperare la password"/>
+            <Entry x:Name="TxtEmail" HorizontalOptions="FillAndExpand" Margin="30,5,30,5" HorizontalTextAlignment="Center" Placeholder="Inserisci la tua e-mail"  PlaceholderColor="LightGray" TextColor="White" FontSize="18"  />
+
+
+            <Button x:Name="BtnRecupera" Text="RECUPERA" Margin="10,15,10,0" HorizontalOptions="Center"   WidthRequest="310" Style="{StaticResource BtnLight}" Clicked="BtnRecupera_Clicked" />
+            
+            <Button x:Name="BtnReturnLog" Margin="10,10,10,10" Text="Torna alla pagina di LOGIN"  HorizontalOptions="Center"  Style="{StaticResource BtnTranspGreen}" TextColor="White" Clicked="BtnReturnLog_Clicked" FontSize="18"/>
+            <Button x:Name="BtnProblemiAccesso" Margin="5,0,5,0" Text="Problemi di accesso? Contattaci!"  HorizontalOptions="Center" TextColor="White" BackgroundColor="Transparent" TextTransform="None" FontSize="Small" Clicked="BtnProblemiAccesso_Clicked" />
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
