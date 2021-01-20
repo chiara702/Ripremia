@@ -30,5 +30,11 @@ namespace EcoServiceApp {
         private void BtnAddNotifiche_Clicked(object sender, EventArgs e) {
             Application.Current.MainPage = new PageAddNotifiche();
         }
+
+        
+
+        private void BtnDeleteNotifiche_Clicked_1(object sender, EventArgs e) {
+            Application.Current.MainPage = new PageDeleteNotifiche();
+        }
     }
 }

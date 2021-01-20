@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EcoServiceApp.PageDenunciaAbbandono">
+    <ContentPage.Content>
+        <ScrollView >
+            <StackLayout Margin="0,-50,0,30">
+                <StackLayout Grid.Row="0" Orientation="Horizontal"  BackgroundColor="DarkRed" Padding="0,85,0,0">
+                    <ImageButton Source="GoBack" HeightRequest="30" BackgroundColor="Transparent" Margin="20,15,10,20" Clicked="BtnIndietro_Clicked"/>
+                    <Label Text="DENUNCIA UN ABBANDONO" Style="{StaticResource UserFontGreen}" TextColor="White" VerticalOptions="Center" FontSize="22" />
+                </StackLayout>
+                <Label  FontSize = "22" Margin="{OnPlatform Android='15, 15,15,10 ', iOS='15,15,15,0'}"   Style="{StaticResource NewFont}" Text="Denuncia l'abbandono di rifiuti. Denunciare è un dovere civico." HorizontalTextAlignment="Center" TextColor="#636159" />
+                <Frame CornerRadius="30" BackgroundColor="LightGray"  Margin="40,20,40,20">
+                    <Grid>
+                        <Grid.RowDefinitions >
+                            <RowDefinition Height="220" />
+                            <RowDefinition Height="80" />
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="1"  FontAttributes="Bold" TextColor="Black" Margin="30,5,30,5"  Style="{StaticResource NewFont}" FontSize = "18" Text="1. SCATTA UNA FOTO DEI RIFIUTI ABBANDONATI" HorizontalTextAlignment="Center"/>
+                        <ImageButton x:Name="BtnScattaFoto" Grid.Row="0" Grid.RowSpan="2" BackgroundColor="Transparent" Source="ScattaFoto" HorizontalOptions="FillAndExpand"  Clicked="BtnScattaFoto_Clicked" />
+                    </Grid>
+                </Frame>
+                <Label Grid.Row="1"  FontAttributes="Bold" TextColor="Black" Margin="30,10,30,10"  Style="{StaticResource NewFont}" FontSize = "18" Text="2. SELEZIONA IL TIPO DI RIFIUTO" HorizontalTextAlignment="Center"/>
+                <ScrollView Orientation="Horizontal">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="15,10,15,10" >
+                    <ImageButton x:Name="BtnRaee" Source="Raee" HeightRequest="90"  BorderColor="Transparent" BorderWidth="4"  CornerRadius="10" BackgroundColor="Transparent" Clicked="BtnRifiuti_Clicked"/>
+                    <ImageButton x:Name="BtnIngombranti"  Source="Ingombranti" HeightRequest="90" BorderColor="Transparent" BorderWidth="4"  CornerRadius="10" BackgroundColor="Transparent" Clicked="BtnRifiuti_Clicked"/>
+                    <ImageButton x:Name="BtnVerde"  Source="Verde" HeightRequest="90"  BorderColor="Transparent" BorderWidth="4"  CornerRadius="10" BackgroundColor="Transparent" Clicked="BtnRifiuti_Clicked"/>
+                        <ImageButton x:Name="BtnNonIdentificato"  Source="NonIdentificati" HeightRequest="90"  BorderColor="Transparent" BorderWidth="4"  CornerRadius="10" BackgroundColor="Transparent" Clicked="BtnRifiuti_Clicked"/>
+                    </StackLayout>
+                </ScrollView>
+                      
+                <Label  Margin="25, 10,1,0" FontFamily="" Style="{StaticResource LabReg}"  Text="Note"/>
+                <Editor x:Name="TxtInfoRitiro" MaxLength="400" HeightRequest="150"  Margin="20,2,20,0" Placeholder="Informazioni utili per il ritiro" Style="{StaticResource EntryReg}" />
+
+
+
+                <Frame x:Name="FrameInviaPosizione" Grid.Row="1"  CornerRadius="0"  Margin="20,30,20,5"  HeightRequest="40" BackgroundColor="#ed1c24" >
+                    <Frame.HasShadow>
+                        <OnPlatform x:TypeArguments="x:Boolean">
+                            <On Platform="iOS" Value="false" />
+                            <On Platform="Android" Value="true" />
+                        </OnPlatform>
+                    </Frame.HasShadow>
+                    <StackLayout Grid.Row="1"  Orientation="Horizontal"  Spacing="5"   Margin="5,5,5,5" >
+                        <ActivityIndicator IsRunning="True" WidthRequest="50" IsVisible="false" x:Name="ActWaitLocalizzation"/>
+                        <Image x:Name="imgGeolocalizzazione" IsAnimationPlaying="True" HorizontalOptions="Center" Source="Maps" Margin="1,1,0,1" HeightRequest="60"/>
+                        <Label x:Name="txtGeolocalizzazione" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"  TextColor="White" HorizontalTextAlignment="Center" FontSize = "22"  Margin="0,0,0,0" LineBreakMode="WordWrap" Text="Geolocalizzazione" FontAttributes="Bold"/>
+
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer x:Name="BtnInviaPosizione" Tapped="BtnInviaPosizione_Tapped" />
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                </Frame>
+                <Frame x:Name="FrameIndirizzoManuale" IsVisible="false" Grid.Row="1"  CornerRadius="0"  Margin="20,5,20,5"  BackgroundColor="White" >
+                    <StackLayout  Spacing="5"   Margin="5,5,5,5" >
+                        <Label Text="Inserisci indirizzo manualmente"/>
+                        <Entry x:Name="TxtIndirizzoManuale"  Style="{StaticResource EntryReg}" />
+                    </StackLayout>
+                </Frame>
+
+                <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" Margin="0, 10,0,15" >
+                    <CheckBox x:Name="CheckPrivacy" Margin="15, 5,1,0" Color="#7ca137" CheckedChanged="CheckPrivacy_CheckedChanged" />
+                    <Label VerticalOptions="Start" Text="Ho letto l'informativa sulla privacy e accetto le condizioni generali d'uso dell'app"  TextTransform="None"  Padding="0,10,0,0"  BackgroundColor="Transparent" TextColor="Gray" FontSize="Small" WidthRequest="310" />
+                </StackLayout>
+
+                <Frame Grid.Row="1" x:Name="BtnPrenota" IsEnabled="False" CornerRadius="0"  Margin="20,5,20,60"  HeightRequest="40" BackgroundColor="DarkGray" >
+                    <Frame.HasShadow>
+                        <OnPlatform x:TypeArguments="x:Boolean">
+                            <On Platform="iOS" Value="false" />
+                            <On Platform="Android" Value="true" />
+                        </OnPlatform>
+                    </Frame.HasShadow>
+                    <StackLayout Grid.Row="1"  Orientation="Horizontal"  Spacing="5"   Margin="5,5,5,5" >
+                        <Image HorizontalOptions="Center" Source="PrenotaRitiro" Margin="1,1,0,1" HeightRequest="60"/>
+                        <Label HorizontalOptions="CenterAndExpand" VerticalOptions="Center"  TextColor="White" HorizontalTextAlignment="Center" FontSize = "22"  Margin="0,0,0,0" LineBreakMode="WordWrap" Text="INVIA LA RICHIESTA" FontAttributes="Bold"/>
+                        <StackLayout.GestureRecognizers >
+                            <TapGestureRecognizer x:Name="BtnDenuncia" Tapped="BtnDenuncia_Tapped"/>
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                </Frame>
+
+
+            </StackLayout>
+        </ScrollView >
+    </ContentPage.Content>
+</ContentPage>

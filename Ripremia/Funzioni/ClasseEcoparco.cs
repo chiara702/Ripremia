@@ -46,6 +46,11 @@ public class ClassApiParco { //vers. 1
             return null;
         }
     }
+
+    internal object EseguiQuery(object p) {
+        throw new NotImplementedException();
+    }
+
     public DataRow EseguiQueryRow(String Tabella, int Id) {
         try {
             var Query = "Select * From " + Tabella + " Where Id=" + Id.ToString();

@@ -98,8 +98,8 @@
                         <Frame Margin="10,0,10,0"  BackgroundColor="White" HasShadow="False">
                             <StackLayout >
                                 <RadioButton x:Name="RadioTuttiComuni" Margin="0, 0,1,0" Content="Invia a tutti i comuni" />
-                                <RadioButton x:Name="RadioComune" Margin="0, 10,1,0" Content="Invia al seguente comune"/>
-                                <Picker x:Name="PickerComune" Margin="25, 0,10,0"  Title="Seleziona un comune" BackgroundColor="White" />
+                                <RadioButton x:Name="RadioComune" Margin="0, 10,1,0"  Content="Invia al seguente comune"/>
+                                <Picker x:Name="PickerComune" Margin="25, 0,10,0" Title="Seleziona un comune" BackgroundColor="White" />
                             </StackLayout>
                         </Frame>
                     </StackLayout>

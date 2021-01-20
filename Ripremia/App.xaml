@@ -9,6 +9,7 @@
                 <!--<Setter Property="BackgroundColor" Value="#f0f0ef"  />-->
                 <Setter Property="Margin" Value="0,100,0,0" />
                 <Setter Property="HorizontalScrollBarVisibility" Value="Never" />
+                <Setter Property="VerticalScrollBarVisibility" Value="Never" />
                 <Setter Property="Margin">
                     <OnPlatform x:TypeArguments="Thickness">
                         <On Platform="iOS">0, 100, 0, 0</On>

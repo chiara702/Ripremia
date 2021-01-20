@@ -66,7 +66,6 @@ namespace EcoServiceApp {
             var Page = new PageNavigatore();
             Page.CurrentPage = Page.Children[3];
             Application.Current.MainPage = Page;
-            //Application.Current.MainPage = new PageNavigatore();
             return true;
         }
 

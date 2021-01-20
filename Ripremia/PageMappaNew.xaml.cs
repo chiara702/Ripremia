@@ -67,15 +67,15 @@ namespace EcoServiceApp {
                     _ =  StkIconservice.TranslateTo(0, 0, 600, Easing.Linear);
                     LblDenominazione.Text = rigoPoint["Etichetta"].ToString();
                     LblIndirizzo.Text = rigoPoint["Via"].ToString() + ", " + rigoPoint["Comune"].ToString() + " (" + rigoPoint["Provincia"].ToString() + ")";
-                    if (rigoPoint["FlagH2O"].ToString() == "1") ImgH2O.IsVisible = true; else ImgH2O.IsVisible = false;
-                    if (rigoPoint["FlagSoap"].ToString() == "1") ImgSoap.IsVisible = true; else ImgSoap.IsVisible = false;
-                    if (rigoPoint["FlagSacchetti"].ToString() == "1") ImgSacchetti.IsVisible = true; else ImgSacchetti.IsVisible = false;
-                    if (rigoPoint["FlagOil"].ToString() == "1") ImgOil.IsVisible = true; else ImgOil.IsVisible = false;
-                    if (rigoPoint["FlagPet"].ToString() == "1") ImgPet.IsVisible = true; else ImgPet.IsVisible = false;
-                    if (rigoPoint["FlagBorracce"].ToString() == "1") ImgBorracce.IsVisible = true; else ImgBorracce.IsVisible = false;
-                    if (rigoPoint["FlagEbike"].ToString() == "1") ImgEbike.IsVisible = true; else ImgEbike.IsVisible = false;
-                    if (rigoPoint["FlagRicaricaCell"].ToString() == "1") ImgRicaricaCell.IsVisible = true; else ImgRicaricaCell.IsVisible = false;
-                    if (rigoPoint["FlagWifiFree"].ToString() == "1") ImgWifiFree.IsVisible = true; else ImgWifiFree.IsVisible = false;
+                    if ((Boolean)rigoPoint["FlagH2O"]==true) ImgH2O.IsVisible = true; else ImgH2O.IsVisible = false;
+                    if ((Boolean)rigoPoint["FlagSoap"] == true) ImgSoap.IsVisible = true; else ImgSoap.IsVisible = false;
+                    if ((Boolean)rigoPoint["FlagSacchetti"] == true) ImgSacchetti.IsVisible = true; else ImgSacchetti.IsVisible = false;
+                    if ((Boolean)rigoPoint["FlagOil"] == true) ImgOil.IsVisible = true; else ImgOil.IsVisible = false;
+                    if ((Boolean)rigoPoint["FlagPet"] == true) ImgPet.IsVisible = true; else ImgPet.IsVisible = false;
+                    if ((Boolean)rigoPoint["FlagBorracce"] == true) ImgBorracce.IsVisible = true; else ImgBorracce.IsVisible = false;
+                    if ((Boolean)rigoPoint["FlagEbike"] == true) ImgEbike.IsVisible = true; else ImgEbike.IsVisible = false;
+                    if ((Boolean)rigoPoint["FlagRicaricaCell"] == true) ImgRicaricaCell.IsVisible = true; else ImgRicaricaCell.IsVisible = false;
+                    if ((Boolean)rigoPoint["FlagWifiFree"] == true) ImgWifiFree.IsVisible = true; else ImgWifiFree.IsVisible = false;
                  };
                 map1.Pins.Add(pintmp);
 

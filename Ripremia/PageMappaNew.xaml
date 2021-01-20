@@ -50,7 +50,13 @@
                     </Frame.GestureRecognizers>
                 </Frame>
 
-                <Frame Grid.Column="0" VerticalOptions="End"  x:Name="FrmDettagli" IsVisible="false" HorizontalOptions="FillAndExpand" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0,0" CornerRadius="10" BackgroundColor="White" Margin="5,0,5,10" Padding="0,0,0,0" HasShadow="True" HeightRequest="150" >
+                <Frame Grid.Column="0" VerticalOptions="End"  x:Name="FrmDettagli" IsVisible="false" HorizontalOptions="FillAndExpand" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0,0" CornerRadius="10" BackgroundColor="White" Margin="5,0,5,10" Padding="0,0,0,0"  HeightRequest="150" >
+                    <Frame.HasShadow>
+                        <OnPlatform x:TypeArguments="x:Boolean">
+                            <On Platform="iOS" Value="false" />
+                            <On Platform="Android" Value="true" />
+                        </OnPlatform>
+                    </Frame.HasShadow>
                     <Grid Margin="10,5,10,5" RowSpacing="0">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="30" />

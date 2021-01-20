@@ -21,7 +21,9 @@ namespace EcoServiceApp {
             Application.Current.MainPage = new PagePrenotaRitiro();
         }
 
-
+        private void BtnDenunciaAbbandono_Tapped(object sender, EventArgs e) {
+            Application.Current.MainPage = new PageDenunciaAbbandono();
+        }
     }
 
 }

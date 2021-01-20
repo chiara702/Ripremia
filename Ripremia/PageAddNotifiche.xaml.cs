@@ -17,6 +17,7 @@ namespace EcoServiceApp {
 
         public PageAddNotifiche() {
             InitializeComponent();
+            PickerComune.SelectedIndex = 0;
             if (String.IsNullOrEmpty((String)App.DataRowUtente["AdminSuperUserCode"]) == false) { //se sei admin super user
                 Comuni=ElencoComuni((String)App.DataRowUtente["AdminSuperUserCode"]);
                 TxtMittente.Text = Funzioni.Antinull(Parchetto.EseguiCommand("Select Denominazione From SuperUser Where Codice='" + Funzioni.AntiAp(App.DataRowUtente["AdminSuperUserCode"].ToString()) + "'"));
@@ -86,7 +87,7 @@ namespace EcoServiceApp {
             if (RadioIcon1.IsChecked == true) Par.AddParameterInteger("IconIndex", 1);
             if (RadioIcon2.IsChecked == true) Par.AddParameterInteger("IconIndex", 2);
             Par.AddParameterObject("DataInizio", DataPubblicazione.Date);
-            Par.AddParameterObject("DataScadenza", DataScadenza.Date);
+            Par.AddParameterObject("DataScadenza", DataScadenza.Date.AddDays(1));
             Par.AddParameterString("DescrizioneBreve", ""+TxtOggetto.Text);
             Par.AddParameterString("DescrizioneEstesa", ""+TxtDescrizione.Text);
             if (RadioPushSi.IsChecked == true) Par.AddParameterInteger("Push", 1); else Par.AddParameterInteger("Push", 0);
@@ -97,9 +98,9 @@ namespace EcoServiceApp {
                 DisplayAlert("Errore", Parchetto.LastErrorDescrizione, "OK");
                 return;
             }
-            DisplayAlert("Notifica Ok", "", "OK");
+            DisplayAlert("Notifica aggiunta correttamente", "", "OK");
 
-
+            BtnBack_Clicked(null, null);
         }
 
         private void BtnIIndietro_Clicked(object sender, EventArgs e) {

@@ -20,42 +20,58 @@
 
                     <ScrollView Style="{StaticResource Scrollbackground}">
 
-                                <Grid VerticalOptions="Center"  Margin="10,10,10,10">
+                             <Grid VerticalOptions="Center"  Margin="10,10,10,10">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="120" />
                                         <RowDefinition Height="120" />
                                         <RowDefinition Height="120" />
                                     </Grid.RowDefinitions>
 
-                                    <Frame Grid.Row="0"   CornerRadius="10"  Margin="5,10,5,10"  HasShadow="True" WidthRequest="280" HeightRequest="100" BackgroundColor="#7ca137" HorizontalOptions="CenterAndExpand">
-                                        <StackLayout  Orientation="Horizontal" VerticalOptions="Center"  Spacing="5"    Margin="5,5,5,5"   >
+                             <Frame Grid.Row="0"   CornerRadius="0"  Margin="5,10,5,10"   WidthRequest="280" HeightRequest="100" BackgroundColor="#7ca137" HorizontalOptions="CenterAndExpand">
+                                <Frame.HasShadow>
+                                    <OnPlatform x:TypeArguments="x:Boolean">
+                                        <On Platform="iOS" Value="false" />
+                                        <On Platform="Android" Value="true" />
+                                    </OnPlatform>
+                                </Frame.HasShadow>  
+                                <StackLayout  Orientation="Horizontal" VerticalOptions="Center"  Spacing="5"    Margin="5,5,5,5"   >
                                             <Image HorizontalOptions="StartAndExpand" Source="PrenotaRitiro" Margin="10,5,0,5" HeightRequest="130"/>
                                         <Label  HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextColor="White" HorizontalTextAlignment="Center" FontSize = "17"  Margin="0,0,0,0" LineBreakMode="WordWrap" Text="PRENOTA UN RITIRO" FontAttributes="Bold"/>
                                         <StackLayout.GestureRecognizers>
                                             <TapGestureRecognizer x:Name="BtnPrenotaRitiro" Tapped="BtnPrenotaRitiro_Tapped"/>
                                         </StackLayout.GestureRecognizers>
                                         </StackLayout>
-                                    </Frame>
-                                    <Frame Grid.Row="1"  CornerRadius="10"  Margin="5,10,5,10"  HasShadow="True" WidthRequest="280" HeightRequest="100"  BackgroundColor="#7ca137" HorizontalOptions="CenterAndExpand">
-
-                                        <StackLayout Grid.Row="1"  Orientation="Horizontal" VerticalOptions="FillAndExpand" Spacing="5"   Margin="5,5,5,5" >
+                             </Frame>
+                             <Frame Grid.Row="1"  CornerRadius="0"  Margin="5,10,5,10"  WidthRequest="280" HeightRequest="100"  BackgroundColor="#7ca137" HorizontalOptions="CenterAndExpand">
+                                <Frame.HasShadow>
+                                    <OnPlatform x:TypeArguments="x:Boolean">
+                                        <On Platform="iOS" Value="false" />
+                                        <On Platform="Android" Value="true" />
+                                    </OnPlatform>
+                                </Frame.HasShadow>
+                                <StackLayout Grid.Row="1"  Orientation="Horizontal" VerticalOptions="FillAndExpand" Spacing="5"   Margin="5,5,5,5" >
                                             <Image HorizontalOptions="StartAndExpand" Source="CentroRiuso" Margin="10,5,0,5" HeightRequest="130"/>
                                         <Label HorizontalOptions="CenterAndExpand" VerticalOptions="Center" TextColor="White" HorizontalTextAlignment="Center" FontSize = "17"  Margin="0,0,0,0" LineBreakMode="WordWrap" Text="CENTRO DEL RIUSO VIRTUALE" FontAttributes="Bold"/>
                                         <StackLayout.GestureRecognizers>
                                             <TapGestureRecognizer x:Name="BtnCentroRiuso"/>
                                         </StackLayout.GestureRecognizers>
                                     </StackLayout>
-                                    </Frame>
-                                    <Frame Grid.Row="2" CornerRadius="10"  Margin="5,10,5,10"  HasShadow="True" WidthRequest="280" HeightRequest="100"  BackgroundColor="DarkRed" HorizontalOptions="CenterAndExpand">
-
-                                        <StackLayout Grid.Row="2"  Orientation="Horizontal" VerticalOptions="FillAndExpand" Spacing="5"  Margin="5,5,5,5" >
+                             </Frame>
+                             <Frame Grid.Row="2" CornerRadius="0"  Margin="5,10,5,10"  HasShadow="True" WidthRequest="280" HeightRequest="100"  BackgroundColor="DarkRed" HorizontalOptions="CenterAndExpand">
+                                <Frame.HasShadow>
+                                    <OnPlatform x:TypeArguments="x:Boolean">
+                                        <On Platform="iOS" Value="false" />
+                                        <On Platform="Android" Value="true" />
+                                    </OnPlatform>
+                                </Frame.HasShadow>
+                                <StackLayout Grid.Row="2"  Orientation="Horizontal" VerticalOptions="FillAndExpand" Spacing="5"  Margin="5,5,5,5" >
                                             <Image HorizontalOptions="StartAndExpand" Source="DenunciaAbbandono" Margin="10,5,0,5" HeightRequest="130"/>
                                         <Label HorizontalOptions="CenterAndExpand" VerticalOptions="Center" TextColor="White" HorizontalTextAlignment="Center" FontSize = "17"  Margin="0,0,0,0" LineBreakMode="WordWrap" Text="DENUNCIA UN ABBANDONO DI RIFIUTI" FontAttributes="Bold"/>
                                         <StackLayout.GestureRecognizers>
-                                            <TapGestureRecognizer x:Name="BtnDenunciaAbbandono"/>
+                                            <TapGestureRecognizer x:Name="BtnDenunciaAbbandono" Tapped="BtnDenunciaAbbandono_Tapped"/>
                                         </StackLayout.GestureRecognizers>
                                     </StackLayout>
-                                    </Frame>
+                             </Frame>
                                 </Grid>
                             </ScrollView>
 

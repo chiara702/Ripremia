@@ -20,8 +20,14 @@
 
 					</StackLayout>
 
-					<Frame CornerRadius="10" BackgroundColor="White" Margin="5,0,5,0" Padding="0,0,0,0" HasShadow="True" HeightRequest="280" >
-						<Grid>
+					<Frame CornerRadius="10" BackgroundColor="White" Margin="5,0,5,0" Padding="0,0,0,0"  HeightRequest="280" >
+                        <Frame.HasShadow>
+                            <OnPlatform x:TypeArguments="x:Boolean">
+                                <On Platform="iOS" Value="false" />
+                                <On Platform="Android" Value="true" />
+                            </OnPlatform>
+                        </Frame.HasShadow>
+                        <Grid>
                             <Image x:Name="ImgArrow" IsAnimationPlaying="True"  Source="ArrowGif.gif" VerticalOptions="EndAndExpand" HorizontalOptions="Center" HeightRequest="50" />
                             <Image x:Name="ImgUp" Source="indeximage" Margin="20,20,20,50" />
 							<Grid x:Name="StackBarCodeId" Opacity="0" >
@@ -63,7 +69,13 @@
 
 						</Grid>
 					</Frame>
-					<Frame x:Name="BtnShowQRFrame" CornerRadius="10" BackgroundColor="#7ca137" Margin="5,10,5,0" Padding="0,0,0,0" HasShadow="True" HeightRequest="120" >
+					<Frame x:Name="BtnShowQRFrame" CornerRadius="10" BackgroundColor="#7ca137" Margin="5,10,5,0" Padding="0,0,0,0"  HeightRequest="120" >
+                        <Frame.HasShadow>
+                            <OnPlatform x:TypeArguments="x:Boolean">
+                                <On Platform="iOS" Value="false" />
+                                <On Platform="Android" Value="true" />
+                            </OnPlatform>
+                        </Frame.HasShadow>
 						<StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" Spacing="0" >
 							<Image Source="cellcode" Margin="20,5,0,5" HeightRequest="100"/>
 							<Label x:Name="BtnShowQRtxt" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" TextColor="White" HorizontalTextAlignment="Center" FontSize = "22"  Margin="0,0,0,0" LineBreakMode="WordWrap" Text="Visualizza il QR-CODE&#10;della moneta virtuale" FontAttributes="Bold"/>
@@ -74,7 +86,13 @@
 							</StackLayout.GestureRecognizers>
 						</StackLayout>
 					</Frame>
-                    <Frame BackgroundColor="White" Margin="5,10,5,15" Padding="0,0,0,15" HeightRequest="210" CornerRadius="5"  HasShadow="True">
+                    <Frame BackgroundColor="White" Margin="5,10,5,15" Padding="0,0,0,15" HeightRequest="210" CornerRadius="5"  >
+                        <Frame.HasShadow>
+                            <OnPlatform x:TypeArguments="x:Boolean">
+                                <On Platform="iOS" Value="false" />
+                                <On Platform="Android" Value="true" />
+                            </OnPlatform>
+                        </Frame.HasShadow>
 						<StackLayout  >
                             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="10,10,10,0">
                                 <Image Grid.Row="0" Grid.Column="0" Source="Statistiche" Margin="10,0,5,0" HorizontalOptions="Center" VerticalOptions="Center" />

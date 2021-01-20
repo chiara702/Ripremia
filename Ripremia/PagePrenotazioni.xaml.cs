@@ -31,7 +31,7 @@ namespace EcoServiceApp {
             var Parchetto = new ClassApiParco();
             var Where = "(DataRitiro >= '" + DateTime.Now.AddDays(-7).ToString("yyyy-MM-dd") + "' Or DataRitiro is NULL)";
             var Query = "Select * From PrenotaRitiri Where UtenteId=" + App.DataRowUtente["Id"].ToString() + " And " + Where;
-            var Table = Parchetto.EseguiQuery(Query);
+            var Table = Parchetto.EseguiQuery(Query + " Order by DataCreazione desc");
             if (Parchetto.LastError == true) {
                 DisplayAlert("Errore", Parchetto.LastErrorDescrizione, "OK");
             }

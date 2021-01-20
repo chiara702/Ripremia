@@ -35,7 +35,7 @@ namespace EcoServiceApp {
             Topics.Add("DestinatarioSuperUser='" + App.DataRowSuperUser["Codice"].ToString() + "'");
             Topics.Add("DestinatarioUtente=" + App.DataRowUtente["Id"].ToString());
             var WhereTopics = String.Join(" or ", Topics) + "";
-            var WhereCondition = " And DataInizio >= '" + Funzioni.ToQueryData(DateTime.Now) + "' And DataScadenza <= '" + Funzioni.ToQueryData(DateTime.Now) + "'";
+            var WhereCondition = " And DataInizio <= '" + Funzioni.ToQueryData(DateTime.Now) + "' And DataScadenza >= '" + Funzioni.ToQueryData(DateTime.Now) + "'";
             var Table = Api.EseguiQuery("Select * From Notifiche Where (" + WhereTopics + ")" + WhereCondition + " Order By DataInizio desc");
             return Table;
         }
@@ -68,7 +68,7 @@ namespace EcoServiceApp {
                 }
 
 
-                n.RispondiVisibile = (Boolean)x["Rispondi"];
+                n.RispondiVisibile = ((ulong)x["Rispondi"])==1;
                 Notifiche.Add(n);
 
             }

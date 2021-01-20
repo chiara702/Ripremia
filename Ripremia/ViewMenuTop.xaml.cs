@@ -42,7 +42,7 @@ namespace EcoServiceApp {
 
             var Table = PageNotifiche.TabellaNotifiche();
 
-            if (Table.Rows.Count > 0) {
+            if (Table.Select("DataInizio>'" + Funzioni.ToQueryData(App.DataLetturaNotifiche) + "'").Length > 0) {
                 Device.BeginInvokeOnMainThread(() => {
                     BtnBell.Source = "BellRed";
                 });

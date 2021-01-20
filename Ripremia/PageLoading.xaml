@@ -1,10 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="EcoServiceApp.PageLoading">
-    <ContentPage.Content>
-        <StackLayout>
-            <ActivityIndicator IsRunning="True" WidthRequest="100"/>
+             x:Class="EcoServiceApp.PageLoading" BackgroundColor="#636159" >
+    <ContentPage.Content >
+        <StackLayout BackgroundColor="#636159" VerticalOptions="CenterAndExpand">
+            <StackLayout x:Name="StackLoading" Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Margin="0,0,0, 0">
+                <Image x:Name="R1" Source="R1" HeightRequest="28" />
+                <!--<Image Source="R2" HeightRequest="28" />-->
+                <Image x:Name="R3" Source="R3" HeightRequest="30" Margin="-3,0,0,0" />
+                <Image x:Name="R4" Source="R4" HeightRequest="30" Margin="-3,0,0,0" />
+                <Image x:Name="R5" Source="R5" HeightRequest="30" Margin="-3,0,0,0" />
+                <Image x:Name="R6" Source="R6" HeightRequest="30" Margin="-5,0,0,0" />
+                <Image x:Name="R7" Source="R7" HeightRequest="30" Margin="-3,0,0,0" />
+                <Image x:Name="R8" Source="R8" HeightRequest="30" Margin="-3,0,0,0" />
+                <Image x:Name="R9" Source="R9" HeightRequest="30" Margin="-3,0,0,0" />
+                <Image x:Name="R10" Source="R10" HeightRequest="30" Margin="-3,0,0,0" />
+                <Image x:Name="R11" Source="R11" HeightRequest="30" Margin="-12,-5,0,10" />
+                
+            </StackLayout>
+
+
+            <ActivityIndicator IsRunning="True" WidthRequest="100"  HorizontalOptions="Center" Margin="0,10,0, 0" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

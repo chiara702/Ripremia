@@ -25,7 +25,7 @@
 	<key>CFBundleIdentifier</key>
 	<string>com.companyname.EcolanAppAndroid</string>
 	<key>CFBundleVersion</key>
-	<string>10.4</string>
+	<string>10.6</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>CFBundleName</key>
@@ -37,12 +37,12 @@
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Possiamo conoscere la tua posizione per la localizzazione? </string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Possiamo conoscere sempre la tua posizione quando l'app è in funzione?</string>
+	<string>Possiamo conoscere sempre la tua posizione quando l&apos;app è in funzione?</string>
 	<key>NSCameraUsageDescription</key>
 	<string>L&apos;app necessità di accedere alla fotocamera per fare foto.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>L&apos;app necessità di accedere alla fotocamera per fare foto.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>L'app ha necessità di accedere alla galleria per salvare le foto.</string>
+	<string>L&apos;app ha necessità di accedere alla galleria per salvare le foto.</string>
 </dict>
 </plist>

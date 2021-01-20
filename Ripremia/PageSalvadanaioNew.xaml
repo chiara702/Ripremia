@@ -17,17 +17,23 @@
                         <Label  x:Name="LblUtente" VerticalOptions="Center" HorizontalOptions="Start" TextColor="#7ca137" Margin="0,10,10,5"  FontSize="Medium" FontAttributes="Bold" TextTransform="None"/>
                     </StackLayout>
 
-                    <Frame CornerRadius="10" BackgroundColor="#7ca137"  Margin="5,0,5,0" Padding="0,0,0,0" HasShadow="True" >
+                    <Frame CornerRadius="10" BackgroundColor="#7ca137"  Margin="5,0,5,0" Padding="0,0,0,0">
+                        <Frame.HasShadow>
+                            <OnPlatform x:TypeArguments="x:Boolean">
+                                <On Platform="iOS" Value="false" />
+                                <On Platform="Android" Value="true" />
+                            </OnPlatform>
+                        </Frame.HasShadow>
                         <Grid>
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="80" />
-                                <RowDefinition Height="50" />
-                                <RowDefinition Height="50" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
                                 <RowDefinition Height="5" />
-                                <RowDefinition Height="50" />
-                                <RowDefinition Height="50" />
-                                <RowDefinition Height="50" />
-                                <RowDefinition Height="50" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
                                 <RowDefinition Height="10" />
                                 <RowDefinition Height="10" />
                             </Grid.RowDefinitions>
@@ -37,7 +43,7 @@
                                 <ColumnDefinition Width="4*" />
                                 <ColumnDefinition Width="2*" />
                             </Grid.ColumnDefinitions>
-                            <Label  Grid.Row="0"  Grid.Column="0" Grid.ColumnSpan="3" Text="IL MIO SALVADANAIO" VerticalOptions="Center" HorizontalOptions="Start" Margin="10,15,10,0" FontSize="22" TextColor="White" Style="{StaticResource UserFontGreen}" />
+                            <Label  Grid.Row="0"  Grid.Column="0" Grid.ColumnSpan="3" Text="IL MIO SALVADANAIO" VerticalOptions="Center" HorizontalOptions="Start" Margin="10,15,10,10" FontSize="22" TextColor="White" Style="{StaticResource UserFontGreen}" FontAttributes="Bold" />
                             <BoxView Grid.Row="0" Grid.RowSpan="2" Grid.Column="2" Grid.ColumnSpan="2"  Color="Transparent" />
                             <Image Grid.Row="1" Grid.RowSpan="7" Grid.Column="1" Grid.ColumnSpan="3" Opacity="0.3" Source="SalvadanaioDark" VerticalOptions="Center" HorizontalOptions="End" Margin="10,10,10,3" />
 
@@ -45,11 +51,11 @@
 
                             </StackLayout>
 
-          
-                            <Image Grid.Row="1" Grid.Column="0" Source="famigliaWhite" Margin="10,5,5,5" HeightRequest="25" />
-                            <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Text="PUNTEGGIO FAMIGLIA" VerticalOptions="Center" Style="{StaticResource UserFontwhite}" FontSize="18" />
-                            <Label x:Name="LblPunteggioFamiglia" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"  Text="...." VerticalOptions="Center" HorizontalOptions="End" Style="{StaticResource UserFontwhite}" FontSize="38"/>
-                            <Image Grid.Row="2" Grid.Column="3" Source="EcopuntiWhite" Margin="5,5,10,5" VerticalOptions="FillAndExpand" HeightRequest="25" />
+
+                            <Image Grid.Row="1" Grid.Column="0" Source="famigliaWhite" Margin="10,5,5,5" HeightRequest="25"  />
+                            <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Text="PUNTEGGIO FAMIGLIA" VerticalOptions="Center" Style="{StaticResource UserFontwhite}" FontSize="20" FontAttributes="Bold" />
+                            <Label x:Name="LblPunteggioFamiglia"  Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Text="...." VerticalOptions="Center" HorizontalOptions="End" Style="{StaticResource UserFontwhite}" FontSize="38"/>
+                            <Image Grid.Row="2" Grid.Column="3"  Source="EcopuntiWhite" Margin="10,0,10,0" VerticalOptions="FillAndExpand" HeightRequest="25" />
 
 
                             <Label Grid.Row="4" Grid.Column="1" Text="Acqua potabile" VerticalOptions="Center" HorizontalOptions="Start" Style="{StaticResource UserFontwhiteL}"  />
@@ -58,37 +64,35 @@
                             <Label Grid.Row="7" Grid.Column="1" Text="Sacchetti altri rifiuti" VerticalOptions="Center" HorizontalOptions="Start" Style="{StaticResource UserFontwhiteL}" />
 
                             <BoxView Grid.Row="3" Grid.Column="2"  Color="Transparent" />
-                            <Label x:Name="LblAcquaDisp"  Grid.Row="4" Grid.Column="2" Text="..." HorizontalOptions="End" VerticalOptions="Center" Style="{StaticResource UserFontwhite}" FontSize="18" />
-                            <Label x:Name="LblSaponeDisp"   Grid.Row="5" Grid.Column="2" Text="..." HorizontalOptions="End" VerticalOptions="Center" Style="{StaticResource UserFontwhite}" FontSize="18"  />
-                            <Label x:Name="LblSaccOrgDisp"  Grid.Row="6" Grid.Column="2" Text="..." HorizontalOptions="End" VerticalOptions="Center" Style="{StaticResource UserFontwhite}" FontSize="18"  />
-                            <Label x:Name="LblSaccSeccoDisp"  Grid.Row="7" Grid.Column="2" Text="..." HorizontalOptions="End" VerticalOptions="Center" Style="{StaticResource UserFontwhite}" FontSize="18" />
+                            <Label x:Name="LblAcquaDisp"  Grid.Row="4" Grid.Column="2" Text="..." HorizontalOptions="End" VerticalOptions="Center" Style="{StaticResource UserFontwhite}" FontSize="20" />
+                            <Label x:Name="LblSaponeDisp"   Grid.Row="5" Grid.Column="2" Text="..." HorizontalOptions="End" VerticalOptions="Center" Style="{StaticResource UserFontwhite}" FontSize="20"  />
+                            <Label x:Name="LblSaccOrgDisp"  Grid.Row="6" Grid.Column="2" Text="..." HorizontalOptions="End" VerticalOptions="Center" Style="{StaticResource UserFontwhite}" FontSize="20"  />
+                            <Label x:Name="LblSaccSeccoDisp"  Grid.Row="7" Grid.Column="2" Text="..." HorizontalOptions="End" VerticalOptions="Center" Style="{StaticResource UserFontwhite}" FontSize="20" />
 
-                            <Label Grid.Row="4" Grid.Column="3" Text="Lt"  Style="{StaticResource UserFontwhiteL}" VerticalOptions="Center" FontSize="18" />
-                            <Label Grid.Row="5" Grid.Column="3" Text="ml" Style="{StaticResource UserFontwhiteL}" VerticalOptions="Center" FontSize="18" />
-                            <Label Grid.Row="6" Grid.Column="3" Text="pz"  Style="{StaticResource UserFontwhiteL}" VerticalOptions="Center" FontSize="18" />
-                            <Label Grid.Row="7" Grid.Column="3" Text="pz" Style="{StaticResource UserFontwhiteL}" VerticalOptions="Center" FontSize="18" />
+                            <Label Grid.Row="4" Grid.Column="3" Text="Lt"  Style="{StaticResource UserFontwhiteL}" VerticalOptions="Center" HorizontalOptions="Center" Margin="0,0,0,0" FontSize="18" />
+                            <Label Grid.Row="5" Grid.Column="3" Text="ml" Style="{StaticResource UserFontwhiteL}" VerticalOptions="Center" HorizontalOptions="Center" Margin="0,0,0,0" FontSize="18" />
+                            <Label Grid.Row="6" Grid.Column="3" Text="pz"  Style="{StaticResource UserFontwhiteL}" VerticalOptions="Center" HorizontalOptions="Center" Margin="0,0,0,0" FontSize="18" />
+                            <Label Grid.Row="7" Grid.Column="3" Text="pz" Style="{StaticResource UserFontwhiteL}" VerticalOptions="Center" HorizontalOptions="Center" Margin="0,0,0,0" FontSize="18" />
 
 
-                            <Image Grid.Row="4" Grid.Column="0" Source="WaterW" Margin="0,0,0,0" HorizontalOptions="Center" VerticalOptions="Center"  HeightRequest="30"/>
-                            <Image Grid.Row="5" Grid.Column="0" Source="SoapW" Margin="0,0,0,0" HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="30"/>
-                            <Image Grid.Row="6" Grid.Column="0" Source="SacchettiW" Margin="0,0,0,0" HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="30"/>
-                            <Image Grid.Row="7" Grid.Column="0" Source="SacchettiW" Margin="0,0,0,0" HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="30" />
+                            <Image Grid.Row="4" Grid.Column="0" Source="WaterW" Margin="10,0,0,0" HorizontalOptions="Center" VerticalOptions="Center"  HeightRequest="30"/>
+                            <Image Grid.Row="5" Grid.Column="0" Source="SoapW" Margin="10,0,0,0" HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="30"/>
+                            <Image Grid.Row="6" Grid.Column="0" Source="SacchettiW" Margin="10,0,0,0" HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="30"/>
+                            <Image Grid.Row="7" Grid.Column="0" Source="SacchettiW" Margin="10,0,0,0" HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="30" />
 
 
 
 
                         </Grid>
                     </Frame>
-                    <!--<Frame CornerRadius="10" BackgroundColor="#7ca137" Margin="5,10,5,0" Padding="0,0,0,0" HasShadow="True" HeightRequest="120" >
-						<StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" Spacing="0" >
-							<Image Source="cellcode" Margin="20,5,0,5" HeightRequest="100"/>
-							<Label HorizontalOptions="CenterAndExpand" VerticalOptions="Center" TextColor="White" HorizontalTextAlignment="Center" FontSize = "22"  Margin="0,0,0,0" LineBreakMode="WordWrap" Text="Visualizza il QR-CODE&#10;della moneta virtuale" FontAttributes="Bold"/>
-							<StackLayout.GestureRecognizers>
-								<TapGestureRecognizer x:Name="BtnShowQR" Tapped="BtnShowQR_Tapped"/>
-							</StackLayout.GestureRecognizers>
-						</StackLayout>
-					</Frame>-->
-                    <Frame BackgroundColor="White" Margin="5,10,5,15" Padding="0,0,0,0"  CornerRadius="10"  HasShadow="True">
+
+                    <Frame BackgroundColor="White" Margin="5,10,5,15" Padding="0,0,0,0"  CornerRadius="10" >
+                        <Frame.HasShadow>
+                            <OnPlatform x:TypeArguments="x:Boolean">
+                                <On Platform="iOS" Value="false" />
+                                <On Platform="Android" Value="true" />
+                            </OnPlatform>
+                        </Frame.HasShadow>
                         <StackLayout>
 
                             <Grid>
