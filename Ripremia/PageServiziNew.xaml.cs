@@ -17,12 +17,34 @@ namespace EcoServiceApp {
         }
 
         private void BtnPrenotaRitiro_Tapped(object sender, EventArgs e) {
-            //Navigation.PushAsync(new PagePrenotaRitiro());
+            if (((Boolean)App.DataRowComune["ServizioRitiro"]) == false) {
+                DisplayAlert("Servizio non disponibile", "Ci scusiamo, ma per il suo comune questo servizio non è attivo.", "OK");
+                return;
+            }
             Application.Current.MainPage = new PagePrenotaRitiro();
         }
 
         private void BtnDenunciaAbbandono_Tapped(object sender, EventArgs e) {
+            if (((Boolean)App.DataRowComune["ServizioAbbandono"]) == false){
+                DisplayAlert("Servizio non disponibile", "Ci scusiamo, ma per il suo comune questo servizio non è attivo.", "OK");
+                return;
+            }
             Application.Current.MainPage = new PageDenunciaAbbandono();
+        }
+
+        private void BtnCentroRiuso_Tapped(object sender, EventArgs e) {
+            if (((Boolean)App.DataRowComune["ServizioCentroRiuso"]) == false){
+                DisplayAlert("Servizio non disponibile", "Ci scusiamo, ma per il suo comune questo servizio non è attivo.", "OK");
+                return;
+            }
+        }
+
+        private void BtnCalendario_Tapped(object sender, EventArgs e) {
+            if (((Boolean)App.DataRowComune["ServizioCalendario"]) == false) {
+                DisplayAlert("Servizio non disponibile", "Ci scusiamo, ma per il suo comune questo servizio non è attivo.", "OK");
+                return;
+            }
+            Application.Current.MainPage = new PageCalendarioVisualizza();
         }
     }
 

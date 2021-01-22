@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			 x:Class="EcoServiceApp.PageCalendarioVisualizza">
+    <ContentPage.Content>
+        <Grid BackgroundColor="White" RowSpacing="0">
+
+            <Grid.RowDefinitions >
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+
+            </Grid.RowDefinitions>
+
+            <StackLayout Grid.Row="0" Orientation="Horizontal"  BackgroundColor="#7ca137" Padding="0,35,0,0"  >
+                <ImageButton Source="GoBack" HeightRequest="30" BackgroundColor="Transparent" Margin="20,15,10,20" Clicked="BtnIndietro_Clicked"/>
+                <Label Text="CALENDARIO RITIRI" Style="{StaticResource UserFontGreen}" TextColor="White" VerticalOptions="Center" FontSize="22" />
+                <!--<Image Source="RipremiaW" HeightRequest="25" Margin="5,0,15,5"  HorizontalOptions="Center" VerticalOptions="Center" />-->
+            </StackLayout>
+
+            <StackLayout Grid.Row="1"  Margin="0,2,0,0" >
+
+                <Grid   HorizontalOptions="FillAndExpand" ColumnSpacing="0" >
+                    <Grid.ColumnDefinitions >
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition  Width="*" />
+                        <ColumnDefinition  Width="*" />
+                        <ColumnDefinition  Width="*" />
+                        <ColumnDefinition  Width="*" />
+                        <ColumnDefinition  Width="*" />
+                        <ColumnDefinition  Width="*" />
+                        <ColumnDefinition  Width="*" />
+                        <ColumnDefinition  Width="*" />
+                        <ColumnDefinition  Width="*" />
+                        <ColumnDefinition  Width="*" />
+                        <ColumnDefinition  Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition  Height="auto" />
+                    </Grid.RowDefinitions>
+
+                    <Button Grid.Column="0" TabIndex="1" Clicked="BtnMese_Clicked" x:Name="BtnGennaio"  Text="G" FontFamily="SanzFont" Margin="0,0,0,20" Padding="0" HorizontalOptions="Center" WidthRequest="40" Style="{StaticResource BtnCalendar1}"    />
+                    <Button Grid.Column="1" TabIndex="2" Clicked="BtnMese_Clicked" x:Name="BtnFebbraio" Text="F" FontFamily="SanzFont" Margin="0,0,0,20" Padding="0"  HorizontalOptions="Center" Style="{StaticResource BtnCalendar2}"   />
+                    <Button Grid.Column="2" TabIndex="3" Clicked="BtnMese_Clicked"  x:Name="BtnMarzo"  Text="M" FontFamily="SanzFont" Margin="0,0,0,20" Padding="0" HorizontalOptions="Center" Style="{StaticResource BtnCalendar1}"  />
+                    <Button Grid.Column="3" TabIndex="4" Clicked="BtnMese_Clicked" x:Name="BtnAprile" Text="A" FontFamily="SanzFont" Margin="0,0,0,20" Padding="0" HorizontalOptions="Center" Style="{StaticResource BtnCalendar2}"   />
+                    <Button Grid.Column="4" TabIndex="5" Clicked="BtnMese_Clicked"  x:Name="BtnMaggio"  Text="M" FontFamily="SanzFont" Margin="0,0,0,20" Padding="0" HorizontalOptions="Center" Style="{StaticResource BtnCalendar1}"  />
+                    <Button Grid.Column="5" TabIndex="6" Clicked="BtnMese_Clicked" x:Name="BtnGiugno"   Text="G" FontFamily="SanzFont" Margin="0,0,0,20" Padding="0" HorizontalOptions="Center" Style="{StaticResource BtnCalendar2}"  />
+                    <Button Grid.Column="6" TabIndex="7" Clicked="BtnMese_Clicked" x:Name="BtnLuglio"   Text="L" FontFamily="SanzFont" Margin="0,0,0,20" Padding="0" HorizontalOptions="Center" Style="{StaticResource BtnCalendar1}"  />
+                    <Button Grid.Column="7" TabIndex="8" Clicked="BtnMese_Clicked" x:Name="BtnAgosto"   Text="A" FontFamily="SanzFont" Margin="0,0,0,20" Padding="0" HorizontalOptions="Center" Style="{StaticResource BtnCalendar2}"  />
+                    <Button Grid.Column="8" TabIndex="9" Clicked="BtnMese_Clicked" x:Name="BtnSettembre"   Text="S" FontFamily="SanzFont" Margin="0,0,0,20" Padding="0" HorizontalOptions="Center" Style="{StaticResource BtnCalendar1}"  />
+                    <Button Grid.Column="9" TabIndex="10" Clicked="BtnMese_Clicked" x:Name="BtnOttobre"  Text="O" FontFamily="SanzFont" Margin="0,0,0,20" Padding="0" HorizontalOptions="Center" Style="{StaticResource BtnCalendar2}"   />
+                    <Button Grid.Column="10" TabIndex="11" Clicked="BtnMese_Clicked"  x:Name="BtnNovembre"   Text="N" FontFamily="SanzFont" Margin="0,0,0,20" Padding="0" HorizontalOptions="Center" Style="{StaticResource BtnCalendar1}"  />
+                    <Button Grid.Column="11" TabIndex="12" Clicked="BtnMese_Clicked" x:Name="BtnDicembre" Text="D" FontFamily="SanzFont" Margin="0,0,0,20" Padding="0" HorizontalOptions="Center" Style="{StaticResource BtnCalendar2}"   />
+                </Grid>
+
+                <!--titolo calendario-->
+
+                <ScrollView  Margin="0,-25,0,0"  VerticalScrollBarVisibility="Never"  VerticalOptions="Start" >
+                    <StackLayout   >
+                        <Grid Grid.Row="1"  HorizontalOptions="FillAndExpand" ColumnSpacing="0" RowSpacing="0" Margin="10,0,10,10">
+                            <Grid.RowDefinitions >
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                            </Grid.RowDefinitions>
+
+                            <Label x:Name="LblMese" Grid.Row="0" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"  Margin="0,20,10,25" Text="" Style="{StaticResource UserFontGreen}" TextColor="#636159"  FontSize="22" />
+                            <!--Riempimento calendario interno-->
+                            <StackLayout Grid.Row="1" BindableLayout.ItemsSource="{Binding ListaCalendario}">
+                                <!--<ListView  >-->
+                                <BindableLayout.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackLayout >
+                                            <Grid ColumnSpacing="0" RowSpacing="0">
+                                                <Grid.ColumnDefinitions >
+                                                    <ColumnDefinition Width="*" />
+                                                    <ColumnDefinition Width="2*" />
+                                                    <ColumnDefinition Width="3*" />
+                                                    <ColumnDefinition Width="3*" />
+                                                    <ColumnDefinition Width="*" />
+                                                </Grid.ColumnDefinitions >
+                                                <Grid.RowDefinitions >
+                                                    <RowDefinition Height="auto" />
+                                                </Grid.RowDefinitions>
+
+                                                <Label  Grid.Column="0" Text="{Binding Giorno}" Style="{StaticResource UserFontGreen}" HorizontalOptions="Center" TextColor="#636159" VerticalOptions="Center" FontSize="16" />
+                                                <Label  Grid.Column="1" Text="{Binding GiornoSettimana}" Style="{StaticResource UserFontGreen}"  TextColor="#636159" VerticalOptions="Center" HorizontalOptions="Start" HorizontalTextAlignment="Start" FontSize="16" />
+                                                <BoxView Color="{Binding Colore1}" Opacity="0.9" Grid.Column="2" Margin="0"  />
+                                                <BoxView Color="{Binding Colore2}" Opacity="0.9" Grid.Column="3" Margin="0" />
+                                                <Label  Grid.Column="2" Text="{Binding Rifiuto1}" Style="{StaticResource UserFontGreen}" HorizontalOptions="Center" TextColor="Black" VerticalOptions="Center" FontSize="16" />
+                                                <Label  Grid.Column="3" Text="{Binding Rifiuto2}" Style="{StaticResource UserFontGreen}"  TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Start" FontSize="16" />
+                                            </Grid>
+                                        </StackLayout>
+                                    </DataTemplate>
+                                </BindableLayout.ItemTemplate>
+                            </StackLayout>
+                        </Grid>
+                        <Label  Text="CALENDARIO RITIRI" Style="{StaticResource UserFontGreen}" TextColor="Green" VerticalOptions="Center" FontSize="22" />
+
+                    </StackLayout>
+
+                </ScrollView>
+
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

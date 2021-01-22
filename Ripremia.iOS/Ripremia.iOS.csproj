@@ -522,6 +522,9 @@
   <ItemGroup>
     <BundleResource Include="Resources\NonIdentificati.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\CalendarioRitiri.png" />
+  </ItemGroup>
   <ProjectExtensions>
     <VisualStudio>
       <UserProperties TriggeredFromHotReload="False" />

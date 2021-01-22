@@ -12,6 +12,12 @@ namespace EcoServiceApp {
     public partial class PageAreaRiservata : ContentPage {
         public PageAreaRiservata() {
             InitializeComponent();
+            //Inizializza visualizzazione button
+            if (((Boolean)App.DataRowComune["ServizioRitiro"]) == false) BtnRitiri.IsVisible = false;
+            //if (((Boolean)App.DataRowComune["ServizioCentroRiuso"]) == false) BtnRitiri.IsVisible = false;
+            if (((Boolean)App.DataRowComune["ServizioAbbandono"]) == false) BtnAbbandoni.IsVisible = false;
+
+
         }
 
         //private async void ImgMenu_Tapped(object sender, EventArgs e) {

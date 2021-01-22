@@ -60,7 +60,7 @@ namespace EcoServiceApp {
             //riempi Picker comuni
             if (String.IsNullOrEmpty((String)App.DataRowUtente["AdminSuperUserCode"]) == false) { //se sei admin super user
                 PickerComune.Items.Clear();              
-                PickerComune.Items.Add("Visualizza tutte le notifiche");
+                PickerComune.Items.Add("VALIDE PER TUTTI I COMUNI");
                 Comuni=ElencoComuni((String)App.DataRowUtente["AdminSuperUserCode"]);
                 foreach (var x in Comuni) {
                     PickerComune.Items.Add(x.Value);
@@ -103,7 +103,9 @@ namespace EcoServiceApp {
                 var n = new ClasseNotifica();
                 n.Id = int.Parse(x["Id"].ToString());
                 n.DescrizioneBreve = Funzioni.Antinull(x["DescrizioneBreve"]);
-                //var nd = new ClasseNotifica.ClasseNotificaDettaglio();
+                n.DataInizio = DateTime.Parse(x["DataInizio"].ToString()).ToString("dd/MM/yy");
+                n.DataCreazione = DateTime.Parse(x["DataCreazione"].ToString()).ToString("dd/MM/yy");
+                n.DataScadenza = DateTime.Parse(x["DataScadenza"].ToString()).ToString("dd/MM/yy");
                 n.DescrizioneEstesa = Funzioni.Antinull(x["DescrizioneEstesa"]);
                 n.Link = Funzioni.Antinull(x["Link"]);
                 switch (int.Parse(x["IconIndex"].ToString())) {
@@ -154,9 +156,9 @@ namespace EcoServiceApp {
             }
         }
 
-        private void BtnDeleteNotifica_Clicked(object sender, EventArgs e) {
-            DisplayAlert("Pagina in costruzione!", "Presto disponibile", "ok");
-        }
+        //private void BtnDeleteNotifica_Clicked(object sender, EventArgs e) {
+        //    DisplayAlert("Pagina in costruzione!", "Presto disponibile", "ok");
+        //}
     }
 
 }

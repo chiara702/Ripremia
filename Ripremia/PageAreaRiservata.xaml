@@ -5,20 +5,21 @@
     <ContentPage.Content>
         <Grid BackgroundColor="LightGray">
 
-            <!-- menù grid --><!--
+            <!-- menù grid -->
+            <!--
             <ecoserviceapp:ViewMenuTop x:Name="MenuTop" ></ecoserviceapp:ViewMenuTop>-->
-                <Grid.RowDefinitions >
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
+            <Grid.RowDefinitions >
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
 
-                <StackLayout Grid.Row="0" Orientation="Horizontal"  BackgroundColor="DarkRed" Padding="0,35,0,0"  >
-                    <ImageButton Source="GoBack" HeightRequest="30" BackgroundColor="Transparent" Margin="20,15,10,20" Clicked="BtnIndietro_Clicked"/>
-                    <Label Text="AREA RISERVATA" Style="{StaticResource UserFontGreen}" TextColor="White" VerticalOptions="Center" FontSize="22" />
-                    <Image Source="RipremiaW" HeightRequest="25" Margin="5,0,15,5"  HorizontalOptions="Center" VerticalOptions="Center" />
-                </StackLayout>
+            <StackLayout Grid.Row="0" Orientation="Horizontal"  BackgroundColor="DarkRed" Padding="0,35,0,0"  >
+                <ImageButton Source="GoBack" HeightRequest="30" BackgroundColor="Transparent" Margin="20,15,10,20" Clicked="BtnIndietro_Clicked"/>
+                <Label Text="AREA RISERVATA" Style="{StaticResource UserFontGreen}" TextColor="White" VerticalOptions="Center" FontSize="22" />
+                <Image Source="RipremiaW" HeightRequest="25" Margin="5,0,15,5"  HorizontalOptions="Center" VerticalOptions="Center" />
+            </StackLayout>
 
-                <!-- corpo centrale -->
+            <!-- corpo centrale -->
 
             <ScrollView Grid.Row="1"  Style="{StaticResource Scrollbackground}" Margin="0,0,0,0">
                 <StackLayout Margin="10,0,10,0" VerticalOptions="FillAndExpand" >
@@ -35,20 +36,21 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
 
-                       
+
                         <ImageButton x:Name="BtnAddNotifiche" Grid.Row="0"  Grid.Column="0" Source="ARNotifica" VerticalOptions="Center"  WidthRequest="170" BackgroundColor="Transparent" Clicked="BtnAddNotifiche_Clicked" />
                         <BoxView Grid.Row="0"  Grid.Column="0" IsVisible="false" BackgroundColor="LightGray" Opacity="0.7"  WidthRequest="170" />
-                        
-                         <ImageButton x:Name="BtnDeleteNotifiche"  Grid.Row="0"  Grid.Column="1" Source="ARNotificaX" VerticalOptions="Center"  WidthRequest="170" BackgroundColor="Transparent" Clicked="BtnDeleteNotifiche_Clicked_1" />
+
+                        <ImageButton x:Name="BtnDeleteNotifiche"  Grid.Row="0"  Grid.Column="1" Source="ARNotificaX" VerticalOptions="Center"  WidthRequest="170" BackgroundColor="Transparent" Clicked="BtnDeleteNotifiche_Clicked_1" />
                         <BoxView Grid.Row="0"  Grid.Column="1" IsVisible="false"  BackgroundColor="LightGray" Opacity="0.7"  WidthRequest="170" />
 
-                        <ImageButton Grid.Row="1"  Grid.Column="0" Source="ARAbbandoni" VerticalOptions="Center"  WidthRequest="170" BackgroundColor="Transparent" />
+                        <ImageButton x:Name="BtnAbbandoni" Grid.Row="1"  Grid.Column="0" Source="ARAbbandoni" VerticalOptions="Center"  WidthRequest="170" BackgroundColor="Transparent" />
                         <BoxView Grid.Row="1"  Grid.Column="0" BackgroundColor="LightGray" Opacity="0.7"  WidthRequest="170" />
 
-                        <ImageButton Grid.Row="1"  Grid.Column="1"  Source="ARRitiri" VerticalOptions="Center"  WidthRequest="170" BackgroundColor="Transparent" />
+
+                        <ImageButton x:Name="BtnRitiri" Grid.Row="1"  Grid.Column="1"  Source="ARRitiri" VerticalOptions="Center"  WidthRequest="170" BackgroundColor="Transparent" />
                         <BoxView Grid.Row="1"  Grid.Column="1"  BackgroundColor="LightGray" Opacity="0.7"  WidthRequest="170" />
 
-                        <ImageButton Grid.Row="2"  Grid.Column="0" Source="ARCalendario" VerticalOptions="Center"  WidthRequest="170" BackgroundColor="Transparent" />
+                        <ImageButton x:Name="BtnCalendario" Grid.Row="2"  Grid.Column="0" Source="ARCalendario" VerticalOptions="Center"  WidthRequest="170" BackgroundColor="Transparent" />
                         <BoxView Grid.Row="2"  Grid.Column="0"  BackgroundColor="LightGray" Opacity="0.7"  WidthRequest="170" />
 
                         <Button  Grid.Row="3"  Grid.Column="0" Grid.ColumnSpan="2" x:Name="BtnBack"  Text="ESCI DALL'AREA RISERVATA" FontFamily="SanzFont" Margin="10,20,10,20" HorizontalOptions="Center" Style="{StaticResource BtnDark}"  BackgroundColor="DarkRed" WidthRequest="310" Clicked="BtnBack_Clicked" />
@@ -59,7 +61,7 @@
 
 
 
-                    
+
 
                 </StackLayout>
             </ScrollView>

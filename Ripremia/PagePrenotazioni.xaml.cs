@@ -37,14 +37,14 @@ namespace EcoServiceApp {
             }
             foreach (System.Data.DataRow x in Table.Rows) {
                 var n = new ClassePrenotazione();
-                n.DataCreazione = DateTime.Parse(x["DataCreazione"].ToString()).ToString("dd/MM/yyyy");
+                n.DataCreazione = DateTime.Parse(x["DataCreazione"].ToString()).ToString("dd/MM/yy");
                 n.Telefono = Funzioni.Antinull(x["Telefono"]);
                 n.Note = Funzioni.Antinull(x["Note"]);
                 //n.ConfermaRitiro = bool.Parse(x["ConfermaRitiro"].ToString());
                 if ((Boolean)x["ConfermaRitiro"] == true) n.ConfermaRitiro = "CONFERMATO"; else n.ConfermaRitiro = "IN ELABORAZIONE";
 
                 if (x["DataRitiro"] != DBNull.Value) {
-                    n.DataRitiro = DateTime.Parse(x["DataRitiro"].ToString()).ToString("dd/MM/yyyy");
+                    n.DataRitiro = DateTime.Parse(x["DataRitiro"].ToString()).ToString("dd/MM/yy");
                     n.DataRitiroVisible = true;
                 } else {
                     n.DataRitiroVisible = false;
