@@ -19,7 +19,7 @@ namespace EcoServiceApp {
         public String Rifiuto2 { get; set; }
         public Color Colore1 { get; set; }
         public Color Colore2 { get; set; }
-
+        public int ColSpan { get; set; }
 
     }
     public partial class PageCalendarioVisualizza : ContentPage {
@@ -60,6 +60,7 @@ namespace EcoServiceApp {
                 n.Colore1 = Color.White;
                 n.Colore2 = Color.White;
                 n.Giorno = x;
+                n.ColSpan = 1;
                 n.GiornoSettimana = DataTmp.ToString("ddd",new CultureInfo("it-IT"));
                 var Rifiutoddd = Rifiuti.Select("GiornoSettimana='" + DataTmp.ToString("ddd", new CultureInfo("it-IT")) + "'");
                 if (Rifiutoddd.Length==0) continue;
@@ -77,8 +78,16 @@ namespace EcoServiceApp {
                         n.Rifiuto2 = RifiutoTipo[0]["Denominazione"].ToString();
                     }
                 }
+                if ((int)Rifiutoddd[0]["Rifiuto2"] == 0) {
+                    var RifiutoTipo = RifiutiTipo.Select("Id=" + Rifiutoddd[0]["Rifiuto1"]);
+                    if (RifiutoTipo.Length > 0) {
+                        n.Colore2 = Color.FromHex(RifiutoTipo[0]["Colore"].ToString());
+                        //n.Rifiuto2 = RifiutoTipo[0]["Denominazione"].ToString(); 
+                        n.ColSpan = 2;
+                    }
+                }
 
-                
+
             }
             Device.BeginInvokeOnMainThread(() => { 
                 BindingContext = null;

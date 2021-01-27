@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:behaviors="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="EcoServiceApp.GestioneCalendario.PageCalendarioTipiRifiuti" NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <Grid BackgroundColor="#f0f0ef" VerticalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="60" />
+                <RowDefinition Height="60" />
+            </Grid.RowDefinitions>
+
+            <StackLayout Grid.Row="0" Orientation="Horizontal"  BackgroundColor="DarkRed"  Padding="0,35,0,0">
+                <ImageButton Source="GoBack" HeightRequest="30" BackgroundColor="Transparent" Margin="20,15,10,20" Clicked="BtnIndietro_Clicked"/>
+                <Label Text="AGGIUNGI/MODIFICA TIPI RIFIUTO" Style="{StaticResource UserFontGreen}" TextColor="White" VerticalOptions="Center" FontSize="22" />
+            </StackLayout>
+
+            <ScrollView Grid.Row="2" Margin="10,0,10,0">
+
+                <StackLayout x:Name="StackBinding" BindableLayout.ItemsSource="{Binding TipiRifiuti, Mode=TwoWay}" >
+                    <BindableLayout.ItemTemplate >
+                        <DataTemplate >
+                            <Frame BackgroundColor="White" CornerRadius="10" Margin="5,5,5,5" HasShadow="{OnPlatform Android='true ', iOS='false'}" >
+                                <behaviors:Expander Margin="0" >
+
+                                    <behaviors:Expander.Header>
+                                        <!--<Frame BorderColor="AliceBlue" CornerRadius="10">-->
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand"  Margin="10,0,5,0">
+                                            <StackLayout HorizontalOptions="FillAndExpand">
+                                                <Label Margin="0, 0,0,0" FontFamily="" Style="{StaticResource LabReg}"  Text="Denominazione"/>
+                                                <Entry HorizontalOptions="FillAndExpand" Text="{Binding Denominazione,Mode=TwoWay}" Style="{StaticResource UserFontGreen}" TextColor="#636159"/>
+                                            </StackLayout>
+                                            <Image Source="expand.png"
+                                       HorizontalOptions="EndAndExpand"
+                                       VerticalOptions="Center">
+                                                <Image.Triggers>
+                                                    <DataTrigger TargetType="Image"
+                                                     Binding="{Binding Source={RelativeSource AncestorType={x:Type behaviors:Expander}}, Path=IsExpanded}"
+                                                     Value="True">
+                                                        <Setter Property="Source"
+                                                    Value="collapse.png" />
+                                                    </DataTrigger>
+                                                </Image.Triggers>
+                                            </Image>
+                                        </StackLayout>
+
+                                        <!--</Frame>-->
+                                    </behaviors:Expander.Header>
+                                    <behaviors:Expander.ContentTemplate>
+
+                                        <DataTemplate>
+
+                                            <Grid Padding="10">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="auto" />
+                                                    
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="8*" />
+                                                    <ColumnDefinition Width="*" />
+                                                </Grid.ColumnDefinitions>
+
+                                                <StackLayout Grid.Row="0" Grid.ColumnSpan="2" Spacing="0" >
+                                                    <Label Margin="0, 5,0,0" Text="Colore rifiuto" FontFamily="" Style="{StaticResource LabReg}"  />
+                                                    <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never">
+                                                        <Frame BackgroundColor="White" HasShadow="False" Margin="0,5,0,5">
+                                                            <StackLayout Spacing="0" Orientation="Horizontal" Margin="-10,-10,-10,-5" Padding="0" >
+                                                                <StackLayout Orientation="Vertical">
+                                                                    <StackLayout Orientation="Horizontal" >
+                                                                    <StackLayout Orientation="Vertical" HorizontalOptions="Center" >
+                                                                        <BoxView Color="#3091c8" HorizontalOptions="Center"  />
+                                                                        <RadioButton Content="" GroupName="{Binding Rnd}"  IsChecked="{Binding Azzurro}" HorizontalOptions="Center" />
+                                                                    </StackLayout>
+                                                                    <StackLayout Orientation="Vertical" HorizontalOptions="Center" >
+                                                                        <BoxView Color="#213589" HorizontalOptions="Center" />
+                                                                            <RadioButton Content="" GroupName="{Binding Rnd}" IsChecked="{Binding Blu}"  HorizontalOptions="Center" />
+                                                                    </StackLayout>
+                                                                    <StackLayout Orientation="Vertical" HorizontalOptions="Center" >
+                                                                        <BoxView Color="#66431c" HorizontalOptions="Center" />
+                                                                            <RadioButton Content="" GroupName="{Binding Rnd}" IsChecked="{Binding Marrone}"  HorizontalOptions="Center" />
+                                                                    </StackLayout>
+                                                                    <StackLayout Orientation="Vertical" HorizontalOptions="Center" >
+                                                                        <BoxView Color="#d0c82c" HorizontalOptions="Center" />
+                                                                            <RadioButton Content="" GroupName="{Binding Rnd}" IsChecked="{Binding Giallo}"  HorizontalOptions="Center" />
+                                                                    </StackLayout>
+                                                                    <StackLayout Orientation="Vertical" HorizontalOptions="Center" >
+                                                                        <BoxView Color="#3f3e40" HorizontalOptions="Center" />
+                                                                            <RadioButton Content="" GroupName="{Binding Rnd}" IsChecked="{Binding Grigio}"  HorizontalOptions="Center" />
+                                                                    </StackLayout>
+                                                                    </StackLayout>
+                                                                    <StackLayout Orientation="Horizontal">
+                                                                        <StackLayout Orientation="Vertical" HorizontalOptions="Center" >
+                                                                        <BoxView Color="#02a44f" HorizontalOptions="Center" />
+                                                                            <RadioButton Content="" GroupName="{Binding Rnd}" IsChecked="{Binding Verde}"  HorizontalOptions="Center" />
+                                                                    </StackLayout>
+                                                                    <StackLayout Orientation="Vertical" HorizontalOptions="Center" >
+                                                                        <BoxView Color="Orange" HorizontalOptions="Center" />
+                                                                            <RadioButton Content="" GroupName="{Binding Rnd}" IsChecked="{Binding Arancio}"  HorizontalOptions="Center" />
+                                                                    </StackLayout>
+                                                                    <StackLayout Orientation="Vertical" HorizontalOptions="Center" >
+                                                                        <BoxView Color="DarkRed" HorizontalOptions="Center" />
+                                                                            <RadioButton Content="" GroupName="{Binding Rnd}" IsChecked="{Binding Rosso}"  HorizontalOptions="Center" />
+                                                                    </StackLayout>
+                                                                    <StackLayout Orientation="Vertical" HorizontalOptions="Center" >
+                                                                        <BoxView Color="WhiteSmoke" HorizontalOptions="Center" />
+                                                                            <RadioButton Content="" GroupName="{Binding Rnd}" IsChecked="{Binding Bianco}"  HorizontalOptions="Center" />
+                                                                    </StackLayout>
+                                                                        <StackLayout Orientation="Vertical" HorizontalOptions="Center" >
+                                                                            <BoxView Color="Gray" HorizontalOptions="Center" />
+                                                                            <RadioButton Content="" GroupName="{Binding Rnd}" IsChecked="{Binding LightGrigio}"  HorizontalOptions="Center" />
+                                                                        </StackLayout>
+                                                                    </StackLayout>
+                                                                    <Button Text="Cancella" Command="{Binding ButtonElimina}" CommandParameter="{Binding .}"/>
+                                                                </StackLayout>
+                                                            </StackLayout>
+                                                        </Frame>    
+                                                    </ScrollView>
+                                                    <StackLayout HorizontalOptions="FillAndExpand">
+                                                        <Label Margin="0, 0,0,0" FontFamily="" Style="{StaticResource LabReg}"  Text="Cosa posso conferire?"/>
+                                                        <Editor HorizontalOptions="FillAndExpand" MaxLength="5000" HeightRequest="100" BackgroundColor="WhiteSmoke" Text="{Binding CosaConferire,Mode=TwoWay}" Style="{StaticResource UserFontGreen}" TextColor="#636159"/>
+                                                    </StackLayout>
+                                                    <StackLayout HorizontalOptions="FillAndExpand">
+                                                        <Label Margin="0, 0,0,0" FontFamily="" Style="{StaticResource LabReg}"  Text="Cosa NON posso conferire?"/>
+                                                        <Editor HorizontalOptions="FillAndExpand" MaxLength="5000" HeightRequest="100" BackgroundColor="WhiteSmoke"  Text="{Binding CosaNonConferire,Mode=TwoWay}" Style="{StaticResource UserFontGreen}" TextColor="#636159"/>
+                                                    </StackLayout>
+                                                    <StackLayout HorizontalOptions="FillAndExpand">
+                                                        <Label Margin="0, 0,0,0" FontFamily="" Style="{StaticResource LabReg}"  Text="Come conferire?"/>
+                                                        <Editor HorizontalOptions="FillAndExpand" MaxLength="5000" HeightRequest="80" BackgroundColor="WhiteSmoke"  Text="{Binding ComeConferire,Mode=TwoWay}" Style="{StaticResource UserFontGreen}" TextColor="#636159"/>
+                                                    </StackLayout>
+                                                </StackLayout>
+
+                                            </Grid>
+
+                                        </DataTemplate>
+
+                                    </behaviors:Expander.ContentTemplate>
+                                </behaviors:Expander>
+                            </Frame>
+                        </DataTemplate>
+
+                    </BindableLayout.ItemTemplate>
+
+
+                </StackLayout>
+
+            </ScrollView>
+            <Button Grid.Row="3" Text="AGGIUNGI NUOVO RIFIUTO" Clicked="Button_Clicked_1" BackgroundColor="DarkRed" TextColor="White" FontSize="22"/>
+
+            <Button Grid.Row="4" Text="SALVA" Clicked="Button_Clicked" BackgroundColor="DarkRed" TextColor="White" FontSize="22"/>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

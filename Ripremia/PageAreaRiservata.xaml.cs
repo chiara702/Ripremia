@@ -42,5 +42,15 @@ namespace EcoServiceApp {
         private void BtnDeleteNotifiche_Clicked_1(object sender, EventArgs e) {
             Application.Current.MainPage = new PageDeleteNotifiche();
         }
+
+        private void BtnCalendario_Clicked(object sender, EventArgs e) {
+            //Application.Current.MainPage = new PageCalendarioGestione();
+            Application.Current.MainPage = new NavigationPage(new PageCalendarioGestione());
+        }
+
+        protected override bool OnBackButtonPressed() {
+            BtnIndietro_Clicked(null, null);
+            return true;
+        }
     }
 }

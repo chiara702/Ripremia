@@ -181,7 +181,7 @@ public class ClassApiParco { //vers. 1
         String Output = "";
         foreach (KeyValuePair<string, object> x in Param.Param) {
             if (x.Value is String) {
-                Output += "SET @" + x.Key + "='" + x.Value.ToString().Replace("'","\'") + "';\n";
+                Output += "SET @" + x.Key + "='" + x.Value.ToString().Replace("'","\\'") + "';\n";
             }
             if (x.Value is int) {
                 Output += "SET @" + x.Key + "=" + x.Value.ToString() + ";\n";
