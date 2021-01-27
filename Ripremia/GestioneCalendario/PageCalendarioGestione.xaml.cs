@@ -57,5 +57,11 @@ namespace EcoServiceApp {
             var IdComune = Comuni.FirstOrDefault(x => x.Value == PickerComune.SelectedItem.ToString()).Key;
             Navigation.PushAsync(new PageCalendarioTipiRifiuti(IdComune));
         }
+
+        private void BtnImpostazioni_Tapped(object sender, EventArgs e) {
+            if (PickerComune.SelectedItem == null) return;
+            var IdComune = Comuni.FirstOrDefault(x => x.Value == PickerComune.SelectedItem.ToString()).Key;
+            Navigation.PushAsync(new PageCalendarioImposta(IdComune));
+        }
     }
 }

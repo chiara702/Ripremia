@@ -92,27 +92,26 @@
                                                                     </StackLayout>
                                                                     <StackLayout Orientation="Horizontal">
                                                                         <StackLayout Orientation="Vertical" HorizontalOptions="Center" >
-                                                                        <BoxView Color="#02a44f" HorizontalOptions="Center" />
+                                                                            <BoxView Color="#02a44f" HorizontalOptions="Center" />
                                                                             <RadioButton Content="" GroupName="{Binding Rnd}" IsChecked="{Binding Verde}"  HorizontalOptions="Center" />
-                                                                    </StackLayout>
-                                                                    <StackLayout Orientation="Vertical" HorizontalOptions="Center" >
-                                                                        <BoxView Color="Orange" HorizontalOptions="Center" />
+                                                                        </StackLayout>
+                                                                        <StackLayout Orientation="Vertical" HorizontalOptions="Center" >
+                                                                            <BoxView Color="Orange" HorizontalOptions="Center" />
                                                                             <RadioButton Content="" GroupName="{Binding Rnd}" IsChecked="{Binding Arancio}"  HorizontalOptions="Center" />
-                                                                    </StackLayout>
-                                                                    <StackLayout Orientation="Vertical" HorizontalOptions="Center" >
-                                                                        <BoxView Color="DarkRed" HorizontalOptions="Center" />
+                                                                        </StackLayout>
+                                                                        <StackLayout Orientation="Vertical" HorizontalOptions="Center" >
+                                                                            <BoxView Color="DarkRed" HorizontalOptions="Center" />
                                                                             <RadioButton Content="" GroupName="{Binding Rnd}" IsChecked="{Binding Rosso}"  HorizontalOptions="Center" />
-                                                                    </StackLayout>
-                                                                    <StackLayout Orientation="Vertical" HorizontalOptions="Center" >
-                                                                        <BoxView Color="WhiteSmoke" HorizontalOptions="Center" />
+                                                                        </StackLayout>
+                                                                        <StackLayout Orientation="Vertical" HorizontalOptions="Center" >
+                                                                            <BoxView Color="WhiteSmoke" HorizontalOptions="Center" />
                                                                             <RadioButton Content="" GroupName="{Binding Rnd}" IsChecked="{Binding Bianco}"  HorizontalOptions="Center" />
-                                                                    </StackLayout>
+                                                                        </StackLayout>
                                                                         <StackLayout Orientation="Vertical" HorizontalOptions="Center" >
                                                                             <BoxView Color="Gray" HorizontalOptions="Center" />
                                                                             <RadioButton Content="" GroupName="{Binding Rnd}" IsChecked="{Binding LightGrigio}"  HorizontalOptions="Center" />
                                                                         </StackLayout>
                                                                     </StackLayout>
-                                                                    <Button Text="Cancella" Command="{Binding ButtonElimina}" CommandParameter="{Binding .}"/>
                                                                 </StackLayout>
                                                             </StackLayout>
                                                         </Frame>    
@@ -128,6 +127,10 @@
                                                     <StackLayout HorizontalOptions="FillAndExpand">
                                                         <Label Margin="0, 0,0,0" FontFamily="" Style="{StaticResource LabReg}"  Text="Come conferire?"/>
                                                         <Editor HorizontalOptions="FillAndExpand" MaxLength="5000" HeightRequest="80" BackgroundColor="WhiteSmoke"  Text="{Binding ComeConferire,Mode=TwoWay}" Style="{StaticResource UserFontGreen}" TextColor="#636159"/>
+                                                    </StackLayout>
+                                                    <StackLayout Orientation="Horizontal">
+                                                        <Label Text="Cancella"/>
+                                                        <CheckBox IsChecked="{Binding Eliminato}"/>
                                                     </StackLayout>
                                                 </StackLayout>
 

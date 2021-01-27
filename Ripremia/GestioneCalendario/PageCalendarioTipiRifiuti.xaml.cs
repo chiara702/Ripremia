@@ -17,6 +17,10 @@ namespace EcoServiceApp.GestioneCalendario {
 
        
         public List<ClasseTipiRifiuti> TipiRifiuti { get; set; } = new List<ClasseTipiRifiuti>();
+
+        
+
+        
         public class ClasseTipiRifiuti {
             public int Rnd { get; set; } = new Random().Next();
             public int Id { get; set; }
@@ -34,8 +38,11 @@ namespace EcoServiceApp.GestioneCalendario {
             public String CosaConferire { get; set; } = "";
             public String CosaNonConferire { get; set; } = "";
             public String ComeConferire { get; set; } = "";
+            public Boolean Eliminato { get; set; } = false;
             public Command ButtonElimina { get; } = new Command<ClasseTipiRifiuti>((obj) => {
+                
                 Device.BeginInvokeOnMainThread(async () => {
+                    
                     if (await Application.Current.MainPage.DisplayAlert("Eliminazione", "Sei sicuro di voler eliminare la notifica?", "OK", "ANNULLA") == true) {
                         
                     }
@@ -108,7 +115,11 @@ namespace EcoServiceApp.GestioneCalendario {
 
         public void SalvaSuDb() {
             foreach (var x in TipiRifiuti) {
+                if (x.Eliminato == true) {
+                    Parchetto.EseguiCommand("Delete From CalendarioRifiutiTipo Where Id=" + x.Id.ToString());
+                }
                 var Param = Parchetto.GetParam();
+                Param.AddParameterInteger("ComuneId", IdComune);
                 Param.AddParameterString("Denominazione", x.Denominazione);
                 Param.AddParameterString("CosaConferire", x.CosaConferire);
                 Param.AddParameterString("CosaNonConferire", x.CosaNonConferire);
@@ -146,6 +157,7 @@ namespace EcoServiceApp.GestioneCalendario {
 
         private void Button_Clicked(object sender, EventArgs e) {
             SalvaSuDb();
+            Navigation.PopAsync();
         }
 
         private void Button_Clicked_1(object sender, EventArgs e) {

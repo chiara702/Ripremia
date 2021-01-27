@@ -16,6 +16,8 @@ public class ClassApiParco { //vers. 1
     public ClassApiParco() {}
 
     public DataTable EseguiQuery(String Query) {
+        LastError = false;
+        LastErrorDescrizione = "";
         try {
             String URLSqlQuery = BaseUrl + "EcoparcoEseguiQuery";
             var req = (HttpWebRequest)WebRequest.Create(URLSqlQuery);
@@ -52,6 +54,8 @@ public class ClassApiParco { //vers. 1
     }
 
     public DataRow EseguiQueryRow(String Tabella, int Id) {
+        LastError = false;
+        LastErrorDescrizione = "";
         try {
             var Query = "Select * From " + Tabella + " Where Id=" + Id.ToString();
             String URLSqlQuery = BaseUrl + "EcoparcoEseguiQuery";
@@ -85,6 +89,8 @@ public class ClassApiParco { //vers. 1
         }
     }
     public DataRow EseguiQueryRow(String Tabella, string Where) { //Where: Id=5 and nome='fabio'
+        LastError = false;
+        LastErrorDescrizione = "";
         try {
             var Query = "Select * From " + Tabella + " Where " + Where;
             String URLSqlQuery = BaseUrl + "EcoparcoEseguiQuery";
@@ -119,6 +125,8 @@ public class ClassApiParco { //vers. 1
     }
 
     public Object EseguiCommand(String Query) {
+        LastError = false;
+        LastErrorDescrizione = "";
         try {
             String URLSqlQuery = BaseUrl + "EcoparcoEseguiCommand";
             var req = (HttpWebRequest)WebRequest.Create(URLSqlQuery);
