@@ -48,6 +48,41 @@ namespace EcoServiceApp {
 
         }
 
+        private String ColoreToHex(String Testo) {
+            switch (Testo) {
+                case "Azzurro":
+                    return "#3091C8";
+                case "Blu":
+                    return ""; 
+                case "Marrone":
+                    return "#66431C";
+                    break;
+                case "Giallo":
+                    return "#D0C82C";
+                    break;
+                case "Grigio":
+                    return "#3F3E40";
+                    break;
+                case "Verde":
+                    return "#02A44F";
+                    break;
+                case "Rosso":
+                    return "";
+                    break;
+                case "Bianco":
+                    return "#EAEAEA";
+                    break;
+                case "Arancio":
+                    return "";
+                    break;
+                case "LightGrigio":
+                    return "";
+                    break;
+
+            }
+            return "";
+        }
+
         private void RiempiListaCalendario(int Mese) {
             if (Rifiuti == null || RifiutiTipo == null) return;
             ListaCalendario.Clear();
@@ -67,21 +102,21 @@ namespace EcoServiceApp {
                 if ((int)Rifiutoddd[0]["Rifiuto1"] > 0) {
                     var RifiutoTipo = RifiutiTipo.Select("Id=" + Rifiutoddd[0]["Rifiuto1"]);
                     if (RifiutoTipo.Length > 0) {
-                        n.Colore1 = Color.FromHex(RifiutoTipo[0]["Colore"].ToString());
+                        n.Colore1 = Color.FromHex(ColoreToHex(RifiutoTipo[0]["Colore"].ToString()));
                         n.Rifiuto1 = RifiutoTipo[0]["Denominazione"].ToString();
                     }
                 }
                 if ((int)Rifiutoddd[0]["Rifiuto2"] > 0) {
                     var RifiutoTipo = RifiutiTipo.Select("Id=" + Rifiutoddd[0]["Rifiuto2"]);
                     if (RifiutoTipo.Length > 0) {
-                        n.Colore2 = Color.FromHex(RifiutoTipo[0]["Colore"].ToString());
+                        n.Colore2 = Color.FromHex(ColoreToHex(RifiutoTipo[0]["Colore"].ToString()));
                         n.Rifiuto2 = RifiutoTipo[0]["Denominazione"].ToString();
                     }
                 }
                 if ((int)Rifiutoddd[0]["Rifiuto2"] == 0) {
                     var RifiutoTipo = RifiutiTipo.Select("Id=" + Rifiutoddd[0]["Rifiuto1"]);
                     if (RifiutoTipo.Length > 0) {
-                        n.Colore2 = Color.FromHex(RifiutoTipo[0]["Colore"].ToString());
+                        n.Colore2 = Color.FromHex(ColoreToHex(RifiutoTipo[0]["Colore"].ToString()));
                         //n.Rifiuto2 = RifiutoTipo[0]["Denominazione"].ToString(); 
                         n.ColSpan = 2;
                     }

@@ -525,6 +525,9 @@
   <ItemGroup>
     <BundleResource Include="Resources\CalendarioRitiri.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\DeleteX.png" />
+  </ItemGroup>
   <ProjectExtensions>
     <VisualStudio>
       <UserProperties TriggeredFromHotReload="False" />

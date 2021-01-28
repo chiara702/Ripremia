@@ -49,7 +49,7 @@ namespace EcoServiceApp {
         }
 
         private void PickerComune_SelectedIndexChanged(object sender, EventArgs e) {
-
+            BtnShowImpostazioniCalendario.IsVisible = true;
         }
 
         private void BtnTipiRifiuti_Tapped(object sender, EventArgs e) {
@@ -62,6 +62,10 @@ namespace EcoServiceApp {
             if (PickerComune.SelectedItem == null) return;
             var IdComune = Comuni.FirstOrDefault(x => x.Value == PickerComune.SelectedItem.ToString()).Key;
             Navigation.PushAsync(new PageCalendarioImposta(IdComune));
+        }
+
+        private void BtnEccezzioni_Tapped(object sender, EventArgs e) {
+
         }
     }
 }
