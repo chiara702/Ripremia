@@ -10,30 +10,67 @@ using Xamarin.Forms.Xaml;
 
 namespace EcoServiceApp.GestioneCalendario {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ViewCalendarioEccezzione : ContentView {
+    public partial class ViewCalendarioEccezzione : Grid {
         ClassApiParco Parchetto = new ClassApiParco();
-        private int IdComune;
-        public ViewCalendarioEccezzione(int IdComune) {
+        public ViewCalendarioEccezzione() {
             InitializeComponent();
-            this.IdComune = IdComune;
-            RiempiTipiRifiuti();
+            //this.IdComune = IdComune;
+            //RiempiTipiRifiuti();
         }
-        private DataTable TableTipiRifiuti;
-        private DataTable TableCalendarioRifiuti;
+        public int Id{ get; set; }
+        public int IdComune{ get; set; }
+        public DateTime Data{ 
+            get {
+                return DataEccezioni.Date;
+            }
+            set {
+                DataEccezioni.Date = value;
+            } 
+        }
+        
 
-
-        public void RiempiTipiRifiuti() {
-            TableTipiRifiuti = Parchetto.EseguiQuery("Select * From CalendarioRifiutiTipo Where ComuneId=" + IdComune);
-            var pickers = new Picker[] { RifiutoEcc1, RifiutoEcc2 };
-            foreach (var p in pickers) {
-                p.Items.Add("Nessuno");
-                foreach (DataRow x in TableTipiRifiuti.Rows) {
-                    p.Items.Add(x["Denominazione"].ToString());
+        public List<String> ListaRifiuti {
+            set {
+                RifiutoEcc1.Items.Clear();
+                RifiutoEcc2.Items.Clear();
+                RifiutoEcc1.Items.Add("Nessuno");
+                RifiutoEcc2.Items.Add("Nessuno");
+                foreach (String x in value) {
+                    RifiutoEcc1.Items.Add(x);
+                    RifiutoEcc2.Items.Add(x);
                 }
             }
         }
 
+        public String Rifiuto1 {
+            set {
+                RifiutoEcc1.SelectedItem = value;
+            }
+            get {
+                if (RifiutoEcc1.SelectedItem == null) return "";
+                if (RifiutoEcc1.SelectedItem.ToString() == "Nessuno") return "";
+                return RifiutoEcc1.SelectedItem.ToString();
+            }
+        }
+        public String Rifiuto2 {
+            set {
+                RifiutoEcc2.SelectedItem = value;
+            }
+            get {
+                if (RifiutoEcc2.SelectedItem == null) return "";
+                if (RifiutoEcc2.SelectedItem.ToString() == "Nessuno") return "";
+                return RifiutoEcc2.SelectedItem.ToString();
+            }
+        }
+
+        public Boolean IsNew { get; set; } = false;
+        public Boolean IsDeleted { get; set; } = false;
+
+
+
         private void Delete_Clicked(object sender, EventArgs e) {
+            this.IsVisible = false;
+            this.IsDeleted = true;
 
         }
     }

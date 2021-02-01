@@ -17,7 +17,7 @@
                 <Label Text="AGGIUNGI/MODIFICA TIPI RIFIUTO" Style="{StaticResource UserFontGreen}" TextColor="White" VerticalOptions="Center" FontSize="22" />
             </StackLayout>
 
-            <ScrollView Grid.Row="2" Margin="10,0,10,0">
+            <ScrollView Grid.Row="2" Margin="10,0,10,0" VerticalScrollBarVisibility="Never">
 
                 <StackLayout x:Name="StackBinding" BindableLayout.ItemsSource="{Binding TipiRifiuti, Mode=TwoWay}" >
                     <BindableLayout.ItemTemplate >
@@ -29,7 +29,7 @@
                                         <!--<Frame BorderColor="AliceBlue" CornerRadius="10">-->
                                         <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand"  Margin="10,0,5,0">
                                             <StackLayout HorizontalOptions="FillAndExpand">
-                                                <Label Margin="0, 0,0,0" FontFamily="" Style="{StaticResource LabReg}"  Text="Denominazione"/>
+                                                <Label Margin="0, 0,0,0" FontFamily="" Style="{StaticResource LabRegRed}"  Text="Denominazione"/>
                                                 <Entry HorizontalOptions="FillAndExpand" Text="{Binding Denominazione,Mode=TwoWay}" Style="{StaticResource UserFontGreen}" TextColor="#636159"/>
                                             </StackLayout>
                                             <Image Source="expand.png"
@@ -63,7 +63,7 @@
                                                 </Grid.ColumnDefinitions>
 
                                                 <StackLayout Grid.Row="0" Grid.ColumnSpan="2" Spacing="0" >
-                                                    <Label Margin="0, 5,0,0" Text="Colore rifiuto" FontFamily="" Style="{StaticResource LabReg}"  />
+                                                    <Label Margin="0, 5,0,0" Text="Colore rifiuto" FontFamily="" Style="{StaticResource LabRegRed}"  />
                                                     <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never">
                                                         <Frame BackgroundColor="White" HasShadow="False" Margin="0,5,0,5">
                                                             <StackLayout Spacing="0" Orientation="Horizontal" Margin="-10,-10,-10,-5" Padding="0" >
@@ -116,21 +116,21 @@
                                                             </StackLayout>
                                                         </Frame>    
                                                     </ScrollView>
-                                                    <StackLayout HorizontalOptions="FillAndExpand">
-                                                        <Label Margin="0, 0,0,0" FontFamily="" Style="{StaticResource LabReg}"  Text="Cosa posso conferire?"/>
-                                                        <Editor HorizontalOptions="FillAndExpand" MaxLength="5000" HeightRequest="100" BackgroundColor="WhiteSmoke" Text="{Binding CosaConferire,Mode=TwoWay}" Style="{StaticResource UserFontGreen}" TextColor="#636159"/>
+                                                    <StackLayout HorizontalOptions="FillAndExpand" Margin="0, 5,0,0">
+                                                        <Label Margin="0, 0,0,0" FontFamily="" Style="{StaticResource LabRegRed}"  Text="Cosa posso conferire?"/>
+                                                        <Editor HorizontalOptions="FillAndExpand" MaxLength="5000" HeightRequest="100" BackgroundColor="WhiteSmoke" Text="{Binding CosaConferire,Mode=TwoWay}" Style="{StaticResource UserFontGreen}" TextColor="#636159" FontSize="16"/>
                                                     </StackLayout>
-                                                    <StackLayout HorizontalOptions="FillAndExpand">
-                                                        <Label Margin="0, 0,0,0" FontFamily="" Style="{StaticResource LabReg}"  Text="Cosa NON posso conferire?"/>
-                                                        <Editor HorizontalOptions="FillAndExpand" MaxLength="5000" HeightRequest="100" BackgroundColor="WhiteSmoke"  Text="{Binding CosaNonConferire,Mode=TwoWay}" Style="{StaticResource UserFontGreen}" TextColor="#636159"/>
+                                                    <StackLayout HorizontalOptions="FillAndExpand" Margin="0, 20,0,0">
+                                                        <Label Margin="0, 0,0,0" FontFamily="" Style="{StaticResource LabRegRed}"  Text="Cosa NON posso conferire?"/>
+                                                        <Editor HorizontalOptions="FillAndExpand" MaxLength="5000" HeightRequest="100" BackgroundColor="WhiteSmoke"  Text="{Binding CosaNonConferire,Mode=TwoWay}" Style="{StaticResource UserFontGreen}" TextColor="#636159" FontSize="16"/>
                                                     </StackLayout>
-                                                    <StackLayout HorizontalOptions="FillAndExpand">
-                                                        <Label Margin="0, 0,0,0" FontFamily="" Style="{StaticResource LabReg}"  Text="Come conferire?"/>
-                                                        <Editor HorizontalOptions="FillAndExpand" MaxLength="5000" HeightRequest="80" BackgroundColor="WhiteSmoke"  Text="{Binding ComeConferire,Mode=TwoWay}" Style="{StaticResource UserFontGreen}" TextColor="#636159"/>
+                                                    <StackLayout HorizontalOptions="FillAndExpand" Margin="0, 20,0,0">
+                                                        <Label Margin="0, 0,0,0" FontFamily="" Style="{StaticResource LabRegRed}"  Text="Come conferire?"/>
+                                                        <Editor HorizontalOptions="FillAndExpand" MaxLength="5000" HeightRequest="80" BackgroundColor="WhiteSmoke"  Text="{Binding ComeConferire,Mode=TwoWay}" Style="{StaticResource UserFontGreen}" TextColor="#636159" FontSize="16"/>
                                                     </StackLayout>
-                                                    <StackLayout Orientation="Horizontal">
-                                                        <Label Text="Cancella"/>
-                                                        <CheckBox IsChecked="{Binding Eliminato}"/>
+                                                    <StackLayout Orientation="Horizontal" VerticalOptions="Center" Margin="0,15,0,5"  Spacing="0">
+                                                        <CheckBox IsChecked="{Binding Eliminato}" Color="DarkRed" />
+                                                        <Label Text="Spunta la casella per cancellare" Style="{StaticResource LabRegRed}" VerticalOptions="Center" />
                                                     </StackLayout>
                                                 </StackLayout>
 

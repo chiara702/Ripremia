@@ -65,7 +65,9 @@ namespace EcoServiceApp {
         }
 
         private void BtnEccezzioni_Tapped(object sender, EventArgs e) {
-
+            if (PickerComune.SelectedItem == null) return;
+            var IdComune = Comuni.FirstOrDefault(x => x.Value == PickerComune.SelectedItem.ToString()).Key;
+            Navigation.PushAsync(new PageCalendarioEccezzioni(IdComune));
         }
     }
 }

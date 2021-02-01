@@ -113,5 +113,9 @@ namespace EcoServiceApp.GestioneCalendario {
         private void Button_Clicked(object sender, EventArgs e) {
             SalvaSuDb();
         }
+
+        private void BtnCome_Clicked(object sender, EventArgs e) {
+            DisplayAlert("Come funziona?", "Seleziona per ogni giorno della settimana il tipo di rifiuto che verrà ritirato.\nVerrà generato un calendario automatico con quelle tipologie di rifiuti.\nE' possibile lasciare vuoto il campo Rifiuti tipo 2, o entrambi i campi nel caso in cui non venga effettuato nessun ritiro.\nNella sezione Crea eccezzioni, sarà possibile gestire le eccezioni per data.", "OK");
+        }
     }
 }

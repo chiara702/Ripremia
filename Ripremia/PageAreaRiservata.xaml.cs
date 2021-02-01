@@ -52,5 +52,9 @@ namespace EcoServiceApp {
             BtnIndietro_Clicked(null, null);
             return true;
         }
+
+        private void BtnRitiri_Clicked(object sender, EventArgs e) {
+            Application.Current.MainPage = new PageGestioneRitiri();
+        }
     }
 }

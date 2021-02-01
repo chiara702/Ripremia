@@ -528,6 +528,12 @@
   <ItemGroup>
     <BundleResource Include="Resources\DeleteX.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Come.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sacchetto.png" />
+  </ItemGroup>
   <ProjectExtensions>
     <VisualStudio>
       <UserProperties TriggeredFromHotReload="False" />

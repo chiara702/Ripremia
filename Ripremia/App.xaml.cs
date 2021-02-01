@@ -17,7 +17,7 @@ namespace EcoServiceApp {
             
             Device.SetFlags(new string[] { "Expander_Experimental" });
 
-            MainPage = new MainPage();
+            //MainPage = new MainPage();
             //MainPage = new Pagemap();
             //return;
 

@@ -39,6 +39,10 @@
                 <Setter Property="TextColor" Value="Gray" />
                 <Setter Property="FontSize" Value="Small" />
             </Style>
+            <Style TargetType="Label" x:Key="LabRegRed">
+                <Setter Property="TextColor" Value="DarkRed" />
+                <Setter Property="FontSize" Value="Small" />
+            </Style>
             <Style TargetType="Label" x:Key="LabNumeri">
                 <Setter Property="TextColor" Value="Gray" />
                 <Setter Property="FontSize" Value="18" />

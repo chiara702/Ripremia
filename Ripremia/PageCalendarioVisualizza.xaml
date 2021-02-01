@@ -89,8 +89,8 @@
                                                 <Label  Grid.Column="1" Text="{Binding GiornoSettimana}" Style="{StaticResource UserFontGreen}"  TextColor="#636159" VerticalOptions="Center" HorizontalOptions="Start" HorizontalTextAlignment="Start" FontSize="16" />
                                                 <BoxView Color="{Binding Colore1}" Opacity="1" Grid.Column="2" Margin="0"  />
                                                 <BoxView Color="{Binding Colore2}" Opacity="1" Grid.Column="3" Margin="0" />
-                                                <Label  Grid.Column="2" Grid.ColumnSpan="{Binding ColSpan}" Text="{Binding Rifiuto1}" Style="{StaticResource UserFontGreen}" HorizontalOptions="Center" TextColor="White" VerticalOptions="Center" FontSize="16" />
-                                                <Label  Grid.Column="3" Text="{Binding Rifiuto2}" Style="{StaticResource UserFontGreen}"  TextColor="White" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Start" FontSize="16" />
+                                                <Label  Grid.Column="2" Grid.ColumnSpan="{Binding ColSpan}" Text="{Binding Rifiuto1}" Style="{StaticResource UserFontGreen}" HorizontalOptions="Center" TextColor="Black" VerticalOptions="Center" FontSize="16" />
+                                                <Label  Grid.Column="3" Text="{Binding Rifiuto2}" Style="{StaticResource UserFontGreen}"  TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Start" FontSize="16" />
                                                 
                                             </Grid>
                                         </StackLayout>
@@ -98,8 +98,25 @@
                                 </BindableLayout.ItemTemplate>
                             </StackLayout>
                         </Grid>
-                        <Label  Text="Note sulle modalità di conferimento: nessuna." Style="{StaticResource UserFontGreen}" TextColor="#636159" VerticalOptions="Center" FontSize="16" Margin="10,5,10,20" />
-
+                        <Label  Text="Modalità di conferimento" Style="{StaticResource UserFontGreen}" TextColor="#636159" VerticalOptions="Center" FontSize="16" Margin="10,5,10,10" />
+                        
+                        <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
+                                <Frame CornerRadius="0"  Margin="5,5,5,10" Padding="0" HasShadow="True" WidthRequest="100" HeightRequest="100" BackgroundColor="Brown"  HorizontalOptions="CenterAndExpand">
+                                    <Frame.HasShadow>
+                                        <OnPlatform x:TypeArguments="x:Boolean">
+                                            <On Platform="iOS" Value="false" />
+                                            <On Platform="Android" Value="true" />
+                                        </OnPlatform>
+                                    </Frame.HasShadow>
+                                    <StackLayout  Orientation="Vertical" VerticalOptions="CenterAndExpand" Spacing="0" Padding="0" Margin="5,0,5,0"  >
+                                            <Label HorizontalOptions="CenterAndExpand" VerticalOptions="Center" TextColor="Black" HorizontalTextAlignment="Center" FontSize = "16"  Margin="0,3,0,0" LineBreakMode="NoWrap" Text="Organico" FontAttributes="Bold"/>
+                                            <Image HorizontalOptions="Center" VerticalOptions="End" Source="Sacchetto" WidthRequest="30" Margin="0,0,0,2" />
+                                        <StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer />
+                                        </StackLayout.GestureRecognizers>
+                                    </StackLayout>
+                                </Frame>
+                        </StackLayout>
                     </StackLayout>
 
                 </ScrollView>

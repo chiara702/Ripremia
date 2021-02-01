@@ -7,7 +7,6 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
-                <!--<RowDefinition Height="1" />-->
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="60" />
             </Grid.RowDefinitions>
@@ -41,30 +40,30 @@
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
 
-                        <!--<Label Text="Giorno" Grid.Column="0" Grid.Row="0" VerticalOptions="Center" />-->
-                        <Label Text="Tipo rifiuto 1" Grid.Column="1" Grid.Row="0" VerticalOptions="Center" HorizontalOptions="Center" />
-                        <Label Text="Tipo rifiuto 2" Grid.Column="3" Grid.Row="0" VerticalOptions="Center" HorizontalOptions="Center" />
+                        <ImageButton x:Name="BtnCome" Grid.Column="0" Grid.Row="0" HorizontalOptions="Start" Source="Come" HeightRequest="30" BackgroundColor="Transparent" Margin="0,15,0,10" Clicked="BtnCome_Clicked" />
+                        <Label Text="Tipo rifiuto 1" Grid.Column="1" Grid.Row="0" VerticalOptions="Center" Style="{StaticResource LabRegRed}" HorizontalOptions="Center" />
+                        <Label Text="Tipo rifiuto 2" Grid.Column="3" Grid.Row="0" VerticalOptions="Center" Style="{StaticResource LabRegRed}" HorizontalOptions="Center" />
 
-                        <Label Text="LUN" Grid.Column="0" Grid.Row="1" VerticalOptions="Center"/>
+                    <Label Text="LUN" Grid.Column="0" Grid.Row="1" VerticalOptions="Center" Style="{StaticResource LabRegRed}" />
                         <Picker x:Name="RifiutoLun1" Grid.Column="1" Grid.Row="1" VerticalOptions="Center" BackgroundColor="White" />
                         <Picker x:Name="RifiutoLun2" Grid.Column="3" Grid.Row="1" VerticalOptions="Center" BackgroundColor="White" />
-                        
-                         <Label Text="MAR" Grid.Column="0" Grid.Row="2" VerticalOptions="Center" />
+
+                    <Label Text="MAR" Grid.Column="0" Grid.Row="2" VerticalOptions="Center" Style="{StaticResource LabRegRed}" />
                         <Picker x:Name="RifiutoMar1" Grid.Column="1" Grid.Row="2"  VerticalOptions="Center" BackgroundColor="White" />
                         <Picker x:Name="RifiutoMar2" Grid.Column="3" Grid.Row="2" VerticalOptions="Center" BackgroundColor="White" />
-                        <Label Text="MER" Grid.Column="0" Grid.Row="3" VerticalOptions="Center"/>
+                    <Label Text="MER" Grid.Column="0" Grid.Row="3" VerticalOptions="Center" Style="{StaticResource LabRegRed}"/>
                         <Picker x:Name="RifiutoMer1" Grid.Column="1" Grid.Row="3" VerticalOptions="Center" BackgroundColor="White" />
                         <Picker x:Name="RifiutoMer2" Grid.Column="3" Grid.Row="3" VerticalOptions="Center" BackgroundColor="White" />
-                        <Label Text="GIO" Grid.Column="0" Grid.Row="4" VerticalOptions="Center" />
+                    <Label Text="GIO" Grid.Column="0" Grid.Row="4" VerticalOptions="Center" Style="{StaticResource LabRegRed}" />
                         <Picker x:Name="RifiutoGio1" Grid.Column="1" Grid.Row="4"  VerticalOptions="Center" BackgroundColor="White" />
                         <Picker x:Name="RifiutoGio2" Grid.Column="3" Grid.Row="4" VerticalOptions="Center" BackgroundColor="White" />
-                        <Label Text="VEN" Grid.Column="0" Grid.Row="5" VerticalOptions="Center"/>
+                    <Label Text="VEN" Grid.Column="0" Grid.Row="5" VerticalOptions="Center" Style="{StaticResource LabRegRed}"/>
                         <Picker x:Name="RifiutoVen1" Grid.Column="1" Grid.Row="5" VerticalOptions="Center" BackgroundColor="White" />
                         <Picker x:Name="RifiutoVen2" Grid.Column="3" Grid.Row="5" VerticalOptions="Center" BackgroundColor="White" />
-                        <Label Text="SAB" Grid.Column="0" Grid.Row="6" VerticalOptions="Center"/>
+                    <Label Text="SAB" Grid.Column="0" Grid.Row="6" VerticalOptions="Center" Style="{StaticResource LabRegRed}"/>
                         <Picker x:Name="RifiutoSab1" Grid.Column="1" Grid.Row="6" VerticalOptions="Center" BackgroundColor="White" />
                         <Picker x:Name="RifiutoSab2" Grid.Column="3" Grid.Row="6" VerticalOptions="Center" BackgroundColor="White" />
-                        <Label Text="DOM" Grid.Column="0" Grid.Row="7" VerticalOptions="Center" />
+                    <Label Text="DOM" Grid.Column="0" Grid.Row="7" VerticalOptions="Center" Style="{StaticResource LabRegRed}"/>
                         <Picker x:Name="RifiutoDom1" Grid.Column="1" Grid.Row="7"  VerticalOptions="Center" BackgroundColor="White" />
                         <Picker x:Name="RifiutoDom2" Grid.Column="3" Grid.Row="7" VerticalOptions="Center" BackgroundColor="White" />
                         
@@ -72,10 +71,11 @@
                 <!--</StackLayout>-->
 
             </ScrollView>
-            <Label Text="Seleziona per ogni giorno della settimana il tipo di rifiuto che verrà ritirato. Verrà generato un calendario automatico con quelle tipologie di rifiuti. E' possibile lasciare vuoto il campo Rifiuti tipo 2, o entrambi i campi nel caso in cui non venga effettuato nessun ritiro. Nella sezione Crea eccezzioni, sarà possibile gestire le eccezioni per data."  Grid.Row="2" VerticalOptions="Center" Margin="20,5,20,5"/>
-
+            <!--<StackLayout Grid.Row="2" Spacing="0">
+                    <Label Margin="20,10,20,10" Style="{StaticResource LabRegRed}" Text="Seleziona per ogni giorno della settimana il tipo di rifiuto che verrà ritirato. Verrà generato un calendario automatico con quelle tipologie di rifiuti. "  VerticalOptions="Center" />
+                    <Label Grid.Row="2" Margin="20,10,20,10" Style="{StaticResource LabRegRed}" Text="E' possibile lasciare vuoto il campo Rifiuti tipo 2, o entrambi i campi nel caso in cui non venga effettuato nessun ritiro. Nella sezione Crea eccezzioni, sarà possibile gestire le eccezioni per data. "  VerticalOptions="Center" />
+            </StackLayout>-->
             <Button Grid.Row="3" Text="SALVA"  BackgroundColor="DarkRed" TextColor="White" FontSize="22" Clicked="Button_Clicked"/>
-
         </Grid>
 
     </ContentPage.Content>
