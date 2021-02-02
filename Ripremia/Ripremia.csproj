@@ -12,6 +12,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="PageGestioneAbbandoni.xaml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="PageGestioneAbbandoni.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Xam.Plugin.Media" Version="5.0.1" />
     <PackageReference Include="Xamarin.CommunityToolkit" Version="1.0.1" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.1874" />
@@ -22,6 +30,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Admin\PageGestioneAbbandoni.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="GestioneCalendario\PageCalendarioEccezzioni.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

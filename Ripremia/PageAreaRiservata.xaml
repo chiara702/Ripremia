@@ -43,12 +43,12 @@
                         <ImageButton x:Name="BtnDeleteNotifiche"  Grid.Row="0"  Grid.Column="1" Source="ARNotificaX" VerticalOptions="Center"  WidthRequest="170" BackgroundColor="Transparent" Clicked="BtnDeleteNotifiche_Clicked_1" />
                         <BoxView Grid.Row="0"  Grid.Column="1" IsVisible="false"  BackgroundColor="LightGray" Opacity="0.7"  WidthRequest="170" />
 
-                        <ImageButton x:Name="BtnAbbandoni" Grid.Row="1"  Grid.Column="0" Source="ARAbbandoni" VerticalOptions="Center"  WidthRequest="170" BackgroundColor="Transparent" />
+                        <ImageButton x:Name="BtnAbbandoni" Grid.Row="1"  Grid.Column="0" Source="ARAbbandoni" VerticalOptions="Center"  WidthRequest="170" BackgroundColor="Transparent" Clicked="BtnAbbandoni_Clicked" />
                         <BoxView Grid.Row="1"  Grid.Column="0" IsVisible="false" BackgroundColor="LightGray" Opacity="0.7"  WidthRequest="170" />
 
 
                         <ImageButton x:Name="BtnRitiri" Grid.Row="1"  Grid.Column="1"  Source="ARRitiri" VerticalOptions="Center"  WidthRequest="170" BackgroundColor="Transparent"  Clicked="BtnRitiri_Clicked"/>
-                        <BoxView Grid.Row="1"  Grid.Column="1" IsVisible="false" BackgroundColor="LightGray" Opacity="0.7"  WidthRequest="170" />
+                        <BoxView Grid.Row="1"  Grid.Column="1" IsVisible="true" BackgroundColor="LightGray" Opacity="0.7"  WidthRequest="170" />
 
                         <ImageButton x:Name="BtnCalendario" Grid.Row="2"  Grid.Column="0" Source="ARCalendario" VerticalOptions="Center"  WidthRequest="170" BackgroundColor="Transparent" Clicked="BtnCalendario_Clicked" />
                         <BoxView Grid.Row="2"  Grid.Column="0" IsVisible="false" BackgroundColor="LightGray" Opacity="0.7"  WidthRequest="170" />

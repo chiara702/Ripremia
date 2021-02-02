@@ -56,5 +56,9 @@ namespace EcoServiceApp {
         private void BtnRitiri_Clicked(object sender, EventArgs e) {
             Application.Current.MainPage = new PageGestioneRitiri();
         }
+
+        private void BtnAbbandoni_Clicked(object sender, EventArgs e) {
+            Application.Current.MainPage = new Admin.PageGestioneAbbandoni();
+        }
     }
 }

@@ -71,10 +71,7 @@
                 <!--</StackLayout>-->
 
             </ScrollView>
-            <!--<StackLayout Grid.Row="2" Spacing="0">
-                    <Label Margin="20,10,20,10" Style="{StaticResource LabRegRed}" Text="Seleziona per ogni giorno della settimana il tipo di rifiuto che verrà ritirato. Verrà generato un calendario automatico con quelle tipologie di rifiuti. "  VerticalOptions="Center" />
-                    <Label Grid.Row="2" Margin="20,10,20,10" Style="{StaticResource LabRegRed}" Text="E' possibile lasciare vuoto il campo Rifiuti tipo 2, o entrambi i campi nel caso in cui non venga effettuato nessun ritiro. Nella sezione Crea eccezzioni, sarà possibile gestire le eccezioni per data. "  VerticalOptions="Center" />
-            </StackLayout>-->
+           
             <Button Grid.Row="3" Text="SALVA"  BackgroundColor="DarkRed" TextColor="White" FontSize="22" Clicked="Button_Clicked"/>
         </Grid>
 
