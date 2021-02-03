@@ -15,21 +15,11 @@ namespace EcoServiceApp {
         public PageMappaNew() {
             InitializeComponent();
             MenuTop.MenuLaterale = MenuLaterale;
-
-
         }
         protected async override void OnAppearing() {
             base.OnAppearing();
             try {
-
                 CaricaPin();
-                /*var a = awai
-                 * t Xamarin.Essentials.Geolocation.GetLastKnownLocationAsync();
-                if (a != null) { 
-                    var p = new Position(a.Latitude, a.Longitude);
-                    var span = new MapSpan(p, 1, 1);
-                    map1.MoveToRegion(span);
-                }*/
                 if (map1.Pins.Count > 0) {
                     var p = new Position(map1.Pins[0].Position.Latitude, map1.Pins[0].Position.Longitude);
                     var span = new MapSpan(p, 0.05, 0.05);

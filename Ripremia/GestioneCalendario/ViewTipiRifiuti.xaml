@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<StackLayout xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EcoServiceApp.ViewTipiRifiuti">
+
+        
+        <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
+            <Frame x:Name="FrameColor" CornerRadius="0"  Margin="5,5,5,10" Padding="0" HasShadow="True" WidthRequest="100" HeightRequest="100" BackgroundColor="Brown"  HorizontalOptions="CenterAndExpand">
+                <Frame.HasShadow>
+                    <OnPlatform x:TypeArguments="x:Boolean">
+                        <On Platform="iOS" Value="false" />
+                        <On Platform="Android" Value="true" />
+                    </OnPlatform>
+                </Frame.HasShadow>
+                <StackLayout  Orientation="Vertical" VerticalOptions="CenterAndExpand" Spacing="0" Padding="0" Margin="5,0,5,0"  >
+                    <Label x:Name="LblDenominazione" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" TextColor="Black" HorizontalTextAlignment="Center" FontSize = "16"  Margin="0,3,0,0" LineBreakMode="NoWrap" Text="Organico" FontAttributes="Bold"/>
+                    <Image HorizontalOptions="Center" VerticalOptions="End" Source="Sacchetto" WidthRequest="30" Margin="0,0,0,2" />
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="RifiutoDettagli" Tapped="RifiutoDettagli_Tapped" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+
+
+</StackLayout>

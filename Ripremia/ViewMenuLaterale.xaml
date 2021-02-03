@@ -54,11 +54,18 @@
                     <TapGestureRecognizer x:Name="TapLogout" Tapped="TapLogout_Tapped" />
                 </StackLayout.GestureRecognizers>
             </StackLayout>
-        <StackLayout Spacing="15" Orientation="Horizontal" Margin="20,0,0,0">
-            <Image Source="AreaRiservata" HeightRequest="30"  WidthRequest="30" />
-            <Label Text="Area riservata"  Style="{StaticResource LblSideMenu}" />
+        <StackLayout x:Name="StkAreaRiservata" IsVisible="false" Spacing="15" Orientation="Horizontal" Margin="20,0,0,0">
+            <Image Source="AreaRiservata_1" HeightRequest="30"  WidthRequest="30" />
+            <Label Text="Area riservata"  Style="{StaticResource LblSideMenu}" TextColor="DarkRed" />
             <StackLayout.GestureRecognizers>
                 <TapGestureRecognizer x:Name="TapAreaRiservata" Tapped="TapAreaRiservata_Tapped" />
+            </StackLayout.GestureRecognizers>
+        </StackLayout>
+        <StackLayout x:Name="StkAreaCommercianti" IsVisible="false" Spacing="15" Orientation="Horizontal" Margin="20,0,0,0">
+            <Image Source="AreaCommercianti" HeightRequest="30"  WidthRequest="30" />
+            <Label Text="Area commercianti"  Style="{StaticResource LblSideMenu}" TextColor="#eb6509" />
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer x:Name="TapAreaCommercianti" Tapped="TapAreaCommercianti_Tapped" />
             </StackLayout.GestureRecognizers>
         </StackLayout>
         <StackLayout VerticalOptions="Center" HorizontalOptions="FillAndExpand" >

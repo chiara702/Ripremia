@@ -534,6 +534,15 @@
   <ItemGroup>
     <BundleResource Include="Resources\Sacchetto.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ARCentroRiuso.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\AreaCommercianti.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\AreaRiservata_1.png" />
+  </ItemGroup>
   <ProjectExtensions>
     <VisualStudio>
       <UserProperties TriggeredFromHotReload="False" />

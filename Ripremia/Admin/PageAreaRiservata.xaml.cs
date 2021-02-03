@@ -12,11 +12,22 @@ namespace EcoServiceApp {
     public partial class PageAreaRiservata : ContentPage {
         public PageAreaRiservata() {
             InitializeComponent();
-            //Inizializza visualizzazione button
-            if (((Boolean)App.DataRowComune["ServizioRitiro"]) == false) BtnRitiri.IsVisible = false;
-            //if (((Boolean)App.DataRowComune["ServizioCentroRiuso"]) == false) BtnRitiri.IsVisible = false;
-            if (((Boolean)App.DataRowComune["ServizioAbbandono"]) == false) BtnAbbandoni.IsVisible = false;
+            //Inizializza button da rowutente
+            
+            
+            
+            if (((Boolean)App.DataRowUtente["PermessoNotifiche"]) == false) {
+                BtnAddNotifiche.IsEnabled = false;
+                BtnDeleteNotifiche.IsEnabled = false;
+            }
 
+            if (((Boolean)App.DataRowUtente["PermessoRitiri"]) == false) BtnRitiri.IsEnabled = false;
+       
+            if (((Boolean)App.DataRowUtente["PermessoAbbandoni"]) == false) BtnAbbandoni.IsEnabled = false;
+            
+            if (((Boolean)App.DataRowUtente["PermessoCalendario"]) == false) BtnCalendario.IsEnabled = false;
+
+            if (((Boolean)App.DataRowUtente["PermessoCentroRiuso"]) == false) { BtnCentroRiuso.IsEnabled = false;}
 
         }
 

@@ -20,6 +20,9 @@ namespace EcoServiceApp {
             if (System.IO.File.Exists(PathLogo) == true) {
                 ImgLogo.Source = ImageSource.FromFile(PathLogo);
             }
+
+            if ((int)App.DataRowUtente["AdminComuneId"] > 0 || Funzioni.Antinull(App.DataRowUtente["AdminSuperuserCode"]) != "") StkAreaRiservata.IsVisible = true;
+            if ((Boolean)App.DataRowUtente["AdminCommerciante"] == true) StkAreaCommercianti.IsVisible = true;
         }
 
  
@@ -62,6 +65,10 @@ namespace EcoServiceApp {
         private void TapAreaRiservata_Tapped(object sender, EventArgs e) {
             Application.Current.MainPage = new PageAreaRiservata();
 
+        }
+
+        private void TapAreaCommercianti_Tapped(object sender, EventArgs e) {
+            Application.Current.MainPage = new PageAreaCommercianti();
         }
     }
 }

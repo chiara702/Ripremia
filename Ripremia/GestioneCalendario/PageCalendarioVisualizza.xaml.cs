@@ -45,8 +45,23 @@ namespace EcoServiceApp {
             Rifiuti = Parchetto.EseguiQuery("Select * From CalendarioRifiuti Where ComuneId=" + App.DataRowComune["Id"].ToString());
             RifiutiEccezioni = Parchetto.EseguiQuery("Select * From CalendarioRifiutiEccezzioni Where ComuneId=" + App.DataRowComune["Id"].ToString());
 
+            //Carico Tipi rifiuti dettagli
+            foreach (DataRow x in RifiutiTipo.Rows) {
+                var tmp = new ViewTipiRifiuti();
+                tmp.Denominazione = x["Denominazione"].ToString();
+                var rigo = x;
+                tmp.Click += (s, e)=> {
+                    StackInfo.IsVisible = true;
+                    LblComeConferire.Text = Funzioni.Antinull(rigo["ComeConferire"]);
+                };
+                StkRifiuti.Children.Add(tmp);
+            }
+
+            
 
         }
+
+       
 
         private String ColoreToHex(String Testo) {
             switch (Testo) {

@@ -21,9 +21,11 @@ namespace EcoServiceApp {
         }
         private void CaricaComuni() {
             Comuni = ElencoComuni(App.DataRowUtente["AdminSuperUserCode"].ToString());
-            foreach (var x in Comuni) {
-                PickerComune.Items.Add(x.Value);
-            }
+            Device.BeginInvokeOnMainThread(() => { 
+                foreach (var x in Comuni) {
+                    PickerComune.Items.Add(x.Value);
+                }
+            });
         }
         private Dictionary<int, String> ElencoComuni(String SuperUser) {
             var rit = new Dictionary<int, String>();

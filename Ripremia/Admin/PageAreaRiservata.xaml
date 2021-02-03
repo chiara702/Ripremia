@@ -5,9 +5,6 @@
     <ContentPage.Content>
         <Grid BackgroundColor="LightGray">
 
-            <!-- menù grid -->
-            <!--
-            <ecoserviceapp:ViewMenuTop x:Name="MenuTop" ></ecoserviceapp:ViewMenuTop>-->
             <Grid.RowDefinitions >
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
@@ -38,21 +35,24 @@
 
 
                         <ImageButton x:Name="BtnAddNotifiche" Grid.Row="0"  Grid.Column="0" Source="ARNotifica" VerticalOptions="Center"  WidthRequest="170" BackgroundColor="Transparent" Clicked="BtnAddNotifiche_Clicked" />
-                        <BoxView Grid.Row="0"  Grid.Column="0" IsVisible="false" BackgroundColor="LightGray" Opacity="0.7"  WidthRequest="170" />
+                        <BoxView Grid.Row="0"  Grid.Column="0" x:Name="BoxAddNotifiche" IsVisible="false" BackgroundColor="LightGray" Opacity="0.7"  WidthRequest="170" />
 
                         <ImageButton x:Name="BtnDeleteNotifiche"  Grid.Row="0"  Grid.Column="1" Source="ARNotificaX" VerticalOptions="Center"  WidthRequest="170" BackgroundColor="Transparent" Clicked="BtnDeleteNotifiche_Clicked_1" />
-                        <BoxView Grid.Row="0"  Grid.Column="1" IsVisible="false"  BackgroundColor="LightGray" Opacity="0.7"  WidthRequest="170" />
+                        <BoxView Grid.Row="0"  Grid.Column="1" x:Name="BoxDeleteNotifiche" IsVisible="false"  BackgroundColor="LightGray" Opacity="0.7"  WidthRequest="170" />
 
                         <ImageButton x:Name="BtnAbbandoni" Grid.Row="1"  Grid.Column="0" Source="ARAbbandoni" VerticalOptions="Center"  WidthRequest="170" BackgroundColor="Transparent" Clicked="BtnAbbandoni_Clicked" />
-                        <BoxView Grid.Row="1"  Grid.Column="0" IsVisible="false" BackgroundColor="LightGray" Opacity="0.7"  WidthRequest="170" />
+                        <BoxView Grid.Row="1"  Grid.Column="0" x:Name="BoxAbbandoni" IsVisible="false" BackgroundColor="LightGray" Opacity="0.7"  WidthRequest="170" />
 
 
                         <ImageButton x:Name="BtnRitiri" Grid.Row="1"  Grid.Column="1"  Source="ARRitiri" VerticalOptions="Center"  WidthRequest="170" BackgroundColor="Transparent"  Clicked="BtnRitiri_Clicked"/>
-                        <BoxView Grid.Row="1"  Grid.Column="1" IsVisible="true" BackgroundColor="LightGray" Opacity="0.7"  WidthRequest="170" />
+                        <BoxView Grid.Row="1"  Grid.Column="1" x:Name="BoxRitiri" IsVisible="false" BackgroundColor="LightGray" Opacity="0.7"  WidthRequest="170" />
 
                         <ImageButton x:Name="BtnCalendario" Grid.Row="2"  Grid.Column="0" Source="ARCalendario" VerticalOptions="Center"  WidthRequest="170" BackgroundColor="Transparent" Clicked="BtnCalendario_Clicked" />
-                        <BoxView Grid.Row="2"  Grid.Column="0" IsVisible="false" BackgroundColor="LightGray" Opacity="0.7"  WidthRequest="170" />
+                        <BoxView Grid.Row="2"  Grid.Column="0" x:Name="BoxCalendario" IsVisible="false" BackgroundColor="LightGray" Opacity="0.7"  WidthRequest="170" />
 
+                        <ImageButton x:Name="BtnCentroRiuso" Grid.Row="2"  Grid.Column="1" Source="ARCentroRiuso" VerticalOptions="Center"  WidthRequest="170" BackgroundColor="Transparent"  />
+                        <BoxView Grid.Row="2"  Grid.Column="1" x:Name="BoxCentroRiuso" IsVisible="false" BackgroundColor="LightGray" Opacity="0.7"  WidthRequest="170" />
+                        
                         <Button  Grid.Row="3"  Grid.Column="0" Grid.ColumnSpan="2" x:Name="BtnBack"  Text="ESCI DALL'AREA RISERVATA" FontFamily="SanzFont" Margin="10,20,10,20" HorizontalOptions="Center" Style="{StaticResource BtnDark}"  BackgroundColor="DarkRed" WidthRequest="310" Clicked="BtnBack_Clicked" />
                         <!--<BoxView Grid.Row="2"  Grid.Column="1"  BackgroundColor="Pink" Opacity="0.7"  WidthRequest="170" />-->
 
