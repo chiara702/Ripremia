@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -28,7 +28,7 @@ namespace EcoServiceApp {
             TxtCodFiscale.Text = Funzioni.Antinull(TxtCodFiscale.Text).Trim();
             TxtEmail.Text = Funzioni.Antinull(TxtEmail.Text).Trim();
             TxtPassword.Text = Funzioni.Antinull(TxtPassword.Text).Trim();
-           
+
             var FunzDb = new ClassApiParco();
             var IdComune = Xamarin.Essentials.Preferences.Get("IdComune", 0);
 
@@ -93,7 +93,7 @@ namespace EcoServiceApp {
             }
             if (Err1 == true) return;
 
-            String QrcodeMonetaVirtuale="";
+            String QrcodeMonetaVirtuale = "";
 
             if (Funzioni.Antinull(txtCodFamiglia.Text) == "") {
                 //Generazione Codice Famiglia
@@ -102,15 +102,19 @@ namespace EcoServiceApp {
                     if (Parchetto.EseguiQueryRow("Utente", "CodiceFamiglia='" + CodiceFamiglia + "'") == null) break;
                     CodiceFamiglia = RandomString(8);
                 }
-                txtCodFamiglia.Text=CodiceFamiglia;
+                txtCodFamiglia.Text = CodiceFamiglia;
                 var server = new ClassApiEcoControl();
                 var NomeComune = FunzDb.EseguiCommand("Select Nome From Comune Where Id=" + IdComune).ToString();
-                var RitMV=server.CreaQRCodeMonetaVirtuale(NomeComune, "", 0, TxtCodFiscale.Text);
-                if (RitMV.ErroreString != "") {
-                    DisplayAlert("Errore", "Errore generazione codice. Verificare connettività!", "OK");
-                    return;
+                if (Preferences.Get("QRCODE", "") != "") {
+                    QrcodeMonetaVirtuale = Preferences.Get("QRCODE", "");
+                } else {
+                    var RitMV = server.CreaQRCodeMonetaVirtuale(NomeComune, "", 0, TxtCodFiscale.Text);
+                    if (RitMV.ErroreString != "") {
+                        DisplayAlert("Errore", "Errore generazione codice. Verificare connettività!", "OK");
+                        return;
+                    }
+                    QrcodeMonetaVirtuale = RitMV.QrCode;
                 }
-                QrcodeMonetaVirtuale = RitMV.QrCode;
             } else {
                 if (Parchetto.EseguiQueryRow("Utente", "CodiceFamiglia='" + Funzioni.AntiAp(txtCodFamiglia.Text) + "'") == null) {
                     AlertCodFamiglia.IsVisible = true;
@@ -127,13 +131,13 @@ namespace EcoServiceApp {
 
             if (Err1 == true) return;
 
-            
+
 
 
             var CodConferma = new Random().Next(100000, 999999);//random
 
 
-            
+
             var Par = FunzDb.GetParam();
             Par.AddParameterString("Nome", TxtNome.Text.ToUpper());
             Par.AddParameterString("Cognome", TxtCognome.Text.ToUpper());
@@ -141,7 +145,7 @@ namespace EcoServiceApp {
             Par.AddParameterString("Email", TxtEmail.Text.ToLower());
             Par.AddParameterString("Password", TxtPassword.Text.Trim());
             Par.AddParameterString("CodiceFamiglia", txtCodFamiglia.Text.ToUpper());
-            Par.AddParameterInteger("LetturaPrivacy", CheckPrivacy.IsChecked==true ? 1 : 0);
+            Par.AddParameterInteger("LetturaPrivacy", CheckPrivacy.IsChecked == true ? 1 : 0);
             Par.AddParameterInteger("ConsensoTerzeParti", CheckTrattamento.IsChecked == true ? 1 : 0);
             Par.AddParameterInteger("IdComune", IdComune);
             Par.AddParameterString("CodConferma", CodConferma.ToString()); //random
@@ -152,14 +156,14 @@ namespace EcoServiceApp {
                 DisplayAlert("Errore", "Errore durante la registrazione!", "OK");
                 return;
             }
-            DisplayAlert("Registrazione effettuata con successo!","Ultimo passo!\nOra non ti resta che effettuare il primo accesso ed inserire il numero di conferma che ti abbiamo mandato all'indirizzo e-mail!", "Ok");
-            
+            DisplayAlert("Registrazione effettuata con successo!", "Ultimo passo!\nOra non ti resta che effettuare il primo accesso ed inserire il numero di conferma che ti abbiamo mandato all'indirizzo e-mail!", "Ok");
+
             Funzioni.SendEmail(TxtEmail.Text, "ripremianoreply@gmail.com", "Conferma la tua e-mail per accedere ai servizi", "Benvenuto, come ultimo passo non ti resta che inserire il seguente numero all'interno dell'EcoService APP per confermare la tua email.\n " + CodConferma);
 
             var Page = new PageLogin();
             Page.SetEmailAndPassword(TxtEmail.Text, TxtPassword.Text);
             Application.Current.MainPage = Page;
-            
+
 
 
         }

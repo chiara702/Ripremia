@@ -55,6 +55,11 @@ namespace EcoServiceApp {
 
         private void BtnVisualizzaPrenotazioni_Tapped(object sender, EventArgs e)
         {
+            if (((Boolean)App.DataRowComune["ServizioRitiro"]) == false) {
+                DisplayAlert("Servizio non disponibile", "Ci scusiamo, ma per il suo comune questo servizio non è attivo.", "OK");
+                return;
+            } 
+            
             Application.Current.MainPage = new PagePrenotazioni();
         }
     }

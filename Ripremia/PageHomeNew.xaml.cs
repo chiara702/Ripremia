@@ -40,26 +40,26 @@ namespace EcoServiceApp {
             Statistiche = new List<Statistica>();
 
             Statistiche.Add(new Statistica {
-                Image = "acqua",
-                Dati = UtenteDatiMemoria.TotaliLitriErogati.ToString(),
-            Dettagli = "litri di acqua potabile erogata",
+                Image = "oil",
+                Dati = UtenteDatiMemoria.UtenteOilRaccolto.ToString(),
+            Dettagli = "litri di olio raccolto",
             });
 
             Statistiche.Add(new Statistica {
                 Image = "plastica",
-                Dati = UtenteDatiMemoria.TotaliPetRaccolto.ToString(),
-                Dettagli = "bottiglie di plastica raccolte!",
+                Dati = UtenteDatiMemoria.UtentePetRaccolto.ToString(),
+                Dettagli = "bottiglie di plastica raccolte",
             });
 
             Statistiche.Add(new Statistica {
                 Image = "co2",
-                Dati = UtenteDatiMemoria.TotaliCO2Risparmiato.ToString(),
+                Dati = UtenteDatiMemoria.UtenteKgCO2Risparmiato.ToString(),
                 Dettagli = "KG di CO2 risparmiati",
             });
 
             Statistiche.Add(new Statistica {
                 Image = "petrolio",
-                Dati = UtenteDatiMemoria.TotaliPetrolioRisparmiato.ToString(),
+                Dati = UtenteDatiMemoria.UtenteBariliPetrolioRisparmiato.ToString(),
                 Dettagli = "barili di petrolio risparmiati",
             });
             

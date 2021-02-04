@@ -5,7 +5,7 @@
 
         
         <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
-            <Frame x:Name="FrameColor" CornerRadius="0"  Margin="5,5,5,10" Padding="0" HasShadow="True" WidthRequest="100" HeightRequest="100" BackgroundColor="Brown"  HorizontalOptions="CenterAndExpand">
+            <Frame x:Name="FrameColor" CornerRadius="0"  Margin="5,5,5,10" Padding="0" HasShadow="True" WidthRequest="80" HeightRequest="80" BackgroundColor="White" BorderColor="Black" HorizontalOptions="CenterAndExpand">
                 <Frame.HasShadow>
                     <OnPlatform x:TypeArguments="x:Boolean">
                         <On Platform="iOS" Value="false" />

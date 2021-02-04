@@ -72,7 +72,7 @@
                                 <!--<ListView  >-->
                                 <BindableLayout.ItemTemplate>
                                     <DataTemplate>
-                                        <StackLayout >
+                                        <StackLayout Opacity="{Binding Opacity}" >
                                             <Grid ColumnSpacing="0" RowSpacing="0" >
                                                 <Grid.ColumnDefinitions >
                                                     <ColumnDefinition Width="*" />
@@ -89,24 +89,34 @@
                                                 <Label  Grid.Column="1" Text="{Binding GiornoSettimana}" Style="{StaticResource UserFontGreen}"  TextColor="#636159" VerticalOptions="Center" HorizontalOptions="Start" HorizontalTextAlignment="Start" FontSize="16" />
                                                 <BoxView Color="{Binding Colore1}" Opacity="1" Grid.Column="2" Margin="0"  />
                                                 <BoxView Color="{Binding Colore2}" Opacity="1" Grid.Column="3" Margin="0" />
-                                                <Label  Grid.Column="2" Grid.ColumnSpan="{Binding ColSpan}" Text="{Binding Rifiuto1}" Style="{StaticResource UserFontGreen}" HorizontalOptions="Center" TextColor="Black" VerticalOptions="Center" FontSize="16" />
-                                                <Label  Grid.Column="3" Text="{Binding Rifiuto2}" Style="{StaticResource UserFontGreen}"  TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Start" FontSize="16" />
+                                                <Label  Grid.Column="2" Grid.ColumnSpan="{Binding ColSpan}" Text="{Binding Rifiuto1}" Style="{StaticResource UserFontGreen}" HorizontalOptions="Center" TextColor="Black" VerticalOptions="Center" HorizontalTextAlignment="Center" FontSize="16" />
+                                                <Label  Grid.Column="3" Text="{Binding Rifiuto2}" Style="{StaticResource UserFontGreen}"  TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center" FontSize="16" />
                                                 
                                             </Grid>
                                         </StackLayout>
                                     </DataTemplate>
                                 </BindableLayout.ItemTemplate>
                             </StackLayout>
+                           
                         </Grid>
-                        <Label  Text="Modalità di conferimento" Style="{StaticResource UserFontGreen}" TextColor="#636159" VerticalOptions="Center" FontSize="16" Margin="10,5,10,10" />
-                        <ScrollView>
-                            <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" x:Name="StkRifiuti">
-                                
+                        <Label  Text="Clicca sui pulsanti sottostanti per conoscere i dettagli sulle modalità di conferimento"  FontAttributes="Bold" FontFamily="" Style="{StaticResource UserFontGreen}" HorizontalOptions="Center" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="18" Margin="10,5,10,10" />
+                        <StackLayout x:Name="StackInfo" IsVisible="false" BackgroundColor="White" Opacity="0.8"  Margin="15,0,15,10" VerticalOptions="End">
+                            <Label Text="Come Conferire"  Style="{StaticResource  UserFont}" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+                            <Label x:Name="LblComeConferire" FontSize="16" Text=""  Style="{StaticResource  UserFont}" HorizontalTextAlignment="Center" />
+                            <Label Text="Cosa Conferire"  Style="{StaticResource  UserFont}" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+                            <Label x:Name="LblCosaConferire" FontSize="16" Text="" Style="{StaticResource  UserFont}" HorizontalTextAlignment="Center" />
+                            <Label Text="Cosa NON Conferire"  Style="{StaticResource  UserFont}" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+                            <Label x:Name="LblCosaNonConferire" FontSize="16" Text="" Style="{StaticResource  UserFont}" HorizontalTextAlignment="Center" />
+
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer x:Name="BtnNascondiInfo" Tapped="BtnNascondiInfo_Tapped"/>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
+                            <StackLayout x:Name="StkRifiuti" Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" >
                             </StackLayout>
                         </ScrollView>
-                        <StackLayout x:Name="StackInfo">
-                            <Label x:Name="LblComeConferire" Text=""/>
-                        </StackLayout>
+                       
                     </StackLayout>
 
                 </ScrollView>

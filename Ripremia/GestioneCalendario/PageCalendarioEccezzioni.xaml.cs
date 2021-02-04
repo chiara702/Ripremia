@@ -91,6 +91,7 @@ namespace EcoServiceApp.GestioneCalendario {
                 
 
             }
+            Navigation.PopAsync();
         }
     }
 }

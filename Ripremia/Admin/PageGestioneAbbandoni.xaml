@@ -85,7 +85,7 @@
                 </Frame.HasShadow>
                 <Grid Margin="10,5,10,5" RowSpacing="0" VerticalOptions="FillAndExpand">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
+                        <RowDefinition Height="auto" />
                         <RowDefinition Height="*" />
                         <RowDefinition Height="auto" />
                     </Grid.RowDefinitions>

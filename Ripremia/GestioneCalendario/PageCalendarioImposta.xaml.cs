@@ -97,8 +97,8 @@ namespace EcoServiceApp.GestioneCalendario {
             SalvaRigo("sab", Funzioni.Antinull(RifiutoSab1.SelectedItem), Funzioni.Antinull(RifiutoSab2.SelectedItem));
             SalvaRigo("dom", Funzioni.Antinull(RifiutoDom1.SelectedItem), Funzioni.Antinull(RifiutoDom2.SelectedItem));
 
-
             
+
 
         }
 
@@ -112,6 +112,7 @@ namespace EcoServiceApp.GestioneCalendario {
 
         private void Button_Clicked(object sender, EventArgs e) {
             SalvaSuDb();
+            Navigation.PopAsync();
         }
 
         private void BtnCome_Clicked(object sender, EventArgs e) {

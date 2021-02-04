@@ -137,7 +137,11 @@ namespace EcoServiceApp.Admin {
             if (PickerComune.SelectedItem.ToString() != "") {
                 try {
                     CaricaPin(int.Parse(Parchetto.EseguiCommand("Select Id From Comune Where Nome='" + Funzioni.AntiAp(PickerComune.SelectedItem.ToString()) + "'").ToString()));
-                    map1.IsVisible = true;
+                    if (map1.Pins.Count == 0) {
+                        DisplayAlert("INFO", "Non sono presenti segnalazioni!", "OK");
+                    } else {
+                        map1.IsVisible = true;
+                    }
                 } catch (Exception r) {
                     DisplayAlert("Errore", r.Message, "OK");
                 }

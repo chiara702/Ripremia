@@ -20,6 +20,7 @@ namespace EcoServiceApp {
         public Color Colore1 { get; set; }
         public Color Colore2 { get; set; }
         public int ColSpan { get; set; }
+        public double Opacity { get; set; }
 
     }
     public partial class PageCalendarioVisualizza : ContentPage {
@@ -53,6 +54,8 @@ namespace EcoServiceApp {
                 tmp.Click += (s, e)=> {
                     StackInfo.IsVisible = true;
                     LblComeConferire.Text = Funzioni.Antinull(rigo["ComeConferire"]);
+                    LblCosaConferire.Text = Funzioni.Antinull(rigo["CosaConferire"]);
+                    LblCosaNonConferire.Text = Funzioni.Antinull(rigo["CosaNonConferire"]);
                 };
                 StkRifiuti.Children.Add(tmp);
             }
@@ -61,9 +64,11 @@ namespace EcoServiceApp {
 
         }
 
-       
+        private void BtnNascondiInfo_Tapped(object sender, EventArgs e) {
+            StackInfo.IsVisible = false;
+        }
 
-        private String ColoreToHex(String Testo) {
+        public static String ColoreToHex(String Testo) {
             switch (Testo) {
                 case "Azzurro":
                     return "#3091C8";
@@ -133,6 +138,7 @@ namespace EcoServiceApp {
                 }
 
                 if (RowEcc != null) {
+                    n.ColSpan = 1;
                     var RifiutoTipo = RifiutiTipo.Select("Id=" + RowEcc["Rifiuto1"]);
                     if (RifiutoTipo.Length > 0) {
                         n.Colore1 = Color.FromHex(ColoreToHex(RifiutoTipo[0]["Colore"].ToString()));
@@ -145,6 +151,11 @@ namespace EcoServiceApp {
                     }
                     if (n.Rifiuto2 == null) { n.ColSpan = 2; n.Colore2 = n.Colore1; }
 
+                }
+                if (DataTmp < DateTime.Now) {
+                    n.Opacity = 0.6;
+                } else {
+                    n.Opacity = 1;
                 }
 
 
@@ -186,5 +197,7 @@ namespace EcoServiceApp {
         private void BtnEccezzioni_Tapped(object sender, EventArgs e) {
 
         }
+
+      
     }
 }

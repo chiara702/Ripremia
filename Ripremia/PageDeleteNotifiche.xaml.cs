@@ -141,19 +141,27 @@ namespace EcoServiceApp {
             Application.Current.MainPage = new PageAreaRiservata();
         }
 
+        DataTable Table;
         private void PickerComune_SelectedIndexChanged(object sender, EventArgs e) {
             if (PickerComune.SelectedItem == null) return;
             if (PickerComune.SelectedItem.ToString() == "Notifiche Generali") {
                 String Where = "MittenteSuperUser=" + App.DataRowUtente["AdminSuperUserCode"] + " And DestinatarioSuperUser=" + App.DataRowUtente["AdminSuperUserCode"];
-                var Table = Parchetto.EseguiQuery("Select * From Notifiche Where " + Where + " Order By DataInizio desc");
+                Table = Parchetto.EseguiQuery("Select * From Notifiche Where " + Where + " Order By DataInizio desc");
                 RiempiNotifiche(Table);
                 PickerComune.IsVisible = false;
 
             } else {
                 String Where = "MittenteSuperUser=" + App.DataRowUtente["AdminSuperUserCode"] + " And DestinatarioComune=" + Comuni.FirstOrDefault(x => x.Value == PickerComune.SelectedItem.ToString()).Key;
-                var Table = Parchetto.EseguiQuery("Select * From Notifiche Where " + Where + " Order By DataInizio desc");
+                Table = Parchetto.EseguiQuery("Select * From Notifiche Where " + Where + " Order By DataInizio desc");
                 RiempiNotifiche(Table);
             }
+        }
+
+        private void BtnDeleteScadute_Clicked(object sender, EventArgs e) {
+            foreach (DataRow x in Table.Rows) {
+                if ((DateTime)x["DataScadenza"]<DateTime.Now) Parchetto.EseguiCommand("Delete From Notifiche Where Id=" + x["Id"].ToString());
+            }
+            PickerComune_SelectedIndexChanged(null, null);
         }
 
         //private void BtnDeleteNotifica_Clicked(object sender, EventArgs e) {

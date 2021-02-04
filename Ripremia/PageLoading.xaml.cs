@@ -110,6 +110,7 @@ namespace EcoServiceApp {
                 App.Current.MainPage=new PageOffLine();
                 return false;
             }
+            PushApi.ResetTopics();
             return true;
 
 
