@@ -71,6 +71,7 @@
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <None Include="Entitlements.plist" />
+    <BundleResource Include="GoogleService-Info.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -191,9 +192,6 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Attenzione.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\AttenzioneNote.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Bell.png" />
@@ -545,6 +543,9 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\AreaRiservata_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\AttenzioneNote.png" />
   </ItemGroup>
   <ProjectExtensions>
     <VisualStudio>

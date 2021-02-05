@@ -27,7 +27,7 @@
             <ScrollView Grid.Row="1"  Style="{StaticResource Scrollbackground}" Margin="0,0,0,0">
                 <StackLayout Margin="10,0,10,0">
 
-                    <Label Margin="15, 10,1,0" Padding="0" FontFamily="" Style="{StaticResource LabReg}" Text="Mittente"/>
+                    <Label Margin="15, 10,1,0" Padding="0" FontFamily="" Style="{StaticResource LabRegRed}" Text="Mittente"/>
                     <Entry x:Name="TxtMittente" IsEnabled="False" TextTransform="Uppercase" Margin="10,1,10,5" Placeholder="" Style="{StaticResource EntryReg}" BackgroundColor="White" />
                     
                     <!--<Label Margin="15, 10,1,0" Padding="0" FontFamily="" Style="{StaticResource LabReg}" Text="Tema"/>
@@ -37,7 +37,7 @@
                     <Label Margin="15, 10,1,0" Padding="0" FontFamily="" Style="{StaticResource LabReg}" Text="Destinatari"/>-->
 
                     <StackLayout Spacing="0">
-                        <Label Margin="15, 10,1,0" Text="Tema della notifica" FontFamily="" Style="{StaticResource LabReg}"  />
+                        <Label Margin="15, 10,1,0" Text="Tema della notifica" FontFamily="" Style="{StaticResource LabRegRed}"  />
                         <Frame BackgroundColor="White" HasShadow="False" Margin="10,5,15,10">
                             <StackLayout Spacing="0" Orientation="Horizontal" Margin="-10,-10,-10,-5" Padding="0" >
                                 <StackLayout  >
@@ -64,7 +64,7 @@
                     
                     <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" >
                         <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
-                            <Label Margin="15, 10,1,0" Padding="0" FontFamily="" Style="{StaticResource LabReg}" Text="Data pubblicazione"/>
+                            <Label Margin="15, 10,1,0" Padding="0" FontFamily="" Style="{StaticResource LabRegRed}" Text="Data pubblicazione"/>
                             <DatePicker x:Name="DataPubblicazione" VerticalOptions="CenterAndExpand"  Margin="10,1,20,5" HorizontalOptions="FillAndExpand"  BackgroundColor="White">
                                 <DatePicker.Format>dd-MM-yyyy</DatePicker.Format>
                             </DatePicker>
@@ -72,7 +72,7 @@
                         </StackLayout>
 
                         <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
-                            <Label Margin="15, 10,1,0" Padding="0" FontFamily="" Style="{StaticResource LabReg}" Text="Data scadenza"/>
+                            <Label Margin="15, 10,1,0" Padding="0" FontFamily="" Style="{StaticResource LabRegRed}" Text="Data scadenza"/>
                             <DatePicker x:Name="DataScadenza" VerticalOptions="FillAndExpand"  Margin="10,1,10,5" HorizontalOptions="FillAndExpand" BackgroundColor="White">
                                 <DatePicker.Format>dd-MM-yyyy</DatePicker.Format>
                             </DatePicker>
@@ -80,21 +80,21 @@
                         </StackLayout>
                     </StackLayout>
 
-                    <Label Margin="15, 10,1,0" Padding="0" FontFamily="" Style="{StaticResource LabReg}" Text="Oggetto"/>
+                    <Label Margin="15, 10,1,0" Padding="0" FontFamily="" Style="{StaticResource LabRegRed}" Text="Oggetto"/>
                     <Entry x:Name="TxtOggetto"  Margin="10,1,10,5"  Placeholder="Oggetto" Style="{StaticResource EntryReg}" BackgroundColor="White" />
 
-                    <Label Margin="15, 10,1,0" FontFamily="" Style="{StaticResource LabReg}"  Text="Testo della notifica"/>
+                    <Label Margin="15, 10,1,0" FontFamily="" Style="{StaticResource LabRegRed}"  Text="Testo della notifica"/>
                     <Editor x:Name="TxtDescrizione" MaxLength="400" HeightRequest="150"   Margin="10,1,10,5" Placeholder="Testo della notifica" Style="{StaticResource EntryReg}"  BackgroundColor="White" />
 
 
                     <StackLayout Orientation="Horizontal" VerticalOptions="Center" Margin="0, 15,0,0">
-                        <Label Margin="15, 5,1,0" Padding="0" FontFamily="" Style="{StaticResource LabReg}" Text="Notifica push?"/>
+                        <Label Margin="15, 5,1,0" Padding="0" FontFamily="" Style="{StaticResource LabRegRed}" Text="Notifica push?"/>
                         <RadioButton x:Name="RadioPushSi" Content="SI"  />
                         <RadioButton x:Name="RadioPushNo" Content="NO"  IsChecked="true"  />
                     </StackLayout>
 
                     <StackLayout Margin="0, 10,0,10" x:Name="StackDestinatari" >
-                        <Label Margin="15, 10,1,0" Padding="0" FontFamily="" Style="{StaticResource LabReg}" Text="Destinatari" VerticalOptions="Center" />
+                        <Label Margin="15, 10,1,0" Padding="0" FontFamily="" Style="{StaticResource LabRegRed}" Text="Destinatari" VerticalOptions="Center" />
                         <Frame Margin="10,0,10,0"  BackgroundColor="White" HasShadow="False">
                             <StackLayout >
                                 <RadioButton x:Name="RadioTuttiComuni" Margin="0, 0,1,0" Content="Invia a tutti i comuni" />
@@ -104,7 +104,7 @@
                         </Frame>
                     </StackLayout>
                     
-                    <Label Margin="15, 10,1,0" Padding="0" FontFamily="" Style="{StaticResource LabReg}" Text="Link" />
+                    <Label Margin="15, 10,1,0" Padding="0" FontFamily="" Style="{StaticResource LabRegRed}" Text="Link" />
                     <Entry x:Name="TxtLink" Keyboard="Url" Margin="10,1,10,5"  Placeholder="URL" Style="{StaticResource EntryReg}" BackgroundColor="White" />
 
                     <Button  x:Name="BtnInviaNotifica"  Text="INVIA NOTIFICA" FontFamily="SanzFont" Margin="10,30,10,10" HorizontalOptions="FillAndExpand" Style="{StaticResource BtnDark}" BackgroundColor="DarkRed" HeightRequest="60" Clicked="BtnInviaNotifica_Clicked" />

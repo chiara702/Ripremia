@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>781449343837-b8fdulleoabrmpmsshr872hh9fk84hn9.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.781449343837-b8fdulleoabrmpmsshr872hh9fk84hn9</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>781449343837-5shvkttn0ssvpve6lsq1qdhsr3u2gi56.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyB6EfzcFxxWSeRuvUg8E9JHgbYtvH0vJpk</string>
+	<key>GCM_SENDER_ID</key>
+	<string>781449343837</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.companyname.EcolanAppAndroid</string>
+	<key>PROJECT_ID</key>
+	<string>ecocontroladmin</string>
+	<key>STORAGE_BUCKET</key>
+	<string>ecocontroladmin.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:781449343837:ios:d9db956881aaef8159eeb4</string>
+	<key>DATABASE_URL</key>
+	<string>https://ecocontroladmin.firebaseio.com</string>
+</dict>
+</plist>

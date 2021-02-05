@@ -16,8 +16,8 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Label Text="Tipo rifiuto 1" Grid.Column="2" Grid.Row="0" VerticalOptions="Center" HorizontalOptions="Center" Style="{StaticResource LabReg}" />
-        <Label Text="Tipo rifiuto 2" Grid.Column="3" Grid.Row="0" VerticalOptions="Center" HorizontalOptions="Center" Style="{StaticResource LabReg}" />
+        <Label Text="Tipo rifiuto 1" Grid.Column="2" Grid.Row="0" VerticalOptions="Center" HorizontalOptions="Center" Style="{StaticResource LabRegRed}" />
+        <Label Text="Tipo rifiuto 2" Grid.Column="3" Grid.Row="0" VerticalOptions="Center" HorizontalOptions="Center" Style="{StaticResource LabRegRed}" />
         <Label Grid.Column="0" Grid.Row="0"  VerticalOptions="Center" HorizontalOptions="Center"  Padding="0" FontFamily="" Style="{StaticResource LabReg}" Text="Data"/>
 
         <DatePicker Grid.Column="1" Grid.Row="1"  x:Name="DataEccezioni" VerticalOptions="CenterAndExpand"  Margin="0,0,0,0" HorizontalOptions="FillAndExpand"  BackgroundColor="White">

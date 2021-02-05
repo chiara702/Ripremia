@@ -44,5 +44,11 @@
 	<string>L&apos;app necessità di accedere alla fotocamera per fare foto.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>L&apos;app ha necessità di accedere alla galleria per salvare le foto.</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
+	</array>
+	<key>FirebaseAppDelegateProxyEnabled</key>
+	<false/>
 </dict>
 </plist>

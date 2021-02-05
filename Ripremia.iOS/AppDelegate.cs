@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Foundation;
+using Plugin.FirebasePushNotification;
 using UIKit;
 
 namespace EcoServiceApp.iOS
@@ -20,13 +21,16 @@ namespace EcoServiceApp.iOS
         //
         // You have 17 seconds to return from this method, or iOS will terminate your application.
         //
+
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            FirebasePushNotificationManager.Initialize(options, true);
             global::Xamarin.Forms.Forms.Init();
             Xamarin.FormsMaps.Init();
             LoadApplication(new App());
             ZXing.Net.Mobile.Forms.iOS.Platform.Init();
             return base.FinishedLaunching(app, options);
+
         }
     }
 }
