@@ -155,6 +155,7 @@ namespace EcoServiceApp {
                 Table = Parchetto.EseguiQuery("Select * From Notifiche Where " + Where + " Order By DataInizio desc");
                 RiempiNotifiche(Table);
             }
+            BtnDeleteScadute.IsEnabled = true;
         }
 
         private void BtnDeleteScadute_Clicked(object sender, EventArgs e) {

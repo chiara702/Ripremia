@@ -8,7 +8,7 @@
             <ecoserviceapp:ViewMenuTop x:Name="MenuTop" ></ecoserviceapp:ViewMenuTop>
 
             <ScrollView Style="{StaticResource Scrollbackground}">
-                <StackLayout Margin="5,0,5,0">
+                <StackLayout Margin="5,0,5,0" Padding="0">
                     <StackLayout Orientation="Horizontal"   >
 
                         <Image Source="infomini" Margin="10,10,0,5" HeightRequest="30" HorizontalOptions="Start"  />
@@ -18,9 +18,9 @@
                     </StackLayout>
 
 
-                    <ScrollView Style="{StaticResource Scrollbackground}">
+                    <ScrollView Style="{StaticResource Scrollbackground}" Margin="10,20,10,20">
 
-                        <Grid VerticalOptions="Start"  Margin="10,0,10,10">
+                        <Grid VerticalOptions="Center" Margin="10,0,10,10">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="120" />
                                 <RowDefinition Height="120" />

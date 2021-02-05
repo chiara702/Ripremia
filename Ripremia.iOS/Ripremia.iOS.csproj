@@ -547,6 +547,24 @@
   <ItemGroup>
     <BundleResource Include="Resources\AttenzioneNote.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ScansionaQR.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sconto5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sconto10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sconto15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sconto20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\CarrelloSconto.png" />
+  </ItemGroup>
   <ProjectExtensions>
     <VisualStudio>
       <UserProperties TriggeredFromHotReload="False" />

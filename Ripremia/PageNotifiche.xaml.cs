@@ -100,8 +100,12 @@ namespace EcoServiceApp {
             Application.Current.MainPage = new PageNavigatore();
         }
 
-       
-       
+        private void TapGestureRecognizer_Tapped(object sender, EventArgs e) {
+            var url = ((Label)sender).Text;
+            if (url.Contains("http://") == false) url = "http://" + url;
+            if (Uri.IsWellFormedUriString(url, UriKind.Absolute)==false) return;
+            Xamarin.Essentials.Browser.OpenAsync(url);
+        }
     }
 
 }

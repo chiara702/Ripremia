@@ -7,18 +7,69 @@
 
             <Grid.RowDefinitions >
                 <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
             <StackLayout Grid.Row="0" Orientation="Horizontal"  BackgroundColor="#eb6509" Padding="0,35,0,0"  >
                 <ImageButton Source="GoBack" HeightRequest="30" BackgroundColor="Transparent" Margin="20,15,10,20" Clicked="BtnIndietro_Clicked"/>
                 <Label Text="AREA COMMERCIANTI" Style="{StaticResource UserFontGreen}" TextColor="White" VerticalOptions="Center" FontSize="22" />
-                <Image Source="RipremiaW" HeightRequest="25" Margin="5,0,15,5"  HorizontalOptions="Center" VerticalOptions="Center" />
+                <Image Source="RipremiaW" HeightRequest="20" Margin="5,0,15,10"  HorizontalOptions="Center" VerticalOptions="End" />
             </StackLayout>
 
             <!-- corpo centrale -->
+           
+                <StackLayout Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Label  FontAttributes="Bold" TextColor="Black" Margin="30,20,30,5"  Style="{StaticResource NewFont}" FontSize = "18" Text="SELEZIONA LO SCONTO DA APPLICARE" HorizontalTextAlignment="Center" />
+                <ScrollView Orientation="Horizontal" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"   HorizontalScrollBarVisibility="Never">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="FillAndExpand"  >
+                        <ImageButton x:Name="BtnSconto1" Source="Sconto5" HeightRequest="70"   BackgroundColor="Transparent" Clicked="BtnSconto_Clicked" />
+                        <ImageButton x:Name="BtnSconto2"  Source="Sconto10"  HeightRequest="70"  BackgroundColor="Transparent" Clicked="BtnSconto_Clicked" />
+                        <ImageButton x:Name="BtnSconto3"  Source="Sconto15"  HeightRequest="70"    BackgroundColor="Transparent" Clicked="BtnSconto_Clicked" />
+                        <ImageButton x:Name="BtnSconto4"  Source="Sconto20"  HeightRequest="70"   BackgroundColor="Transparent" Clicked="BtnSconto_Clicked" />
+                    </StackLayout>
+                </ScrollView>
+               
+                    <Label Margin="20, 10,25,0" Padding="0" FontFamily="" HorizontalOptions="End" Style="{StaticResource LabRegRed}" TextColor="Black" Text="Totale scontrino"/>
+                    <Entry x:Name="TxtTotaleScontrino" Keyboard="Numeric" Margin="20,1,20,5" FontSize="32" HorizontalTextAlignment="End" Placeholder="0,00 €" Style="{StaticResource EntryReg}" BackgroundColor="White" />
 
-   
+
+
+                <Frame x:Name="FrmConvalida" IsEnabled="False" CornerRadius="0"  Margin="20,5,20,20"  HeightRequest="40" BackgroundColor="#eb6509" >
+                    <Frame.HasShadow>
+                        <OnPlatform x:TypeArguments="x:Boolean">
+                            <On Platform="iOS" Value="false" />
+                            <On Platform="Android" Value="true" />
+                        </OnPlatform>
+                    </Frame.HasShadow>
+
+                    <StackLayout  Orientation="Horizontal"  Spacing="5"   Margin="5,5,5,5" >
+                        <Image HorizontalOptions="Center" Source="CarrelloSconto" Margin="1,1,0,1" HeightRequest="60"/>
+                        <Label HorizontalOptions="CenterAndExpand" VerticalOptions="Center"  TextColor="White" HorizontalTextAlignment="Center" FontSize = "22"  Margin="0,0,0,0" LineBreakMode="WordWrap" Text="CONVALIDA SCONTO" FontAttributes="Bold"/>
+                        <StackLayout.GestureRecognizers >
+                            <TapGestureRecognizer x:Name="BtnConvalida" Tapped="BtnConvalida_Tapped"/>
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                </Frame>
+                    
+              
+                <Frame CornerRadius="30" BackgroundColor="White"  Margin="40,10,40,40">
+                    <Grid>
+                        <Grid.RowDefinitions >
+                            <RowDefinition Height="140" />
+                            <RowDefinition Height="70" />
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="1"  FontAttributes="Bold" TextColor="Black" Margin="30,5,30,5" LineBreakMode="WordWrap" Style="{StaticResource NewFont}" FontSize = "16" Text="SCANSIONA IL CODICE QR-CODE CON LA FOTOCAMERA" HorizontalTextAlignment="Center"/>
+                        <ImageButton x:Name="BtnScansionaQR" Grid.Row="0" Grid.RowSpan="2" BackgroundColor="Transparent" Source="ScansionaQR" HorizontalOptions="FillAndExpand"  Clicked="BtnScansionaQR_Clicked" />
+                    </Grid>
+           
+                </Frame>
+
+                
+
+
+                
+            </StackLayout>
+
         </Grid>
     </ContentPage.Content>
 </ContentPage>

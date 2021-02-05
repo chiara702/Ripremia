@@ -5,7 +5,7 @@
 
         
         <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
-            <Frame x:Name="FrameColor" CornerRadius="0"  Margin="5,5,5,10" Padding="0" HasShadow="True" WidthRequest="80" HeightRequest="80" BackgroundColor="White" BorderColor="Black" HorizontalOptions="CenterAndExpand">
+            <Frame x:Name="FrameColor" CornerRadius="0"  Margin="5,5,5,10" Padding="0" HasShadow="True" WidthRequest="80" HeightRequest="80" BackgroundColor="White" BorderColor="#7ca137" HorizontalOptions="CenterAndExpand">
                 <Frame.HasShadow>
                     <OnPlatform x:TypeArguments="x:Boolean">
                         <On Platform="iOS" Value="false" />
@@ -13,9 +13,16 @@
                     </OnPlatform>
                 </Frame.HasShadow>
                 <StackLayout  Orientation="Vertical" VerticalOptions="CenterAndExpand" Spacing="0" Padding="0" Margin="5,0,5,0"  >
-                    <Label x:Name="LblDenominazione" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" TextColor="Black" HorizontalTextAlignment="Center" FontSize = "16"  Margin="0,3,0,0" LineBreakMode="NoWrap" Text="Organico" FontAttributes="Bold"/>
-                    <Image HorizontalOptions="Center" VerticalOptions="End" Source="Sacchetto" WidthRequest="30" Margin="0,0,0,2" />
-                    <StackLayout.GestureRecognizers>
+                <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Margin="0" Padding="0" RowSpacing="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    
+                            <Label Grid.Row="0" x:Name="LblDenominazione" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" TextColor="Black" HorizontalTextAlignment="Center" FontSize = "16"  Margin="0,3,0,3" LineBreakMode="WordWrap" Text="Organico" FontAttributes="Bold"/>
+                            <Image Grid.Row="1" HorizontalOptions="Center" VerticalOptions="Center" Source="Sacchetto"  Margin="0,0,0,5" />
+                </Grid>
+                        <StackLayout.GestureRecognizers>
                         <TapGestureRecognizer x:Name="RifiutoDettagli" Tapped="RifiutoDettagli_Tapped" />
                     </StackLayout.GestureRecognizers>
                 </StackLayout>

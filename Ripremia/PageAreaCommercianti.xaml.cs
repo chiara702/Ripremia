@@ -14,6 +14,17 @@ namespace EcoServiceApp {
             InitializeComponent();
         }
 
+        Double QuantitaEcopunti;
+
+        private ScontoSelezionato scontoSelezionato = ScontoSelezionato.Nullo;
+        private enum ScontoSelezionato {
+            Nullo = 0,
+            Sconto5,
+            Sconto10,
+            Sconto15,
+            Sconto20
+        }
+
 
         private void BtnIndietro_Clicked(object sender, EventArgs e) {
             Application.Current.MainPage = new PageNavigatore();
@@ -24,5 +35,26 @@ namespace EcoServiceApp {
             return true;
         }
 
+        private void BtnScansionaQR_Clicked(object sender, EventArgs e) {
+
+        }
+
+        private void BtnSconto_Clicked(object sender, EventArgs e) {
+            BtnSconto1.BorderColor = Color.Transparent;
+            BtnSconto2.BorderColor = Color.Transparent;
+            BtnSconto3.BorderColor = Color.Transparent;
+            BtnSconto4.BorderColor = Color.Transparent;
+            ImageButton sender1 = (ImageButton)sender;
+            sender1.BorderColor = Color.Black;
+            if (sender1 == BtnSconto1) scontoSelezionato = ScontoSelezionato.Sconto5;
+            if (sender1 == BtnSconto2) scontoSelezionato = ScontoSelezionato.Sconto10;
+            if (sender1 == BtnSconto3) scontoSelezionato = ScontoSelezionato.Sconto15;
+            if (sender1 == BtnSconto4) scontoSelezionato = ScontoSelezionato.Sconto20;
+
+        }
+
+        private void BtnConvalida_Tapped(object sender, EventArgs e) {
+
+        }
     }
 }
