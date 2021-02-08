@@ -6,6 +6,7 @@ using System.Net;
 using System.Net.Mail;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Web;
 
 public class ClassApiParco { //vers. 1
     const String BaseUrl = "http://www.ecocontrolgsm.cloud/WebService/WebServiceEcoServiceApp.asmx/";
@@ -261,6 +262,37 @@ public class ClassApiParco { //vers. 1
             c[++cx] = (char)(b > 9 ? b + 0x37 + 0x20 : b + 0x30);
         }
         return new string(c);
+    }
+
+    public void InviaNotificaFCM(String Topics,String Titolo,String Messaggio,Boolean Flash) {
+        LastError = false;
+        LastErrorDescrizione = "";
+        try {
+            String URLSqlQuery = BaseUrl + "InviaNotificaFCM";
+            var req = (HttpWebRequest)WebRequest.Create(URLSqlQuery);
+            var ContentString = "Topics=" + HttpUtility.UrlPathEncode(Topics) + "&Titolo=" + HttpUtility.UrlPathEncode(Titolo) + "&Messaggio=" + HttpUtility.UrlPathEncode(Messaggio) + "&Flash=" + Flash.ToString();
+            req.Method = "POST";
+            req.ContentType = "application/x-www-form-urlencoded";
+            var ContentStream = req.GetRequestStream();
+            ContentStream.Write(UTF8Encoding.UTF8.GetBytes(ContentString));
+            ContentStream.Close();
+            var gr = req.GetResponse();
+            var st = gr.GetResponseStream();
+            var stRead = new System.IO.StreamReader(st, UTF8Encoding.UTF8);
+            var rit = stRead.ReadToEnd();
+            gr.Close();
+        } catch (WebException e) {
+            if (e.Response == null) {
+                LastError = true;
+                LastErrorDescrizione = e.Message;
+            }
+            if (e.Response != null) {
+                var stRead = new System.IO.StreamReader(e.Response.GetResponseStream());
+                var rit = stRead.ReadToEnd();
+                LastError = true;
+                LastErrorDescrizione = rit;
+            }
+        }
     }
 
 }

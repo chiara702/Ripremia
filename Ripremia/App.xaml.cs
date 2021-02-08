@@ -84,6 +84,9 @@ namespace EcoServiceApp {
                 Leggi();
             }
         }
+        public static void AzzeraTimeUpdate() {
+            Preferences.Set("UpdateUtenteDatiMemoria", DateTime.MinValue);
+        }
 
        
         private static void Salva() {

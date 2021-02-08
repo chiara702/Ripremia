@@ -83,14 +83,13 @@ namespace EcoServiceApp {
                 var location = await Geolocation.GetLocationAsync(request);
                 if (location != null) {
                     if (location.Accuracy > 40) { //localizzazione insufficiente
-                        ActWaitLocalizzation.IsVisible = true;
-                        await ActWaitLocalizzation.FadeTo(1, 250);
+                        await DisplayAlert("Attenzione", "Localizzazione impossibile. Attiva il GPS per localizzare la posizione!", "OK");
+                        ActWaitLocalizzation.IsVisible = false;
                         imgGeolocalizzazione.IsVisible = false;
                         FrameInviaPosizione.BackgroundColor = Color.FromRgb(237, 28, 36);
                         FrameIndirizzoManuale.IsVisible = true;
                     } else { //localizzazione sufficiente
                         ActWaitLocalizzation.IsVisible = false;
-
                         imgGeolocalizzazione.Source = "checkanimation.gif";
                         FrameInviaPosizione.BackgroundColor = Color.FromRgb(251, 208, 8);
                         _ = txtGeolocalizzazione.FadeTo(0, 250);
@@ -99,6 +98,13 @@ namespace EcoServiceApp {
                         positionOk = true;
                         Localizzazione = location.Latitude.ToString().Replace(",", ".") + "," + location.Longitude.ToString().Replace(",", ".");
                     }
+                }
+                else {
+                    await DisplayAlert("Attenzione","Localizzazione impossibile. Attiva il GPS per localizzare la posizione!","OK");
+                    ActWaitLocalizzation.IsVisible = false;
+                    imgGeolocalizzazione.IsVisible = false;
+                    FrameInviaPosizione.BackgroundColor = Color.FromRgb(237, 28, 36);
+                    FrameIndirizzoManuale.IsVisible = true;
                 }
             } catch (Exception ex) {
                 await DisplayAlert("Errore", ex.Message, "OK");

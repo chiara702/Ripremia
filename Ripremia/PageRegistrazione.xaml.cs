@@ -21,7 +21,7 @@ namespace EcoServiceApp {
             return true;
         }
 
-        private void BtnRegistrati_Clicked(object sender, EventArgs e) {
+        private async void BtnRegistrati_Clicked(object sender, EventArgs e) {
             TxtNome.Text = Funzioni.Antinull(TxtNome.Text).Trim();
             TxtCognome.Text = Funzioni.Antinull(TxtCognome.Text).Trim();
             txtCodFamiglia.Text = Funzioni.Antinull(txtCodFamiglia.Text).Trim();
@@ -66,9 +66,17 @@ namespace EcoServiceApp {
 
             var row = Parchetto.EseguiQueryRow("Utente", "Email='" + Funzioni.Antinull(TxtEmail.Text) + "'");
             if (row != null) {
-                AlertEmail.IsVisible = true;
-                AlertEmail.Text = "E-mail già presente nei nostri sistemi.";
-                Err1 = true;
+                if (((Boolean)row["ConfermaEmail"]) == true) {
+                    AlertEmail.IsVisible = true;
+                    AlertEmail.Text = "E-mail già presente nei nostri sistemi. Recupera password!";
+                    Err1 = true;
+                } else {
+                    Parchetto.EseguiDelete("Utente", (int)row["Id"]);
+                }
+            }
+            row = Parchetto.EseguiQueryRow("Utente", "CodiceFiscale='" + Funzioni.AntiAp(TxtCodFiscale.Text) + "'");
+            if (row != null) {
+                if (await DisplayAlert("", "Codice Fiscale già presente nei nostri sistemi. Vuoi registrarti ugualmente?", "OK", "ANNULLA") == false) return;
             }
 
             if (Funzioni.Antinull(txtCodFamiglia.Text) != "") {

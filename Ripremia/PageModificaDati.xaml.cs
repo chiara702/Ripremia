@@ -150,12 +150,7 @@ namespace EcoServiceApp {
             var Parchetto = new ClassApiParco();
 
 
-            var row = Parchetto.EseguiQueryRow("Utente", "Email='" + Funzioni.Antinull(TxtEmail.Text) + "'");
-            if (row != null) {
-                AlertEmail.IsVisible = true;
-                AlertEmail.Text = "E-mail già presente nei nostri sistemi.";
-                Err1 = true;
-            }
+           
 
             if (Funzioni.Antinull(txtCodFamiglia.Text) != "") {
                 var rowCod = Parchetto.EseguiQueryRow("Utente", "CodiceFamiglia='" + txtCodFamiglia.Text + "'");
@@ -234,13 +229,11 @@ namespace EcoServiceApp {
             Par.AddParameterObject("DataRegistrazione", System.DateTime.Now.ToString());
             var err = FunzDb.EseguiInsert("Utente", Par).ToString();
             if (err == null) {
-                DisplayAlert("Errore", "Errore durante la registrazione!", "OK");
+                DisplayAlert("Errore", "Errore durante la modifica!", "OK");
                 return;
             }
-            DisplayAlert("Registrazione effettuata con successo!", "Ultimo passo!\n Ora non ti resta che effettuare il primo accesso ed inserire il numero di conferma che ti abbiamo mandato all'indirizzo e-mail!", "Ok");
 
-            Funzioni.SendEmail(TxtEmail.Text, "noreply@ecoserviceapp.it", "Conferma la tua e-mail per accedere ai servizi", "Benvenuto, come ultimo passo non ti resta che inserire il seguente numero all'interno dell'EcoService APP per confermare la tua email.\n " + CodConferma);
-            Funzioni.SendEmail(TxtEmail.Text, "chiara702@gmail.com", "Conferma la tua e-mail per accedere ai servizi", "Benvenuto, come ultimo passo non ti resta che inserire il seguente numero all'interno dell'EcoService APP per confermare la tua email.\n " + CodConferma);
+
 
             Xamarin.Essentials.Preferences.Set("Loggato", false);
             Application.Current.MainPage = new PageLogin();

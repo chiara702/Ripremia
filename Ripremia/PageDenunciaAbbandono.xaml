@@ -21,8 +21,8 @@
                     </Grid>
                 </Frame>
                 <Label Grid.Row="1"  FontAttributes="Bold" TextColor="Black" Margin="30,10,30,10"  Style="{StaticResource NewFont}" FontSize = "18" Text="2. SELEZIONA IL TIPO DI RIFIUTO" HorizontalTextAlignment="Center"/>
-                <ScrollView Orientation="Horizontal">
-                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="15,10,15,10" >
+                <ScrollView Orientation="Horizontal" Margin="15,0,15,0">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="0,10,0,10" >
                     <ImageButton x:Name="BtnRaee" Source="Raee" HeightRequest="90"  BorderColor="Transparent" BorderWidth="4"  CornerRadius="10" BackgroundColor="Transparent" Clicked="BtnRifiuti_Clicked"/>
                     <ImageButton x:Name="BtnIngombranti"  Source="Ingombranti" HeightRequest="90" BorderColor="Transparent" BorderWidth="4"  CornerRadius="10" BackgroundColor="Transparent" Clicked="BtnRifiuti_Clicked"/>
                     <ImageButton x:Name="BtnVerde"  Source="Verde" HeightRequest="90"  BorderColor="Transparent" BorderWidth="4"  CornerRadius="10" BackgroundColor="Transparent" Clicked="BtnRifiuti_Clicked"/>

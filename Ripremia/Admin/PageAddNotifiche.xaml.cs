@@ -98,6 +98,14 @@ namespace EcoServiceApp {
                 DisplayAlert("Errore", Parchetto.LastErrorDescrizione, "OK");
                 return;
             }
+            if (RadioPushSi.IsChecked == true) {
+                var Topics = "";
+                if (RadioTuttiComuni.IsChecked == true) Topics = "SUPERUSER_" + App.DataRowUtente["AdminSuperuserCode"].ToString();
+                if (RadioComune.IsChecked == true) {
+                    Topics = "COMUNE_" + Comuni.FirstOrDefault(x => x.Value == PickerComune.SelectedItem.ToString()).Key;
+                }
+                Parchetto.InviaNotificaFCM(Topics, TxtOggetto.Text, TxtDescrizione.Text, false);
+            }
             DisplayAlert("Notifica aggiunta correttamente", "", "OK");
 
             BtnBack_Clicked(null, null);

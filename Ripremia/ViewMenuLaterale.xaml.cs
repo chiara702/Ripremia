@@ -47,6 +47,8 @@ namespace EcoServiceApp {
 
         private void TapLogout_Tapped(object sender, EventArgs e) {
             Xamarin.Essentials.Preferences.Set("Loggato", false);
+            Xamarin.Essentials.Preferences.Set("Email", "");
+            UtenteDatiMemoria.AzzeraTimeUpdate();
             Application.Current.MainPage = new PagePresentazione();
         }
 

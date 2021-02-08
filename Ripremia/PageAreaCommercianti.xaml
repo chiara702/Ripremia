@@ -34,7 +34,7 @@
 
 
 
-                <Frame x:Name="FrmConvalida" IsEnabled="False" CornerRadius="0"  Margin="20,5,20,20"  HeightRequest="40" BackgroundColor="#eb6509" >
+                <Frame x:Name="FrmConvalida" IsEnabled="False" CornerRadius="0"  Margin="20,5,20,20"  HeightRequest="30" BackgroundColor="#eb6509" >
                     <Frame.HasShadow>
                         <OnPlatform x:TypeArguments="x:Boolean">
                             <On Platform="iOS" Value="false" />
@@ -44,7 +44,7 @@
 
                     <StackLayout  Orientation="Horizontal"  Spacing="5"   Margin="5,5,5,5" >
                         <Image HorizontalOptions="Center" Source="CarrelloSconto" Margin="1,1,0,1" HeightRequest="60"/>
-                        <Label HorizontalOptions="CenterAndExpand" VerticalOptions="Center"  TextColor="White" HorizontalTextAlignment="Center" FontSize = "22"  Margin="0,0,0,0" LineBreakMode="WordWrap" Text="CONVALIDA SCONTO" FontAttributes="Bold"/>
+                        <Label HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"  TextColor="White" BackgroundColor="pink" HorizontalTextAlignment="Center" FontSize = "22"  Margin="0,0,0,0" LineBreakMode="WordWrap" Text="CONVALIDA SCONTO" FontAttributes="Bold"/>
                         <StackLayout.GestureRecognizers >
                             <TapGestureRecognizer x:Name="BtnConvalida" Tapped="BtnConvalida_Tapped"/>
                         </StackLayout.GestureRecognizers>

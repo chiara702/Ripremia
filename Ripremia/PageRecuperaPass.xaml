@@ -12,9 +12,9 @@
 
 
             <Button x:Name="BtnRecupera" Text="RECUPERA" Margin="10,15,10,0" HorizontalOptions="Center"   WidthRequest="310" Style="{StaticResource BtnLight}" Clicked="BtnRecupera_Clicked" />
-            
-            <Button x:Name="BtnReturnLog" Margin="10,10,10,10" Text="Torna alla pagina di LOGIN"  HorizontalOptions="Center"  Style="{StaticResource BtnTranspGreen}" TextColor="White" Clicked="BtnReturnLog_Clicked" FontSize="18"/>
-            <Button x:Name="BtnProblemiAccesso" Margin="5,0,5,0" Text="Problemi di accesso? Contattaci!"  HorizontalOptions="Center" TextColor="White" BackgroundColor="Transparent" TextTransform="None" FontSize="Small" Clicked="BtnProblemiAccesso_Clicked" />
+
+            <Button x:Name="BtnReturnLog" Margin="10,30,10,10" Text="Torna alla pagina di LOGIN"  HorizontalOptions="Center" WidthRequest="310" Style="{StaticResource BtnTranspGreen}" BorderColor="White" BorderWidth="2" TextColor="White" Clicked="BtnReturnLog_Clicked" FontSize="18"/>
+            <Button x:Name="BtnProblemiAccesso" Margin="5,0,5,30" Text="Problemi di accesso? Contattaci!" VerticalOptions="EndAndExpand" HorizontalOptions="Center" TextColor="White" BackgroundColor="Transparent" TextTransform="None" FontSize="Small" Clicked="BtnProblemiAccesso_Clicked" />
             
         </StackLayout>
     </ContentPage.Content>

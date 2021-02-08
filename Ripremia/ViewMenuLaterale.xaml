@@ -69,7 +69,7 @@
             </StackLayout.GestureRecognizers>
         </StackLayout>
         <StackLayout VerticalOptions="Center" HorizontalOptions="FillAndExpand" >
-                <Image x:Name="ImgLogoComune"  Source="" HeightRequest="150"  Margin="25,30,25,30"/>
+                <Image x:Name="ImgLogoComune"  Source="" HeightRequest="130"  Margin="25,30,25,30"/>
                 <StackLayout.GestureRecognizers>
                     <TapGestureRecognizer x:Name="TapCloseMenu2" Tapped="TapCloseMenu_Tapped" />
                 </StackLayout.GestureRecognizers>
