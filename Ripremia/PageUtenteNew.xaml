@@ -72,10 +72,11 @@
                     </Grid>
 
 
-                    <Button x:Name="BtnModificaDati"  Margin="35,25,35,20" Text="MODIFICA I TUOI DATI"  VerticalOptions="End" HorizontalOptions="FillAndExpand" Style="{StaticResource BtnLight}"  Clicked="BtnModificaDati_Clicked"  />
+                    <Button x:Name="BtnModificaDati"  Margin="35,25,35,0" Text="MODIFICA I TUOI DATI"  VerticalOptions="End" HeightRequest="60" HorizontalOptions="FillAndExpand" Style="{StaticResource BtnLight}"  Clicked="BtnModificaDati_Clicked"  />
+                    <Button x:Name="BtnShowPrivacy"  Margin="35,25,35,0" Text="Visualizza Informativa Privacy" TextTransform="None"  HeightRequest="60" VerticalOptions="End" HorizontalOptions="FillAndExpand" BorderWidth="2" FontSize="16" BackgroundColor="Transparent" TextColor="#7CA137" BorderColor="#7CA137" Clicked="BtnShowPrivacy_Clicked"  />
 
 
-                    <Frame  Margin="35,5,35,25" CornerRadius="0"  WidthRequest="310" BackgroundColor="#636159" >
+                    <Frame  Margin="35,25,35,30" CornerRadius="0"  WidthRequest="310" BackgroundColor="#636159" >
                         <Frame.HasShadow>
                             <OnPlatform x:TypeArguments="x:Boolean">
                                 <On Platform="iOS" Value="false" />

@@ -62,5 +62,9 @@ namespace EcoServiceApp {
             
             Application.Current.MainPage = new PagePrenotazioni();
         }
+
+        private void BtnShowPrivacy_Clicked(object sender, EventArgs e) {
+            Xamarin.Essentials.Browser.OpenAsync("http://www.ripremia.com/PrivacyRipremia.pdf");
+        }
     }
 }

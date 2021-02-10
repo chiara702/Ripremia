@@ -87,7 +87,7 @@ namespace EcoServiceApp {
                         ActWaitLocalizzation.IsVisible = false;
                         imgGeolocalizzazione.IsVisible = false;
                         FrameInviaPosizione.BackgroundColor = Color.FromRgb(237, 28, 36);
-                        FrameIndirizzoManuale.IsVisible = true;
+                        //FrameIndirizzoManuale.IsVisible = true;
                     } else { //localizzazione sufficiente
                         ActWaitLocalizzation.IsVisible = false;
                         imgGeolocalizzazione.Source = "checkanimation.gif";
@@ -104,14 +104,14 @@ namespace EcoServiceApp {
                     ActWaitLocalizzation.IsVisible = false;
                     imgGeolocalizzazione.IsVisible = false;
                     FrameInviaPosizione.BackgroundColor = Color.FromRgb(237, 28, 36);
-                    FrameIndirizzoManuale.IsVisible = true;
+                    //FrameIndirizzoManuale.IsVisible = true;
                 }
             } catch (Exception ex) {
                 await DisplayAlert("Errore", ex.Message, "OK");
                 ActWaitLocalizzation.IsVisible = false;
                 FrameInviaPosizione.BackgroundColor = Color.FromRgb(237, 28, 36);
                 FrameInviaPosizione.IsVisible = false;
-                FrameIndirizzoManuale.IsVisible = true;
+                //FrameIndirizzoManuale.IsVisible = true;
             }
         }
 
@@ -140,7 +140,7 @@ namespace EcoServiceApp {
 
         private void BtnDenuncia_Tapped(object sender, EventArgs e) {
             if (CheckPrivacy.IsChecked == false) { DisplayAlert("Attenzione", "E' necessario accettare l'informativa sulla privacy", "OK"); return; }
-            if (Localizzazione == "" & String.IsNullOrEmpty(TxtIndirizzoManuale.Text) == true) { DisplayAlert("Attenzione", "E' necessario inserire un indirizzo per il ritiro!", "OK"); return; }
+            //if (Localizzazione == "" & String.IsNullOrEmpty(TxtIndirizzoManuale.Text) == true) { DisplayAlert("Attenzione", "E' necessario inserire un indirizzo per il ritiro!", "OK"); return; }
             if (file == null) { DisplayAlert("Attenzione", "Inserisci una foto di ciò che dovremo ritirare !", "OK"); return; }
             if (tipoRifiutoSelezionato == 0) { DisplayAlert("Attenzione", "Non è stato selezionato il tipo rifiuto", "OK"); return; }
             var Parchetto = new ClassApiParco();
@@ -150,7 +150,7 @@ namespace EcoServiceApp {
             Par.AddParameterString("TipoRifiuto", tipoRifiutoSelezionato.ToString());
             Par.AddParameterString("Note", "" + TxtInfoRitiro.Text);
             Par.AddParameterString("Geolocalizzazione", "" + Localizzazione);
-            Par.AddParameterString("Indirizzo", "" + TxtIndirizzoManuale.Text);
+            //Par.AddParameterString("Indirizzo", "" + TxtIndirizzoManuale.Text);
             var StRead = new System.IO.BinaryReader(file.GetStream());
             var ByteFoto = StRead.ReadBytes(int.MaxValue);//int.MaxValue);
             Par.AddParameterObject("Foto", ByteFoto); //ToHex(ByteFoto)

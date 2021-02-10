@@ -44,18 +44,24 @@
                         </StackLayout>
                         <Label x:Name="AlertCodFamiglia" Margin="15, 0,1,0" FontFamily="" TextColor="Red" FontSize = "Small"   Text="Non è un codice valido! Se non possiedi un codice famiglia lascia il campo vuoto, potrai inserirlo in un secondo momento." IsVisible="false"/>
 
-                        <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" Margin="0,0,10,0" >
-                            <CheckBox x:Name="CheckPrivacy" Margin="10, 5,1,0" CheckedChanged="CheckPrivacy_CheckedChanged" Color="#7ca137" />
-                            <Label VerticalOptions="Start" Text="Ho letto l'informativa sulla privacy e accetto le condizioni generali d'uso dell'app"  TextTransform="None"  Padding="0,10,0,0"  BackgroundColor="Transparent" TextColor="Gray" FontSize="Small" WidthRequest="310" />
-                        </StackLayout>
-                        <Label x:Name="AlertPrivacy" Margin="15, 0,1,0" FontFamily="" TextColor="Red" FontSize = "Small"   Text="Per proseguire devi accettare l'informativa sulla privacy" IsVisible="false"/>
-
                         <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" Margin="0,0,10,0">
                             <CheckBox x:Name="CheckTrattamento" Margin="10, 5,1,0" Color="#7ca137" />
-                            <Label VerticalOptions="Start" Text="Autorizzo il trattamento dei miei dati per finalità di marketing"  TextTransform="None"   Padding="0,10,0,0"  BackgroundColor="Transparent" TextColor="Gray" FontSize="Small" WidthRequest="310"/>
+                            <Label BackgroundColor="Transparent" VerticalOptions="Start"  Text="Autorizzo il trattamento dei miei dati per finalità di marketing"  TextTransform="None"   Padding="0,10,0,0"  TextColor="Gray" FontSize="16" WidthRequest="310"/>
                         </StackLayout>
                         <Label x:Name="AlertTrattamento" Margin="15, 0,1,0" FontFamily="" TextColor="Red" FontSize = "Small"   Text="Per proseguire devi accettare il trattamento dei dati" IsVisible="false"/>
 
+
+                        <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" Margin="0,0,10,0" >
+                            <CheckBox x:Name="CheckPrivacy" Margin="10, 5,1,0" CheckedChanged="CheckPrivacy_CheckedChanged" Color="#7ca137" />
+                            <Label VerticalOptions="Start" Text="Ho letto l'informativa sulla privacy e accetto le condizioni generali d'uso dell'app"  TextTransform="None"  Padding="0,10,0,0"  BackgroundColor="Transparent" TextColor="Gray" FontSize="16" WidthRequest="310">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer x:Name="LinkPrivacy" Tapped="LinkPrivacy_Tapped"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </StackLayout>
+                        <Label x:Name="AlertPrivacy" Margin="15, 0,1,0" FontFamily="" TextColor="Red" FontSize = "Small"   Text="Per proseguire devi accettare l'informativa sulla privacy" IsVisible="false"/>
+
+                       
 
                         <Button x:Name="BtnRegistrati" IsEnabled="False" Text="REGISTRATI" Margin="10,35,10,0" HorizontalOptions="Center" Style="{StaticResource BtnDarkDisable}" WidthRequest="310" Clicked="BtnRegistrati_Clicked"/>
                         

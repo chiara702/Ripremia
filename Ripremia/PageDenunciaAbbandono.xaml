@@ -52,12 +52,12 @@
                         </StackLayout.GestureRecognizers>
                     </StackLayout>
                 </Frame>
-                <Frame x:Name="FrameIndirizzoManuale" IsVisible="false" Grid.Row="1"  CornerRadius="0"  Margin="20,5,20,5"  BackgroundColor="White" >
+                <!--<Frame x:Name="FrameIndirizzoManuale" IsVisible="false" Grid.Row="1"  CornerRadius="0"  Margin="20,5,20,5"  BackgroundColor="White" >
                     <StackLayout  Spacing="5"   Margin="5,5,5,5" >
                         <Label Text="Inserisci indirizzo manualmente"/>
                         <Entry x:Name="TxtIndirizzoManuale"  Style="{StaticResource EntryReg}" />
                     </StackLayout>
-                </Frame>
+                </Frame>-->
 
                 <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" Margin="0, 10,0,15" >
                     <CheckBox x:Name="CheckPrivacy" Margin="15, 5,1,0" Color="#7ca137" CheckedChanged="CheckPrivacy_CheckedChanged" />

@@ -29,8 +29,13 @@ namespace EcoServiceApp {
         }
         public PageHomeNew() {
             InitializeComponent();
-            CreateStatisticheCollection();
-            BindingContext = this;
+            Task.Run(() => {
+                Task.Delay(1500);
+                CreateStatisticheCollection();
+                Device.BeginInvokeOnMainThread(() => BindingContext = this);
+            });
+            
+            
 
             LblUtente.Text = "Ciao, " + App.DataRowUtente["Nome"].ToString() + "!";
             MenuTop.MenuLaterale = MenuLaterale;
@@ -41,26 +46,26 @@ namespace EcoServiceApp {
 
             Statistiche.Add(new Statistica {
                 Image = "oil",
-                Dati = UtenteDatiMemoria.UtenteOilRaccolto.ToString(),
-            Dettagli = "litri di olio raccolto",
+                Dati = UtenteDatiMemoria.UtenteOilRaccolto.ToString("0.00").Replace(".",","),
+            Dettagli = "Litri di olio raccolto",
             });
 
             Statistiche.Add(new Statistica {
                 Image = "plastica",
                 Dati = UtenteDatiMemoria.UtentePetRaccolto.ToString(),
-                Dettagli = "bottiglie di plastica raccolte",
+                Dettagli = "Bottiglie di plastica raccolte",
             });
 
             Statistiche.Add(new Statistica {
                 Image = "co2",
-                Dati = UtenteDatiMemoria.UtenteKgCO2Risparmiato.ToString(),
-                Dettagli = "KG di CO2 risparmiati",
+                Dati = UtenteDatiMemoria.UtenteKgCO2Risparmiato.ToString("0.000").Replace(".",","),
+                Dettagli = "Kg di CO2 risparmiati",
             });
 
             Statistiche.Add(new Statistica {
                 Image = "petrolio",
-                Dati = UtenteDatiMemoria.UtenteBariliPetrolioRisparmiato.ToString(),
-                Dettagli = "barili di petrolio risparmiati",
+                Dati = UtenteDatiMemoria.UtenteBariliPetrolioRisparmiato.ToString("0.000").Replace(".",","),
+                Dettagli = "Barili di petrolio risparmiati",
             });
             
         }

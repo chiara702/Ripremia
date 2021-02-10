@@ -77,6 +77,9 @@
                         <StackLayout  VerticalOptions="Center">
                             <Label  Margin="5, 10,5,0" FontFamily="" Style="{StaticResource LabNumeri}" Text="Sito web"  FontAttributes="Bold"  HorizontalTextAlignment="Start"/>
                             <Label x:Name="TxtWww"  Margin="8, 5,5,0" FontFamily="" Style="{StaticResource LabNumeriBig}" Text="....."  HorizontalTextAlignment="Start" />
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer x:Name="LinkWWW" Tapped="LinkWWW_Tapped"/>
+                            </StackLayout.GestureRecognizers>
                         </StackLayout>
                     </StackLayout>
                     <StackLayout Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalOptions="Start"   Margin="5,0,0,0">

@@ -42,8 +42,8 @@ namespace EcoServiceApp {
             DataRowComune = Parchetto.EseguiQueryRow("Comune", "Id=" + DataRowUtente["IdComune"].ToString());
             if (DataRowComune == null) return;
             DataRowSuperUser = Parchetto.EseguiQueryRow("SuperUser", "Codice='" + DataRowComune["CodiceSuperUser"].ToString() + "'");
-            Task.Run(() => UtenteDatiMemoria.Inizializza());
-            
+            Task t1=Task.Run(() => UtenteDatiMemoria.Inizializza());
+
         }
 
         protected override void OnStart() {
@@ -66,9 +66,9 @@ namespace EcoServiceApp {
     public static class UtenteDatiMemoria {
         //public static int TotaliLitriErogati = 0;
         public static int UtentePetRaccolto = 0;
-        public static int UtenteOilRaccolto = 0;
-        public static int UtenteKgCO2Risparmiato = 0;
-        public static int UtenteBariliPetrolioRisparmiato = 0;
+        public static Double UtenteOilRaccolto = 0;
+        public static Double UtenteKgCO2Risparmiato = 0;
+        public static Double UtenteBariliPetrolioRisparmiato = 0;
         public static int TotaliPetRaccolto = 0;
         public static int TotaliCO2Risparmiato = 0;
         public static int TotaliPetrolioRisparmiato = 0;
@@ -79,7 +79,6 @@ namespace EcoServiceApp {
             if (DateTime.Now > Preferences.Get("UpdateUtenteDatiMemoria", DateTime.MinValue).Add(TimeUpdateOnline)){
                 CaricaDatiUtente();
                 Preferences.Set("UpdateUtenteDatiMemoria", DateTime.Now);
-                Salva();
             } else {
                 Leggi();
             }
@@ -91,36 +90,36 @@ namespace EcoServiceApp {
        
         private static void Salva() {
             //Preferences.Set("DatiMemoriaTotaliLitriErogati", TotaliLitriErogati);
-            Preferences.Set("DatiMemoriaUtentePetRaccolto", UtentePetRaccolto);
-            Preferences.Set("DatiMemoriaUtenteOilRaccolto", UtenteOilRaccolto);
-            Preferences.Set("DatiMemoriaUtenteKgCo2Risparmiato", UtenteKgCO2Risparmiato);
-            Preferences.Set("DatiMemoriaUtenteBariliPetrolioRisparmiato", UtenteBariliPetrolioRisparmiato);
-            Preferences.Set("DatiMemoriaTotaliPetRaccolto", TotaliPetRaccolto);
-            Preferences.Set("DatiMemoriaTotaliCO2Risparmiato", TotaliCO2Risparmiato);
-            Preferences.Set("DatiMemoriaTotaliPetrolioRisparmiato", TotaliPetrolioRisparmiato);
+            Preferences.Set("PetRaccolto", UtentePetRaccolto);
+            Preferences.Set("OilRaccolto", UtenteOilRaccolto);
+
         }
         private static void Leggi() {
             //TotaliLitriErogati=Preferences.Get("DatiMemoriaTotaliLitriErogati",0);
-            UtentePetRaccolto=Preferences.Get("DatiMemoriaUtentePetRaccolto", 0);
-            UtenteOilRaccolto=Preferences.Get("DatiMemoriaUtenteOilRaccolto", 0);
-            UtenteKgCO2Risparmiato = Preferences.Get("DatiMemoriaUtenteKgCO2Risparmiato", 0);
-            UtenteBariliPetrolioRisparmiato = Preferences.Get("DatiMemoriaUtenteBariliPetrolioRisparmiato", 0);
-            TotaliPetRaccolto =Preferences.Get("DatiMemoriaTotaliPetRaccolto", 0);
-            TotaliCO2Risparmiato=Preferences.Get("DatiMemoriaTotaliCO2Risparmiato", 0);
-            TotaliPetrolioRisparmiato=Preferences.Get("DatiMemoriaTotaliPetrolioRisparmiato", 0);
+            UtentePetRaccolto = Convert.ToInt32(Preferences.Get("PetRaccolto", 0));
+            UtenteOilRaccolto = Convert.ToDouble(Preferences.Get("OilRaccolto", 0.0));
+            CalcoloStat();
+        }
+        private static void CalcoloStat() {
+            Double RisparmioLPetrolio1Pet = 0.04542; //litri di petrolio risparmiati per ogni pet
+            int BarilePetrolioL = 159;
+            Double KgCo2x1PET = 0.108; //kg Co2
+            Double KgCo2x1KgOlio = 2.5; //kg co2 per 1 litro di olio conferito trasfromato
+            //UtentePetRaccolto = CountPet;
+            //UtenteOilRaccolto = (Double)KgOlio;
+            UtenteBariliPetrolioRisparmiato = (UtentePetRaccolto * RisparmioLPetrolio1Pet) / BarilePetrolioL; //Mettere una precisione di 3 numeri dopo la virgola
+            UtenteKgCO2Risparmiato = (UtenteOilRaccolto * KgCo2x1KgOlio) + (UtentePetRaccolto * KgCo2x1PET); //tenendo conto che 1 tonnellata PET prodotta da zero (non da riciclo) immette nell'ambiente 2,7 tonnellate di CO2 1 bottiglia di pet da 1,5 l pesa 40 g quindi una t di PET sono 25000 pezzi
+                                                                                                    
+
         }
 
 
         private static void CaricaDatiUtente() {
             var Api = new ClassApiEcoControl();
-            var CountPet = int.Parse(Api.EseguiCommand("Select Sum(CountPet) From RegistroUtenti Where (Telefono='" + App.DataRowUtente["CodiceFiscale"].ToString() + "' Or Telefono='" + App.DataRowUtente["CodiceMonetaVirtuale"].ToString() + "') And Data>'2020-01-01'").ToString());
-            var KgOlio = decimal.Parse(Api.EseguiCommand("Select Sum(KgOlio) From RegistroUtenti Where (Telefono='" + App.DataRowUtente["CodiceFiscale"].ToString() + "' Or Telefono='" + App.DataRowUtente["CodiceMonetaVirtuale"].ToString() + "') And Data>'2020-01-01'").ToString());
-            UtentePetRaccolto = CountPet;
-            UtenteOilRaccolto = (int)KgOlio;
-            UtenteBariliPetrolioRisparmiato = CountPet / 100; //Formula inventata
-            UtenteKgCO2Risparmiato = CountPet / 100; //formula inventata
-
-            
+            UtentePetRaccolto = int.Parse(Api.EseguiCommand("Select Sum(CountPet) From RegistroUtenti Where (Telefono='" + App.DataRowUtente["CodiceFiscale"].ToString() + "' Or Telefono='" + App.DataRowUtente["CodiceMonetaVirtuale"].ToString() + "') And Data>'2020-01-01'").ToString());
+            UtenteOilRaccolto = Double.Parse(Api.EseguiCommand("Select Sum(KgOlio) From RegistroUtenti Where (Telefono='" + App.DataRowUtente["CodiceFiscale"].ToString() + "' Or Telefono='" + App.DataRowUtente["CodiceMonetaVirtuale"].ToString() + "') And Data>'2020-01-01'").ToString());
+            CalcoloStat();
+            Salva();
         }
     }
 

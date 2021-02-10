@@ -24,8 +24,8 @@ namespace EcoServiceApp {
             MenuTop.MenuLaterale = MenuLaterale;
             BindingContext = this;
 
-            
-            RowUtente=Parchetto.EseguiQueryRow("Utente", int.Parse(App.DataRowUtente["Id"].ToString()));
+            var RowComune = Parchetto.EseguiQueryRow("Comune", (int)App.DataRowUtente["IdComune"]);
+            RowUtente =Parchetto.EseguiQueryRow("Utente", int.Parse(App.DataRowUtente["Id"].ToString()));
             if (Parchetto.LastError == true) {
                 DisplayAlert("Errore", "Connessione internet non disponibile!", "OK");
                 Application.Current.MainPage = new PageLogin();
@@ -36,11 +36,14 @@ namespace EcoServiceApp {
             TxtCognome.Text = RowUtente["Cognome"].ToString();
             TxtEmail.Text = RowUtente["Email"].ToString();
             TxtCodFiscale.Text = RowUtente["CodiceFiscale"].ToString();
+            TxtComuneTari.Text = RowComune["Nome"].ToString();
             TxtPassword.Text = RowUtente["Password"].ToString();
             txtCodFamiglia.Text = RowUtente["CodiceFamiglia"].ToString();
+            CheckPrivacy.IsChecked = (Boolean)RowUtente["LetturaPrivacy"];
+            CheckTrattamento.IsChecked = (Boolean)RowUtente["ConsensoTerzeParti"];
             //Task.Run(() => RiempiDati());
 
-           
+
 
         }
 

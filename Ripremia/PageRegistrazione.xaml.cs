@@ -222,5 +222,8 @@ namespace EcoServiceApp {
             Application.Current.MainPage = new PageLogin();
         }
 
+        private void LinkPrivacy_Tapped(object sender, EventArgs e) {
+            Xamarin.Essentials.Browser.OpenAsync("http://www.ripremia.com/PrivacyRipremia.pdf");
+        }
     }
 }
