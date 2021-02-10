@@ -59,7 +59,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <MtouchArch>ARM64</MtouchArch>
-    <CodesignKey>iPhone Distribution</CodesignKey>
+    <CodesignKey>Apple Development: Fabio Di Maria (YS92343MB2)</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <CodesignProvision>Provisioning Distribuzione Ripremia</CodesignProvision>
     <MtouchEnableSGenConc>true</MtouchEnableSGenConc>
