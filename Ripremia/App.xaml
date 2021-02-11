@@ -87,7 +87,7 @@
                 <Setter Property="TextColor" Value="#636159"  />
                 <Setter Property="PlaceholderColor" Value="LightGray" />
                 <Setter Property="FontSize" Value="Medium"  />
-                <Setter Property="BackgroundColor" Value="#f4f4f4"  />
+                <Setter Property="BackgroundColor" Value="White"  />
             </Style>
             <Style TargetType="Entry" x:Key="EntryDisable">
                 <Setter Property="PlaceholderColor" Value="LightGray" />

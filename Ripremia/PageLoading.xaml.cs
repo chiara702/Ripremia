@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -17,7 +17,7 @@ namespace EcoServiceApp {
             //Task.WaitAll(new Task[]{t1,t2});
             Task.Run(Animazione);
             //R3.RotateTo(360, 200);
-
+          
 
 
         }
@@ -75,6 +75,7 @@ namespace EcoServiceApp {
             await R11.RotateTo(15, 100);
             await R11.RotateTo(-15, 100);
             await R11.RotateTo(0, 100);
+ 
 
             if (await t2 == true) {
                 Device.BeginInvokeOnMainThread(() => App.Current.MainPage = new PageNavigatore());
@@ -85,8 +86,9 @@ namespace EcoServiceApp {
 
         protected async override void OnAppearing() {
             base.OnAppearing();
-            
-            
+            var currentVersion = VersionTracking.CurrentVersion;
+            LblVersion.Text = "vers." + currentVersion;
+
 
 
         }

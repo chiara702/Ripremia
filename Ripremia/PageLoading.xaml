@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="EcoServiceApp.PageLoading" BackgroundColor="#636159" >
     <ContentPage.Content >
-        <StackLayout BackgroundColor="#636159" VerticalOptions="CenterAndExpand">
+        <StackLayout BackgroundColor="#636159" VerticalOptions="FillAndExpand">
             <StackLayout x:Name="StackLoading" Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Margin="0,0,0, 0">
                 <Image x:Name="R1" Source="R1" HeightRequest="28" />
                 <!--<Image Source="R2" HeightRequest="28" />-->
@@ -20,7 +20,9 @@
             </StackLayout>
 
 
-            <ActivityIndicator IsRunning="True" WidthRequest="100"  HorizontalOptions="Center" Margin="0,10,0, 0" />
+            <ActivityIndicator IsRunning="True" WidthRequest="100" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Margin="0,10,0, 0" />
+
+            <Label x:Name="LblVersion" Text="ver." HorizontalOptions="Center" VerticalOptions="End" Margin="0,0,0, 35" TextColor="White" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

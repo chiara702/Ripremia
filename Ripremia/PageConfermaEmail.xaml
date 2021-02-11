@@ -5,7 +5,7 @@
     <ContentPage.Content>
         <StackLayout BackgroundColor="#636159" VerticalOptions="FillAndExpand">
 
-            <Image Source="RisorsaEcolan" HorizontalOptions="Center" Margin="{OnPlatform Android='10, 40,10,10 ', iOS='10,80,10,0'}" WidthRequest="350" />
+            <Image Source="RipremiaW" HorizontalOptions="Center" Margin="{OnPlatform Android='10, 40,10,10 ', iOS='10,80,10,0'}" WidthRequest="250" />
             <Label  x:Name="LblUtente" HorizontalTextAlignment="Center" VerticalOptions="Center"  Margin="0,10,10,0"  Style="{StaticResource MediumFont}" FontAttributes="Bold" TextTransform="None"/>
             <Label HorizontalTextAlignment="Center" Margin="10, 5,10,10" Style="{StaticResource MediumFont}" LineBreakMode="WordWrap" Text="Come ultimo passo non ti resta che inserire il codice che ti abbiamo inviato per e-mail per confermare l'indirizzo di posta."/>
             <Entry x:Name="TxtConfermaEmail" HorizontalOptions="Center" Margin="10,5,10,5"  Placeholder="CODICE" MaxLength="6" WidthRequest="100" PlaceholderColor="LightGray" HorizontalTextAlignment="Center" TextTransform="Uppercase" BackgroundColor="White" TextColor="{OnPlatform Android='#white', iOS='#636159'}" FontSize="22"  />

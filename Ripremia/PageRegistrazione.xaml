@@ -8,7 +8,7 @@
                 <AbsoluteLayout HorizontalOptions="FillAndExpand" >
 
                     <StackLayout HorizontalOptions="CenterAndExpand" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0.5,0" >
-                        <Label  FontSize = "Large" FontAttributes="Bold" Margin="{OnPlatform Android='10, 10,10,10 ', iOS='10,30,10,0'}"   Style="{StaticResource NewFont}" Text="Crea un nuovo account&#10;per accedere ai Servizi Ecolan" HorizontalTextAlignment="Center"/>
+                        <Label  FontSize = "Large" FontAttributes="Bold" Margin="{OnPlatform Android='10, 15,10,10 ', iOS='10,35,10,0'}"   Style="{StaticResource NewFont}" Text="Crea un nuovo account&#10;per accedere ai servizi Ripremia" HorizontalTextAlignment="Center"/>
 
                         <Label Margin="15, 10,1,0" Padding="0" FontFamily="" Style="{StaticResource LabReg}" Text="Nome"/>
                         <Entry x:Name="TxtNome" TextTransform="Uppercase" Margin="10,1,10,5" Placeholder="Nome" Style="{StaticResource EntryReg}" />
@@ -32,7 +32,7 @@
 
                         <StackLayout Orientation="Horizontal" Margin="10,1,10,0" >
                             <Entry  x:Name="TxtPassword" HorizontalOptions="FillAndExpand" IsPassword="True"  Placeholder="Password" Style="{StaticResource EntryReg}" />
-                            <ImageButton x:Name="BtnShowPass" Source="eye1"  HorizontalOptions="End" BackgroundColor="#f4f4f4" Margin="-12,1,0,0" Clicked="BtnShowPass_Clicked" />
+                            <ImageButton x:Name="BtnShowPass" Source="eye1"  HorizontalOptions="End" BackgroundColor="White" Margin="-12,1,0,0" Clicked="BtnShowPass_Clicked" />
                         </StackLayout>
 
                         <Label x:Name="AlertPassword" Margin="15, 0,1,0" FontFamily="" TextColor="Red" FontSize = "Small"   Text="Inserisci una password valida di almeno 8 caratteri, un numero, una lettera maiuscola e un carattere speciale ($,#,%,..)!" IsVisible="false"/>

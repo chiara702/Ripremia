@@ -50,6 +50,10 @@ namespace EcoServiceApp {
 
 
         }
+        protected override bool OnBackButtonPressed() {
+            Application.Current.MainPage = new PageLogin();
+            return true;
+        }
 
         private void BtnInviaConferma_Clicked(object sender, EventArgs e) {
             Funzioni.SendEmail(App.DataRowUtente["Email"].ToString(), "ripremianoreply@gmail.com", "Conferma la tua e-mail per accedere ai servizi", "Benvenuto, come ultimo passo non ti resta che inserire il seguente numero all'interno dell'EcoService APP per confermare la tua email.\n " + App.DataRowUtente["CodConferma"].ToString());

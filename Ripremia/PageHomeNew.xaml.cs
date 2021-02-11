@@ -26,6 +26,13 @@ namespace EcoServiceApp {
                     Carosel1.Position = x % 4;
                 }
             });
+
+            Task.Run(() => {
+                Task.Delay(5000);
+                Device.BeginInvokeOnMainThread(() => BtnShowQR_Tapped(null, null));
+
+            });
+
         }
         public PageHomeNew() {
             InitializeComponent();
@@ -34,9 +41,8 @@ namespace EcoServiceApp {
                 CreateStatisticheCollection();
                 Device.BeginInvokeOnMainThread(() => BindingContext = this);
             });
-            
-            
 
+        
             LblUtente.Text = "Ciao, " + App.DataRowUtente["Nome"].ToString() + "!";
             MenuTop.MenuLaterale = MenuLaterale;
         }
