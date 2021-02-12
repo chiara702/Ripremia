@@ -16,7 +16,8 @@ namespace EcoServiceApp {
 
         public App() {
             InitializeComponent();
-            
+            //Application.Current.UserAppTheme = OSAppTheme.Light;
+
             Device.SetFlags(new string[] { "Expander_Experimental" });
 
             //MainPage = new MainPage();
