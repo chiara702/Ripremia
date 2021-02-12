@@ -305,7 +305,7 @@ public class ClassApiParco { //vers. 1
 }
 
 public class ClassApiEcoControl {
-    const String BaseUrl = "https://185.58.119.77/WebService/webserviceEcoParco.asmx/";
+    const String BaseUrl = "http://185.58.119.77/WebService/webserviceEcoParco.asmx/";
     //const String BaseUrl = "https://localhost:44344/WebService/webserviceEcoParco.asmx/";
     public Boolean LastError;
     public String LastErrorDescrizione;
@@ -358,7 +358,7 @@ public class ClassApiEcoControl {
         LastError = false;
         LastErrorDescrizione = "";
         try {
-            String URLSqlQuery = BaseUrl + "EcocontrolEseguiQueryFirma?query=" + System.Web.HttpUtility.UrlPathEncode(Query) + "&staging=false&Firma=" + TestFirma(Query);
+            String URLSqlQuery = BaseUrl + "EcocontrolEseguiQuery?query=" + System.Web.HttpUtility.UrlPathEncode(Query) + "&staging=false&Firma=" + TestFirma(Query);
             var req = (HttpWebRequest)WebRequest.Create(URLSqlQuery);
             req.Timeout = 8000;
             req.Method = "GET";
@@ -389,7 +389,7 @@ public class ClassApiEcoControl {
         LastErrorDescrizione = "";
         try {
             var query = "Select * From " + Tabella + " Where Id=" + Id.ToString();
-            String URLSqlQuery = BaseUrl + "EcocontrolEseguiQueryFirma?query=" + System.Web.HttpUtility.UrlPathEncode(query) + "&staging=false&Firma=" + TestFirma(query);
+            String URLSqlQuery = BaseUrl + "EcocontrolEseguiQuery?query=" + System.Web.HttpUtility.UrlPathEncode(query) + "&staging=false&Firma=" + TestFirma(query);
             var req = (HttpWebRequest)WebRequest.Create(URLSqlQuery);
             req.Timeout = 8000;
             req.Method = "GET";
@@ -421,7 +421,7 @@ public class ClassApiEcoControl {
         LastErrorDescrizione = "";
         try {
             var query = "Select * From " + Tabella + " Where " + Where;
-            String URLSqlQuery = BaseUrl + "EcocontrolEseguiQueryFirma?query=" + System.Web.HttpUtility.UrlPathEncode(query) + "&staging=false&Firma=" + TestFirma(query);
+            String URLSqlQuery = BaseUrl + "EcocontrolEseguiQuery?query=" + System.Web.HttpUtility.UrlPathEncode(query) + "&staging=false&Firma=" + TestFirma(query);
             var req = (HttpWebRequest)WebRequest.Create(URLSqlQuery);
             req.Timeout = 8000;
             req.Method = "GET";
@@ -451,7 +451,7 @@ public class ClassApiEcoControl {
         LastError = false;
         LastErrorDescrizione = "";
         try {
-            String URLSqlQuery = BaseUrl + "EcocontrolEseguiCommandFirma?Command=" + System.Web.HttpUtility.UrlPathEncode(Query) + "&staging=false&Firma=" + TestFirma(Query);
+            String URLSqlQuery = BaseUrl + "EcocontrolEseguiCommand?Command=" + System.Web.HttpUtility.UrlPathEncode(Query) + "&staging=false&Firma=" + TestFirma(Query);
             var req = (HttpWebRequest)WebRequest.Create(URLSqlQuery);
             req.Timeout = 8000;
             req.Method = "GET";

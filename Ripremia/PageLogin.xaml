@@ -21,14 +21,14 @@
                         <RowDefinition Height="25" />
                         <RowDefinition Height="25" />
                         <RowDefinition Height="40" />
-                        <RowDefinition Height="150" />
+                        <RowDefinition Height="160" />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="auto"/>
                     </Grid.ColumnDefinitions>
 
                     <Frame Grid.Row="0" Grid.RowSpan="11"  CornerRadius="30" BackgroundColor="White" HasShadow="False" Margin="10,0,10,10" Padding="0,0,0,0" >
-                        <Image Grid.Row="7" Grid.RowSpan="7" HorizontalOptions="FillAndExpand" VerticalOptions="End" Source="Sfondo2" Margin="0,0,0,5"  />
+                        <Image Grid.Row="7" Grid.RowSpan="7" HorizontalOptions="FillAndExpand" VerticalOptions="End" Source="Sfondo2" Margin="0,0,0,10"  />
 
                     </Frame>
 
@@ -44,7 +44,7 @@
                         <Button x:Name="BtnAccedi" Text="ACCEDI" Margin="10,15,10,0" HorizontalOptions="Center"   WidthRequest="310" Style="{StaticResource BtnLight}" Clicked="BtnAccedi_Clicked" />
                         <Button  x:Name="BtnRegistrazione2" Text="REGISTRATI" Margin="10,15,10,0" HorizontalOptions="Center"  WidthRequest="310" Style="{StaticResource BtnDark}" Clicked="BtnRegistrazione2_Clicked"/>
                     </StackLayout>
-
+                    <Button Grid.Row="10"  Margin="5,15,5,5" Text="Non riesci ad accedere? Chiama il n. 370 117 777 3" VerticalOptions="End"  HorizontalOptions="Center" TextColor="Gray" BackgroundColor="Transparent" TextTransform="None" FontSize="Small" />
                 </Grid>
             </ScrollView>
         </StackLayout>
