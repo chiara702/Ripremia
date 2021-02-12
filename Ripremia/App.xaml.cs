@@ -128,7 +128,8 @@ namespace EcoServiceApp {
             //Handle notification when app is open
             CrossFirebasePushNotification.Current.OnNotificationReceived += (s, p) => {
                 var Messaggio = p.Data["body"].ToString();
-                Boolean Flash = Boolean.Parse(p.Data["flash"].ToString());
+                Boolean Flash = true;
+                if (p.Data.ContainsKey("flash")==true) Flash=Boolean.Parse(p.Data["flash"].ToString());
                 if (Flash == true) {
                     Device.BeginInvokeOnMainThread(async () => {
                         try {
