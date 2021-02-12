@@ -131,7 +131,9 @@ namespace EcoServiceApp {
                 Boolean Flash = Boolean.Parse(p.Data["flash"].ToString());
                 if (Flash == true) {
                     Device.BeginInvokeOnMainThread(async () => {
-                        await Application.Current.MainPage.DisplayAlert("", Messaggio + " Flash:" + Flash.ToString(), "OK");
+                        try {
+                            await Application.Current.MainPage.DisplayAlert("", Messaggio + " Flash:" + Flash.ToString(), "OK");
+                        } catch (Exception) { }
                     });
                 } else {
                     Device.BeginInvokeOnMainThread(() => {
@@ -139,9 +141,9 @@ namespace EcoServiceApp {
                     });
                 }
             };
-            CrossFirebasePushNotification.Current.OnTokenRefresh += (s, p) => {
+            /*CrossFirebasePushNotification.Current.OnTokenRefresh += (s, p) => {
                 CrossFirebasePushNotification.Current.Subscribe("SUPERADMIN");
-            };
+            };*/
             CrossFirebasePushNotification.Current.OnNotificationOpened += (s, p) =>{
                 var Messaggio = p.Data["body"].ToString();
                 

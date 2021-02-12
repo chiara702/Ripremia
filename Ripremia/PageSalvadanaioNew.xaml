@@ -40,7 +40,7 @@
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="2*" />
                                 <ColumnDefinition Width="9*" />
-                                <ColumnDefinition Width="4*" />
+                                <ColumnDefinition Width="2*" />
                                 <ColumnDefinition Width="2*" />
                             </Grid.ColumnDefinitions>
                             <Label  Grid.Row="0"  Grid.Column="0" Grid.ColumnSpan="3" Text="IL MIO SALVADANAIO" VerticalOptions="Center" HorizontalOptions="Start" Margin="10,15,10,10" FontSize="22" TextColor="White" Style="{StaticResource UserFontGreen}" FontAttributes="Bold" />
@@ -61,7 +61,7 @@
 
                             <Label x:Name="LblBorsellinoAcqua1" Grid.Row="4" Grid.Column="1" Text="Acqua potabile" VerticalOptions="Center" HorizontalOptions="Start" Style="{StaticResource UserFontwhiteL}"  />
                             <Label x:Name="LblBorsellinoSapone1" Grid.Row="5" Grid.Column="1" Text="Sapone ecologico" VerticalOptions="Center" HorizontalOptions="Start" Style="{StaticResource UserFontwhiteL}" />
-                            <Label x:Name="LblBorsellinoSaccBio1" Grid.Row="6" Grid.Column="1" Text="Sacchetti biodegradabili" VerticalOptions="Center" HorizontalOptions="Start" Style="{StaticResource UserFontwhiteL}" />
+                            <Label x:Name="LblBorsellinoSaccBio1"  Grid.Row="6" Grid.Column="1" Text="Sacchetti bio" VerticalOptions="Center" HorizontalOptions="Start" Style="{StaticResource UserFontwhiteL}" />
                             <Label x:Name="LblBorsellinoSacc1" Grid.Row="7" Grid.Column="1" Text="Sacchetti altri rifiuti" VerticalOptions="Center" HorizontalOptions="Start" Style="{StaticResource UserFontwhiteL}" />
 
                             <BoxView Grid.Row="3" Grid.Column="2"  Color="Transparent" />

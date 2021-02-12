@@ -3,6 +3,7 @@ using System.Linq;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using System.Security.Cryptography;
 
 
 
@@ -15,6 +16,16 @@ namespace EcoServiceApp {
             InitializeComponent();
         }
 
+        //crittografia password Chiara
+        public string MD5Hash(string input) {
+            System.Security.Cryptography.SHA512Managed sha512 = new System.Security.Cryptography.SHA512Managed();
+
+            Byte[] EncryptedSHA512 = sha512.ComputeHash(System.Text.Encoding.UTF8.GetBytes(string.Concat(input, "test")));
+
+            sha512.Clear();
+            return Convert.ToBase64String(EncryptedSHA512);
+        }
+        //fine
 
         protected override bool OnBackButtonPressed() {
             Application.Current.MainPage = new PageLogin();
@@ -118,7 +129,7 @@ namespace EcoServiceApp {
                 } else {
                     var RitMV = server.CreaQRCodeMonetaVirtuale(NomeComune, "", 0, TxtCodFiscale.Text);
                     if (RitMV.ErroreString != "") {
-                        DisplayAlert("Errore", "Errore generazione codice. Verificare connettività!", "OK");
+                        await DisplayAlert("Errore", "Errore generazione codice. Verificare connettività!", "OK");
                         return;
                     }
                     QrcodeMonetaVirtuale = RitMV.QrCode;
@@ -131,7 +142,7 @@ namespace EcoServiceApp {
                 }
                 QrcodeMonetaVirtuale = Funzioni.Antinull(FunzDb.EseguiCommand("Select CodiceMonetaVirtuale From Utente Where CodiceFamiglia='" + Funzioni.AntiAp(txtCodFamiglia.Text) + "'"));
                 if (QrcodeMonetaVirtuale == "") {
-                    DisplayAlert("Errore", "Errore nel trovare QrCode della famiglia. Verificare connettività!", "OK");
+                    await DisplayAlert("Errore", "Errore nel trovare QrCode della famiglia. Verificare connettività!", "OK");
                     return;
                 }
 
@@ -166,7 +177,7 @@ namespace EcoServiceApp {
             }
             DisplayAlert("Registrazione effettuata con successo!", "Ultimo passo!\nOra non ti resta che effettuare il primo accesso ed inserire il numero di conferma che ti abbiamo mandato all'indirizzo e-mail!", "Ok");
 
-            Funzioni.SendEmail(TxtEmail.Text, "ripremianoreply@gmail.com", "Conferma la tua e-mail per accedere ai servizi", "Benvenuto, come ultimo passo non ti resta che inserire il seguente numero all'interno dell'EcoService APP per confermare la tua email.\n " + CodConferma);
+            Funzioni.SendEmail(TxtEmail.Text, "ripremianoreply@gmail.com", "Conferma la tua e-mail per accedere ai servizi", "Benvenuto, come ultimo passo non ti resta che inserire il seguente numero all'interno dell'app RIPREMIA per confermare la tua email.\n " + CodConferma);
 
             var Page = new PageLogin();
             Page.SetEmailAndPassword(TxtEmail.Text, TxtPassword.Text);

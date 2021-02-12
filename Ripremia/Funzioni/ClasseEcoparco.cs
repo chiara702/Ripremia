@@ -305,8 +305,7 @@ public class ClassApiParco { //vers. 1
 }
 
 public class ClassApiEcoControl {
-    const String BaseUrl = "http://185.58.119.77/WebService/webserviceEcoParco.asmx/";
-    //const String BaseUrl = "https://localhost:44344/WebService/webserviceEcoParco.asmx/";
+    const String BaseUrl = "https://www.ecocontrolgsm.cloud/WebService/webserviceEcoParco.asmx/";
     public Boolean LastError;
     public String LastErrorDescrizione;
     private string TestFirma(string Messaggio) {
@@ -324,10 +323,15 @@ public class ClassApiEcoControl {
         LastError = false;
         LastErrorDescrizione = "";
         try {
-            String URLSqlQuery = BaseUrl + string.Format("CreaQRCodeMonetaVirtuale?paese={0}&IdentificativoBidone={1}&ImportoInCentesimi={2}&CodiceFiscale={3}", System.Web.HttpUtility.UrlEncode(Paese), System.Web.HttpUtility.UrlEncode(IdentificativoBidone), System.Web.HttpUtility.UrlEncode(ImportoInCentesimi.ToString()), System.Web.HttpUtility.UrlEncode(CodiceFiscale));
+            String URLSqlQuery = BaseUrl + "CreaQRCodeMonetaVirtuale";
             var req = (HttpWebRequest)WebRequest.Create(URLSqlQuery);
+            var ContentString = string.Format("Paese={0}&IdentificativoBidone={1}&ImportoInCentesimi={2}&CodiceFiscale={3}", System.Web.HttpUtility.UrlEncode(Paese), System.Web.HttpUtility.UrlEncode(IdentificativoBidone), System.Web.HttpUtility.UrlEncode(ImportoInCentesimi.ToString()), System.Web.HttpUtility.UrlEncode(CodiceFiscale));
             req.Timeout = 8000;
-            req.Method = "GET";
+            req.Method = "POST";
+            req.ContentType = "application/x-www-form-urlencoded";
+            var ContentStream = req.GetRequestStream();
+            ContentStream.Write(UTF8Encoding.UTF8.GetBytes(ContentString));
+            ContentStream.Close();
             using (var gr = req.GetResponse()) {
                 var st = gr.GetResponseStream();
                 var stRead = new System.IO.StreamReader(st);
@@ -358,10 +362,15 @@ public class ClassApiEcoControl {
         LastError = false;
         LastErrorDescrizione = "";
         try {
-            String URLSqlQuery = BaseUrl + "EcocontrolEseguiQuery?query=" + System.Web.HttpUtility.UrlPathEncode(Query) + "&staging=false&Firma=" + TestFirma(Query);
+            String URLSqlQuery = BaseUrl + "EcocontrolEseguiQuery";
             var req = (HttpWebRequest)WebRequest.Create(URLSqlQuery);
+            var ContentString = "query=" + System.Web.HttpUtility.UrlPathEncode(Query) + "&staging=false&Firma=" + TestFirma(Query);
             req.Timeout = 8000;
-            req.Method = "GET";
+            req.Method = "POST";
+            req.ContentType = "application/x-www-form-urlencoded";
+            var ContentStream = req.GetRequestStream();
+            ContentStream.Write(UTF8Encoding.UTF8.GetBytes(ContentString));
+            ContentStream.Close();
             using (var gr = req.GetResponse()) {
                 var st = gr.GetResponseStream();
                 var stRead = new System.IO.StreamReader(st);
@@ -385,76 +394,31 @@ public class ClassApiEcoControl {
         } 
     }
     public DataRow EseguiQueryRow(String Tabella, int Id) {
-        LastError = false;
-        LastErrorDescrizione = "";
-        try {
-            var query = "Select * From " + Tabella + " Where Id=" + Id.ToString();
-            String URLSqlQuery = BaseUrl + "EcocontrolEseguiQuery?query=" + System.Web.HttpUtility.UrlPathEncode(query) + "&staging=false&Firma=" + TestFirma(query);
-            var req = (HttpWebRequest)WebRequest.Create(URLSqlQuery);
-            req.Timeout = 8000;
-            req.Method = "GET";
-            using (var gr = req.GetResponse()) {
-                var st = gr.GetResponseStream();
-                var stRead = new System.IO.StreamReader(st);
-                var rit = stRead.ReadToEnd();
-                var Table = Serializza.XmlDeserialize<DataTable>(rit);
-                if (Table.Rows.Count == 0) return null;
-                return Table.Rows[0];
-            }
-        } catch (WebException e) {
-            if (e.Response == null) {
-                LastError = true;
-                LastErrorDescrizione = e.Message;
-            }
-            if (e.Response != null) {
-                var stRead = new System.IO.StreamReader(e.Response.GetResponseStream());
-                var rit = stRead.ReadToEnd();
-                LastError = true;
-                LastErrorDescrizione = rit;
-            }
-            return null;
-        }
+        var Table = EseguiQuery("Select * From " + Tabella + " Where Id=" + Id);
+        if (Table == null) return null;
+        if (Table.Rows.Count == 0) return null;
+        return Table.Rows[0];
     }
 
     public DataRow EseguiQueryRow(String Tabella, string Where) { //Where: Id=5 and nome='fabio'
-        LastError = false;
-        LastErrorDescrizione = "";
-        try {
-            var query = "Select * From " + Tabella + " Where " + Where;
-            String URLSqlQuery = BaseUrl + "EcocontrolEseguiQuery?query=" + System.Web.HttpUtility.UrlPathEncode(query) + "&staging=false&Firma=" + TestFirma(query);
-            var req = (HttpWebRequest)WebRequest.Create(URLSqlQuery);
-            req.Timeout = 8000;
-            req.Method = "GET";
-            using (var gr = req.GetResponse()) {
-                var st = gr.GetResponseStream();
-                var stRead = new System.IO.StreamReader(st);
-                var rit = stRead.ReadToEnd();
-                var Table = Serializza.XmlDeserialize<DataTable>(rit);
-                if (Table.Rows.Count == 0) return null;
-                return Table.Rows[0];
-            }
-        } catch (WebException e) {
-            if (e.Response == null) {
-                LastError = true;
-                LastErrorDescrizione = e.Message;
-            }
-            if (e.Response != null) {
-                var stRead = new System.IO.StreamReader(e.Response.GetResponseStream());
-                var rit = stRead.ReadToEnd();
-                LastError = true;
-                LastErrorDescrizione = rit;
-            }
-            return null;
-        }
+        var Table = EseguiQuery("Select * From " + Tabella + " Where " + Where);
+        if (Table == null) return null;
+        if (Table.Rows.Count == 0) return null;
+        return Table.Rows[0];
     }
     public Object EseguiCommand(String Query) {
         LastError = false;
         LastErrorDescrizione = "";
         try {
-            String URLSqlQuery = BaseUrl + "EcocontrolEseguiCommand?Command=" + System.Web.HttpUtility.UrlPathEncode(Query) + "&staging=false&Firma=" + TestFirma(Query);
+            String URLSqlQuery = BaseUrl + "EcocontrolEseguiCommand";
             var req = (HttpWebRequest)WebRequest.Create(URLSqlQuery);
+            var ContentString = "Command=" + System.Web.HttpUtility.UrlPathEncode(Query) + "&staging=false&Firma=" + TestFirma(Query);
             req.Timeout = 8000;
-            req.Method = "GET";
+            req.Method = "POST";
+            req.ContentType = "application/x-www-form-urlencoded";
+            var ContentStream = req.GetRequestStream();
+            ContentStream.Write(UTF8Encoding.UTF8.GetBytes(ContentString));
+            ContentStream.Close();
             using (var gr = req.GetResponse()) {
                 var st = gr.GetResponseStream();
                 var stRead = new System.IO.StreamReader(st);
@@ -809,7 +773,7 @@ public class Funzioni {
             return;
         MailAddress sendTo = new MailAddress(Destinatario);
         // imposta mittente
-        MailAddress from = new MailAddress(Mittente);
+        MailAddress from = new MailAddress("ripremianoreply@gmail.com");
         // istanzia l'oggetto MailMessage
         MailMessage message = new MailMessage(from, sendTo);
         // campi del messaggio
@@ -817,12 +781,16 @@ public class Funzioni {
         message.Subject = Oggetto;
         message.Body = Messaggio;
         // credenziali di accesso
-        System.Net.NetworkCredential basicAuthenticationInfo = new System.Net.NetworkCredential("info@ecocontrolgsm.it", "fabio123456");
+        //System.Net.NetworkCredential basicAuthenticationInfo = new System.Net.NetworkCredential("info@ecocontrolgsm.it", "fabio123456");
+        
         // imposta connessione con il server GMAIL
-        SmtpClient SMTPServer = new SmtpClient("smtp.ecocontrolgsm.it");
+        //SmtpClient SMTPServer = new SmtpClient("smtp.ecocontrolgsm.it");
+        SmtpClient SMTPServer = new SmtpClient("smtp.gmail.com");
         SMTPServer.UseDefaultCredentials = false;
         SMTPServer.Port = 587;
-        SMTPServer.Credentials = basicAuthenticationInfo;
+        SMTPServer.EnableSsl = true;
+
+        SMTPServer.Credentials = new System.Net.NetworkCredential("ripremianoreply@gmail.com", "Ripremia123456");
         // SMTPServer.EnableSsl = True
         // invio della mail
         try {

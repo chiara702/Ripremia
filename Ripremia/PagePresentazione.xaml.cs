@@ -15,10 +15,11 @@ namespace EcoServiceApp {
         }
 
         private async void BtnConfermaComune_Clicked(object sender, EventArgs e) {
-            if (TxtComuneTari.Text.ToUpper() == "T") TxtComuneTari.Text = "TERMOLI";
-            if (TxtComuneTari.Text.ToUpper() == "L") TxtComuneTari.Text = "LANCIANO";
+            var ComuneInserito = Funzioni.Antinull(TxtComuneTari.Text).ToUpper();
+            if (ComuneInserito == "T") TxtComuneTari.Text = "TERMOLI";
+            if (ComuneInserito == "L") TxtComuneTari.Text = "LANCIANO";
             var Parchetto = new ClassApiParco();
-            var rigoComune = Parchetto.EseguiQueryRow("Comune", "Upper(Nome)='" + TxtComuneTari.Text + "'");
+            var rigoComune = Parchetto.EseguiQueryRow("Comune", "Upper(Nome)='" + Funzioni.AntiAp(ComuneInserito) + "'");
             if (Parchetto.LastError == true) {
                 await DisplayAlert("Attenzione", "Errore connessione!", "ok");
                 return;

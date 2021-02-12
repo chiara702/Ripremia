@@ -13,8 +13,8 @@
             
 
             <Button x:Name="BtnAccedi" Text="ACCEDI" Margin="10,35,10,0" HorizontalOptions="Center"   WidthRequest="310" Style="{StaticResource BtnLight}" Clicked="BtnAccedi_Clicked" />
-            
-            <Label HorizontalTextAlignment="Center" Margin="10, 45,10,5" Style="{StaticResource UserFontwhite}" LineBreakMode="WordWrap" Text="Non ti è arrivata nessuna e-mail?"/>
+
+            <Label HorizontalTextAlignment="Center" Margin="10, 45,10,5" Style="{StaticResource UserFontwhite}" LineBreakMode="WordWrap" Text="Non ti è arrivata nessuna e-mail?&#10;Se hai un indirizzo di posta libero o yahoo controlla tra gli SPAM, altrimenti"/>
             <Button x:Name="BtnInviaConferma" Margin="5,5,5,0" Text="INVIA DI NUOVO"  HorizontalOptions="Center" TextColor="White" BackgroundColor="Transparent" BorderColor="White" WidthRequest="310" BorderWidth="1" TextTransform="None" FontSize="18" Clicked="BtnInviaConferma_Clicked" />
             <Button x:Name="BtnProblemiAccesso" Margin="5,20,5,30" Text="Problemi di accesso? Contattaci!"  HorizontalOptions="Center" VerticalOptions="EndAndExpand" TextColor="White" BackgroundColor="Transparent" TextTransform="None" FontSize="Small" />
         </StackLayout>
