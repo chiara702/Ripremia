@@ -57,16 +57,20 @@ namespace EcoServiceApp {
         }
 
         public void RiempiDati() {
-            var apiEcoControl = new ClassApiEcoControl();
-            int Qta = Convert.ToInt32(apiEcoControl.EseguiCommand("Select Qta From MonetaVirtuale Where QrCode='" + App.DataRowUtente["CodiceMonetaVirtuale"].ToString() + "'"));
-            Device.BeginInvokeOnMainThread(() => {
-                LblPunteggioFamiglia.Text = Qta.ToString();
-                LblAcquaDisp.Text = (Qta / 5).ToString();
-                LblSaponeDisp.Text = (Qta / 80 * 100).ToString();
-                LblSaccOrgDisp.Text = (Qta / 120).ToString();
-                LblSaccSeccoDisp.Text = (Qta / 100).ToString();
+            try {
+                var apiEcoControl = new ClassApiEcoControl();
+                int Qta = Convert.ToInt32(apiEcoControl.EseguiCommand("Select Qta From MonetaVirtuale Where QrCode='" + App.DataRowUtente["CodiceMonetaVirtuale"].ToString() + "'"));
+                Device.BeginInvokeOnMainThread(() => {
+                    LblPunteggioFamiglia.Text = Qta.ToString();
+                    LblAcquaDisp.Text = (Qta / 5).ToString();
+                    LblSaponeDisp.Text = (Qta / 80 * 100).ToString();
+                    LblSaccOrgDisp.Text = (Qta / 120).ToString();
+                    LblSaccSeccoDisp.Text = (Qta / 100).ToString();
 
-            });
+                });
+            } catch (Exception) {
+                DisplayAlert("Errore", "Errore recupero statistiche", "OK");
+            }
 
         }
 

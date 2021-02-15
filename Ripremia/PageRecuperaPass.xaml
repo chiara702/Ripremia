@@ -1,21 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="EcoServiceApp.PageRecuperaPass">
+             x:Class="EcoServiceApp.PageRecuperaPass" BackgroundColor="#636159">
     <ContentPage.Content>
-        <StackLayout BackgroundColor="#636159">
-
-            <Image Source="RipremiaW" HorizontalOptions="Center" Margin="25,25" WidthRequest="350" />
-
-            <Label HorizontalTextAlignment="Center" Margin="10, 5,10,10" Style="{StaticResource MediumFont}" LineBreakMode="WordWrap" Text="Inserisci la tua e-mail&#10;per recuperare la password"/>
-            <Entry x:Name="TxtEmail" HorizontalOptions="FillAndExpand" Margin="30,5,30,5" HorizontalTextAlignment="Center" Placeholder="Inserisci la tua e-mail"  PlaceholderColor="LightGray" TextColor="White" FontSize="18"  />
-
-
-            <Button x:Name="BtnRecupera" Text="RECUPERA" Margin="10,15,10,0" HorizontalOptions="Center"   WidthRequest="310" Style="{StaticResource BtnLight}" Clicked="BtnRecupera_Clicked" />
-
-            <Button x:Name="BtnReturnLog" Margin="10,30,10,10" Text="Torna alla pagina di LOGIN"  HorizontalOptions="Center" WidthRequest="310" Style="{StaticResource BtnTranspGreen}" BorderColor="White" BorderWidth="2" TextColor="White" Clicked="BtnReturnLog_Clicked" FontSize="18"/>
-            <Button x:Name="BtnProblemiAccesso" Margin="5,0,5,30" Text="Problemi di accesso? Contattaci!" VerticalOptions="EndAndExpand" HorizontalOptions="Center" TextColor="White" BackgroundColor="Transparent" TextTransform="None" FontSize="Small" Clicked="BtnProblemiAccesso_Clicked" />
-            
+        <StackLayout  >
+            <StackLayout VerticalOptions="FillAndExpand">
+                    <Image Source="RipremiaW" HorizontalOptions="Center" WidthRequest="250" Margin="10,50,10,0" />
+                    <Label HorizontalTextAlignment="Center" Margin="10, 35,10,10" Style="{StaticResource MediumFont}" LineBreakMode="WordWrap" Text="Inserisci la tua e-mail&#10;per recuperare la password"/>
+                    <Entry x:Name="TxtEmail" HorizontalOptions="FillAndExpand" Margin="30,5,30,5" HorizontalTextAlignment="Center" Placeholder="Inserisci la tua e-mail"  PlaceholderColor="LightGray" BackgroundColor="White" TextColor="Black" FontSize="18"  />
+                    <Button x:Name="BtnRecupera" Text="RECUPERA" Margin="10,15,10,0" HorizontalOptions="Center"   WidthRequest="310" Style="{StaticResource BtnLight}" Clicked="BtnRecupera_Clicked" />
+            </StackLayout>
+            <StackLayout VerticalOptions="End">
+                <Button x:Name="BtnReturnLog" Margin="10,30,10,10" Text="Torna alla pagina di LOGIN"  HorizontalOptions="Center" WidthRequest="310" Style="{StaticResource BtnTranspGreen}" BorderColor="White" BorderWidth="2" TextColor="White" Clicked="BtnReturnLog_Clicked" FontSize="18"/>
+                <Button x:Name="BtnProblemiAccesso" Margin="5,0,5,30" Text="Problemi di accesso? Contattaci!" VerticalOptions="EndAndExpand" HorizontalOptions="Center" TextColor="White" BackgroundColor="Transparent" TextTransform="None" FontSize="Small" Clicked="BtnProblemiAccesso_Clicked" />
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

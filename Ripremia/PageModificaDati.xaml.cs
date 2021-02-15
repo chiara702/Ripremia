@@ -216,7 +216,6 @@ namespace EcoServiceApp {
             var CodConferma = new Random().Next(100000, 999999);//random
 
 
-
             var Par = FunzDb.GetParam();
             Par.AddParameterString("Nome", TxtNome.Text);
             Par.AddParameterString("Cognome", TxtCognome.Text);

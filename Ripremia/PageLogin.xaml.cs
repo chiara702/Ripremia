@@ -45,6 +45,8 @@ namespace EcoServiceApp {
 
 
         private void BtnAccedi_Clicked(object sender, EventArgs e) {
+            if (TxtEmailLog.Text == null) TxtEmailLog.Text = "";
+            if (TxtPassLog.Text == null) TxtPassLog.Text = "";
             TxtEmailLog.Text = TxtEmailLog.Text.ToLower();
 
             var Parchetto = new ClassApiParco();
