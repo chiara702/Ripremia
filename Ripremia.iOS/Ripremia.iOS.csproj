@@ -583,6 +583,9 @@
   <ItemGroup>
     <BundleResource Include="Resources\CarrelloSconto.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Coupon.png" />
+  </ItemGroup>
   <ProjectExtensions>
     <VisualStudio>
       <UserProperties TriggeredFromHotReload="False" />

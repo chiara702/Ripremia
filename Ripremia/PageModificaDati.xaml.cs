@@ -217,6 +217,9 @@ namespace EcoServiceApp {
 
 
             var Par = FunzDb.GetParam();
+            
+            //if (DisplayAlert("Conferma", "Sicuro di voler modificare i tuoi dati? Dovrai effettuare nuovamente l'accesso!", "OK", "Annulla")==true) { 
+
             Par.AddParameterString("Nome", TxtNome.Text);
             Par.AddParameterString("Cognome", TxtCognome.Text);
             Par.AddParameterString("CodiceFiscale", TxtCodFiscale.Text);
@@ -226,16 +229,17 @@ namespace EcoServiceApp {
             Par.AddParameterInteger("LetturaPrivacy", CheckPrivacy.IsChecked == true ? 1 : 0);
             Par.AddParameterInteger("ConsensoTerzeParti", CheckTrattamento.IsChecked == true ? 1 : 0);
             Par.AddParameterInteger("IdComune", IdComune);
-            Par.AddParameterString("CodConferma", CodConferma.ToString()); //random
+            //Par.AddParameterString("CodConferma", CodConferma.ToString()); //random
             Par.AddParameterString("CodiceMonetaVirtuale", QrcodeMonetaVirtuale);
-            Par.AddParameterObject("DataRegistrazione", System.DateTime.Now.ToString());
-            var err = FunzDb.EseguiInsert("Utente", Par).ToString();
+            //Par.AddParameterObject("DataRegistrazione", System.DateTime.Now);
+            var err = FunzDb.EseguiUpdate("Utente",(int)App.DataRowUtente["Id"], Par).ToString();
+            
             if (err == null) {
                 DisplayAlert("Errore", "Errore durante la modifica!", "OK");
                 return;
             }
 
-
+            DisplayAlert("Modifica dati effettuata correttamente", "Effettua nuovamente l'accesso con i tuoi dati", "OK");
 
             Xamarin.Essentials.Preferences.Set("Loggato", false);
             Application.Current.MainPage = new PageLogin();
