@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EcoServiceApp.PageDettaglioAttivita">
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid HorizontalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="*" />
+                    
+                </Grid.RowDefinitions>
+
+                <Image x:Name="ImgLogo" Grid.Row="0"  Source="RipremiaTrasp" Margin="20,20,20,0"  HorizontalOptions="StartAndExpand" WidthRequest="280"/>
+                <StackLayout Grid.Row="1" Grid.Column="0"  HorizontalOptions="Start" Margin="20,10,20,0" Spacing="0">
+                    <Label x:Name="LblNome"  Margin="0,10,0,0" Text="Nomenclatura" Style="{StaticResource UserFontGreen}" TextColor="#636159" VerticalOptions="Center" FontAttributes="Bold" FontSize="24" />
+                        <Label x:Name="LblCategoria"  Margin="0,5,0,0" Text="Categoria merceologica" Style="{StaticResource UserFontGreen}" TextColor="#636159" VerticalOptions="Center"   FontSize="16" />
+                        <Label x:Name="LblComune"  Margin="0,10,0,0" Text="Comune (PR)" Style="{StaticResource UserFontGreen}" TextColor="#636159" VerticalOptions="Center" FontAttributes="Bold" FontSize="18" />
+                        <Label x:Name="LblIndirizzo"  Margin="0,5,0,0" Text="Indirizzo, n" Style="{StaticResource UserFontGreen}" TextColor="#636159" VerticalOptions="Center"   FontSize="18" />
+
+                </StackLayout>
+
+                <StackLayout Grid.Row="2"   HorizontalOptions="FillAndExpand"  Margin="20,10,20,0" Spacing="0">
+                    <StackLayout Orientation="Horizontal">
+                        <Label  Margin="0,10,0,0" Text="VALORE DI 1 COUPON" Style="{StaticResource UserFontGreen}" TextColor="#eb6509" VerticalOptions="Center" FontAttributes="Bold" FontSize="22" />
+                        <Image Grid.Row="2" Grid.Column="2"  Source="Coupon" Margin="10,0,10,0" VerticalOptions="Center" HeightRequest="50" />
+                    </StackLayout>
+                    <Label x:Name="LblValoreCoupon"  Text="0,50 €" Style="{StaticResource UserFontGreen}" TextColor="#636159" VerticalOptions="Center" FontAttributes="Bold" FontSize="28" />
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="0,15,0,0">
+                        <Label  Text="SPESA MINIMA " Style="{StaticResource UserFontGreen}" TextColor="#eb6509" VerticalOptions="Center" FontAttributes="Bold" FontSize="18" />
+                        <Label x:Name="LblSpesaMin"   Text="10,00 €" Style="{StaticResource UserFontGreen}" TextColor="#636159" VerticalOptions="Center"   FontAttributes="Bold" FontSize="18" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="0,15,0,0">
+                        <Label  Text="MAX COUPON*" Style="{StaticResource UserFontGreen}" TextColor="#eb6509" VerticalOptions="Center" FontAttributes="Bold" FontSize="18" />
+                        <Label x:Name="LblCouponMax"   Text="1" Style="{StaticResource UserFontGreen}" TextColor="#636159" VerticalOptions="Center"   FontAttributes="Bold" FontSize="18" />
+                    </StackLayout>
+                    <Label x:Name="LblSpiegazione" Text="*Numero di coupon utilizzabili per ogni multiplo di spesa minima. Per esempio ogni 10€ di spesa avrai diritto ad utilizzare un coupon di sconto pari a 0,50€" Style="{StaticResource UserFontGreen}" TextColor="#636159" VerticalOptions="Center"  FontSize="16" />
+
+                    <Label  Text="ULTERIORI DETTAGLI" Margin="0,15,0,0" Style="{StaticResource UserFontGreen}" TextColor="#636159" VerticalOptions="Center" FontAttributes="Bold"  FontSize="18" />
+                    <Label x:Name="LblDettagli" Text="Non ci sono ulteriori dettagli" Style="{StaticResource UserFontGreen}" TextColor="#636159" VerticalOptions="Center"  FontSize="18" />
+
+                </StackLayout>
+
+            </Grid>
+
+
+
+
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

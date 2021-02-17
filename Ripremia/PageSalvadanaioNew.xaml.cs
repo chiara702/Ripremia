@@ -42,12 +42,15 @@ namespace EcoServiceApp {
                 LblBorsellinoSacc2.IsVisible = false;
                 LblSaccSeccoDisp.IsVisible = false;
             }
-
+            if (((Boolean)App.DataRowComune["RaccoltaCoupon"]) == false) {
+                FrmCoupon.IsVisible = false;
+            }
         }
 
         protected override void OnAppearing() {
             base.OnAppearing();
             Task.Run(() => RiempiDati());
+            Task.Run(() => RiempiFrameCoupon());
             TxtPetConferito.Text = UtenteDatiMemoria.UtentePetRaccolto.ToString();
             TxtOilConferito.Text = UtenteDatiMemoria.UtenteOilRaccolto.ToString();
             Device.StartTimer(TimeSpan.FromSeconds(20), () => {
@@ -66,7 +69,7 @@ namespace EcoServiceApp {
                     LblSaponeDisp.Text = (Qta / 80 * 100).ToString();
                     LblSaccOrgDisp.Text = (Qta / 120).ToString();
                     LblSaccSeccoDisp.Text = (Qta / 100).ToString();
-
+                    RiempiFrameCoupon();
                 });
             } catch (Exception) {
                 DisplayAlert("Errore", "Errore recupero statistiche", "OK");
@@ -74,8 +77,38 @@ namespace EcoServiceApp {
 
         }
 
+        public void RiempiFrameCoupon() {
+            Device.BeginInvokeOnMainThread(() => {
+                int EcopuntiXcoupon = (int)App.DataRowUtente["EcopuntiXcoupon"];
+                int FattoreConversione = (int)App.DataRowComune["EcopuntiCoupon"];
+                int MoltiplicatoreCoupon = (int)App.DataRowComune["MoltiplicatoreCoupon"];
+                
+                int AggiornaCoupon = (EcopuntiXcoupon / FattoreConversione);
+
+                LblSpiegaGeneratore.Text = "Ogni " + App.DataRowComune["EcopuntiCoupon"].ToString() + " ecopunti accumulati verrà generato un COUPON di SCONTO che potrai utilizzare presso le attività commerciali affiliate*";
+
+                LblCouponQnt.Text = (AggiornaCoupon * MoltiplicatoreCoupon).ToString();
+
+                int EcopuntiGeneratoriCoupon = AggiornaCoupon * FattoreConversione;
+
+                int RestoEcopunti = EcopuntiXcoupon - EcopuntiGeneratoriCoupon;
+
+                LblEcopuntiParz.Text = RestoEcopunti.ToString();
+
+                double Barprogress = ((double)RestoEcopunti) / ((double)FattoreConversione);
+                BarCoupon.Progress = Barprogress;
 
 
+                var Parchetto = new ClassApiParco();
+                var Par = Parchetto.GetParam();
+                Par.AddParameterInteger("Coupon", AggiornaCoupon);
+                Parchetto.EseguiInsert("Utente", Par);
+            });
+        }
 
+        private void BtnShowAttivita_Clicked(object sender, EventArgs e) {
+            Application.Current.MainPage = new NavigationPage(new PageShowAttivitaCommerciali());
+
+        }
     }
 }
