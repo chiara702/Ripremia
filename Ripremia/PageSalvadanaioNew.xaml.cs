@@ -85,7 +85,11 @@ namespace EcoServiceApp {
                 
                 int AggiornaCoupon = (EcopuntiXcoupon / FattoreConversione);
 
-                LblSpiegaGeneratore.Text = "Ogni " + App.DataRowComune["EcopuntiCoupon"].ToString() + " ecopunti accumulati verrà generato un COUPON di SCONTO che potrai utilizzare presso le attività commerciali affiliate*";
+                if (MoltiplicatoreCoupon > 1) {
+                    LblSpiegaGeneratore.Text = "Ogni " + App.DataRowComune["EcopuntiCoupon"].ToString() + " ecopunti accumulati verranno generati " + (int)App.DataRowComune["MoltiplicatoreCoupon"] + " COUPON di SCONTO che potrai utilizzare presso le attività commerciali affiliate*";
+                } else {
+                    LblSpiegaGeneratore.Text = "Ogni " + App.DataRowComune["EcopuntiCoupon"].ToString() + " ecopunti accumulati verrà generato 1 COUPON di SCONTO che potrai utilizzare presso le attività commerciali affiliate*";
+                }
 
                 LblCouponQnt.Text = (AggiornaCoupon * MoltiplicatoreCoupon).ToString();
 
