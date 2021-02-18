@@ -20,6 +20,13 @@ namespace EcoServiceApp {
 
         private MediaFile file = null;
         private async void BtnScattaFoto_Clicked(object sender, EventArgs e) {
+            var status = await Permissions.CheckStatusAsync<Permissions.Camera>();
+            var status2 = await Permissions.CheckStatusAsync<Permissions.StorageWrite>();
+            if (status != PermissionStatus.Granted || status2 != PermissionStatus.Granted) {
+                status = await Permissions.RequestAsync<Permissions.Camera>();
+                status2 = await Permissions.RequestAsync<Permissions.StorageWrite>();
+            }
+            if (status != PermissionStatus.Granted || status2 != PermissionStatus.Granted) return;
             try {
 
                 await CrossMedia.Current.Initialize();

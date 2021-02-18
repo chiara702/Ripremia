@@ -23,6 +23,7 @@ namespace EcoServiceApp.Droid
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
+            ZXing.Net.Mobile.Forms.Android.Platform.Init(); //zxing init
 
             //Firebase Messaging
             if (Build.VERSION.SdkInt >= Android.OS.BuildVersionCodes.O) {

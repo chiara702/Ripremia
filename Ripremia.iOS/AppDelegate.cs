@@ -27,6 +27,7 @@ namespace EcoServiceApp.iOS
            
             global::Xamarin.Forms.Forms.Init();
             Xamarin.FormsMaps.Init();
+            ZXing.Net.Mobile.Forms.iOS.Platform.Init();
             LoadApplication(new App());
             ZXing.Net.Mobile.Forms.iOS.Platform.Init();
 

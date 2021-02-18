@@ -70,7 +70,10 @@ namespace EcoServiceApp {
         }
 
         private void TapAreaCommercianti_Tapped(object sender, EventArgs e) {
-            Application.Current.MainPage = new PageAreaCommercianti();
+            var Page = new PageAreaCommercianti();
+            App.Current.MainPage = new NavigationPage(Page);
+
+            //Application.Current.MainPage = new PageAreaCommercianti();
         }
     }
 }

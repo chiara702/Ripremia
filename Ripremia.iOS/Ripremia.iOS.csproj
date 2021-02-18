@@ -156,10 +156,10 @@
     <PackageReference Include="Xamarin.CommunityToolkit">
       <Version>1.0.2</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.1931" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
     <PackageReference Include="Xamarin.Forms.Maps">
-      <Version>5.0.0.1931</Version>
+      <Version>5.0.0.2012</Version>
     </PackageReference>
     <PackageReference Include="ZXing.Net.Mobile">
       <Version>2.4.1</Version>
@@ -585,6 +585,12 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Coupon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Meno.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Piu.png" />
   </ItemGroup>
   <ProjectExtensions>
     <VisualStudio>
