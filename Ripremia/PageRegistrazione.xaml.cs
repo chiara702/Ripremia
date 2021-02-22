@@ -177,7 +177,7 @@ namespace EcoServiceApp {
             }
             DisplayAlert("Registrazione effettuata con successo!", "Ultimo passo!\nOra non ti resta che effettuare il primo accesso ed inserire il numero di conferma che ti abbiamo mandato all'indirizzo e-mail!", "Ok");
 
-            Funzioni.SendEmail(TxtEmail.Text, "ripremianoreply@gmail.com", "Conferma la tua e-mail per accedere ai servizi", "Benvenuto, come ultimo passo non ti resta che inserire il seguente numero all'interno dell'app RIPREMIA per confermare la tua email.\n " + CodConferma);
+            Funzioni.SendEmail(TxtEmail.Text, "ripremianoreply@gmail.com", "RIPREMIA -Conferma la tua e-mail per accedere ai servizi", "Benvenuto, come ultimo passo non ti resta che inserire il seguente numero all'interno dell'app RIPREMIA per confermare la tua email.\n " + CodConferma);
 
             var Page = new PageLogin();
             Page.SetEmailAndPassword(TxtEmail.Text, TxtPassword.Text);

@@ -97,7 +97,7 @@
 
                             <Grid ColumnSpacing="0" Margin="0,10,0,0" RowSpacing="0">
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="60" />
+                                    <RowDefinition Height="auto" />
                                     <RowDefinition Height="auto" />
                                     <RowDefinition Height="auto" />
                                     <RowDefinition Height="auto" />
@@ -110,28 +110,26 @@
 
 
 
-                                <Label Grid.Row="0" Grid.Column="0" Margin="15,10,0,0"  Text="Generatore Coupon" Style="{StaticResource UserFontGreen}" TextColor="#eb6509" TextTransform="Uppercase" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" FontAttributes="Bold" FontSize="20" />
-                                <Image Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Source="Coupon" Margin="0,0,15,0" VerticalOptions="Center" HorizontalOptions="End"  />
+                                <Label Grid.Row="0" Grid.Column="0" Margin="15,10,0,5"  Text="Generatore Coupon" Style="{StaticResource UserFontGreen}" TextColor="#eb6509" TextTransform="Uppercase" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" FontAttributes="Bold" FontSize="20" />
+                                <Image Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Source="Coupon" Margin="0,0,15,0" VerticalOptions="Center" HorizontalOptions="End" HeightRequest="80" />
 
-                                <Frame Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" BackgroundColor="#f2f2f2" Margin="0,20,0,0" CornerRadius="0" HasShadow="False" >
-                                    <StackLayout  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Margin="5,0,5,0"  Spacing="10" HorizontalOptions="FillAndExpand">
+                                <Frame Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" BackgroundColor="#f2f2f2" Margin="0,10,0,0" Padding="15,10,15,10" CornerRadius="0" HasShadow="False" >
+                                    <StackLayout  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Margin="5,-10,5,0"  Spacing="10" HorizontalOptions="FillAndExpand">
                                         <Label  Margin="0,10,0,0" Text="Avanzamento" Style="{StaticResource UserFontGreen}" TextColor="#7ca137" TextTransform="Uppercase" VerticalOptions="Center" HorizontalOptions="Start" FontAttributes="Bold" FontSize="16"  />
-                                        <ProgressBar x:Name="BarCoupon" ProgressColor="#7ca137"  />
-                                        <StackLayout  Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="0,-20,0,0">
-                                            <Label  Margin="0,10,0,0" Text="0" Style="{StaticResource UserFontGreen}" TextColor="#7ca137" TextTransform="Uppercase" VerticalOptions="Center" HorizontalOptions="StartAndExpand"  FontSize="18" />
-                                            <Label x:Name="LblEcopuntiParz"  Margin="0,10,0,0" Text="ecopunti" Style="{StaticResource UserFontGreen}" TextColor="#7ca137"  VerticalOptions="Center" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  FontSize="18" />
-                                            <Label  Margin="0,10,0,0" Text="100" Style="{StaticResource UserFontGreen}" TextColor="#7ca137"  TextTransform="Uppercase" VerticalOptions="Center" HorizontalOptions="EndAndExpand"  FontSize="18" />
-
+                                        <StackLayout  Orientation="Horizontal" HorizontalOptions="FillAndExpand"  Margin="0,0,0,-15">
+                                            <Label  Margin="0,10,0,0" Text="0" Style="{StaticResource UserFontGreen}" TextColor="#7ca137" TextTransform="Uppercase" VerticalOptions="Center" HorizontalOptions="StartAndExpand"  FontSize="16" />
+                                            <Label  Margin="0,10,0,0" Text="100%" Style="{StaticResource UserFontGreen}" TextColor="#7ca137"  TextTransform="Uppercase" VerticalOptions="Center" HorizontalOptions="EndAndExpand"  FontSize="16" />
                                         </StackLayout>
+                                        <ProgressBar x:Name="BarCoupon" ProgressColor="#7ca137"  />
+                                        <Label x:Name="LblEcopuntiParz"  Margin="0,-15,0,0" Text="Il mio punteggio" Style="{StaticResource UserFontGreen}" TextColor="#7ca137" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="18" />
                                     </StackLayout>
                                 </Frame>
-                                <BoxView Grid.Row="2"  Grid.Column="0" Grid.ColumnSpan="3" BackgroundColor="Transparent" />
-                                <Label Grid.Row="2"  Grid.Column="0" Margin="15,0,0,0" Text="Coupon accumulati" HorizontalOptions="FillAndExpand"  VerticalOptions="CenterAndExpand" Style="{StaticResource UserFontGreen}" FontSize="20" TextColor="#7ca137" FontAttributes="Bold" />
-                                <Label Grid.Row="2" Grid.Column="1"  x:Name="LblCouponQnt"    Text="..." VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End"  TextColor="#eb6509"  Style="{StaticResource UserFontGreen}" FontSize="38"/>
-                                <Image Grid.Row="2" Grid.Column="2"  Source="Coupon" Margin="10,0,10,0" VerticalOptions="Center"  />
+                                <BoxView Grid.Row="2"  Grid.Column="0" Grid.ColumnSpan="3"/>
+                                <Label Grid.Row="2"  Grid.Column="0" Margin="20,-15,0,-15" Padding="0" Text="Coupon accumulati" HorizontalOptions="FillAndExpand"  VerticalOptions="CenterAndExpand" Style="{StaticResource UserFontGreen}" FontSize="20" TextColor="#eb6509" FontAttributes="Bold" />
+                                <Label Grid.Row="2" Grid.Column="1"  x:Name="LblCouponQnt" Margin="0,-15,10,-15" Padding="0"   Text="..." VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End"  TextColor="#eb6509"  Style="{StaticResource UserFontGreen}" FontSize="38"/>
+                                <Image Grid.Row="2" Grid.Column="2"  Source="Coupon" Margin="0,-15,15,-15"   VerticalOptions="Center"  />
 
                                
-
                                 <StackLayout Grid.Row="3" Grid.Column="0"  Grid.ColumnSpan="3"  Margin="15,0,15,0" Spacing="0" HorizontalOptions="FillAndExpand">
 
                                     <Label x:Name="LblSpiegaGeneratore" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center" Text="...."  Style="{StaticResource  UserFont}" />
@@ -140,7 +138,7 @@
 
                                 <StackLayout  Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" VerticalOptions="Center" Margin="0,10,0,15" Spacing="10" >
                                     <Label x:Name="LblShowAttivita"  Margin="0,10,0,0" Text="Dove posso spendere i miei coupon?" Style="{StaticResource UserFontGreen}" TextColor="#636159" VerticalOptions="Center" HorizontalOptions="Center"  FontSize="18" />
-                                    <Button x:Name="BtnShowAttivita"  Margin="20,0,20,10" Text="Mostra le attività affiliate" FontSize="18" TextColor="#eb6509" BorderColor="#eb6509" BorderWidth="2" BackgroundColor="Transparent" Clicked="BtnShowAttivita_Clicked"/>
+                                    <Button x:Name="BtnShowAttivita"  Margin="20,0,20,5" Text="Mostra le attività affiliate" FontSize="18" TextColor="#eb6509" BorderColor="#eb6509" BorderWidth="2" BackgroundColor="Transparent" Clicked="BtnShowAttivita_Clicked"/>
                                     <Label  VerticalOptions="Center" Margin="10,0,10,10" HorizontalOptions="Center" HorizontalTextAlignment="Center" Text="*Per conoscere le condizioni d'uso, vai sulla pagina dell'attività. "  Style="{StaticResource  LabReg}" />
                                 </StackLayout>
 

@@ -23,19 +23,28 @@ namespace EcoServiceApp {
             BindingContext = this;
             LblUtente.Text = "Ciao, " + App.DataRowUtente["Nome"].ToString() + "!";
             LblCodFamiglia.Text = App.DataRowUtente["CodiceFamiglia"].ToString();
-            var apiEcoControl = new ClassApiEcoControl();
-            int Qta = Convert.ToInt32(apiEcoControl.EseguiCommand("Select Qta From MonetaVirtuale Where QrCode='" + Xamarin.Essentials.Preferences.Get("QrCodeNew", "") + "'"));
-            LblPunteggioFamiglia.Text = Qta.ToString();
             LblNomeUtente.Text = App.DataRowUtente["Nome"].ToString() + " " + App.DataRowUtente["Cognome"].ToString();
             LblEmailUtente.Text = App.DataRowUtente["Email"].ToString();
-            Task.Run(() => RiempiDati());
+            LblComuneTari.Text = App.DataRowComune["Nome"].ToString();
+        }
+        protected override void OnAppearing() {
+            base.OnAppearing();
+            Task.Run(() =>RiempiDati());
+            Device.StartTimer(TimeSpan.FromSeconds(20), () => {
+                RiempiDati();
+                return true;
+            });
         }
         public void RiempiDati() {
-            var parchetto = new ClassApiParco();
-            var rowComune=parchetto.EseguiQueryRow("Comune", (int) App.DataRowUtente["IdComune"]);
-            if (rowComune == null) return;
-            Device.BeginInvokeOnMainThread(() => LblComuneTari.Text = rowComune["Nome"].ToString());
-
+            try {
+                var ecocontrol = new ClassApiEcoControl();
+                int Qta = Convert.ToInt32(ecocontrol.EseguiCommand("Select Qta From MonetaVirtuale Where QrCode='" + App.DataRowUtente["CodiceMonetaVirtuale"].ToString() + "'"));
+                Device.BeginInvokeOnMainThread(() => {
+                    LblPunteggioFamiglia.Text = Qta.ToString();
+                });
+            } catch (Exception e) {
+                DisplayAlert("Errore", "Errore recupero statistiche " + e.Message, "OK");
+            }
         }
 
         private void BtnInfoUser_Clicked(object sender, EventArgs e) {

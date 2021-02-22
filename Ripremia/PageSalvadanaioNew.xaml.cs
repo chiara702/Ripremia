@@ -50,7 +50,7 @@ namespace EcoServiceApp {
         protected override void OnAppearing() {
             base.OnAppearing();
             Task.Run(() => RiempiDati());
-            Task.Run(() => RiempiFrameCoupon());
+            //Task.Run(() => RiempiFrameCoupon());
             TxtPetConferito.Text = UtenteDatiMemoria.UtentePetRaccolto.ToString();
             TxtOilConferito.Text = UtenteDatiMemoria.UtenteOilRaccolto.ToString();
             Device.StartTimer(TimeSpan.FromSeconds(20), () => {
@@ -78,12 +78,29 @@ namespace EcoServiceApp {
         }
 
         public void RiempiFrameCoupon() {
-            Device.BeginInvokeOnMainThread(() => {
-                int EcopuntiXcoupon = (int)App.DataRowUtente["EcopuntiXcoupon"];
-                int FattoreConversione = (int)App.DataRowComune["EcopuntiCoupon"];
-                int MoltiplicatoreCoupon = (int)App.DataRowComune["MoltiplicatoreCoupon"];
-                
-                int AggiornaCoupon = (EcopuntiXcoupon / FattoreConversione);
+            if ((Boolean)App.DataRowComune["RaccoltaCoupon"] == false) return;
+            int Coupon = (int)App.DataRowUtente["Coupon"];
+            int FattoreConversione = (int)App.DataRowComune["EcopuntiCoupon"];
+            int MoltiplicatoreCoupon = (int)App.DataRowComune["MoltiplicatoreCoupon"];
+            int GeneratoreCoupon = (int)App.DataRowUtente["GeneratoreCoupon"];
+            if (FattoreConversione == 0) return;
+            var Parchetto = new ClassApiParco();
+            var Par = Parchetto.GetParam();
+
+            if (GeneratoreCoupon >= FattoreConversione) {
+                Coupon = Coupon + (1 * MoltiplicatoreCoupon);
+                GeneratoreCoupon = GeneratoreCoupon - FattoreConversione;
+                Par.AddParameterInteger("Coupon", Coupon);
+                Par.AddParameterInteger("GeneratoreCoupon", GeneratoreCoupon);
+                Parchetto.EseguiUpdate("Utente", (int)App.DataRowUtente["Id"], Par);
+
+            }
+
+            Device.BeginInvokeOnMainThread(() => {              
+                double ProgressCalc = (double)GeneratoreCoupon / (double)FattoreConversione;
+                BarCoupon.Progress = ProgressCalc;
+                LblCouponQnt.Text = Coupon.ToString();
+                LblEcopuntiParz.Text =  "Sei al " + GeneratoreCoupon.ToString() + "%";
 
                 if (MoltiplicatoreCoupon > 1) {
                     LblSpiegaGeneratore.Text = "Ogni " + App.DataRowComune["EcopuntiCoupon"].ToString() + " ecopunti accumulati verranno generati " + (int)App.DataRowComune["MoltiplicatoreCoupon"] + " COUPON di SCONTO che potrai utilizzare presso le attività commerciali affiliate*";
@@ -91,22 +108,6 @@ namespace EcoServiceApp {
                     LblSpiegaGeneratore.Text = "Ogni " + App.DataRowComune["EcopuntiCoupon"].ToString() + " ecopunti accumulati verrà generato 1 COUPON di SCONTO che potrai utilizzare presso le attività commerciali affiliate*";
                 }
 
-                LblCouponQnt.Text = (AggiornaCoupon * MoltiplicatoreCoupon).ToString();
-
-                int EcopuntiGeneratoriCoupon = AggiornaCoupon * FattoreConversione;
-
-                int RestoEcopunti = EcopuntiXcoupon - EcopuntiGeneratoriCoupon;
-
-                LblEcopuntiParz.Text = RestoEcopunti.ToString();
-
-                double Barprogress = ((double)RestoEcopunti) / ((double)FattoreConversione);
-                BarCoupon.Progress = Barprogress;
-
-
-                var Parchetto = new ClassApiParco();
-                var Par = Parchetto.GetParam();
-                Par.AddParameterInteger("Coupon", AggiornaCoupon);
-                Parchetto.EseguiInsert("Utente", Par);
             });
         }
 

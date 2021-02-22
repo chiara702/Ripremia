@@ -46,7 +46,12 @@ namespace EcoServiceApp {
         }
 
         private void BtnIndietro_Clicked(object sender, EventArgs e) {
-            Application.Current.MainPage = new PageNavigatore();
+            var Page = new PageNavigatore();
+            Page.CurrentPage = Page.Children[2];
+            Application.Current.MainPage = Page;
+
+
+            //Application.Current.MainPage = new PageNavigatore();
         }
         protected override bool OnBackButtonPressed() {
             BtnIndietro_Clicked(null, null);

@@ -3,20 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="EcoServiceApp.PageConfermaEmail">
     <ContentPage.Content>
-        <StackLayout BackgroundColor="#636159" VerticalOptions="FillAndExpand">
+        <StackLayout BackgroundColor="#636159" VerticalOptions="FillAndExpand" Margin="15,0,15,0">
 
             <Image Source="RipremiaW" HorizontalOptions="Center" Margin="{OnPlatform Android='10, 40,10,10 ', iOS='10,80,10,0'}" WidthRequest="250" />
-            <Label  x:Name="LblUtente" HorizontalTextAlignment="Center" VerticalOptions="Center"  Margin="0,10,10,0"  Style="{StaticResource MediumFont}" FontAttributes="Bold" TextTransform="None"/>
-            <Label HorizontalTextAlignment="Center" Margin="10, 5,10,10" Style="{StaticResource MediumFont}" LineBreakMode="WordWrap" Text="Come ultimo passo non ti resta che inserire il codice che ti abbiamo inviato per e-mail per confermare l'indirizzo di posta."/>
+            <Label  x:Name="LblUtente" HorizontalTextAlignment="Center" VerticalOptions="Center"  Margin="0,10,10,0"  Style="{StaticResource MediumFont}" FontSize="18" FontAttributes="Bold" TextTransform="None"/>
+            <Label HorizontalTextAlignment="Center" Margin="10, 5,10,10" Style="{StaticResource MediumFont}" LineBreakMode="WordWrap" FontSize="18" Text="Come ultimo passo non ti resta che inserire il codice che ti abbiamo inviato per e-mail per confermare l'indirizzo di posta."/>
             <Entry x:Name="TxtConfermaEmail" HorizontalOptions="Center" Margin="10,5,10,5"  Placeholder="CODICE" MaxLength="6" WidthRequest="100" PlaceholderColor="LightGray" HorizontalTextAlignment="Center" TextTransform="Uppercase" BackgroundColor="White" TextColor="{OnPlatform Android='#white', iOS='#636159'}" FontSize="22"  />
-
-            
 
             <Button x:Name="BtnAccedi" Text="ACCEDI" Margin="10,35,10,0" HorizontalOptions="Center"   WidthRequest="310" Style="{StaticResource BtnLight}" Clicked="BtnAccedi_Clicked" />
 
-            <Label HorizontalTextAlignment="Center" Margin="10, 45,10,5" Style="{StaticResource UserFontwhite}" LineBreakMode="WordWrap" Text="Non ti è arrivata nessuna e-mail?&#10;Se hai un indirizzo di posta libero o yahoo controlla tra gli SPAM, altrimenti"/>
+            <Label HorizontalTextAlignment="Center" Margin="10, 45,10,5" Style="{StaticResource UserFontwhite}" LineBreakMode="WordWrap" Text="Non ti è arrivata nessuna e-mail?&#10;Controlla tra gli SPAM, altrimenti"/>
             <Button x:Name="BtnInviaConferma" Margin="5,5,5,0" Text="INVIA DI NUOVO"  HorizontalOptions="Center" TextColor="White" BackgroundColor="Transparent" BorderColor="White" WidthRequest="310" BorderWidth="1" TextTransform="None" FontSize="18" Clicked="BtnInviaConferma_Clicked" />
-            <Button x:Name="BtnProblemiAccesso" Margin="5,20,5,30" Text="Problemi di accesso? Contattaci!"  HorizontalOptions="Center" VerticalOptions="EndAndExpand" TextColor="White" BackgroundColor="Transparent" TextTransform="None" FontSize="Small" />
+            <Button x:Name="BtnProblemiAccesso" Margin="5,20,5,30" Text="Problemi di accesso? Contattaci anche via whatsapp al n. 370 117 777 3"  HorizontalOptions="Center" VerticalOptions="EndAndExpand" TextColor="White" BackgroundColor="Transparent" TextTransform="None" FontSize="Small" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

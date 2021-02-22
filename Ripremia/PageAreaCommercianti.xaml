@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="EcoServiceApp.PageAreaCommercianti">
-    <ContentPage.Content>
+             x:Class="EcoServiceApp.PageAreaCommercianti" NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content >
         <Grid BackgroundColor="#636159">
 
             <Grid.RowDefinitions >
@@ -21,32 +21,55 @@
                 <StackLayout x:Name="StkCorpo" Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                 <!--<Image x:Name="ImgLogo" HorizontalOptions="Center" Source="RipremiaTrasp" Margin="10,1,0,1" HeightRequest="60"/>-->
                     <!--<Label  FontAttributes="Bold" TextColor="White" Margin="30,20,30,5"  Style="{StaticResource NewFont}" FontSize = "18" Text="COMPLETA I CAMPI SOTTOSTANTI" HorizontalTextAlignment="Center" />-->
-
-                    <Label Margin="20, 10,25,0" Padding="0" FontFamily="" HorizontalOptions="Center" Style="{StaticResource LabRegRed}" TextColor="White" Text="Inserisci l'importo da scontare" FontSize="20"/>
-                    <Entry x:Name="EntryTotaleDaScontare" TextChanged="EntryTotaleDaScontare_TextChanged" Keyboard="Numeric"  HeightRequest="80" Margin="20,1,20,5" FontSize="38" HorizontalTextAlignment="End" Placeholder="0,00 €" Style="{StaticResource EntryReg}" BackgroundColor="White" />
-
-                    <Label Margin="20, 10,25,0" Padding="0" FontFamily="" HorizontalOptions="Center" Style="{StaticResource LabRegRed}" TextColor="White" Text="Quantità di coupon da utilizzare" FontSize="20"/>
+                    <StackLayout x:Name="StkImpostazioneValori">
+                        <Label Margin="20, 10,25,0" Padding="0" FontFamily="" HorizontalOptions="Center" Style="{StaticResource LabRegRed}" TextColor="White" Text="Inserisci l'importo da scontare" FontSize="20"/>
+                        <Entry x:Name="EntryTotaleDaScontare" TextChanged="EntryTotaleDaScontare_TextChanged" Keyboard="Numeric"  HeightRequest="80" Margin="20,1,20,5" FontSize="38" HorizontalTextAlignment="End" Placeholder="0,00 €" Style="{StaticResource EntryReg}" BackgroundColor="White" />
+                        <Label Margin="20, 10,25,0" Padding="0" FontFamily="" HorizontalOptions="Center" Style="{StaticResource LabRegRed}" TextColor="White" Text="Quantità di coupon da utilizzare" FontSize="20"/>
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Center" >
                         <ImageButton x:Name="BtnDown" Source="Meno" HeightRequest="80" WidthRequest="80" BackgroundColor="Transparent" CornerRadius="5" Clicked="BtnDown_Clicked"/>
                         <Entry x:Name="EntryCouponN" TextChanged="EntryCouponN_TextChanged" Keyboard="Numeric" Margin="5,0,5,0" FontSize="32" HorizontalTextAlignment="End" HeightRequest="80" WidthRequest="100" Placeholder="1" Style="{StaticResource EntryReg}" BackgroundColor="White" />
                         <ImageButton x:Name="BtnUp"  Source="Piu" HeightRequest="80" WidthRequest="80"  BackgroundColor="Transparent" CornerRadius="5" Clicked="BtnUp_Clicked"/>
                     </StackLayout>
+                    </StackLayout>
                     <!--<Button x:Name="BtnAzzera" IsEnabled="True" Margin="15,10,20,20" Text="AZZERA" HeightRequest="60" FontSize="24" TextColor="White" BorderColor="#eb6509" BorderWidth="2" BackgroundColor="#eb6509" Clicked="BtnAzzera_Clicked" />-->
+
+                    
                     <Frame BackgroundColor="Transparent" BorderColor="White" Margin="20,15,20,0" Padding="5">
                         <StackLayout>
                             <Label x:Name="LblTotaleScontato" Margin="20, 5,25,0" Padding="0" FontFamily="" HorizontalOptions="Center" Style="{StaticResource LabRegRed}" HorizontalTextAlignment="Center" TextColor="White" Text="TOTALE SCONTATO PROVVISORIO" FontSize="18"/>
                             <Label x:Name="TxtTotaleScontato" Padding="5"  Margin="20,0,20,0" FontSize="40" Text="0,00 €" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"  Style="{StaticResource EntryReg}" TextColor="White" BackgroundColor="Transparent"/>
                         </StackLayout>
                     </Frame>
-                    
-                    <Frame x:Name="FrmConvalida" IsEnabled="False" CornerRadius="0"  Margin="20,35,20,5"  HeightRequest="70" Padding="10" BackgroundColor="#eb6509" >
+                    <Frame x:Name="FrmCoupon" IsVisible="false" BackgroundColor="Transparent" BorderColor="White" Margin="20,0,20,0" Padding="5">
+                        <StackLayout  Orientation="Vertical"  Spacing="0"  Padding="0" VerticalOptions="FillAndExpand" HorizontalOptions="CenterAndExpand">
+                            <Label Margin="20, 5,25,0" Padding="0" FontFamily="" HorizontalOptions="Start" VerticalOptions="Center" Style="{StaticResource LabRegRed}" TextColor="White" Text="Coupon utilizzati" TextTransform="Uppercase" FontSize="20"/>
+                            <StackLayout  Orientation="Horizontal" HorizontalOptions="Center">
+                                <Label x:Name="TxtCouponUsati" Padding="5"  Margin="20,0,0,0"  FontSize="35" Text="0"  HorizontalTextAlignment="Center" VerticalTextAlignment="Center"  Style="{StaticResource EntryReg}" TextColor="White" BackgroundColor="Transparent" />
+                                <Image Grid.Row="2" Grid.Column="2"  Source="Coupon" Margin="0,0,10,0" VerticalOptions="Center" HeightRequest="40"  />
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+                    <Frame x:Name="FrmNomeCliente" IsVisible="false" BackgroundColor="Transparent" BorderColor="Gray" Margin="20,15,20,0" Padding="5">
+                        <StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label  Margin="10, 5,25,0" Padding="0" FontFamily="" VerticalOptions="Center" HorizontalOptions="Center" Style="{StaticResource LabRegRed}" HorizontalTextAlignment="Center" TextColor="LightGray" Text="CLIENTE: " FontSize="16"/>
+                                <Label x:Name="TxtNomeCliente" Padding="5"  Margin="10,0,20,0" VerticalOptions="Center" FontSize="22" Text="..." HorizontalTextAlignment="Start" VerticalTextAlignment="Center"  Style="{StaticResource EntryReg}" TextColor="LightGray" BackgroundColor="Transparent"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal" VerticalOptions="Center">
+                                <Label  Margin="10, 5,25,0" Padding="0" FontFamily="" HorizontalOptions="Center" VerticalOptions="Center" Style="{StaticResource LabRegRed}" HorizontalTextAlignment="Center" TextColor="LightGray" Text="Coupon residui: " FontSize="18"/>
+                                <Label x:Name="TxtCouponResidui" Padding="5"  Margin="10,0,20,0" FontSize="22" Text="..." VerticalOptions="Center" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"  Style="{StaticResource EntryReg}" TextColor="LightGray" BackgroundColor="Transparent"/>
+                                <Image Grid.Row="2" Grid.Column="2"  Source="Coupon" Margin="0,0,10,0" VerticalOptions="Center" HeightRequest="20"  />
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+                    <Frame x:Name="FrmConvalida"   CornerRadius="0"  Margin="20,35,20,5"  HeightRequest="70" Padding="10" BackgroundColor="#eb6509" >
                         <Frame.HasShadow>
                             <OnPlatform x:TypeArguments="x:Boolean">
                                 <On Platform="iOS" Value="false" />
                                 <On Platform="Android" Value="true" />
                             </OnPlatform>
                         </Frame.HasShadow>
-                        <StackLayout  Orientation="Horizontal"  Spacing="0"  Padding="0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" >
+                        <StackLayout Orientation="Horizontal"  Spacing="0"  Padding="0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" >
                             <Image HorizontalOptions="Center" VerticalOptions="FillAndExpand" Source="cellcode" Margin="10,1,10,1" HeightRequest="50"/>
                             <Label HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"  TextColor="White"  HorizontalTextAlignment="Center" FontSize = "22"  Margin="0,0,0,0" LineBreakMode="WordWrap" Text="SCANSIONA IL QR-CODE&#10;DEL CLIENTE" FontAttributes="Bold"/>
                             <StackLayout.GestureRecognizers >
@@ -54,17 +77,11 @@
                             </StackLayout.GestureRecognizers>
                         </StackLayout>
                     </Frame>
-                  
-                    <Frame x:Name="FrmCoupon" IsVisible="false" BackgroundColor="Transparent" BorderColor="White" Margin="20,0,20,0" Padding="5">
-                        <StackLayout  Orientation="Vertical"  Spacing="0"  Padding="0" VerticalOptions="FillAndExpand" HorizontalOptions="CenterAndExpand">
-                            <Label Margin="20, 5,25,0" Padding="0" FontFamily="" HorizontalOptions="Start" VerticalOptions="Center" Style="{StaticResource LabRegRed}" TextColor="White" Text="Coupon utilizzati" TextTransform="Uppercase" FontSize="20"/>
-                            <StackLayout  Orientation="Horizontal" HorizontalOptions="Center">
-                                          <Label x:Name="TxtCouponUsati" Padding="5"  Margin="20,0,0,0"  FontSize="35" Text="0"  HorizontalTextAlignment="Center" VerticalTextAlignment="Center"  Style="{StaticResource EntryReg}" TextColor="White" BackgroundColor="Transparent" />
-                                          <Image Grid.Row="2" Grid.Column="2"  Source="Coupon" Margin="0,0,10,0" VerticalOptions="Center" HeightRequest="40"  />    
-                            </StackLayout>
-                        </StackLayout>
-                    </Frame>
-                    <Button x:Name="BtnVisualizzaDati" Margin="20,25,20,10" Text="Quanti coupon ho raccolto?" HeightRequest="60" FontSize="18"  BorderColor="#eb6509" TextColor="White" BorderWidth="2" BackgroundColor="#636159" Clicked="BtnVisualizzaDati_Clicked" />
+                    
+                    <Button x:Name="BtnNuovaOperazione" IsEnabled="True" IsVisible="false" Margin="20,25,20,10" Text="Esegui una nuova operazione" HeightRequest="60" FontSize="18"  BorderColor="#eb6509" TextColor="White" BorderWidth="2" BackgroundColor="#636159" Clicked="BtnNuovaOperazione_Clicked" />
+
+
+                    <Button x:Name="BtnVisualizzaDati" Margin="20,10,20,10" Text="Quanti coupon ho raccolto?" HeightRequest="60" FontSize="18"  BorderColor="#eb6509" TextColor="White" BorderWidth="2" BackgroundColor="#636159" Clicked="BtnVisualizzaDati_Clicked" />
 
 
 
