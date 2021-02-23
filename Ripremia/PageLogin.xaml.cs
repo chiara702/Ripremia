@@ -92,5 +92,14 @@ namespace EcoServiceApp {
         private void BtnRegistrazione2_Clicked(object sender, EventArgs e) {
             Application.Current.MainPage = new PageRegistrazione();
         }
+
+        private void LinkRipremiaLight_Tapped(object sender, EventArgs e) {
+            Application.Current.MainPage = new PageHomeLight();
+
+        }
+
+        private void CheckRipremiaLight_CheckedChanged(object sender, CheckedChangedEventArgs e) {
+
+        }
     }
 }

@@ -106,8 +106,6 @@ namespace EcoServiceApp {
                 _ = BtnShowQRtxt.FadeTo(0, 250);
                 await BtnUnshowQRtxt.FadeTo(0, 250);
                 _ = BtnUnshowQRtxt.FadeTo(1, 250);
-                //await ZoomQRcode.ScaleTo(1, 500);
-                //_ = ZoomQRcode.TranslateTo(0, 0, 300);
                 BtnShowQRtxt.IsVisible = false;
                 BtnUnshowQRtxt.IsVisible = true;
 

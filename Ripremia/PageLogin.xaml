@@ -40,6 +40,14 @@
                         <Entry x:Name="TxtPassLog" IsPassword="True" Margin="10,10,10,0" Placeholder="Password" PlaceholderColor="LightGray" TextColor="#636159" FontSize="Medium"  />
                     </StackLayout>
                     <StackLayout Grid.Row="4" Grid.RowSpan="6" Margin="0,40,0,0" >
+                        <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Margin="40,0,20,0" >
+                            <CheckBox x:Name="CheckRipremiaLight" Margin="0, 5,1,0" CheckedChanged="CheckRipremiaLight_CheckedChanged" Color="#7ca137" />
+                            <Label VerticalOptions="Start" Text="Accedi alla versione Ripremia Light"  TextTransform="None"  Padding="0,10,0,0"  BackgroundColor="Transparent" TextColor="Gray" FontSize="16" WidthRequest="310">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer x:Name="LinkRipremiaLight" Tapped="LinkRipremiaLight_Tapped" />
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </StackLayout>
                         <Button x:Name="BtnAccedi" Text="ACCEDI" Margin="10,15,10,0" HorizontalOptions="Center"   WidthRequest="310" Style="{StaticResource BtnLight}" Clicked="BtnAccedi_Clicked" />
                         <Button  x:Name="BtnRegistrazione2" Text="REGISTRATI" Margin="10,15,10,0" HorizontalOptions="Center"  WidthRequest="310" Style="{StaticResource BtnDark}" Clicked="BtnRegistrazione2_Clicked"/>
                         <Button x:Name="BtnRecuperaPass" Margin="0,15,0,0" Text="Hai dimenticato la password? Recupera" WidthRequest="310" HorizontalOptions="Center" TextColor="#636159" BackgroundColor="Transparent" TextTransform="None" BorderColor="#636159" BorderWidth="2" FontSize="16" Clicked="BtnRecuperaPass_Clicked" />
