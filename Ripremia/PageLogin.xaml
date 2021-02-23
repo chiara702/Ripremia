@@ -42,7 +42,7 @@
                     <StackLayout Grid.Row="4" Grid.RowSpan="6" Margin="0,40,0,0" >
                         <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Margin="40,0,20,0" >
                             <CheckBox x:Name="CheckRipremiaLight" Margin="0, 5,1,0" CheckedChanged="CheckRipremiaLight_CheckedChanged" Color="#7ca137" />
-                            <Label VerticalOptions="Start" Text="Accedi alla versione Ripremia Light"  TextTransform="None"  Padding="0,10,0,0"  BackgroundColor="Transparent" TextColor="Gray" FontSize="16" WidthRequest="310">
+                            <Label VerticalOptions="Start" IsEnabled="False" Text="Accedi alla versione Ripremia Light"  TextTransform="None"  Padding="0,10,0,0"  BackgroundColor="Transparent" TextColor="Gray" FontSize="16" WidthRequest="310">
                                 <Label.GestureRecognizers>
                                     <TapGestureRecognizer x:Name="LinkRipremiaLight" Tapped="LinkRipremiaLight_Tapped" />
                                 </Label.GestureRecognizers>

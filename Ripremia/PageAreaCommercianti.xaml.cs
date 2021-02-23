@@ -135,12 +135,8 @@ namespace EcoServiceApp {
                     FrmCoupon.IsVisible = true;
                     TxtCouponResidui.Text = ((int)rowCliente["Coupon"] - (int)CouponUtilizzabili).ToString();
                     BtnNuovaOperazione.IsVisible = true;
-
-
                 });
-                
-               
-
+     
             };
 
         }

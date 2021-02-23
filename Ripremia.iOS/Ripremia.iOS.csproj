@@ -592,6 +592,9 @@
   <ItemGroup>
     <BundleResource Include="Resources\Piu.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\CouponW.png" />
+  </ItemGroup>
   <ProjectExtensions>
     <VisualStudio>
       <UserProperties TriggeredFromHotReload="False" />

@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms" xmlns:zxcm="clr-namespace:ZXing.Common;assembly=zxing.portable"
              x:Class="EcoServiceApp.PageHomeLight" BackgroundColor="#636157">
     <ContentPage.Content>
-        <Grid ColumnSpacing="0" Margin="0,10,0,0" RowSpacing="10">
+        <ScrollView Style="{StaticResource Scrollbackground}" Margin="0">
+            <Grid ColumnSpacing="0" Margin="0,10,0,0" RowSpacing="10">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
                 <RowDefinition Height="210" />
@@ -33,31 +34,30 @@
                     </zxing:ZXingBarcodeImageView.BarcodeOptions>
                 </zxing:ZXingBarcodeImageView>
             </Frame>
-            <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Margin="20,0,20,0" Text="PUNTEGGIO&#10;FAMIGLIA" VerticalOptions="Center" Style="{StaticResource UserFontwhite}" FontSize="25" FontAttributes="Bold" />
-            <Label x:Name="LblPunteggioFamiglia"  Grid.Row="2" Grid.Column="1"  Text="..." Margin="0,0,10,0" VerticalOptions="Center" HorizontalOptions="End" Style="{StaticResource UserFontwhite}" FontSize="38"/>
-            <Image Grid.Row="2" Grid.Column="2"  Source="EcopuntiWhite" Margin="0,0,20,0" VerticalOptions="FillAndExpand" HeightRequest="25" />
+            <Label  x:Name="LblUtente" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" VerticalOptions="Center" HorizontalOptions="Start" TextColor="White" Margin="20,0,20,10"  FontSize="22" FontAttributes="Bold" TextTransform="None"/>
+            
+            <Label Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Margin="20,0,20,0" Text="PUNTEGGIO&#10;FAMIGLIA" VerticalOptions="Center" Style="{StaticResource UserFontwhite}" FontSize="22" FontAttributes="Bold" />
+            <Label x:Name="LblPunteggioFamiglia"  Grid.Row="3" Grid.Column="1"  Text="..." Margin="0,0,10,0" VerticalOptions="Center" HorizontalOptions="End" Style="{StaticResource UserFontwhite}" FontSize="25"/>
+            <Image Grid.Row="3" Grid.Column="2"  Source="EcopuntiWhite" Margin="0,0,20,0" VerticalOptions="FillAndExpand" HeightRequest="22" />
 
-            <Label Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Margin="20,0,20,0" Text="COUPON" VerticalOptions="Center" Style="{StaticResource UserFontwhite}" FontSize="25" FontAttributes="Bold" />
-            <Label x:Name="LblCoupon"  Grid.Row="3" Grid.Column="1"  Text="..." Margin="0,0,10,0" VerticalOptions="Center" HorizontalOptions="End" Style="{StaticResource UserFontwhite}" FontSize="38"/>
-            <Image Grid.Row="3" Grid.Column="2"  Source="Coupon" Margin="0,0,20,0" VerticalOptions="FillAndExpand" HeightRequest="35" />
+            <Label Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" Margin="20,0,20,0" Text="COUPON" VerticalOptions="Center" Style="{StaticResource UserFontwhite}" FontSize="22" FontAttributes="Bold" />
+            <Label x:Name="LblCoupon"  Grid.Row="4" Grid.Column="1"  Text="..." Margin="0,0,10,0" VerticalOptions="Center" HorizontalOptions="End" Style="{StaticResource UserFontwhite}" FontSize="25"/>
+            <Image Grid.Row="4" Grid.Column="2"  Source="Coupon" Margin="0,0,20,0" VerticalOptions="FillAndExpand" HeightRequest="22" />
 
 
 
 
-            <StackLayout Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="3">
-                <Label  Margin="20,0,20,0" VerticalOptions="EndAndExpand" HorizontalOptions="Center" HorizontalTextAlignment="Center"  Text="Accedi alla versione completa di RIPREMIA per accedere a tutti i servizi!" TextColor="White"  Style="{StaticResource  UserFont}" />
+            <StackLayout Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="3" VerticalOptions="End" Margin="0,0,0,20">
+                <!--<Button x:Name="BtnRefreshPage"  Margin="0,5,0,15" Text="AGGIORNA" WidthRequest="310" HorizontalOptions="Center" VerticalOptions="End" TextColor="White" BackgroundColor="Transparent" BorderColor="White" BorderWidth="2" TextTransform="None" FontSize="18" Clicked="BtnRefreshPage_Clicked" />-->
+
+                <Label  Margin="20,0,20,0" VerticalOptions="EndAndExpand" HorizontalOptions="Center" HorizontalTextAlignment="Center"  Text="Accedi alla versione completa di RIPREMIA per usufruire di tutti i servizi!" TextColor="White"  Style="{StaticResource  UserFont}" />
 
                 <Button x:Name="BtnHomeFull"  Margin="0,5,0,15" Text="Passa alla versione COMPLETA" WidthRequest="310" HorizontalOptions="Center" VerticalOptions="End" TextColor="White" BackgroundColor="Transparent" BorderColor="White" BorderWidth="2" TextTransform="None" FontSize="18" Clicked="BtnHomeFull_Clicked" />
             </StackLayout>
 
-
-
-
-
-
         </Grid>
 
-
+            </ScrollView>
 
     </ContentPage.Content>
 </ContentPage>
