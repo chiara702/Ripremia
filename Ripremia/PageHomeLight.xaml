@@ -40,9 +40,9 @@
             <Label x:Name="LblPunteggioFamiglia"  Grid.Row="3" Grid.Column="1"  Text="..." Margin="0,0,10,0" VerticalOptions="Center" HorizontalOptions="End" Style="{StaticResource UserFontwhite}" FontSize="25"/>
             <Image Grid.Row="3" Grid.Column="2"  Source="EcopuntiWhite" Margin="0,0,20,0" VerticalOptions="FillAndExpand" HeightRequest="22" />
 
-            <Label Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" Margin="20,0,20,0" Text="COUPON" VerticalOptions="Center" Style="{StaticResource UserFontwhite}" FontSize="22" FontAttributes="Bold" />
+            <Label x:Name="LblCoupon0" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" Margin="20,0,20,0" Text="COUPON" VerticalOptions="Center" Style="{StaticResource UserFontwhite}" FontSize="22" FontAttributes="Bold" />
             <Label x:Name="LblCoupon"  Grid.Row="4" Grid.Column="1"  Text="..." Margin="0,0,10,0" VerticalOptions="Center" HorizontalOptions="End" Style="{StaticResource UserFontwhite}" FontSize="25"/>
-            <Image Grid.Row="4" Grid.Column="2"  Source="Coupon" Margin="0,0,20,0" VerticalOptions="FillAndExpand" HeightRequest="22" />
+            <Image x:Name="LblCoupon1" Grid.Row="4" Grid.Column="2"  Source="Coupon" Margin="0,0,20,0" VerticalOptions="FillAndExpand" HeightRequest="22" />
 
 
 

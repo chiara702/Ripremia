@@ -77,7 +77,7 @@ namespace EcoServiceApp {
             }
             if ((bool)rowUtente["ConfermaEmail"] == true) {
                 if ((bool)CheckRipremiaLight.IsChecked == true) {
-                    Xamarin.Essentials.Preferences.Set("Loggato", true);
+                    Xamarin.Essentials.Preferences.Set("LoggatoLight", true);
                     Application.Current.MainPage = new PageHomeLight();
                 } else { 
                 Xamarin.Essentials.Preferences.Set("Loggato", true);

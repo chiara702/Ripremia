@@ -13,14 +13,19 @@ namespace EcoServiceApp {
         public PageHomeLight() {
             InitializeComponent();
             BarCodeId.BarcodeValue = Xamarin.Essentials.Preferences.Get("QrCodeNew", "1");
+            if (((Boolean)App.DataRowComune["RaccoltaCoupon"]) == false) {
+                LblCoupon.IsVisible = false;
+                LblCoupon0.IsVisible = false;
+                LblCoupon1.IsVisible = false;
+            }
 
-            LblUtente.Text = "Ciao, " + App.DataRowUtente["Nome"].ToString() + "!";
             //LblCoupon.Text = App.DataRowUtente["Coupon"].ToString();
-            
+
         }
         ClassApiParco Parchetto = new ClassApiParco();
         private void BtnHomeFull_Clicked(object sender, EventArgs e) {
             Application.Current.MainPage = new PageLogin();
+           
         }
         public void RiempiDati() {
             try {
@@ -31,6 +36,7 @@ namespace EcoServiceApp {
                 Device.BeginInvokeOnMainThread(() => {
                     LblPunteggioFamiglia.Text = Qta.ToString();
                     LblCoupon.Text = Coupon.ToString();
+                    LblUtente.Text = "Ciao, " + App.DataRowUtente["Nome"].ToString() + "!";
                 });
             } catch (Exception) {
                 DisplayAlert("Errore", "Errore recupero statistiche", "OK");
