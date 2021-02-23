@@ -76,17 +76,16 @@ namespace EcoServiceApp {
                 return;
             }
             if ((bool)rowUtente["ConfermaEmail"] == true) {
+                Xamarin.Essentials.Preferences.Set("Loggato", true);
                 if ((bool)CheckRipremiaLight.IsChecked == true) {
-                    Xamarin.Essentials.Preferences.Set("LoggatoLight", true);
                     Application.Current.MainPage = new PageHomeLight();
                 } else { 
-                Xamarin.Essentials.Preferences.Set("Loggato", true);
-                Application.Current.MainPage=new PageNavigatore();
+                    Application.Current.MainPage=new PageNavigatore();
                 }
             } else {
                 Application.Current.MainPage = new PageConfermaEmail();
             }
-
+            Task.Run(() => { Parchetto.EseguiCommand("Update Utente Set VersLight=" + ((CheckRipremiaLight.IsChecked==true)?"1":"0") + " where Id=" + App.DataRowUtente["Id"]); });
 
         }
 

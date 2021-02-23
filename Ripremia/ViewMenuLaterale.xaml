@@ -63,7 +63,7 @@
         </StackLayout>
         <StackLayout x:Name="StkAreaCommercianti" IsVisible="false" Spacing="15" Orientation="Horizontal" Margin="20,0,0,0">
             <Image Source="AreaCommercianti" HeightRequest="30"  WidthRequest="30" />
-            <Label Text="Area commercianti"  Style="{StaticResource LblSideMenu}"  />
+            <Label Text="Commercianti"  Style="{StaticResource LblSideMenu}"  />
             <StackLayout.GestureRecognizers>
                 <TapGestureRecognizer x:Name="TapAreaCommercianti" Tapped="TapAreaCommercianti_Tapped" />
             </StackLayout.GestureRecognizers>

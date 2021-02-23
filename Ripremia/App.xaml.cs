@@ -13,7 +13,7 @@ namespace EcoServiceApp {
         public static DataRow DataRowUtente;
         public static DataRow DataRowComune;
         public static DataRow DataRowSuperUser;
-        internal static object DataRowCliente;
+        //internal static object DataRowCliente;
 
         public App() {
             InitializeComponent();

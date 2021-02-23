@@ -24,8 +24,8 @@ namespace EcoServiceApp {
         }
         ClassApiParco Parchetto = new ClassApiParco();
         private void BtnHomeFull_Clicked(object sender, EventArgs e) {
-            Application.Current.MainPage = new PageLogin();
-           
+            Application.Current.MainPage = new PageNavigatore();
+            Task.Run(() => { Parchetto.EseguiCommand("Update Utente Set VersLight=0 Where Id=" + App.DataRowUtente["Id"]); });
         }
         public void RiempiDati() {
             try {

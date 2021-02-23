@@ -38,6 +38,9 @@ namespace EcoServiceApp {
                 return;
             }
         }
+        private void BtnInfoUser_Clicked(object sender, EventArgs e) {
+            DisplayAlert("", "Questa è la pagina dedicata ai servizi, qui potrai prenotare un ritiro, segnalare un abbandono di rifiuti e visualizzare il calendario del ritiro rifiuti del tuo comune! Sempre che il tuo comune abbia attivato i servizi!", "OK");
+        }
 
         private void BtnCalendario_Tapped(object sender, EventArgs e) {
             if (((Boolean)App.DataRowComune["ServizioCalendario"]) == false) {

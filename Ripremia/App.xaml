@@ -33,6 +33,7 @@
                 <Setter Property="HeightRequest" Value="50" />
                 <Setter Property="VerticalTextAlignment" Value="Center" />
                 <Setter Property="FontSize" Value="18" />
+                <Setter Property="Margin" Value="0"/>
             </Style>
 
             <Style TargetType="Label" x:Key="LabReg">

@@ -110,7 +110,9 @@ namespace EcoServiceApp {
 
             });
         }
-
+        private void BtnInfoUser_Clicked(object sender, EventArgs e) {
+            DisplayAlert("", "I cittadini virtuosi meritano di essere premiati! E noi vogliamo premiarvi con la raccolta di Ecopunti ed eventuali Coupon di sconto! Non dimenticare che il fine non è guadagnare, ma fare delle buone azioni per la tutela dell'ambiente!", "OK");
+        }
         private void BtnShowAttivita_Clicked(object sender, EventArgs e) {
             Application.Current.MainPage = new NavigationPage(new PageShowAttivitaCommerciali());
 

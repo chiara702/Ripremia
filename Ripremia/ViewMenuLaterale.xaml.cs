@@ -39,7 +39,7 @@ namespace EcoServiceApp {
         
         private async void TapCloseMenu_Tapped(object sender, EventArgs e) {
             _ = MenuLaterale.TranslateTo(-250, 0, 400, Easing.Linear);
-            await MenuLaterale2.TranslateTo(-250, 0, 500, Easing.Linear);
+            await MenuLaterale2.TranslateTo(-250, 0, 400, Easing.Linear);
             GridOverlay.IsVisible = false;
         }
 
@@ -69,10 +69,12 @@ namespace EcoServiceApp {
 
         }
 
-        private void TapAreaCommercianti_Tapped(object sender, EventArgs e) {
+        private void TapAreaCommercianti_Tapped(object sender, EventArgs e) {      
+            if ((int)App.DataRowUtente["AttivitaCommercialiId"] == 0) {
+              return;
+            }
             var Page = new PageAreaCommercianti();
             App.Current.MainPage = new NavigationPage(Page);
-
             //Application.Current.MainPage = new PageAreaCommercianti();
         }
     }

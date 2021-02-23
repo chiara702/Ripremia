@@ -127,7 +127,9 @@ namespace EcoServiceApp {
             
         }
 
-        
+        private void BtnInfoUser_Clicked(object sender, EventArgs e) {
+            DisplayAlert("", "Benvenuto in RIPREMIA, l'app che premia i cittadini virtuosi! Utilizza il QR-CODE per effettuare le tue operazioni! Controlla le tue statistiche e il tuo contributo per l'ambiente!", "ok");
+        }
 
         private void TapGestureRecognizer_Tapped_1(object sender, EventArgs e) {
             DisplayAlert("prova", "prova", "ok");
@@ -137,7 +139,11 @@ namespace EcoServiceApp {
             DisplayAlert("prova", "prova", "ok");
         }
 
-        
+        ClassApiParco Parchetto = new ClassApiParco();
+        private void BtnHomeLight_Clicked(object sender, EventArgs e) {
+            Application.Current.MainPage = new PageHomeLight();
+            Task.Run(() => { Parchetto.EseguiCommand("Update Utente Set VersLight=1 Where Id=" + App.DataRowUtente["Id"]); });
+        }
     }
 
 }

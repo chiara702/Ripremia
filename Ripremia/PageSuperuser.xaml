@@ -26,7 +26,7 @@
 
 
 
-                <Grid   Margin="0,10,0,50" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" RowSpacing="0" ColumnSpacing="5">
+                <Grid   Margin="10,10,10,50" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" RowSpacing="0" ColumnSpacing="0">
                     <Grid.ColumnDefinitions >
                         <ColumnDefinition Width="0.5*" />
                         <ColumnDefinition Width="0.5*" />
@@ -47,46 +47,46 @@
 
                     <Image Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" x:Name="ImgLogo"  Source="RipremiaTrasp"  VerticalOptions="FillAndExpand"  Margin="60,0,60,20"   />
                     <StackLayout Grid.Row="1" Grid.Column="0" Orientation="Horizontal" HorizontalOptions="Start" VerticalOptions="Start"  Margin="5,0,0,0">
-                        <Image   Source="Numutili"  VerticalOptions="Start"  Margin="10,30,5,0" HeightRequest="30"  />
+                        <Image   Source="Numutili"  VerticalOptions="Start"  Margin="0,30,5,0" HeightRequest="30"  />
                         <StackLayout  VerticalOptions="Center">
-                            <Label  Margin="5, 10,5,0" FontFamily="" Style="{StaticResource LabNumeri}" Text="Telefono"  FontAttributes="Bold"  HorizontalTextAlignment="Start"/>
-                            <Label x:Name="TxtTelefono1"  Margin="8, 5,5,0" FontFamily="" Style="{StaticResource LabNumeriBig}" Text="....."  HorizontalTextAlignment="Start" />
+                            <Label  Margin="0, 10,5,0" FontFamily="" Style="{StaticResource LabNumeri}" Text="Telefono"  FontAttributes="Bold"  HorizontalTextAlignment="Start"/>
+                            <Label x:Name="TxtTelefono1"  Margin="0, 5,5,0" FontFamily="" Style="{StaticResource LabNumeriBig}" Text="....."  HorizontalTextAlignment="Start" />
                             <StackLayout.GestureRecognizers>
                                 <TapGestureRecognizer x:Name="TapTelefono1" Tapped="TapTelefono1_Tapped" />
                             </StackLayout.GestureRecognizers>
                         </StackLayout>
                     </StackLayout>
-                    <StackLayout Grid.Row="1" Grid.Column="1" Orientation="Horizontal" HorizontalOptions="Start"  VerticalOptions="Start"   Margin="5,0,0,0">
-                        <Image   Source="orari"  VerticalOptions="Start" Margin="10,30,5,0" HeightRequest="30"  />
+                    <StackLayout Grid.Row="1" Grid.Column="1" Orientation="Horizontal" HorizontalOptions="Start"  VerticalOptions="Start"   Margin="0,0,0,0">
+                        <Image   Source="orari"  VerticalOptions="Start" Margin="0,30,5,0" HeightRequest="30"  />
                         <StackLayout  VerticalOptions="Center">
                             <!--<Label  Margin="5, 10,5,0" FontFamily="" Style="{StaticResource LabNumeri}" Text="Orari"  FontAttributes="Bold"  HorizontalTextAlignment="Start"/>-->
-                            <Label x:Name="TxtOrari1"  Margin="8, 10,5,0" FontFamily="" Style="{StaticResource LabNumeri}" Text="....."  HorizontalTextAlignment="Start" />
-                            <Label x:Name="TxtOrari2"  Margin="8, 5,5,0" FontFamily="" Style="{StaticResource LabNumeri}" Text="....."  HorizontalTextAlignment="Start" />
+                            <Label x:Name="TxtOrari1"  Margin="0, 10,5,0" FontFamily="" Style="{StaticResource LabNumeri}" Text="....."  HorizontalTextAlignment="Start" />
+                            <Label x:Name="TxtOrari2"  Margin="0, 5,5,0" FontFamily="" Style="{StaticResource LabNumeri}" Text="....."  HorizontalTextAlignment="Start" />
                         </StackLayout>
                     </StackLayout>
                     <StackLayout Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalOptions="Start"    Margin="5,0,0,0">
-                        <Image   Source="email"  VerticalOptions="Center" Margin="10,0,5,0" HeightRequest="30"  />
+                        <Image   Source="email"  VerticalOptions="Center" Margin="0,0,5,0" HeightRequest="30"  />
                         <StackLayout  VerticalOptions="Center">
-                            <Label  Margin="5, 10,5,0" FontFamily="" Style="{StaticResource LabNumeri}" Text="E-mail"  FontAttributes="Bold"  HorizontalTextAlignment="Start"/>
-                            <Label x:Name="TxtEmail"  Margin="8, 5,5,0" FontFamily="" Style="{StaticResource LabNumeriBig}" Text="....."  HorizontalTextAlignment="Start" />
+                            <Label  Margin="0, 10,5,0" FontFamily="" Style="{StaticResource LabNumeri}" Text="E-mail"  FontAttributes="Bold"  HorizontalTextAlignment="Start"/>
+                            <Label x:Name="TxtEmail"  Margin="0, 5,5,0" FontFamily="" Style="{StaticResource LabNumeriBig}" Text="....."  HorizontalTextAlignment="Start" />
                         </StackLayout>
                     </StackLayout>
 
                     <StackLayout Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalOptions="Start"    Margin="5,0,0,0">
-                        <Image   Source="www"  VerticalOptions="Center" Margin="10,0,5,0" HeightRequest="30"  />
+                        <Image   Source="www"  VerticalOptions="Center" Margin="0,0,5,0" HeightRequest="30"  />
                         <StackLayout  VerticalOptions="Center">
-                            <Label  Margin="5, 10,5,0" FontFamily="" Style="{StaticResource LabNumeri}" Text="Sito web"  FontAttributes="Bold"  HorizontalTextAlignment="Start"/>
-                            <Label x:Name="TxtWww"  Margin="8, 5,5,0" FontFamily="" Style="{StaticResource LabNumeriBig}" Text="....."  HorizontalTextAlignment="Start" />
+                            <Label  Margin="0, 10,5,0" FontFamily="" Style="{StaticResource LabNumeri}" Text="Sito web"  FontAttributes="Bold"  HorizontalTextAlignment="Start"/>
+                            <Label x:Name="TxtWww"  Margin="0, 5,5,0" FontFamily="" Style="{StaticResource LabNumeriBig}" Text="....."  HorizontalTextAlignment="Start" />
                             <StackLayout.GestureRecognizers>
                                 <TapGestureRecognizer x:Name="LinkWWW" Tapped="LinkWWW_Tapped"/>
                             </StackLayout.GestureRecognizers>
                         </StackLayout>
                     </StackLayout>
                     <StackLayout Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalOptions="Start"   Margin="5,0,0,0">
-                        <Image   Source="infovarie"  VerticalOptions="Center" Margin="10,0,5,0" HeightRequest="30"  />
+                        <Image   Source="infovarie"  VerticalOptions="Center" Margin="0,0,5,0" HeightRequest="30"  />
                         <StackLayout  VerticalOptions="Center">
-                            <Label  Margin="5, 10,5,0" FontFamily="" Style="{StaticResource LabNumeri}" Text="Dove siamo?"  FontAttributes="Bold"  HorizontalTextAlignment="Start"/>
-                            <Label x:Name="TxtInfo"  Margin="8, 5,5,0" FontFamily="" Style="{StaticResource LabNumeriBig}" Text="....."  HorizontalTextAlignment="Start" />
+                            <Label  Margin="0, 10,5,0" FontFamily="" Style="{StaticResource LabNumeri}" Text="Dove siamo?"  FontAttributes="Bold"  HorizontalTextAlignment="Start"/>
+                            <Label x:Name="TxtInfo"  Margin="0, 5,5,0" FontFamily="" Style="{StaticResource LabNumeriBig}" Text="....."  HorizontalTextAlignment="Start" />
                         </StackLayout>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" Spacing="0" VerticalOptions="End">
