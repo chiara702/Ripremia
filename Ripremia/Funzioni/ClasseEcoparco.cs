@@ -3,9 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Net;
+using System.Net.Http;
 using System.Net.Mail;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using System.Web;
 
 public class ClassApiParco { //vers. 1
@@ -22,134 +24,28 @@ public class ClassApiParco { //vers. 1
         return System.Web.HttpUtility.UrlPathEncode(Convert.ToBase64String(outtmp));
     }
 
-    public DataTable EseguiQuery(String Query) {
+    private object SoapRequest(String SoapFunz, Dictionary<String, String> PostData, String TypeSerialize) {
         LastError = false;
         LastErrorDescrizione = "";
         try {
-            String URLSqlQuery = BaseUrl + "EcoparcoEseguiQueryFirma";
+            String URLSqlQuery = BaseUrl + SoapFunz;
             var req = (HttpWebRequest)WebRequest.Create(URLSqlQuery);
-            var ContentString = "query=" + System.Web.HttpUtility.UrlPathEncode(Query) + "&staging=false&Firma=" + TestFirma(Query);
             req.Method = "POST";
             req.ContentType = "application/x-www-form-urlencoded";
+            var f = new FormUrlEncodedContent(PostData);
             var ContentStream = req.GetRequestStream();
-            ContentStream.Write(UTF8Encoding.UTF8.GetBytes(ContentString));
-            ContentStream.Close();
-            var gr = req.GetResponse();
-            var st = gr.GetResponseStream();
-            var stRead = new System.IO.StreamReader(st);
-            var rit = stRead.ReadToEnd();
-            gr.Close();
-            var Table = Serializza.XmlDeserialize<DataTable>(rit);
-            return Table;
-        } catch (WebException e) {
-            if (e.Response == null) {
-                LastError = true;
-                LastErrorDescrizione = e.Message;
-            }
-            if (e.Response != null) {
-                var stRead = new System.IO.StreamReader(e.Response.GetResponseStream());
-                var rit = stRead.ReadToEnd();
-                LastError = true;
-                LastErrorDescrizione = rit;
-            }
-            return null;
-        }
-    }
-
-    internal object EseguiQuery(object p) {
-        throw new NotImplementedException();
-    }
-
-    public DataRow EseguiQueryRow(String Tabella, int Id) {
-        LastError = false;
-        LastErrorDescrizione = "";
-        try {
-            var Query = "Select * From " + Tabella + " Where Id=" + Id.ToString();
-            String URLSqlQuery = BaseUrl + "EcoparcoEseguiQueryFirma";
-            var req = (HttpWebRequest)WebRequest.Create(URLSqlQuery);
-            var ContentString = "query=" + System.Web.HttpUtility.UrlPathEncode(Query) + "&staging=false&Firma=" + TestFirma(Query);
-            req.Method = "POST";
-            req.ContentType = "application/x-www-form-urlencoded";
-            var ContentStream = req.GetRequestStream();
-            ContentStream.Write(UTF8Encoding.UTF8.GetBytes(ContentString));
-            ContentStream.Close();
-            var gr = req.GetResponse();
-            var st = gr.GetResponseStream();
-            var stRead = new System.IO.StreamReader(st);
-            var rit = stRead.ReadToEnd();
-            gr.Close();
-            var Table = Serializza.XmlDeserialize<DataTable>(rit);
-            if (Table.Rows.Count != 1) return null;
-            return Table.Rows[0];
-        } catch (WebException e) {
-            if (e.Response == null) {
-                LastError = true;
-                LastErrorDescrizione = e.Message;
-            }
-            if (e.Response != null) {
-                var stRead = new System.IO.StreamReader(e.Response.GetResponseStream());
-                var rit = stRead.ReadToEnd();
-                LastError = true;
-                LastErrorDescrizione = rit;
-            }
-            return null;
-        }
-    }
-    public DataRow EseguiQueryRow(String Tabella, string Where) { //Where: Id=5 and nome='fabio'
-        LastError = false;
-        LastErrorDescrizione = "";
-        try {
-            var Query = "Select * From " + Tabella + " Where " + Where;
-            String URLSqlQuery = BaseUrl + "EcoparcoEseguiQueryFirma";
-            var req = (HttpWebRequest)WebRequest.Create(URLSqlQuery);
-            var ContentString = "query=" + System.Web.HttpUtility.UrlPathEncode(Query) + "&staging=false&Firma=" + TestFirma(Query);
-            req.Method = "POST";
-            req.ContentType = "application/x-www-form-urlencoded";
-            var ContentStream = req.GetRequestStream();
-            ContentStream.Write(UTF8Encoding.UTF8.GetBytes(ContentString));
-            ContentStream.Close();
-            var gr = req.GetResponse();
-            var st = gr.GetResponseStream();
-            var stRead = new System.IO.StreamReader(st);
-            var rit = stRead.ReadToEnd();
-            gr.Close();
-            var Table = Serializza.XmlDeserialize<DataTable>(rit);
-            if (Table == null) return null;
-            if (Table.Rows.Count == 0) return null;
-            return Table.Rows[0];
-        } catch (WebException e) {
-            if (e.Response == null) {
-                LastError = true;
-                LastErrorDescrizione = e.Message;
-            }
-            if (e.Response != null) {
-                var stRead = new System.IO.StreamReader(e.Response.GetResponseStream());
-                var rit = stRead.ReadToEnd();
-                LastError = true;
-                LastErrorDescrizione = rit;
-            }
-            return null;
-        }
-    }
-
-    public Object EseguiCommand(String Query) {
-        LastError = false;
-        LastErrorDescrizione = "";
-        try {
-            String URLSqlQuery = BaseUrl + "EcoparcoEseguiCommandFirma";
-            var req = (HttpWebRequest)WebRequest.Create(URLSqlQuery);
-            var ContentString = "command=" + System.Web.HttpUtility.UrlPathEncode(Query) + "&staging=false&Firma=" + TestFirma(Query);
-            req.Method = "POST";
-            req.ContentType = "application/x-www-form-urlencoded";
-            var ContentStream = req.GetRequestStream();
-            ContentStream.Write(UTF8Encoding.UTF8.GetBytes(ContentString));
+            var ByteInvio = f.ReadAsByteArrayAsync().Result;
+            ContentStream.Write(ByteInvio);
             ContentStream.Close();
             var gr = req.GetResponse();
             var st = gr.GetResponseStream();
             var stRead = new System.IO.StreamReader(st, UTF8Encoding.UTF8);
             var rit = stRead.ReadToEnd();
             gr.Close();
-            var RitObj = Serializza.XmlDeserialize<Object>(rit);
+            Object RitObj = null;
+            if (TypeSerialize == "DataTable") RitObj = Serializza.XmlDeserialize<DataTable>(rit);
+            if (TypeSerialize == "Object") RitObj = Serializza.XmlDeserialize<Object>(rit);
+            if (TypeSerialize == "") return true;
             return RitObj;
         } catch (WebException e) {
             if (e.Response == null) {
@@ -162,9 +58,182 @@ public class ClassApiParco { //vers. 1
                 LastError = true;
                 LastErrorDescrizione = rit;
             }
-            return null;
+            return false;
         }
     }
+
+    public DataTable EseguiQuery(String Query) {
+        var Post = new Dictionary<String, String>();
+        Post.Add("Query", Query);
+        Post.Add("Staging", "false");
+        Post.Add("Firma", TestFirma(Query));
+        var rit = (DataTable)SoapRequest("EcoparcoEseguiQueryFirma", Post, "DataTable");
+        return rit;
+        //LastError = false;
+        //LastErrorDescrizione = "";
+        //try {
+        //    String URLSqlQuery = BaseUrl + "EcoparcoEseguiQueryFirma";
+        //    var req = (HttpWebRequest)WebRequest.Create(URLSqlQuery);
+        //    var ContentString = "query=" + System.Web.HttpUtility.UrlPathEncode(Query) + "&staging=false&Firma=" + TestFirma(Query);
+        //    req.Method = "POST";
+        //    req.ContentType = "application/x-www-form-urlencoded";
+        //    var ContentStream = req.GetRequestStream();
+        //    ContentStream.Write(UTF8Encoding.UTF8.GetBytes(ContentString));
+        //    ContentStream.Close();
+        //    var gr = req.GetResponse();
+        //    var st = gr.GetResponseStream();
+        //    var stRead = new System.IO.StreamReader(st);
+        //    var rit = stRead.ReadToEnd();
+        //    gr.Close();
+        //    var Table = Serializza.XmlDeserialize<DataTable>(rit);
+        //    return Table;
+        //} catch (WebException e) {
+        //    if (e.Response == null) {
+        //        LastError = true;
+        //        LastErrorDescrizione = e.Message;
+        //    }
+        //    if (e.Response != null) {
+        //        var stRead = new System.IO.StreamReader(e.Response.GetResponseStream());
+        //        var rit = stRead.ReadToEnd();
+        //        LastError = true;
+        //        LastErrorDescrizione = rit;
+        //    }
+        //    return null;
+        //}
+    }
+
+
+    public DataRow EseguiQueryRow(String Tabella, int Id) {
+        var Post = new Dictionary<String, String>();
+        Post.Add("Query", "Select * From " + Tabella + " Where Id=" + Id);
+        Post.Add("Staging", "false");
+        var rit = SoapRequest("EcoparcoEseguiQuery", Post, "DataTable");
+        if (rit is DataTable == false) return null;
+        DataTable table = (DataTable) rit;
+        if (table.Rows.Count != 1) return null;
+        return table.Rows[0];
+
+        //LastError = false;
+        //LastErrorDescrizione = "";
+        //try {
+        //    var Query = "Select * From " + Tabella + " Where Id=" + Id.ToString();
+        //    String URLSqlQuery = BaseUrl + "EcoparcoEseguiQueryFirma";
+        //    var req = (HttpWebRequest)WebRequest.Create(URLSqlQuery);
+        //    var ContentString = "query=" + System.Web.HttpUtility.UrlPathEncode(Query) + "&staging=false&Firma=" + TestFirma(Query);
+        //    req.Method = "POST";
+        //    req.ContentType = "application/x-www-form-urlencoded";
+        //    var ContentStream = req.GetRequestStream();
+        //    ContentStream.Write(UTF8Encoding.UTF8.GetBytes(ContentString));
+        //    ContentStream.Close();
+        //    var gr = req.GetResponse();
+        //    var st = gr.GetResponseStream();
+        //    var stRead = new System.IO.StreamReader(st);
+        //    var rit = stRead.ReadToEnd();
+        //    gr.Close();
+        //    var Table = Serializza.XmlDeserialize<DataTable>(rit);
+        //    if (Table.Rows.Count != 1) return null;
+        //    return Table.Rows[0];
+        //} catch (WebException e) {
+        //    if (e.Response == null) {
+        //        LastError = true;
+        //        LastErrorDescrizione = e.Message;
+        //    }
+        //    if (e.Response != null) {
+        //        var stRead = new System.IO.StreamReader(e.Response.GetResponseStream());
+        //        var rit = stRead.ReadToEnd();
+        //        LastError = true;
+        //        LastErrorDescrizione = rit;
+        //    }
+        //    return null;
+        //}
+    }
+    public DataRow EseguiQueryRow(String Tabella, string Where) { //Where: Id=5 and nome='fabio'
+        var Post = new Dictionary<String, String>();
+        Post.Add("Query", "Select * From " + Tabella + " Where " + Where);
+        Post.Add("Staging", "false");
+        var rit = SoapRequest("EcoparcoEseguiQuery", Post, "DataTable");
+        if (rit is DataTable == false) return null;
+        DataTable table = (DataTable)rit;
+        if (table.Rows.Count != 1) return null;
+        return table.Rows[0];
+
+        //LastError = false;
+        //LastErrorDescrizione = "";
+        //try {
+        //    var Query = "Select * From " + Tabella + " Where " + Where;
+        //    String URLSqlQuery = BaseUrl + "EcoparcoEseguiQueryFirma";
+        //    var req = (HttpWebRequest)WebRequest.Create(URLSqlQuery);
+        //    var ContentString = "query=" + System.Web.HttpUtility.UrlPathEncode(Query) + "&staging=false&Firma=" + TestFirma(Query);
+        //    req.Method = "POST";
+        //    req.ContentType = "application/x-www-form-urlencoded";
+        //    var ContentStream = req.GetRequestStream();
+        //    ContentStream.Write(UTF8Encoding.UTF8.GetBytes(ContentString));
+        //    ContentStream.Close();
+        //    var gr = req.GetResponse();
+        //    var st = gr.GetResponseStream();
+        //    var stRead = new System.IO.StreamReader(st);
+        //    var rit = stRead.ReadToEnd();
+        //    gr.Close();
+        //    var Table = Serializza.XmlDeserialize<DataTable>(rit);
+        //    if (Table == null) return null;
+        //    if (Table.Rows.Count == 0) return null;
+        //    return Table.Rows[0];
+        //} catch (WebException e) {
+        //    if (e.Response == null) {
+        //        LastError = true;
+        //        LastErrorDescrizione = e.Message;
+        //    }
+        //    if (e.Response != null) {
+        //        var stRead = new System.IO.StreamReader(e.Response.GetResponseStream());
+        //        var rit = stRead.ReadToEnd();
+        //        LastError = true;
+        //        LastErrorDescrizione = rit;
+        //    }
+        //    return null;
+        //}
+    }
+
+    public Object EseguiCommand(String Query) {
+        var Post = new Dictionary<String, String>();
+        Post.Add("Command", Query);
+        Post.Add("Staging", "false");
+        var rit = SoapRequest("EcoparcoEseguiCommand", Post, "Object");
+        return rit;
+
+        //LastError = false;
+        //LastErrorDescrizione = "";
+        //try {
+        //    String URLSqlQuery = BaseUrl + "EcoparcoEseguiCommandFirma";
+        //    var req = (HttpWebRequest)WebRequest.Create(URLSqlQuery);
+        //    var ContentString = "command=" + System.Web.HttpUtility.UrlPathEncode(Query) + "&staging=false&Firma=" + TestFirma(Query);
+        //    req.Method = "POST";
+        //    req.ContentType = "application/x-www-form-urlencoded";
+        //    var ContentStream = req.GetRequestStream();
+        //    ContentStream.Write(UTF8Encoding.UTF8.GetBytes(ContentString));
+        //    ContentStream.Close();
+        //    var gr = req.GetResponse();
+        //    var st = gr.GetResponseStream();
+        //    var stRead = new System.IO.StreamReader(st, UTF8Encoding.UTF8);
+        //    var rit = stRead.ReadToEnd();
+        //    gr.Close();
+        //    var RitObj = Serializza.XmlDeserialize<Object>(rit);
+        //    return RitObj;
+        //} catch (WebException e) {
+        //    if (e.Response == null) {
+        //        LastError = true;
+        //        LastErrorDescrizione = e.Message;
+        //    }
+        //    if (e.Response != null) {
+        //        var stRead = new System.IO.StreamReader(e.Response.GetResponseStream());
+        //        var rit = stRead.ReadToEnd();
+        //        LastError = true;
+        //        LastErrorDescrizione = rit;
+        //    }
+        //    return null;
+        //}
+    }
+
+    
 
 
     public class Parametri {
@@ -320,25 +389,39 @@ public class ClassApiEcoControl {
         public String ErroreString;
     }
     public ResponseCreaQrCodeMonetaVirtuale CreaQRCodeMonetaVirtuale(String Paese,String IdentificativoBidone, int ImportoInCentesimi, String CodiceFiscale) {
+        var Post = new Dictionary<String, String>();
+        Post.Add("Paese", Paese);
+        Post.Add("ImportoInCentesimi", ImportoInCentesimi.ToString());
+        Post.Add("IdentificativoBidone", IdentificativoBidone);
+        Post.Add("CodiceFiscale", CodiceFiscale);
+        return (ResponseCreaQrCodeMonetaVirtuale) SoapRequest("CreaQRCodeMonetaVirtuale", Post, "ResponseCreaQrCodeMonetaVirtuale");
+
+    }
+
+    private object SoapRequest(String SoapFunz, Dictionary<String, String> PostData, String TypeSerialize) {
         LastError = false;
         LastErrorDescrizione = "";
         try {
-            String URLSqlQuery = BaseUrl + "CreaQRCodeMonetaVirtuale";
+            String URLSqlQuery = BaseUrl + SoapFunz;
             var req = (HttpWebRequest)WebRequest.Create(URLSqlQuery);
-            var ContentString = string.Format("Paese={0}&IdentificativoBidone={1}&ImportoInCentesimi={2}&CodiceFiscale={3}", System.Web.HttpUtility.UrlEncode(Paese), System.Web.HttpUtility.UrlEncode(IdentificativoBidone), System.Web.HttpUtility.UrlEncode(ImportoInCentesimi.ToString()), System.Web.HttpUtility.UrlEncode(CodiceFiscale));
-            req.Timeout = 8000;
             req.Method = "POST";
             req.ContentType = "application/x-www-form-urlencoded";
+            var f = new FormUrlEncodedContent(PostData);
             var ContentStream = req.GetRequestStream();
-            ContentStream.Write(UTF8Encoding.UTF8.GetBytes(ContentString));
+            var ByteInvio = f.ReadAsByteArrayAsync().Result;
+            ContentStream.Write(ByteInvio);
             ContentStream.Close();
-            using (var gr = req.GetResponse()) {
-                var st = gr.GetResponseStream();
-                var stRead = new System.IO.StreamReader(st);
-                var rit = stRead.ReadToEnd();
-                var Response = Serializza.XmlDeserialize<ResponseCreaQrCodeMonetaVirtuale>(rit);
-                return Response;
-            }
+            var gr = req.GetResponse();
+            var st = gr.GetResponseStream();
+            var stRead = new System.IO.StreamReader(st, UTF8Encoding.UTF8);
+            var rit = stRead.ReadToEnd();
+            gr.Close();
+            Object RitObj = null;
+            if (TypeSerialize == "DataTable") RitObj = Serializza.XmlDeserialize<DataTable>(rit);
+            if (TypeSerialize == "Object") RitObj = Serializza.XmlDeserialize<Object>(rit);
+            if (TypeSerialize == "ResponseCreaQrCodeMonetaVirtuale") RitObj = Serializza.XmlDeserialize<ResponseCreaQrCodeMonetaVirtuale>(rit);
+            if (TypeSerialize == "") return true;
+            return RitObj;
         } catch (WebException e) {
             if (e.Response == null) {
                 LastError = true;
@@ -350,48 +433,29 @@ public class ClassApiEcoControl {
                 LastError = true;
                 LastErrorDescrizione = rit;
             }
-            return null;
+            return false;
         }
     }
 
-    
 
-   
+    public Boolean InvioEmail(String Destinatario, String Oggetto, String Messaggio) {
+        var Post = new Dictionary<String, String>();
+        Post.Add("Destinatario", Destinatario);
+        Post.Add("Oggetto", Oggetto);
+        Post.Add("Messaggio", Messaggio);
+        SoapRequest("RipremiaInvioEmail", Post, "");
+        return true;
+
+    }
+
+
+
 
     public DataTable EseguiQuery(String Query) {
-        LastError = false;
-        LastErrorDescrizione = "";
-        try {
-            String URLSqlQuery = BaseUrl + "EcocontrolEseguiQuery";
-            var req = (HttpWebRequest)WebRequest.Create(URLSqlQuery);
-            var ContentString = "query=" + System.Web.HttpUtility.UrlPathEncode(Query) + "&staging=false&Firma=" + TestFirma(Query);
-            req.Timeout = 8000;
-            req.Method = "POST";
-            req.ContentType = "application/x-www-form-urlencoded";
-            var ContentStream = req.GetRequestStream();
-            ContentStream.Write(UTF8Encoding.UTF8.GetBytes(ContentString));
-            ContentStream.Close();
-            using (var gr = req.GetResponse()) {
-                var st = gr.GetResponseStream();
-                var stRead = new System.IO.StreamReader(st);
-                var rit = stRead.ReadToEnd();
-                var Table = Serializza.XmlDeserialize<DataTable>(rit);
-                if (Table.Rows.Count == 0) return null;
-                return Table;
-            }
-        } catch (WebException e) {
-            if (e.Response == null) {
-                LastError = true;
-                LastErrorDescrizione = e.Message;
-            }
-            if (e.Response != null) {
-                var stRead = new System.IO.StreamReader(e.Response.GetResponseStream());
-                var rit = stRead.ReadToEnd();
-                LastError = true;
-                LastErrorDescrizione = rit;
-            }
-            return null;
-        } 
+        var Post = new Dictionary<String, String>();
+        Post.Add("Query", Query);
+        return (DataTable) SoapRequest("EcocontrolEseguiQuery", Post, "DataTable");
+
     }
     public DataRow EseguiQueryRow(String Tabella, int Id) {
         var Table = EseguiQuery("Select * From " + Tabella + " Where Id=" + Id);
@@ -407,38 +471,11 @@ public class ClassApiEcoControl {
         return Table.Rows[0];
     }
     public Object EseguiCommand(String Query) {
-        LastError = false;
-        LastErrorDescrizione = "";
-        try {
-            String URLSqlQuery = BaseUrl + "EcocontrolEseguiCommand";
-            var req = (HttpWebRequest)WebRequest.Create(URLSqlQuery);
-            var ContentString = "Command=" + System.Web.HttpUtility.UrlPathEncode(Query) + "&staging=false&Firma=" + TestFirma(Query);
-            req.Timeout = 8000;
-            req.Method = "POST";
-            req.ContentType = "application/x-www-form-urlencoded";
-            var ContentStream = req.GetRequestStream();
-            ContentStream.Write(UTF8Encoding.UTF8.GetBytes(ContentString));
-            ContentStream.Close();
-            using (var gr = req.GetResponse()) {
-                var st = gr.GetResponseStream();
-                var stRead = new System.IO.StreamReader(st);
-                var rit = stRead.ReadToEnd();
-                var Obj = Serializza.XmlDeserialize<Object>(rit);
-                return Obj;
-            }
-        } catch (WebException e) {
-            if (e.Response == null) {
-                LastError = true;
-                LastErrorDescrizione = e.Message;
-            }
-            if (e.Response != null) {
-                var stRead = new System.IO.StreamReader(e.Response.GetResponseStream());
-                var rit = stRead.ReadToEnd();
-                LastError = true;
-                LastErrorDescrizione = rit;
-            }
-            return null;
-        }
+        var Post = new Dictionary<String, String>();
+        Post.Add("Command", Query);
+        Post.Add("Staging", "false");
+        return SoapRequest("EcocontrolEseguiCommand", Post, "Object");
+        
     }
 
     public class Parametri {
@@ -767,10 +804,17 @@ public class Funzioni {
         if (Regex.IsMatch(Password, "[/!/@/#/$/&/*/%/./-/_/+/?/</>]") == false) return -5;
         return 0;
     }
+    
+
+    public static void SendEmailApi(string Destinatario, string Mittente, string Oggetto, string Messaggio) {
+        var eco = new ClassApiEcoControl();
+        eco.InvioEmail(Destinatario,Oggetto,Messaggio);
+    }
+    
+    
     public static void SendEmail(string Destinatario, string Mittente, string Oggetto, string Messaggio) {
         // imposta destinatario
-        if (Destinatario == "")
-            return;
+        if (Destinatario == "") return;
         MailAddress sendTo = new MailAddress(Destinatario);
         // imposta mittente
         MailAddress from = new MailAddress("ripremianoreply@gmail.com");
@@ -793,11 +837,12 @@ public class Funzioni {
         SMTPServer.Credentials = new System.Net.NetworkCredential("ripremianoreply@gmail.com", "Ripremia123456");
         // SMTPServer.EnableSsl = True
         // invio della mail
-        try {
+        /*try {
             SMTPServer.Send(message);
         } catch (Exception ex) {
             Console.WriteLine(ex.Message);
-        }
+        }*/
+        Task.Run(() => SMTPServer.Send(message));
     }
 
     public static String ToQueryData(DateTime data) {

@@ -86,7 +86,6 @@
                 <Entry  x:Name="TxtComuneTari" VerticalTextAlignment="Center" Placeholder="Comune di residenza" PlaceholderColor="LightGray" TextColor="#636159" TextTransform="Uppercase" BackgroundColor="White" FontSize="Medium"  />
                 <Button x:Name="BtnConfermaComune" Text="PROCEDI" HorizontalOptions="Center" Margin="0"  Style="{StaticResource BtnLight}" WidthRequest="310" Clicked="BtnConfermaComune_Clicked" />
 
-
             </StackLayout>
         </Grid>
     </ContentPage>

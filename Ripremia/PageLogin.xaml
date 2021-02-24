@@ -36,13 +36,13 @@
                     <Label Grid.Row="1" x:Name="LblBenvenutiServizi" TextColor="#636159"  HorizontalTextAlignment="Center" FontSize = "20"  Margin="20, 10,20,10" LineBreakMode="WordWrap" Text="Benvenuti nell'App Ripremia&#10;accedi con le tue credenziali"/>
 
                     <StackLayout Grid.Row="2" Grid.RowSpan="3" Margin="30,0,30,0">
-                        <Entry x:Name="TxtEmailLog" Margin="10,5,10,5" Placeholder="E-mail"  PlaceholderColor="LightGray" TextColor="#636159" FontSize="Medium" TextTransform="Lowercase" />
-                        <Entry x:Name="TxtPassLog" IsPassword="True" Margin="10,10,10,0" Placeholder="Password" PlaceholderColor="LightGray" TextColor="#636159" FontSize="Medium"  />
+                        <Entry x:Name="TxtEmailLog" Margin="10,5,10,5" Placeholder="E-mail"  PlaceholderColor="Gray" TextColor="#636159"  FontSize="Medium" TextTransform="Lowercase" />
+                        <Entry x:Name="TxtPassLog" IsPassword="True" Margin="10,10,10,0" Placeholder="Password" PlaceholderColor="Gray" TextColor="#636159" FontSize="Medium"  />
                     </StackLayout>
                     <StackLayout Grid.Row="4" Grid.RowSpan="6" Margin="0,40,0,0" >
                         <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Margin="40,0,20,0" >
                             <CheckBox x:Name="CheckRipremiaLight" Margin="0, 5,1,0" CheckedChanged="CheckRipremiaLight_CheckedChanged" Color="#7ca137" />
-                            <Label VerticalOptions="Start" IsEnabled="False" Text="Accedi alla versione Ripremia Light"  TextTransform="None"  Padding="0,10,0,0"  BackgroundColor="Transparent" TextColor="Gray" FontSize="16" WidthRequest="310">
+                            <Label VerticalOptions="Center" IsEnabled="False" Text="Accedi alla versione Ripremia Light" Margin="-10,0,0,0" TextTransform="None"  Padding="0,10,0,0"  BackgroundColor="Transparent" TextColor="Gray" FontSize="16" WidthRequest="310">
                                 <Label.GestureRecognizers>
                                     <TapGestureRecognizer x:Name="LinkRipremiaLight" Tapped="LinkRipremiaLight_Tapped" />
                                 </Label.GestureRecognizers>

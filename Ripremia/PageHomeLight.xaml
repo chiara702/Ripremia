@@ -4,7 +4,7 @@
              x:Class="EcoServiceApp.PageHomeLight" BackgroundColor="#636157">
     <ContentPage.Content>
         <ScrollView Style="{StaticResource Scrollbackground}" Margin="0">
-            <Grid ColumnSpacing="0" Margin="0,10,0,0" RowSpacing="10">
+            <Grid ColumnSpacing="0" Margin="0,15,0,35" RowSpacing="10">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
                 <RowDefinition Height="210" />
