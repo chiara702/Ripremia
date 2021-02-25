@@ -20059,37 +20059,40 @@ namespace Ripremia.Droid
 			public const int Statistiche = 2131165477;
 			
 			// aapt resource value: 0x7F070126
-			public const int test_custom_background = 2131165478;
+			public const int swipe1 = 2131165478;
 			
 			// aapt resource value: 0x7F070127
-			public const int tooltip_frame_dark = 2131165479;
+			public const int test_custom_background = 2131165479;
 			
 			// aapt resource value: 0x7F070128
-			public const int tooltip_frame_light = 2131165480;
+			public const int tooltip_frame_dark = 2131165480;
 			
 			// aapt resource value: 0x7F070129
-			public const int user = 2131165481;
-			
-			// aapt resource value: 0x7F07012B
-			public const int Usericon = 2131165483;
-			
-			// aapt resource value: 0x7F07012C
-			public const int UserIcon2 = 2131165484;
+			public const int tooltip_frame_light = 2131165481;
 			
 			// aapt resource value: 0x7F07012A
-			public const int user_1 = 2131165482;
+			public const int user = 2131165482;
+			
+			// aapt resource value: 0x7F07012C
+			public const int Usericon = 2131165484;
 			
 			// aapt resource value: 0x7F07012D
-			public const int Verde = 2131165485;
+			public const int UserIcon2 = 2131165485;
+			
+			// aapt resource value: 0x7F07012B
+			public const int user_1 = 2131165483;
 			
 			// aapt resource value: 0x7F07012E
-			public const int water = 2131165486;
+			public const int Verde = 2131165486;
 			
 			// aapt resource value: 0x7F07012F
-			public const int WaterW = 2131165487;
+			public const int water = 2131165487;
 			
 			// aapt resource value: 0x7F070130
-			public const int www = 2131165488;
+			public const int WaterW = 2131165488;
+			
+			// aapt resource value: 0x7F070131
+			public const int www = 2131165489;
 			
 			static Drawable()
 			{

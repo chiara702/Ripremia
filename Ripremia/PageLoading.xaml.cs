@@ -76,7 +76,7 @@ namespace EcoServiceApp {
             await R11.RotateTo(-15, 100);
             await R11.RotateTo(0, 100);
  
-
+            
             if (await t2 == true) {
                 if (App.DataRowUtente != null && (Boolean)App.DataRowUtente["VersLight"] == true) {
                     Device.BeginInvokeOnMainThread(() => App.Current.MainPage = new PageHomeLight());

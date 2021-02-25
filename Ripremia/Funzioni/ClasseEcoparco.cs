@@ -69,37 +69,7 @@ public class ClassApiParco { //vers. 1
         Post.Add("Firma", TestFirma(Query));
         var rit = (DataTable)SoapRequest("EcoparcoEseguiQueryFirma", Post, "DataTable");
         return rit;
-        //LastError = false;
-        //LastErrorDescrizione = "";
-        //try {
-        //    String URLSqlQuery = BaseUrl + "EcoparcoEseguiQueryFirma";
-        //    var req = (HttpWebRequest)WebRequest.Create(URLSqlQuery);
-        //    var ContentString = "query=" + System.Web.HttpUtility.UrlPathEncode(Query) + "&staging=false&Firma=" + TestFirma(Query);
-        //    req.Method = "POST";
-        //    req.ContentType = "application/x-www-form-urlencoded";
-        //    var ContentStream = req.GetRequestStream();
-        //    ContentStream.Write(UTF8Encoding.UTF8.GetBytes(ContentString));
-        //    ContentStream.Close();
-        //    var gr = req.GetResponse();
-        //    var st = gr.GetResponseStream();
-        //    var stRead = new System.IO.StreamReader(st);
-        //    var rit = stRead.ReadToEnd();
-        //    gr.Close();
-        //    var Table = Serializza.XmlDeserialize<DataTable>(rit);
-        //    return Table;
-        //} catch (WebException e) {
-        //    if (e.Response == null) {
-        //        LastError = true;
-        //        LastErrorDescrizione = e.Message;
-        //    }
-        //    if (e.Response != null) {
-        //        var stRead = new System.IO.StreamReader(e.Response.GetResponseStream());
-        //        var rit = stRead.ReadToEnd();
-        //        LastError = true;
-        //        LastErrorDescrizione = rit;
-        //    }
-        //    return null;
-        //}
+        
     }
 
 
@@ -113,39 +83,6 @@ public class ClassApiParco { //vers. 1
         if (table.Rows.Count != 1) return null;
         return table.Rows[0];
 
-        //LastError = false;
-        //LastErrorDescrizione = "";
-        //try {
-        //    var Query = "Select * From " + Tabella + " Where Id=" + Id.ToString();
-        //    String URLSqlQuery = BaseUrl + "EcoparcoEseguiQueryFirma";
-        //    var req = (HttpWebRequest)WebRequest.Create(URLSqlQuery);
-        //    var ContentString = "query=" + System.Web.HttpUtility.UrlPathEncode(Query) + "&staging=false&Firma=" + TestFirma(Query);
-        //    req.Method = "POST";
-        //    req.ContentType = "application/x-www-form-urlencoded";
-        //    var ContentStream = req.GetRequestStream();
-        //    ContentStream.Write(UTF8Encoding.UTF8.GetBytes(ContentString));
-        //    ContentStream.Close();
-        //    var gr = req.GetResponse();
-        //    var st = gr.GetResponseStream();
-        //    var stRead = new System.IO.StreamReader(st);
-        //    var rit = stRead.ReadToEnd();
-        //    gr.Close();
-        //    var Table = Serializza.XmlDeserialize<DataTable>(rit);
-        //    if (Table.Rows.Count != 1) return null;
-        //    return Table.Rows[0];
-        //} catch (WebException e) {
-        //    if (e.Response == null) {
-        //        LastError = true;
-        //        LastErrorDescrizione = e.Message;
-        //    }
-        //    if (e.Response != null) {
-        //        var stRead = new System.IO.StreamReader(e.Response.GetResponseStream());
-        //        var rit = stRead.ReadToEnd();
-        //        LastError = true;
-        //        LastErrorDescrizione = rit;
-        //    }
-        //    return null;
-        //}
     }
     public DataRow EseguiQueryRow(String Tabella, string Where) { //Where: Id=5 and nome='fabio'
         var Post = new Dictionary<String, String>();
@@ -157,40 +94,7 @@ public class ClassApiParco { //vers. 1
         if (table.Rows.Count != 1) return null;
         return table.Rows[0];
 
-        //LastError = false;
-        //LastErrorDescrizione = "";
-        //try {
-        //    var Query = "Select * From " + Tabella + " Where " + Where;
-        //    String URLSqlQuery = BaseUrl + "EcoparcoEseguiQueryFirma";
-        //    var req = (HttpWebRequest)WebRequest.Create(URLSqlQuery);
-        //    var ContentString = "query=" + System.Web.HttpUtility.UrlPathEncode(Query) + "&staging=false&Firma=" + TestFirma(Query);
-        //    req.Method = "POST";
-        //    req.ContentType = "application/x-www-form-urlencoded";
-        //    var ContentStream = req.GetRequestStream();
-        //    ContentStream.Write(UTF8Encoding.UTF8.GetBytes(ContentString));
-        //    ContentStream.Close();
-        //    var gr = req.GetResponse();
-        //    var st = gr.GetResponseStream();
-        //    var stRead = new System.IO.StreamReader(st);
-        //    var rit = stRead.ReadToEnd();
-        //    gr.Close();
-        //    var Table = Serializza.XmlDeserialize<DataTable>(rit);
-        //    if (Table == null) return null;
-        //    if (Table.Rows.Count == 0) return null;
-        //    return Table.Rows[0];
-        //} catch (WebException e) {
-        //    if (e.Response == null) {
-        //        LastError = true;
-        //        LastErrorDescrizione = e.Message;
-        //    }
-        //    if (e.Response != null) {
-        //        var stRead = new System.IO.StreamReader(e.Response.GetResponseStream());
-        //        var rit = stRead.ReadToEnd();
-        //        LastError = true;
-        //        LastErrorDescrizione = rit;
-        //    }
-        //    return null;
-        //}
+       
     }
 
     public Object EseguiCommand(String Query) {
@@ -200,37 +104,7 @@ public class ClassApiParco { //vers. 1
         var rit = SoapRequest("EcoparcoEseguiCommand", Post, "Object");
         return rit;
 
-        //LastError = false;
-        //LastErrorDescrizione = "";
-        //try {
-        //    String URLSqlQuery = BaseUrl + "EcoparcoEseguiCommandFirma";
-        //    var req = (HttpWebRequest)WebRequest.Create(URLSqlQuery);
-        //    var ContentString = "command=" + System.Web.HttpUtility.UrlPathEncode(Query) + "&staging=false&Firma=" + TestFirma(Query);
-        //    req.Method = "POST";
-        //    req.ContentType = "application/x-www-form-urlencoded";
-        //    var ContentStream = req.GetRequestStream();
-        //    ContentStream.Write(UTF8Encoding.UTF8.GetBytes(ContentString));
-        //    ContentStream.Close();
-        //    var gr = req.GetResponse();
-        //    var st = gr.GetResponseStream();
-        //    var stRead = new System.IO.StreamReader(st, UTF8Encoding.UTF8);
-        //    var rit = stRead.ReadToEnd();
-        //    gr.Close();
-        //    var RitObj = Serializza.XmlDeserialize<Object>(rit);
-        //    return RitObj;
-        //} catch (WebException e) {
-        //    if (e.Response == null) {
-        //        LastError = true;
-        //        LastErrorDescrizione = e.Message;
-        //    }
-        //    if (e.Response != null) {
-        //        var stRead = new System.IO.StreamReader(e.Response.GetResponseStream());
-        //        var rit = stRead.ReadToEnd();
-        //        LastError = true;
-        //        LastErrorDescrizione = rit;
-        //    }
-        //    return null;
-        //}
+        
     }
 
     
@@ -817,7 +691,7 @@ public class Funzioni {
         if (Destinatario == "") return;
         MailAddress sendTo = new MailAddress(Destinatario);
         // imposta mittente
-        MailAddress from = new MailAddress("ripremianoreply@gmail.com");
+        MailAddress from = new MailAddress("ripremiasupport@ecocontrolgsm.it");
         // istanzia l'oggetto MailMessage
         MailMessage message = new MailMessage(from, sendTo);
         // campi del messaggio
@@ -828,13 +702,15 @@ public class Funzioni {
         //System.Net.NetworkCredential basicAuthenticationInfo = new System.Net.NetworkCredential("info@ecocontrolgsm.it", "fabio123456");
         
         // imposta connessione con il server GMAIL
-        //SmtpClient SMTPServer = new SmtpClient("smtp.ecocontrolgsm.it");
-        SmtpClient SMTPServer = new SmtpClient("smtp.gmail.com");
+        SmtpClient SMTPServer = new SmtpClient("smtp.ecocontrolgsm.it");
+        //SmtpClient SMTPServer = new SmtpClient("smtp.gmail.com");
         SMTPServer.UseDefaultCredentials = false;
         SMTPServer.Port = 587;
-        SMTPServer.EnableSsl = true;
+        //SMTPServer.EnableSsl = true;
 
-        SMTPServer.Credentials = new System.Net.NetworkCredential("ripremianoreply@gmail.com", "Ripremia123456");
+        //SMTPServer.Credentials = new System.Net.NetworkCredential("ripremianoreply@gmail.com", "Ripremia123456");
+        SMTPServer.Credentials = new System.Net.NetworkCredential("ripremiasupport@ecocontrolgsm.it", "fabio123456");
+
         // SMTPServer.EnableSsl = True
         // invio della mail
         /*try {

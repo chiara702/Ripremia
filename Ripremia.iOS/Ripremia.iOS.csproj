@@ -595,6 +595,9 @@
   <ItemGroup>
     <BundleResource Include="Resources\CouponW.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\swipe1.gif" />
+  </ItemGroup>
   <ProjectExtensions>
     <VisualStudio>
       <UserProperties TriggeredFromHotReload="False" />

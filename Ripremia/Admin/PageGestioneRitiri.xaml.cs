@@ -14,6 +14,7 @@ namespace EcoServiceApp {
             InitializeComponent();
         }
 
+
         private void BtnMostraMappa_Tapped(object sender, EventArgs e) {
 
         }
@@ -36,6 +37,16 @@ namespace EcoServiceApp {
 
         private void BtnVerde_Clicked(object sender, EventArgs e) {
 
+        }
+
+        private void BtnIndietro_Clicked(object sender, EventArgs e) {
+            Application.Current.MainPage = new PageAreaRiservata();
+        }
+
+
+        protected override bool OnBackButtonPressed() {
+            BtnIndietro_Clicked(null, null);
+            return true;
         }
     }
 }

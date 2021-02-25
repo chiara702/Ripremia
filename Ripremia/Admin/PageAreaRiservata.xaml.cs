@@ -65,7 +65,9 @@ namespace EcoServiceApp {
         }
 
         private void BtnRitiri_Clicked(object sender, EventArgs e) {
-            Application.Current.MainPage = new PageGestioneRitiri();
+            DisplayAlert("Funzione disponibile prossimamente su piattaforma web", "", "OK");
+            return;
+            //Application.Current.MainPage = new PageGestioneRitiri();
         }
 
         private void BtnAbbandoni_Clicked(object sender, EventArgs e) {

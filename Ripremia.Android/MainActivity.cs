@@ -13,6 +13,9 @@ namespace EcoServiceApp.Droid
     [Activity(Label = "Ripremia", Icon = "@drawable/RipremiaLogoApp", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize | ConfigChanges.Orientation, ScreenOrientation = ScreenOrientation.Portrait)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
+        public override void OnLowMemory() {
+            base.OnLowMemory();
+        }
         protected override void OnCreate(Bundle savedInstanceState)
         {
             //TabLayoutResource = Resource.Layout.Tabbar;

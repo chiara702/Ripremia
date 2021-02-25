@@ -47,7 +47,7 @@
 	<key>CFBundleDisplayName</key>
 	<string>Ripremia</string>
 	<key>CFBundleVersion</key>
-	<string>11.4</string>
+	<string>11.6</string>
 	<key>UIStatusBarStyle</key>
 	<string>UIStatusBarStyleLightContent</string>
 	<key>UIApplicationSceneManifest</key>

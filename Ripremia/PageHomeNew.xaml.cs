@@ -20,24 +20,25 @@ namespace EcoServiceApp {
         }
         protected override void OnAppearing() {
             base.OnAppearing();
-            Task.Run(() => {
+            /*Task.Run(() => {
                 for (var x = 0; x <= 100; x++) {
                     System.Threading.Thread.Sleep(3000);
                     Carosel1.Position = x % 4;
                 }
-            });
-
+            });*/
+            
             Task.Run(() => {
-                Task.Delay(5000);
+                Task.Delay(5000); //5000
                 Device.BeginInvokeOnMainThread(() => BtnShowQR_Tapped(null, null));
 
             });
 
         }
+
         public PageHomeNew() {
             InitializeComponent();
             Task.Run(() => {
-                Task.Delay(1500);
+                Task.Delay(1500); //1500
                 CreateStatisticheCollection();
                 Device.BeginInvokeOnMainThread(() => BindingContext = this);
             });
@@ -88,43 +89,45 @@ namespace EcoServiceApp {
 
         int Stato = 0;
         private async void BtnShowQR_Tapped(object sender, EventArgs e) {
-            
-            BarCodeId.BarcodeValue = Xamarin.Essentials.Preferences.Get("QrCodeNew", "1");
-            if (Stato == 0) {
-                await BtnShowQRFrame.TranslateTo(1, -2, 100);
-                await BtnShowQRFrame.TranslateTo(0, 0, 100);
-                ImgArrow.IsVisible = false;
-                _ = StackBarCodeId.FadeTo(1, 250);
-                await ImgUp.FadeTo(0, 500);
-                _ = ZoomQRcode.ScaleTo(0.2, 1);
-                //_ = ZoomQRcode.TranslateTo(-40, -40, 600);
-                _ = ZoomQRcode.RotateTo(360, 350);
-                await ZoomQRcode.ScaleTo(1, 600);
-                _ = ZoomQRcode.RotateTo(-360, 1);
-                Stato = 1;
-                _ = BtnShowQRtxt.FadeTo(1, 1);
-                _ = BtnShowQRtxt.FadeTo(0, 250);
-                await BtnUnshowQRtxt.FadeTo(0, 250);
-                _ = BtnUnshowQRtxt.FadeTo(1, 250);
-                BtnShowQRtxt.IsVisible = false;
-                BtnUnshowQRtxt.IsVisible = true;
+            try {
+                BarCodeId.BarcodeValue = Xamarin.Essentials.Preferences.Get("QrCodeNew", "1");
+                if (Stato == 0) {
+                    await BtnShowQRFrame.TranslateTo(1, -2, 100);
+                    await BtnShowQRFrame.TranslateTo(0, 0, 100);
+                    ImgArrow.IsVisible = false;
+                    _ = StackBarCodeId.FadeTo(1, 250);
+                    await ImgUp.FadeTo(0, 500);
+                    _ = ZoomQRcode.ScaleTo(0.2, 1);
+                    //_ = ZoomQRcode.TranslateTo(-40, -40, 600);
+                    _ = ZoomQRcode.RotateTo(360, 350);
+                    await ZoomQRcode.ScaleTo(1, 600);
+                    _ = ZoomQRcode.RotateTo(-360, 1);
+                    Stato = 1;
+                    _ = BtnShowQRtxt.FadeTo(1, 1);
+                    _ = BtnShowQRtxt.FadeTo(0, 250);
+                    await BtnUnshowQRtxt.FadeTo(0, 250);
+                    _ = BtnUnshowQRtxt.FadeTo(1, 250);
+                    BtnShowQRtxt.IsVisible = false;
+                    BtnUnshowQRtxt.IsVisible = true;
 
-            } else {
-                await BtnShowQRFrame.TranslateTo(1, -2, 100);
-                await BtnShowQRFrame.TranslateTo(0, 0, 100);
-                ImgArrow.IsVisible = true;
-                _ = StackBarCodeId.FadeTo(0, 500);
-                await ImgUp.FadeTo(1, 500);
-                Stato = 0;
-                _ = BtnUnshowQRtxt.FadeTo(1, 1);
-                _ = BtnUnshowQRtxt.FadeTo(0, 250);
-                await BtnShowQRtxt.FadeTo(0, 250);
-                _ = BtnShowQRtxt.FadeTo(1, 250);
-                BtnShowQRtxt.IsVisible = true;
-                BtnUnshowQRtxt.IsVisible = false;
+                } else {
+                    await BtnShowQRFrame.TranslateTo(1, -2, 100);
+                    await BtnShowQRFrame.TranslateTo(0, 0, 100);
+                    ImgArrow.IsVisible = true;
+                    _ = StackBarCodeId.FadeTo(0, 500);
+                    await ImgUp.FadeTo(1, 500);
+                    Stato = 0;
+                    _ = BtnUnshowQRtxt.FadeTo(1, 1);
+                    _ = BtnUnshowQRtxt.FadeTo(0, 250);
+                    await BtnShowQRtxt.FadeTo(0, 250);
+                    _ = BtnShowQRtxt.FadeTo(1, 250);
+                    BtnShowQRtxt.IsVisible = true;
+                    BtnUnshowQRtxt.IsVisible = false;
 
+                }
+            } catch (Exception) {
+                var b=0;
             }
-            
         }
 
         private void BtnInfoUser_Clicked(object sender, EventArgs e) {

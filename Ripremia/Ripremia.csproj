@@ -9,6 +9,10 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DebugType>portable</DebugType>
     <DebugSymbols>true</DebugSymbols>
+	<JavaMaximumHeapSize>1G</JavaMaximumHeapSize>
+	<AndroidDesignerJavaRendererMinMemory>128m</AndroidDesignerJavaRendererMinMemory>
+     <AndroidDesignerJavaRendererMaxMemory>750m</AndroidDesignerJavaRendererMaxMemory>
+     <AndroidDesignerJavaRendererPermSize>350m</AndroidDesignerJavaRendererPermSize>
   </PropertyGroup>
 
   <ItemGroup>

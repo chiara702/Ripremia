@@ -15,6 +15,7 @@ namespace EcoServiceApp {
         public static DataRow DataRowSuperUser;
         //internal static object DataRowCliente;
 
+
         public App() {
             InitializeComponent();
             //Application.Current.UserAppTheme = OSAppTheme.Light;

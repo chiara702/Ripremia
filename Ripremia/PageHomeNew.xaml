@@ -6,9 +6,9 @@
 	<ContentPage.Content>
 		<Grid>
 			<!-- menù grid -->
-			<ecoserviceapp:ViewMenuTop x:Name="MenuTop" MostraBell="True" ></ecoserviceapp:ViewMenuTop>
+            <ecoserviceapp:ViewMenuTop x:Name="MenuTop" MostraBell="True" ></ecoserviceapp:ViewMenuTop>
 
-			<!-- corpo centrale -->
+            <!-- corpo centrale -->
 
 			<ScrollView Style="{StaticResource Scrollbackground}">
 				<StackLayout Margin="5,0,5,0">
@@ -101,13 +101,25 @@
 								<CarouselView.ItemTemplate>
 									<DataTemplate>
 										<StackLayout>
-											<Frame  Margin="0" BackgroundColor="Transparent" VerticalOptions="Center" HasShadow="False">
-                                                <StackLayout >
-                                                    <Image Source="{Binding Image}" Aspect="AspectFit" HeightRequest="50" WidthRequest="50" Margin="0" />
-													<Label  Text="{Binding Dati}" FontSize="Medium" HorizontalOptions="Center" FontAttributes="Bold" />
-													<Label  Text="{Binding Dettagli}" FontSize="15" HorizontalOptions="Center" MaxLines="5" FontAttributes="Bold" TextTransform="Uppercase"  />
-												</StackLayout>
-											</Frame>
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="5*"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <Frame Grid.Column="0" Grid.ColumnSpan="2" Margin="0" BackgroundColor="Transparent" VerticalOptions="Center" HasShadow="False">
+                                                    <StackLayout >
+                                                        <Image Source="{Binding Image}" Aspect="AspectFit" HeightRequest="50" WidthRequest="50" Margin="0" />
+                                                        <Label  Text="{Binding Dati}" FontSize="Medium" HorizontalOptions="Center" FontAttributes="Bold" />
+                                                        <Label  Text="{Binding Dettagli}" FontSize="15" HorizontalOptions="Center" MaxLines="5" FontAttributes="Bold" TextTransform="Uppercase"  />
+                                                    </StackLayout>
+                                                </Frame>
+                                                <StackLayout Grid.Column="1" Spacing="0" VerticalOptions="Center" Margin="0,0,0,0" >
+                                                    <Image    Source="Swipe1.gif" IsAnimationPlaying="True" Opacity="0.1" Aspect="AspectFit"   Margin="0,0,15,0" />
+                                                    <!--<Label  Text="SCORRI" FontSize="12" HorizontalOptions="Center" Opacity="0.2" TextColor="black" Margin="0,0,15,0" TextTransform="Uppercase"  />-->
+
+                                                </StackLayout>
+
+                                            </Grid>
 										</StackLayout>
 									</DataTemplate>
 								</CarouselView.ItemTemplate>
