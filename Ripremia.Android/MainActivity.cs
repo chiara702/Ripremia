@@ -7,15 +7,15 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 using Plugin.FirebasePushNotification;
+using Android.Content;
+using Java.Lang;
 
 namespace EcoServiceApp.Droid
 {
     [Activity(Label = "Ripremia", Icon = "@drawable/RipremiaLogoApp", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize | ConfigChanges.Orientation, ScreenOrientation = ScreenOrientation.Portrait)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
-        public override void OnLowMemory() {
-            base.OnLowMemory();
-        }
+        
         protected override void OnCreate(Bundle savedInstanceState)
         {
             //TabLayoutResource = Resource.Layout.Tabbar;
@@ -36,7 +36,17 @@ namespace EcoServiceApp.Droid
                 FirebasePushNotificationManager.DefaultNotificationChannelName = "General";
             }
             FirebasePushNotificationManager.Initialize(this, false);
-            
+
+            //get max heap available to app
+            var activityManager = (ActivityManager)GetSystemService(Context.ActivityService);
+            int maxHeap = activityManager.MemoryClass * 1024; //KB
+
+            //get current heap used by app
+            Runtime runtime = Runtime.GetRuntime();
+            int usedHeap = (int)((runtime.TotalMemory() - runtime.FreeMemory()) / 1024.0f); //KB
+
+            //get amount of free heap remaining for app
+            int availableHeap = maxHeap - usedHeap;
 
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)

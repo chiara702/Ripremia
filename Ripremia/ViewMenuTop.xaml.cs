@@ -39,6 +39,7 @@ namespace EcoServiceApp {
             }
         }
         public void GetNotifiche(){
+            //return; //Da togliere
 
             var Table = PageNotifiche.TabellaNotifiche();
 

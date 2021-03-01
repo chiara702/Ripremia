@@ -6,6 +6,7 @@
             android:TabbedPage.ToolbarPlacement="Bottom" SelectedTabColor="#7ca137" BackgroundColor="#f7f7f7" UnselectedTabColor="#636159"  >
 
     <!--Pages can be added as references or inline-->
+    
     <ecoserviceapp:PageHomeNew Title="Home" IconImageSource="home" ></ecoserviceapp:PageHomeNew>
 
     <ecoserviceapp:PageMappaNew Title="Mappa" IconImageSource="mappa" ></ecoserviceapp:PageMappaNew>

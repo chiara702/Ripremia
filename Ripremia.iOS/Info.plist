@@ -33,11 +33,11 @@
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Possiamo conoscere sempre la tua posizione quando l&apos;app è in funzione?</string>
 	<key>NSCameraUsageDescription</key>
-	<string>L&apos;app necessità di accedere alla fotocamera per fare foto.</string>
+	<string>L&apos;app necessità di accedere alla fotocamera per scattare foto al rifiuto abbandonato o da ritirare.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>L&apos;app necessità di accedere alla fotocamera per fare foto.</string>
+	<string>L&apos;app necessità di accedere alla fotocamera per scattare foto al rifiuto abbandonato o da ritirare.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>L&apos;app ha necessità di accedere alla galleria per salvare le foto.</string>
+	<string>L&apos;app ha necessità di accedere alla galleria per salvare le foto e selezionare una foto relativa al rifiuto.</string>
 	<key>FirebaseAppDelegateProxyEnabled</key>
 	<false/>
 	<key>UIBackgroundModes</key>
@@ -47,7 +47,7 @@
 	<key>CFBundleDisplayName</key>
 	<string>Ripremia</string>
 	<key>CFBundleVersion</key>
-	<string>11.6</string>
+	<string>11.81</string>
 	<key>UIStatusBarStyle</key>
 	<string>UIStatusBarStyleLightContent</string>
 	<key>UIApplicationSceneManifest</key>

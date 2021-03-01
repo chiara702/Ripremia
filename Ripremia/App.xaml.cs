@@ -27,6 +27,7 @@ namespace EcoServiceApp {
             //return;
 
             if (Xamarin.Essentials.Preferences.Get("Loggato", false) == false) {
+
                 MainPage = new PagePresentazione();
             } else {               
                 MainPage = new PageLoading();

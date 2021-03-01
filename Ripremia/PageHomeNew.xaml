@@ -58,8 +58,8 @@
 
 
 
-                                <StackLayout Orientation="Vertical" VerticalOptions="Start" Grid.Column="0" Grid.Row="1"  >
-                                    <Label HorizontalOptions="CenterAndExpand" VerticalOptions="Start" TextColor="#636159" HorizontalTextAlignment="Center" FontSize = "18"  Margin="5,5,5,15" LineBreakMode="WordWrap" Text="Avvicinati al lettore per scansionare il QR-CODE e segui le istruzioni sullo schermo " />
+                                <StackLayout Orientation="Vertical" VerticalOptions="Center" Grid.Column="0" Grid.Row="1"  >
+                                    <Label HorizontalOptions="CenterAndExpand" VerticalOptions="Start" TextColor="#636159" HorizontalTextAlignment="Center" FontSize = "17"  Margin="10,5,0,15" LineBreakMode="WordWrap" Text="Avvicinati al lettore per scansionare il QR-CODE e segui le istruzioni sullo schermo " />
                                     <Image Grid.Column="0" Grid.Row="1" Source="Scancode"  Margin="5,-25,0,8" HeightRequest="90" HorizontalOptions="End" VerticalOptions="End" Rotation="20"/>
                                 </StackLayout>
 
@@ -77,7 +77,7 @@
                         </Frame.HasShadow>
 						<StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" Spacing="0" >
 							<Image Source="cellcode" Margin="20,5,0,5" HeightRequest="100"/>
-							<Label x:Name="BtnShowQRtxt" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" TextColor="White" HorizontalTextAlignment="Center" FontSize = "22"  Margin="0,0,0,0" LineBreakMode="WordWrap" Text="Visualizza il QR-CODE&#10;della moneta virtuale" FontAttributes="Bold"/>
+							<Label x:Name="BtnShowQRtxt" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" TextColor="White" HorizontalTextAlignment="Center" FontSize = "22"  Margin="5,0,5,0" LineBreakMode="WordWrap" Text="Visualizza il QR-CODE&#10;della moneta virtuale" FontAttributes="Bold"/>
                             <Label x:Name="BtnUnshowQRtxt" HorizontalOptions="CenterAndExpand" IsVisible="false" VerticalOptions="Center" TextColor="White" HorizontalTextAlignment="Center" FontSize = "22"  Margin="0,0,0,0" LineBreakMode="WordWrap" Text="Nascondi il QR-CODE&#10;della moneta virtuale" FontAttributes="Bold"/>
 
                             <StackLayout.GestureRecognizers>
@@ -97,7 +97,8 @@
                                 <Image Grid.Row="0" Grid.Column="0" Source="Statistiche" Margin="10,0,5,0" HorizontalOptions="Center" VerticalOptions="Center" />
                                 <Label Grid.Row="0" Grid.Column="1"  Grid.ColumnSpan="3" VerticalOptions="Center" Text="Statistiche personali*" HorizontalOptions="Start"  Style="{StaticResource UserFontGreen}"  TextTransform="Uppercase" />
                             </StackLayout>
-                            <CarouselView ItemsSource="{Binding Statistiche}" IndicatorView="indicatorView" x:Name="Carosel1" HorizontalScrollBarVisibility="Never">
+                            
+                            <!--<CarouselView ItemsSource="{Binding Statistiche}" IndicatorView="indicatorView" x:Name="Carosel1" HorizontalScrollBarVisibility="Never">
 								<CarouselView.ItemTemplate>
 									<DataTemplate>
 										<StackLayout>
@@ -115,7 +116,7 @@
                                                 </Frame>
                                                 <StackLayout Grid.Column="1" Spacing="0" VerticalOptions="Center" Margin="0,0,0,0" >
                                                     <Image    Source="Swipe1.gif" IsAnimationPlaying="True" Opacity="0.1" Aspect="AspectFit"   Margin="0,0,15,0" />
-                                                    <!--<Label  Text="SCORRI" FontSize="12" HorizontalOptions="Center" Opacity="0.2" TextColor="black" Margin="0,0,15,0" TextTransform="Uppercase"  />-->
+                                                    --><!--<Label  Text="SCORRI" FontSize="12" HorizontalOptions="Center" Opacity="0.2" TextColor="black" Margin="0,0,15,0" TextTransform="Uppercase"  />--><!--
 
                                                 </StackLayout>
 
@@ -123,8 +124,9 @@
 										</StackLayout>
 									</DataTemplate>
 								</CarouselView.ItemTemplate>
-							</CarouselView>
-							<IndicatorView x:Name="indicatorView" Margin="0,5,0,0" IndicatorColor="LightGray" SelectedIndicatorColor="#7ca137"   />
+							</CarouselView>-->
+							
+                            <IndicatorView x:Name="indicatorView" Margin="0,5,0,0" IndicatorColor="LightGray" SelectedIndicatorColor="#7ca137"   />
                             <Label Grid.Row="0" Grid.Column="1"  Grid.ColumnSpan="3" VerticalOptions="Center" Text="*statistiche realizzate sulla base di ricerche scientifiche reperibili online" FontSize="14" TextColor="#636159" HorizontalOptions="Center" HorizontalTextAlignment="Center" Margin="10,10,10,0" Style="{StaticResource UserFontGreen}"   />
                         </StackLayout>
 					</Frame>

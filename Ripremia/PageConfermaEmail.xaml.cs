@@ -56,7 +56,7 @@ namespace EcoServiceApp {
         }
 
         private void BtnInviaConferma_Clicked(object sender, EventArgs e) {
-            Funzioni.SendEmail(App.DataRowUtente["Email"].ToString(), "ripremianoreply@gmail.com", "RIPREMIA - Conferma la tua e-mail per accedere ai servizi", "Benvenuto, come ultimo passo non ti resta che inserire il seguente numero all'interno dell'app RIPREMIA per confermare la tua email.\n " + App.DataRowUtente["CodConferma"].ToString());
+            Funzioni.SendEmail(App.DataRowUtente["Email"].ToString(), "", "RIPREMIA - Conferma la tua e-mail per accedere ai servizi", "Benvenuto, come ultimo passo non ti resta che inserire il seguente numero all'interno dell'app RIPREMIA per confermare la tua email.\n " + App.DataRowUtente["CodConferma"].ToString());
             DisplayAlert("E-mail inviata!", "Controlla nella tua casella di posta " + App.DataRowUtente["Email"].ToString() + "\nSe non trovi nessuna e-mail verifica che non sia finita tra gli SPAM", "OK");
 
         }

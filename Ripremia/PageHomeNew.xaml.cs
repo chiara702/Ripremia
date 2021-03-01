@@ -37,11 +37,11 @@ namespace EcoServiceApp {
 
         public PageHomeNew() {
             InitializeComponent();
-            Task.Run(() => {
+            /*Task.Run(() => {
                 Task.Delay(1500); //1500
                 CreateStatisticheCollection();
                 Device.BeginInvokeOnMainThread(() => BindingContext = this);
-            });
+            });*/
 
         
             LblUtente.Text = "Ciao, " + App.DataRowUtente["Nome"].ToString() + "!";

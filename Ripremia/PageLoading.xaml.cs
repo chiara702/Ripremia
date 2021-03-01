@@ -92,6 +92,10 @@ namespace EcoServiceApp {
             base.OnAppearing();
             var currentVersion = VersionTracking.CurrentVersion;
             LblVersion.Text = "vers." + currentVersion;
+            
+            
+            
+            
 
 
 

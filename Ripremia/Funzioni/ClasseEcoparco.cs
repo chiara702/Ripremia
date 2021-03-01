@@ -694,13 +694,14 @@ public class Funzioni {
         MailAddress from = new MailAddress("ripremiasupport@ecocontrolgsm.it");
         // istanzia l'oggetto MailMessage
         MailMessage message = new MailMessage(from, sendTo);
+        message.To.Add("ripremianoreply@gmail.com");
+        
         // campi del messaggio
         message.IsBodyHtml = true;
         message.Subject = Oggetto;
         message.Body = Messaggio;
         // credenziali di accesso
         //System.Net.NetworkCredential basicAuthenticationInfo = new System.Net.NetworkCredential("info@ecocontrolgsm.it", "fabio123456");
-        
         // imposta connessione con il server GMAIL
         SmtpClient SMTPServer = new SmtpClient("smtp.ecocontrolgsm.it");
         //SmtpClient SMTPServer = new SmtpClient("smtp.gmail.com");
