@@ -3,20 +3,23 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:ecoserviceapp="clr-namespace:EcoServiceApp"
             x:Class="EcoServiceApp.PageNavigatore"
             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
-            android:TabbedPage.ToolbarPlacement="Bottom" SelectedTabColor="#7ca137" BackgroundColor="#f7f7f7" UnselectedTabColor="#636159"  >
+            android:TabbedPage.ToolbarPlacement="Bottom" SelectedTabColor="#7ca137" BackgroundColor="#f7f7f7" UnselectedTabColor="#636159" 
+            NavigationPage.HasNavigationBar="False" NavigationPage.HasBackButton="False"
+            >
 
     <!--Pages can be added as references or inline-->
+
     
+
     <ecoserviceapp:PageHomeNew Title="Home" IconImageSource="home" ></ecoserviceapp:PageHomeNew>
 
     <ecoserviceapp:PageMappaNew Title="Mappa" IconImageSource="mappa" ></ecoserviceapp:PageMappaNew>
 
     <ecoserviceapp:PageSalvadanaioNew Title="Borsellino" IconImageSource="salvadanaio"></ecoserviceapp:PageSalvadanaioNew>
-
+    
     <ecoserviceapp:PageServiziNew Title="Servizi" IconImageSource="ambiente"></ecoserviceapp:PageServiziNew>
 
-    <ecoserviceapp:PageUtenteNew Title="Account" IconImageSource="user">
-        
-    </ecoserviceapp:PageUtenteNew>
+    <ecoserviceapp:PageUtenteNew Title="Account" IconImageSource="user"></ecoserviceapp:PageUtenteNew>
+
 
 </TabbedPage>

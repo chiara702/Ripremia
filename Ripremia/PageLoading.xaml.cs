@@ -79,9 +79,17 @@ namespace EcoServiceApp {
             
             if (await t2 == true) {
                 if (App.DataRowUtente != null && (Boolean)App.DataRowUtente["VersLight"] == true) {
-                    Device.BeginInvokeOnMainThread(() => App.Current.MainPage = new PageHomeLight());
+                    //Device.BeginInvokeOnMainThread(() => App.Current.MainPage = new PageHomeLight());
+                    Device.BeginInvokeOnMainThread(() => {
+                        //Navigation.PopAsync();
+                        Navigation.PushAsync(new PageHomeLight());
+                    });
                 } else {
-                    Device.BeginInvokeOnMainThread(() => App.Current.MainPage = new PageNavigatore());
+                    //Device.BeginInvokeOnMainThread(() => App.Current.MainPage = new PageNavigatore());
+                    Device.BeginInvokeOnMainThread(() => {
+                            //Navigation.PopAsync();
+                            Navigation.PushAsync(new PageNavigatore());
+                        });
                 }
             }
 

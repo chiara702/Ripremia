@@ -16,6 +16,9 @@ namespace EcoServiceApp {
             this.On<Xamarin.Forms.PlatformConfiguration.Android>().SetIsSwipePagingEnabled(false);
         }
 
-        
+        protected override bool OnBackButtonPressed() {
+            return true;
+        }
+
     }
 }

@@ -30,6 +30,7 @@ public class ClassApiParco { //vers. 1
         try {
             String URLSqlQuery = BaseUrl + SoapFunz;
             var req = (HttpWebRequest)WebRequest.Create(URLSqlQuery);
+            req.Headers.Add("token", "TOuuYRPgYB");
             req.Method = "POST";
             req.ContentType = "application/x-www-form-urlencoded";
             var f = new FormUrlEncodedContent(PostData);
@@ -278,6 +279,7 @@ public class ClassApiEcoControl {
         try {
             String URLSqlQuery = BaseUrl + SoapFunz;
             var req = (HttpWebRequest)WebRequest.Create(URLSqlQuery);
+            req.Headers.Add("token", "TOuuYRPgYB");
             req.Method = "POST";
             req.ContentType = "application/x-www-form-urlencoded";
             var f = new FormUrlEncodedContent(PostData);

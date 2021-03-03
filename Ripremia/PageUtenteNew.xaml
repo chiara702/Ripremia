@@ -32,11 +32,11 @@
                             <RowDefinition Height="auto" />
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="1*" />
-                            <ColumnDefinition Width="1*" />
-                            <ColumnDefinition Width="1*" />
-                            <ColumnDefinition Width="1*" />
-                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
 
 
@@ -96,8 +96,8 @@
 
 
                     <Image   Aspect="AspectFit" VerticalOptions="EndAndExpand"  Source="onda" Rotation="180" Opacity="0.2" Margin="0,-50,0,-20" />
-                    
-                   
+
+
                 </StackLayout>
             </ScrollView>
 

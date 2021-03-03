@@ -98,7 +98,7 @@
                                 <Label Grid.Row="0" Grid.Column="1"  Grid.ColumnSpan="3" VerticalOptions="Center" Text="Statistiche personali*" HorizontalOptions="Start"  Style="{StaticResource UserFontGreen}"  TextTransform="Uppercase" />
                             </StackLayout>
                             
-                            <!--<CarouselView ItemsSource="{Binding Statistiche}" IndicatorView="indicatorView" x:Name="Carosel1" HorizontalScrollBarVisibility="Never">
+                            <CarouselView ItemsSource="{Binding Statistiche}" IndicatorView="indicatorView" x:Name="Carosel1" HorizontalScrollBarVisibility="Never">
 								<CarouselView.ItemTemplate>
 									<DataTemplate>
 										<StackLayout>
@@ -116,7 +116,7 @@
                                                 </Frame>
                                                 <StackLayout Grid.Column="1" Spacing="0" VerticalOptions="Center" Margin="0,0,0,0" >
                                                     <Image    Source="Swipe1.gif" IsAnimationPlaying="True" Opacity="0.1" Aspect="AspectFit"   Margin="0,0,15,0" />
-                                                    --><!--<Label  Text="SCORRI" FontSize="12" HorizontalOptions="Center" Opacity="0.2" TextColor="black" Margin="0,0,15,0" TextTransform="Uppercase"  />--><!--
+                                                    <Label  Text="SCORRI" FontSize="12" HorizontalOptions="Center" Opacity="0.2" TextColor="black" Margin="0,0,15,0" TextTransform="Uppercase"  />
 
                                                 </StackLayout>
 
@@ -124,7 +124,7 @@
 										</StackLayout>
 									</DataTemplate>
 								</CarouselView.ItemTemplate>
-							</CarouselView>-->
+							</CarouselView>
 							
                             <IndicatorView x:Name="indicatorView" Margin="0,5,0,0" IndicatorColor="LightGray" SelectedIndicatorColor="#7ca137"   />
                             <Label Grid.Row="0" Grid.Column="1"  Grid.ColumnSpan="3" VerticalOptions="Center" Text="*statistiche realizzate sulla base di ricerche scientifiche reperibili online" FontSize="14" TextColor="#636159" HorizontalOptions="Center" HorizontalTextAlignment="Center" Margin="10,10,10,0" Style="{StaticResource UserFontGreen}"   />

@@ -33,13 +33,13 @@
                 </StackLayout>
             </Grid>
 
-        <StackLayout Grid.Row="1" Spacing="15" Orientation="Horizontal"  Margin="20,10,15,0">
+        <!--<StackLayout Grid.Row="1" Spacing="15" Orientation="Horizontal"  Margin="20,10,15,0">
                 <Image Source="Usericon"  HeightRequest="30"  WidthRequest="30" />
                 <Label Text="Account" Style="{StaticResource LblSideMenu}" />
                 <StackLayout.GestureRecognizers>
                 <TapGestureRecognizer x:Name="TapPageUtente" Tapped="TapPageUtente_Tapped" />
                 </StackLayout.GestureRecognizers>
-            </StackLayout>
+            </StackLayout>-->
             <StackLayout Spacing="15" Orientation="Horizontal"  Margin="20,0,0,0">
                 <Image Source="Numutili" HeightRequest="30"  WidthRequest="30" />
                 <Label Text="Numeri utili"  Style="{StaticResource LblSideMenu}" />

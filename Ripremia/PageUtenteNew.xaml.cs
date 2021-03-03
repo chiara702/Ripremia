@@ -19,8 +19,6 @@ namespace EcoServiceApp {
 
         public PageUtenteNew() {
             InitializeComponent();
-            MenuTop.MenuLaterale = MenuLaterale;
-            BindingContext = this;
             LblUtente.Text = "Ciao, " + App.DataRowUtente["Nome"].ToString() + "!";
             LblCodFamiglia.Text = App.DataRowUtente["CodiceFamiglia"].ToString();
             LblNomeUtente.Text = App.DataRowUtente["Nome"].ToString() + " " + App.DataRowUtente["Cognome"].ToString();
@@ -42,6 +40,7 @@ namespace EcoServiceApp {
                 Device.BeginInvokeOnMainThread(() => {
                     LblPunteggioFamiglia.Text = Qta.ToString();
                 });
+
             } catch (Exception e) {
                 DisplayAlert("Errore", "Errore recupero statistiche " + e.Message, "OK");
             }
@@ -57,7 +56,7 @@ namespace EcoServiceApp {
 
         }
         private void BtnModificaDati_Clicked(object sender, EventArgs e) {
-            Application.Current.MainPage = new PageModificaDati();
+            //Application.Current.MainPage = new PageModificaDati();
             Navigation.PushAsync (new PageModificaDati());
         }
 
@@ -67,9 +66,10 @@ namespace EcoServiceApp {
             if (((Boolean)App.DataRowComune["ServizioRitiro"]) == false) {
                 DisplayAlert("Servizio non disponibile", "Ci scusiamo, ma per il suo comune questo servizio non è attivo.", "OK");
                 return;
-            } 
-            
-            Application.Current.MainPage = new PagePrenotazioni();
+            }
+
+            //Application.Current.MainPage = new PagePrenotazioni();
+            Navigation.PushAsync(new PagePrenotazioni());
         }
 
         private void BtnShowPrivacy_Clicked(object sender, EventArgs e) {

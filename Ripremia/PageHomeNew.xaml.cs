@@ -20,13 +20,13 @@ namespace EcoServiceApp {
         }
         protected override void OnAppearing() {
             base.OnAppearing();
-            /*Task.Run(() => {
+            Task.Run(() => {
                 for (var x = 0; x <= 100; x++) {
                     System.Threading.Thread.Sleep(3000);
                     Carosel1.Position = x % 4;
                 }
-            });*/
-            
+            });
+
             Task.Run(() => {
                 Task.Delay(5000); //5000
                 Device.BeginInvokeOnMainThread(() => BtnShowQR_Tapped(null, null));
@@ -37,13 +37,13 @@ namespace EcoServiceApp {
 
         public PageHomeNew() {
             InitializeComponent();
-            /*Task.Run(() => {
+            Task.Run(() => {
                 Task.Delay(1500); //1500
                 CreateStatisticheCollection();
                 Device.BeginInvokeOnMainThread(() => BindingContext = this);
-            });*/
+            });
 
-        
+
             LblUtente.Text = "Ciao, " + App.DataRowUtente["Nome"].ToString() + "!";
             MenuTop.MenuLaterale = MenuLaterale;
         }
