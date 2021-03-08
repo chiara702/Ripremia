@@ -138,7 +138,7 @@ namespace EcoServiceApp {
                 if (Flash == true) {
                     Device.BeginInvokeOnMainThread(async () => {
                         try {
-                            await Application.Current.MainPage.DisplayAlert("", Messaggio + " Flash:" + Flash.ToString(), "OK");
+                            await Application.Current.MainPage.DisplayAlert("", Messaggio, "OK");
                         } catch (Exception) { }
                     });
                 } else {

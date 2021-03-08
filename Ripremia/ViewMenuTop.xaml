@@ -25,10 +25,11 @@
 
 
         <ContentView Grid.Row="0" Grid.Column="0">
-            <Image Source="MenuWhite" Margin="20,2,0,2" HorizontalOptions="Center" VerticalOptions="Center" />
+            <ImageButton x:Name="BtnMenu" Source="MenuWhite" Clicked="BtnMenu_Clicked" HeightRequest="28" HorizontalOptions="Center" VerticalOptions="Center" Margin="18,2,0,2" BackgroundColor="Transparent"  />
+            <!--<Image Source="MenuWhite" Margin="20,2,0,2" HorizontalOptions="Center" VerticalOptions="Center" />
             <ContentView.GestureRecognizers>
                 <TapGestureRecognizer x:Name="ImgMenu" Tapped="ImgMenu_Tapped" />
-            </ContentView.GestureRecognizers>
+            </ContentView.GestureRecognizers>-->
         </ContentView>
 
         <ContentView Grid.Row="0" Grid.Column="1">

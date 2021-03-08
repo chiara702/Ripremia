@@ -441,6 +441,21 @@ public class ClassApiEcoControl {
 
 public class Funzioni {
 
+    public static string CreateMD5(string input) {
+        // Use input string to calculate MD5 hash
+        using (System.Security.Cryptography.MD5 md5 = System.Security.Cryptography.MD5.Create()) {
+            byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(input);
+            byte[] hashBytes = md5.ComputeHash(inputBytes);
+
+            // Convert the byte array to hexadecimal string
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < hashBytes.Length; i++) {
+                sb.Append(hashBytes[i].ToString("X2"));
+            }
+            return sb.ToString();
+        }
+    }
+
     public static string Antinull(object input) {
         if (input == null) return ""; else return input.ToString();
     }
@@ -702,6 +717,7 @@ public class Funzioni {
         message.IsBodyHtml = true;
         message.Subject = Oggetto;
         message.Body = Messaggio;
+        if (Messaggio.Contains("<")) message.IsBodyHtml = true;
         // credenziali di accesso
         //System.Net.NetworkCredential basicAuthenticationInfo = new System.Net.NetworkCredential("info@ecocontrolgsm.it", "fabio123456");
         // imposta connessione con il server GMAIL

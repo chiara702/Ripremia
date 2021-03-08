@@ -53,11 +53,12 @@ namespace EcoServiceApp {
         private async void ImgMenu_Tapped(object sender, EventArgs e) {
             MenuLaterale.IsVisible = true;
             await MenuLaterale.Mostra();
-
         }
+
         private void BtnModificaDati_Clicked(object sender, EventArgs e) {
-            //Application.Current.MainPage = new PageModificaDati();
-            Navigation.PushAsync (new PageModificaDati());
+            Application.Current.MainPage = new PageModificaDati();
+            //Navigation.PushAsync (new PageModificaDati());
+
         }
 
 

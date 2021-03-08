@@ -22,7 +22,7 @@ namespace EcoServiceApp {
         public PageModificaDati() {
             InitializeComponent();
             MenuTop.MenuLaterale = MenuLaterale;
-            BindingContext = this;
+            //BindingContext = this;
 
             var RowComune = Parchetto.EseguiQueryRow("Comune", (int)App.DataRowUtente["IdComune"]);
             RowUtente =Parchetto.EseguiQueryRow("Utente", int.Parse(App.DataRowUtente["Id"].ToString()));
@@ -37,7 +37,7 @@ namespace EcoServiceApp {
             TxtEmail.Text = RowUtente["Email"].ToString();
             TxtCodFiscale.Text = RowUtente["CodiceFiscale"].ToString();
             TxtComuneTari.Text = RowComune["Nome"].ToString();
-            TxtPassword.Text = RowUtente["Password"].ToString();
+            TxtPassword.Text = "";//RowUtente["Password"].ToString();
             txtCodFamiglia.Text = RowUtente["CodiceFamiglia"].ToString();
             CheckPrivacy.IsChecked = (Boolean)RowUtente["LetturaPrivacy"];
             CheckTrattamento.IsChecked = (Boolean)RowUtente["ConsensoTerzeParti"];
@@ -118,6 +118,11 @@ namespace EcoServiceApp {
         }
 
         private void BtnConfermaModifiche_Clicked(object sender, EventArgs e) {
+            TxtNome.Text = Funzioni.Antinull(TxtNome.Text);
+            TxtCognome.Text = Funzioni.Antinull(TxtCognome.Text);
+            txtCodFamiglia.Text = Funzioni.Antinull(txtCodFamiglia.Text);
+            TxtPassword.Text = Funzioni.Antinull(TxtPassword.Text);
+            
             var FunzDb = new ClassApiParco();
             var IdComune = Xamarin.Essentials.Preferences.Get("IdComune", 0);
 
@@ -130,11 +135,6 @@ namespace EcoServiceApp {
             AlertPrivacy.IsVisible = false;
 
             var Err1 = false;
-            //if (Funzioni.VerificaCodiceFiscale(TxtCodFiscale.Text) == false) {
-            //    TxtCodFiscale.TextColor = Color.Red;
-            //    AlertCodFisc.IsVisible = true;
-            //    Err1 = true;
-            //}
             if (Funzioni.Antinull(TxtNome.Text).Length < 2) {
                 AlertNome.IsVisible = true;
                 Err1 = true;
@@ -143,21 +143,14 @@ namespace EcoServiceApp {
                 AlertCognome.IsVisible = true;
                 Err1 = true;
             }
-            //if (Funzioni.IsValidEmail(Funzioni.Antinull(TxtEmail.Text)) == false) {
-            //    AlertEmail.Text = "Inserire una e-mail valida!";
-            //    AlertEmail.IsVisible = true;
-            //    Err1 = true;
-            //}
+            
             if (Err1 == true) return;
 
             var Parchetto = new ClassApiParco();
 
-
-           
-
             if (Funzioni.Antinull(txtCodFamiglia.Text) != "") {
-                var rowCod = Parchetto.EseguiQueryRow("Utente", "CodiceFamiglia='" + txtCodFamiglia.Text + "'");
-                if (rowCod == null) {
+                var rowCod = int.Parse(Parchetto.EseguiCommand("Select Count(*) From Utente Where CodiceFamiglia='" + txtCodFamiglia.Text + "'").ToString());
+                if (rowCod==0) {
                     AlertCodFamiglia.IsVisible = true;
                     Err1 = true;
                 }
@@ -165,7 +158,7 @@ namespace EcoServiceApp {
 
 
 
-            if (Funzioni.VerificaPassword(Funzioni.Antinull(TxtPassword.Text)) != 0) {
+            if (TxtPassword.Text != "" && Funzioni.VerificaPassword(Funzioni.Antinull(TxtPassword.Text)) != 0) {
                 AlertPassword.IsVisible = true;
                 var ret = Funzioni.VerificaPassword(Funzioni.Antinull(TxtPassword.Text));
                 if (ret == -1) AlertPassword.Text = "Inserisci una password valida di almeno 8 caratteri, un numero, una lettera maiuscola e un carattere speciale ($,#,%,..)!";
@@ -195,7 +188,8 @@ namespace EcoServiceApp {
                 }
                 QrcodeMonetaVirtuale = RitMV.QrCode;
             } else {
-                if (Parchetto.EseguiQueryRow("Utente", "CodiceFamiglia='" + Funzioni.AntiAp(txtCodFamiglia.Text) + "'") == null) {
+                var rowCod = int.Parse(Parchetto.EseguiCommand("Select Count(*) From Utente Where CodiceFamiglia='" + txtCodFamiglia.Text + "'").ToString());
+                if (rowCod==0) {
                     AlertCodFamiglia.IsVisible = true;
                     Err1 = true;
                     return;
@@ -224,7 +218,7 @@ namespace EcoServiceApp {
             Par.AddParameterString("Cognome", TxtCognome.Text);
             Par.AddParameterString("CodiceFiscale", TxtCodFiscale.Text);
             Par.AddParameterString("Email", TxtEmail.Text.ToLower());
-            Par.AddParameterString("Password", TxtPassword.Text);
+            if (TxtPassword.Text!="") Par.AddParameterString("Password", Funzioni.CreateMD5(TxtPassword.Text));
             Par.AddParameterString("CodiceFamiglia", txtCodFamiglia.Text);
             Par.AddParameterInteger("LetturaPrivacy", CheckPrivacy.IsChecked == true ? 1 : 0);
             Par.AddParameterInteger("ConsensoTerzeParti", CheckTrattamento.IsChecked == true ? 1 : 0);
@@ -242,6 +236,8 @@ namespace EcoServiceApp {
             DisplayAlert("Modifica dati effettuata correttamente", "Effettua nuovamente l'accesso con i tuoi dati", "OK");
 
             Xamarin.Essentials.Preferences.Set("Loggato", false);
+
+            //Navigation.PopToRootAsync();
             Application.Current.MainPage = new PageLogin();
 
 

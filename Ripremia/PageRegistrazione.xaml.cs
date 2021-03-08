@@ -162,7 +162,7 @@ namespace EcoServiceApp {
             Par.AddParameterString("Cognome", TxtCognome.Text.ToUpper());
             Par.AddParameterString("CodiceFiscale", TxtCodFiscale.Text.ToUpper());
             Par.AddParameterString("Email", TxtEmail.Text.ToLower());
-            Par.AddParameterString("Password", TxtPassword.Text.Trim());
+            Par.AddParameterString("Password", Funzioni.CreateMD5(TxtPassword.Text.Trim()));
             Par.AddParameterString("CodiceFamiglia", txtCodFamiglia.Text.ToUpper());
             Par.AddParameterInteger("LetturaPrivacy", CheckPrivacy.IsChecked == true ? 1 : 0);
             Par.AddParameterInteger("ConsensoTerzeParti", CheckTrattamento.IsChecked == true ? 1 : 0);

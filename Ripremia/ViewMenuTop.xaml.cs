@@ -19,11 +19,14 @@ namespace EcoServiceApp {
         //public event EventHandler<object> ThresholdReached;
         public ViewMenuLaterale MenuLaterale = null;
 
-        private async void ImgMenu_Tapped(object sender, EventArgs e) {
+
+        private async void BtnMenu_Clicked(object sender, EventArgs e) {
             //EventHandler<object> handler = ThresholdReached;
             //if (handler != null) handler.Invoke(this, e);
-            await MenuLaterale.Mostra();
+            if (MenuLaterale!=null) await MenuLaterale.Mostra();
         }
+        //private async void ImgMenu_Tapped(object sender, EventArgs e) {
+        //}
 
         
 
@@ -38,6 +41,15 @@ namespace EcoServiceApp {
                 Task.Run(() => GetNotifiche());
             }
         }
+
+        public Boolean NascondiMenu {
+            set {
+                BtnMenu.IsVisible = !value;
+            }
+            
+        }
+         
+
         public void GetNotifiche(){
             //return; //Da togliere
 
@@ -67,5 +79,7 @@ namespace EcoServiceApp {
             Application.Current.MainPage = new PageNotifiche();
             App.DataLetturaNotifiche = DateTime.Now;
         }
+
+       
     }
 }

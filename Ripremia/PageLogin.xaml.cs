@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -51,7 +52,8 @@ namespace EcoServiceApp {
 
             var Parchetto = new ClassApiParco();
 
-            var rowUtente = Parchetto.EseguiQueryRow("Utente", "Email='" + TxtEmailLog.Text + "' And Password='" + TxtPassLog.Text + "'");
+            var md5pass = Funzioni.CreateMD5(TxtPassLog.Text);
+            var rowUtente = Parchetto.EseguiQueryRow("Utente", "Email='" + TxtEmailLog.Text + "' And (Password='" + TxtPassLog.Text + "' or Password='" + Funzioni.AntiAp(md5pass) + "')");
             if (Parchetto.LastError == true) {
                 Application.Current.MainPage = new PageOffLine();
                 return;

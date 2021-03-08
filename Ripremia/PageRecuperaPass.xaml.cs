@@ -26,10 +26,11 @@ namespace EcoServiceApp {
 
 
             if (row != null) {
-                Funzioni.SendEmail(row["Email"].ToString(), "ripremiasupport@ecocontrolgsm.it", "RECUPERO PASSWORD RIPREMIA", "Abbiamo recuperato i tuoi dati!" + "\nPassword: " + row["Password"].ToString() + "\n" + "Ora puoi inserire i tuoi dati per accedere.");
-                DisplayAlert("", "Ti abbiamo inviato la password per e-mail.\nSe non la trovi controlla tra gli spam.", "ok");
+                var Email = Funzioni.Antinull(TxtEmail.Text);
+                Funzioni.SendEmail(row["Email"].ToString(), "ripremiasupport@ecocontrolgsm.it", "RECUPERO PASSWORD RIPREMIA", "Clicca il link per resettare la password <a href='https://ecocontrolgsm.cloud/Ripremia/ResetPassword.aspx?Email=" + System.Web.HttpUtility.UrlEncode(Email) + "&Securcode=" + Email.Length * 9999 +  "'>Reset Password</a>");
+                DisplayAlert("", "Ti abbiamo inviato una e-mail con il link per resettare la password.\nSe non la trovi, controlla tra gli spam.", "ok");
             } else {
-                DisplayAlert("Utente non valido", "Registrati per accedere ai servizi oppure verifica che i dati siano corretti.", "ok");
+                DisplayAlert("E-mail non presente nei nostri sistemi", "Registrati per accedere ai servizi oppure verifica che l'e-mail inserita sia scritta correttamente.", "ok");
                 return;
             }
 

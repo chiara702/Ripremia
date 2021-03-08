@@ -7,7 +7,7 @@
         <Grid BackgroundColor="White">
 
             <!-- menù grid -->
-            <ecoserviceapp:ViewMenuTop x:Name="MenuTop" ></ecoserviceapp:ViewMenuTop>
+            <ecoserviceapp:ViewMenuTop x:Name="MenuTop" NascondiMenu="True"  ></ecoserviceapp:ViewMenuTop>
 
 
             <!-- corpo centrale -->
