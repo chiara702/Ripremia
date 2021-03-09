@@ -27,17 +27,15 @@
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Possiamo conoscere la tua localizzazione?</string>
+	<string>Vogliamo conoscere la tua posizione mentre l&apos;app è in funzione per geolocalizzare il luogo in cui effettuare i ritiri e visualizzare i servizi disponibili nella tua area di interesse</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Possiamo conoscere la tua posizione per la localizzazione? </string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Possiamo conoscere sempre la tua posizione quando l&apos;app è in funzione?</string>
+	<string>Vogliamo conoscere la tua posizione mentre l&apos;app è in funzione per geolocalizzare il luogo in cui effettuare il ritiro</string>
 	<key>NSCameraUsageDescription</key>
-	<string>L&apos;app necessità di accedere alla fotocamera per scattare foto al rifiuto abbandonato o da ritirare.</string>
+	<string>L&apos;app necessita di accedere alla fotocamera per scattare foto ai rifiuti abbandonati o da ritirare.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>L&apos;app necessità di accedere alla fotocamera per scattare foto al rifiuto abbandonato o da ritirare.</string>
-	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>L&apos;app ha necessità di accedere alla galleria per salvare le foto e selezionare una foto relativa al rifiuto.</string>
+	<string>L&apos;app necessita di accedere alla galleria per il salvataggio delle foto e per il caricamento di un&apos;immagine relativa al rifiuto.</string>
 	<key>FirebaseAppDelegateProxyEnabled</key>
 	<false/>
 	<key>UIBackgroundModes</key>
@@ -47,7 +45,7 @@
 	<key>CFBundleDisplayName</key>
 	<string>Ripremia</string>
 	<key>CFBundleVersion</key>
-	<string>11.81</string>
+	<string>12.1</string>
 	<key>UIStatusBarStyle</key>
 	<string>UIStatusBarStyleLightContent</string>
 	<key>UIApplicationSceneManifest</key>

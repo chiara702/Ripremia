@@ -25,7 +25,7 @@
 
 
         <ContentView Grid.Row="0" Grid.Column="0">
-            <ImageButton x:Name="BtnMenu" Source="MenuWhite" Clicked="BtnMenu_Clicked" HeightRequest="28" HorizontalOptions="Center" VerticalOptions="Center" Margin="18,2,0,2" BackgroundColor="Transparent"  />
+            <ImageButton x:Name="BtnMenu" Source="MenuWhite" Clicked="BtnMenu_Clicked" HeightRequest="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="18,2,0,2" BackgroundColor="Transparent"  />
             <!--<Image Source="MenuWhite" Margin="20,2,0,2" HorizontalOptions="Center" VerticalOptions="Center" />
             <ContentView.GestureRecognizers>
                 <TapGestureRecognizer x:Name="ImgMenu" Tapped="ImgMenu_Tapped" />

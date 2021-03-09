@@ -254,5 +254,18 @@ namespace EcoServiceApp {
         private void txtCodFamiglia_Focused(object sender, FocusEventArgs e) {
 
         }
+
+        private async void BtnCancellaAccount_Clicked(object sender, EventArgs e) {
+            string Password = await DisplayPromptAsync("Vuoi davvero cancellare definitivamente il tuo account?", "Inserisci la tua password per confermare la cancellazione definitiva del tuo account. Perderai tutti gli ecopunti e i coupon accumulati fin ora e non potrai più recuperarli");
+            Password = Funzioni.Antinull(Password);    
+            if(Funzioni.CreateMD5(Password) == App.DataRowUtente["Password"].ToString()) {
+                    Parchetto.EseguiDelete("Utente", (int)App.DataRowUtente["Id"]);
+                    Xamarin.Essentials.Preferences.Set("Loggato", false);
+                    await DisplayAlert("Account eliminato", "Gentile utente i suoi dati sono stati definitivamente cancellati dai nostri sistemi. Se vorrà potrà effettuare una nuova registrazione. Grazie", "OK");
+                    Application.Current.MainPage = new PageLogin();
+            } else {
+                    await DisplayAlert("Operazione annullata","Inserisci una password corretta","OK");
+            }
+        }
     }
 }

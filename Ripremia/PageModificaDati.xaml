@@ -72,11 +72,10 @@
 
 
                 <Button x:Name="BtnConfermaModifiche" IsEnabled="False" Text="CONFERMA MODIFICHE" Margin="10,35,10,0" HorizontalOptions="Center" Style="{StaticResource BtnDarkDisable}" WidthRequest="310" Clicked="BtnConfermaModifiche_Clicked" />
-                <Button x:Name="BtnAnnulla"  Text="ANNULLA" Margin="10,20,10,20" HorizontalOptions="Center" Style="{StaticResource BtnDark}" BackgroundColor="DarkRed" WidthRequest="310" Clicked="BtnAnnulla_Clicked" />
+                <Button x:Name="BtnAnnulla"  Text="ANNULLA" Margin="10,20,10,0" HorizontalOptions="Center" Style="{StaticResource BtnDark}" BackgroundColor="DarkRed" WidthRequest="310" Clicked="BtnAnnulla_Clicked" />
+                    <Button x:Name="BtnCancellaAccount"  Text="Cancella definitivamente l'account" Margin="10,20,10,20" HorizontalOptions="Center" TextColor="DarkRed" BackgroundColor="Transparent" BorderColor="DarkRed" BorderWidth="2" WidthRequest="310" Clicked="BtnCancellaAccount_Clicked" />
 
-
-
-            </StackLayout>
+                </StackLayout>
             </ScrollView>
             
             <Frame x:Name="FrmOpacity" HeightRequest="50"  BackgroundColor="White" IsVisible="false" Opacity="0.7"  AbsoluteLayout.LayoutBounds="0.5,0.5,110,25" AbsoluteLayout.LayoutFlags="PositionProportional" >

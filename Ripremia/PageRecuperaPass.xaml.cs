@@ -17,7 +17,6 @@ namespace EcoServiceApp {
         private void BtnRecupera_Clicked(object sender, EventArgs e) {
             if (Funzioni.IsValidEmail(TxtEmail.Text) == false ) {
                 DisplayAlert("E-mail non presente nei nostri sistemi", "Verifica il corretto inserimento", "ok");
-
                 return;
             }
 
@@ -28,7 +27,8 @@ namespace EcoServiceApp {
             if (row != null) {
                 var Email = Funzioni.Antinull(TxtEmail.Text);
                 Funzioni.SendEmail(row["Email"].ToString(), "ripremiasupport@ecocontrolgsm.it", "RECUPERO PASSWORD RIPREMIA", "Clicca il link per resettare la password <a href='https://ecocontrolgsm.cloud/Ripremia/ResetPassword.aspx?Email=" + System.Web.HttpUtility.UrlEncode(Email) + "&Securcode=" + Email.Length * 9999 +  "'>Reset Password</a>");
-                DisplayAlert("", "Ti abbiamo inviato una e-mail con il link per resettare la password.\nSe non la trovi, controlla tra gli spam.", "ok");
+                DisplayAlert("", "Ti abbiamo inviato un'e-mail con le istruzioni per resettare la password.\nSe non la trovi, controlla tra gli spam.", "ok");
+                Application.Current.MainPage = new PageLogin();
             } else {
                 DisplayAlert("E-mail non presente nei nostri sistemi", "Registrati per accedere ai servizi oppure verifica che l'e-mail inserita sia scritta correttamente.", "ok");
                 return;
