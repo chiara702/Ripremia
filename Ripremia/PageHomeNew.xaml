@@ -116,7 +116,7 @@
                                                 </Frame>
                                                 <StackLayout Grid.Column="1" Spacing="0" VerticalOptions="Center" Margin="0,0,0,0" >
                                                     <Image    Source="Swipe1.gif" IsAnimationPlaying="True" Opacity="0.1" Aspect="AspectFit"   Margin="0,0,15,0" />
-                                                    <Label  Text="SCORRI" FontSize="12" HorizontalOptions="Center" Opacity="0.2" TextColor="black" Margin="0,0,15,0" TextTransform="Uppercase"  />
+                                                    <!--<Label  Text="SCORRI" FontSize="12" HorizontalOptions="Center" Opacity="0.2" TextColor="black" Margin="0,0,15,0" TextTransform="Uppercase"  />-->
 
                                                 </StackLayout>
 

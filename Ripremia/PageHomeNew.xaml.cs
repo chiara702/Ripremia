@@ -20,12 +20,12 @@ namespace EcoServiceApp {
         }
         protected override void OnAppearing() {
             base.OnAppearing();
-            Task.Run(() => {
-                for (var x = 0; x <= 100; x++) {
-                    System.Threading.Thread.Sleep(3000);
-                    Carosel1.Position = x % 4;
-                }
-            });
+            //Task.Run(() => {
+            //    for (var x = 0; x <= 100; x++) {
+            //        System.Threading.Thread.Sleep(3000);
+            //        Carosel1.Position = x % 4;
+            //    }
+            //});
 
             Task.Run(() => {
                 Task.Delay(5000); //5000
