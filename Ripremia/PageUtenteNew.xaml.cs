@@ -56,6 +56,7 @@ namespace EcoServiceApp {
         }
 
         private void BtnModificaDati_Clicked(object sender, EventArgs e) {
+            //Application.Current.MainPage = new PageModificaDati();
             Application.Current.MainPage = new PageModificaDati();
             //Navigation.PushAsync (new PageModificaDati());
 
@@ -70,11 +71,19 @@ namespace EcoServiceApp {
             }
 
             //Application.Current.MainPage = new PagePrenotazioni();
-            Navigation.PushAsync(new PagePrenotazioni());
+            //Navigation.PushAsync(new PagePrenotazioni());
+            Application.Current.MainPage = new PagePrenotazioni();
         }
 
         private void BtnShowPrivacy_Clicked(object sender, EventArgs e) {
             Xamarin.Essentials.Browser.OpenAsync("http://www.ripremia.com/PrivacyRipremia.pdf");
+        }
+
+        private void BtnLogout_Clicked(object sender, EventArgs e) {
+            Xamarin.Essentials.Preferences.Set("Loggato", false);
+            Xamarin.Essentials.Preferences.Set("Email", "");
+            UtenteDatiMemoria.AzzeraTimeUpdate();
+            Application.Current.MainPage = new PagePresentazione();
         }
     }
 }

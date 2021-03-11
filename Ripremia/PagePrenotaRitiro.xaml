@@ -18,8 +18,8 @@
 						<RowDefinition Height="220" />
 						<RowDefinition Height="80" />
 					</Grid.RowDefinitions>
-                        <Label Grid.Row="1"  FontAttributes="Bold" TextColor="Black" Margin="30,5,30,5"  Style="{StaticResource NewFont}" FontSize = "18" Text="1. SCATTA UNA FOTO DEL RITIRO DA EFFETTUARE" HorizontalTextAlignment="Center"/>
-                        <ImageButton x:Name="BtnScattaFoto" Grid.Row="0" Grid.RowSpan="2" BackgroundColor="Transparent" Source="ScattaFoto" HorizontalOptions="FillAndExpand"  Clicked="BtnScattaFoto_Clicked" />
+                        <Label x:Name="LblScattaFoto" Grid.Row="1"  FontAttributes="Bold" TextColor="Black" Margin="30,5,30,5"  Style="{StaticResource NewFont}" FontSize = "18" Text="1. SCATTA UNA FOTO DEL RITIRO DA EFFETTUARE" HorizontalTextAlignment="Center"/>
+                        <ImageButton x:Name="BtnScattaFoto" Grid.Row="0" Grid.RowSpan="2" BackgroundColor="Transparent" Source="ScattaFoto" HorizontalOptions="CenterAndExpand"  Clicked="BtnScattaFoto_Clicked" />
                     </Grid>
 			</Frame>
                 <Label Grid.Row="1"  FontAttributes="Bold" TextColor="Black" Margin="30,10,30,10"  Style="{StaticResource NewFont}" FontSize = "18" Text="2. SELEZIONA IL TIPO DI RIFIUTO" HorizontalTextAlignment="Center"/>

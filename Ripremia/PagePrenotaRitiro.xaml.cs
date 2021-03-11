@@ -19,8 +19,10 @@ namespace EcoServiceApp {
 
         private MediaFile file = null;
         private async void BtnScattaFoto_Clicked(object sender, EventArgs e) {
+            
             var status = await Permissions.CheckStatusAsync<Permissions.Camera>();
             var status2 = await Permissions.CheckStatusAsync<Permissions.StorageWrite>();
+           
             if (status != PermissionStatus.Granted || status2 != PermissionStatus.Granted) {
                 status = await Permissions.RequestAsync<Permissions.Camera>();
                 status2 = await Permissions.RequestAsync<Permissions.StorageWrite>();
@@ -46,6 +48,7 @@ namespace EcoServiceApp {
                     return stream;
                 });
             } catch (Exception) { await DisplayAlert("Attenzione", "E' necessario fornire le autorizzazioni di acquisizione della fotocamera", "OK"); }
+            LblScattaFoto.IsVisible = false;
         }
 
         private _TipoRifiutoSelezionato tipoRifiutoSelezionato = _TipoRifiutoSelezionato.Nullo;

@@ -18,6 +18,7 @@ namespace EcoServiceApp {
             var ComuneInserito = Funzioni.Antinull(TxtComuneTari.Text).ToUpper();
             if (ComuneInserito == "T") TxtComuneTari.Text = "TERMOLI";
             if (ComuneInserito == "L") TxtComuneTari.Text = "LANCIANO";
+            if (ComuneInserito == "CEFALU") TxtComuneTari.Text = "Cefalù";
             var Parchetto = new ClassApiParco();
             var rigoComune = Parchetto.EseguiQueryRow("Comune", "Upper(Nome)='" + Funzioni.AntiAp(ComuneInserito) + "'");
             if (Parchetto.LastError == true) {

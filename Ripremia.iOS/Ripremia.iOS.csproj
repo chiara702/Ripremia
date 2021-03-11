@@ -599,6 +599,21 @@
   <ItemGroup>
     <BundleResource Include="Resources\swipe1.gif" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\vetro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\PointDog.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\PointVetro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\LogoutRed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\LogoutB.png" />
+  </ItemGroup>
   <ProjectExtensions>
     <VisualStudio>
       <UserProperties TriggeredFromHotReload="False" />

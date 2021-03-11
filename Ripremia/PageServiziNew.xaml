@@ -36,7 +36,7 @@
                                     </OnPlatform>
                                 </Frame.HasShadow>
                                 <StackLayout  Orientation="Horizontal" VerticalOptions="Center"  Spacing="0"    Margin="5,5,5,5"   >
-                                    <Image HorizontalOptions="StartAndExpand" Source="PrenotaRitiro" Margin="10,5,0,5" HeightRequest="130"/>
+                                    <Image HorizontalOptions="StartAndExpand" Source="PrenotaRitiro" Margin="10,5,5,5" HeightRequest="130"/>
                                     <Label  HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextColor="White" HorizontalTextAlignment="Center" FontSize = "17"  Margin="0,0,0,0" LineBreakMode="WordWrap" Text="PRENOTA UN RITIRO" FontAttributes="Bold"/>
                                     <StackLayout.GestureRecognizers>
                                         <TapGestureRecognizer x:Name="BtnPrenotaRitiro" Tapped="BtnPrenotaRitiro_Tapped"/>
@@ -51,8 +51,8 @@
                                     </OnPlatform>
                                 </Frame.HasShadow>
                                 <StackLayout Grid.Row="1"  Orientation="Horizontal" VerticalOptions="FillAndExpand" Spacing="0"   Margin="5,5,5,5"  >
-                                    <Image HorizontalOptions="StartAndExpand" Source="CentroRiuso" Margin="10,5,0,5" HeightRequest="130"/>
-                                    <Label HorizontalOptions="CenterAndExpand" VerticalOptions="Center" TextColor="White" HorizontalTextAlignment="Center" FontSize = "17"  Margin="0,0,0,0" LineBreakMode="WordWrap" Text="CENTRO DEL RIUSO VIRTUALE" FontAttributes="Bold"/>
+                                    <Image HorizontalOptions="StartAndExpand" Source="CentroRiuso" Margin="10,5,5,5" HeightRequest="130"/>
+                                    <Label HorizontalOptions="CenterAndExpand" VerticalOptions="Center" TextColor="White" HorizontalTextAlignment="Center" FontSize = "17"  Margin="5,0,5,0" LineBreakMode="WordWrap" Text="CENTRO DEL RIUSO VIRTUALE" FontAttributes="Bold"/>
                                     <StackLayout.GestureRecognizers>
                                         <TapGestureRecognizer x:Name="BtnCentroRiuso" Tapped="BtnCentroRiuso_Tapped"/>
                                     </StackLayout.GestureRecognizers>
@@ -67,8 +67,8 @@
                                     </OnPlatform>
                                 </Frame.HasShadow>
                                 <StackLayout Grid.Row="2"  Orientation="Horizontal" VerticalOptions="FillAndExpand" Spacing="0"  Margin="5,5,5,5" >
-                                    <Image HorizontalOptions="StartAndExpand" Source="CalendarioRitiri" Margin="10,5,0,5" HeightRequest="130"/>
-                                    <Label HorizontalOptions="CenterAndExpand" VerticalOptions="Center" TextColor="White" HorizontalTextAlignment="Center" FontSize = "17"  Margin="0,0,0,0" LineBreakMode="WordWrap" Text="CALENDARIO RITIRO RIFIUTI" FontAttributes="Bold"/>
+                                    <Image HorizontalOptions="StartAndExpand" Source="CalendarioRitiri" Margin="10,5,5,5" HeightRequest="130"/>
+                                    <Label HorizontalOptions="CenterAndExpand" VerticalOptions="Center" TextColor="White" HorizontalTextAlignment="Center" FontSize = "17"  Margin="5,0,5,0" LineBreakMode="WordWrap" Text="CALENDARIO RITIRO RIFIUTI" FontAttributes="Bold"/>
                                     <StackLayout.GestureRecognizers>
                                         <TapGestureRecognizer x:Name="BtnCalendario" Tapped="BtnCalendario_Tapped"/>
                                     </StackLayout.GestureRecognizers>
@@ -82,9 +82,9 @@
                                         <On Platform="Android" Value="true" />
                                     </OnPlatform>
                                 </Frame.HasShadow>
-                                <StackLayout Grid.Row="2"  Orientation="Horizontal" VerticalOptions="FillAndExpand" Spacing="0" Margin="5,5,5,5" Padding="0">
-                                    <Image HorizontalOptions="StartAndExpand" Source="DenunciaAbbandono" Margin="10,5,0,5" HeightRequest="120"/>
-                                    <Label HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" TextColor="White" HorizontalTextAlignment="Center" FontSize = "17"  Margin="5,0,5,0" LineBreakMode="WordWrap" Text="DENUNCIA UN ABBANDONO DI RIFIUTI" FontAttributes="Bold"/>
+                                <StackLayout Grid.Row="2"  Orientation="Horizontal" VerticalOptions="FillAndExpand" Spacing="0" Margin="5,0,5,0" Padding="0">
+                                    <Image HorizontalOptions="StartAndExpand" Source="DenunciaAbbandono" Margin="10,5,5,5" HeightRequest="120"/>
+                                    <Label HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" TextColor="White" HorizontalTextAlignment="Center" FontSize = "17"  Margin="5,0,5,0" LineBreakMode="WordWrap" Text="DENUNCIA UN ABBANDONO DI RIFIUTI" FontAttributes="Bold"/>
                                     <StackLayout.GestureRecognizers>
                                         <TapGestureRecognizer x:Name="BtnDenunciaAbbandono" Tapped="BtnDenunciaAbbandono_Tapped"/>
                                     </StackLayout.GestureRecognizers>

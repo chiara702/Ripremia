@@ -174,22 +174,25 @@
                                 <Label Grid.Row="0" Grid.Column="1"  Grid.ColumnSpan="3" VerticalOptions="Center" Text="Statistiche sui conferimenti" HorizontalOptions="Start"  Style="{StaticResource UserFontGreen}"  TextTransform="Uppercase" />
 
 
-                                <StackLayout  Grid.Row="2" Grid.Column="0" VerticalOptions="Center" Margin="10,10,0,0" Spacing="10"  >
-                                    <Image Grid.Row="0" Grid.Column="0" Source="pet" Margin="0,0,5,0" HeightRequest="20" VerticalOptions="Center" />
-                                    <Image Grid.Row="0" Grid.Column="0" Source="oil" Margin="0,0,5,0" HeightRequest="20" VerticalOptions="Center" />
+                                <StackLayout  Grid.Row="2" Grid.Column="0" VerticalOptions="Center" Margin="10,10,0,0" Spacing="13"  >
+                                    <Image Grid.Row="0" Grid.Column="0" Source="pet" Margin="0,0,0,0" HeightRequest="20" VerticalOptions="Center" />
+                                    <Image Grid.Row="0" Grid.Column="0" Source="oil" Margin="0,0,0,0" HeightRequest="20" VerticalOptions="Center" />
+                                    <Image Grid.Row="0" Grid.Column="0" Source="vetro" Margin="0,0,0,0" HeightRequest="20" VerticalOptions="Center" />
                                 </StackLayout>
                                 <BoxView Grid.Row="2" Grid.Column="1"  Color="Transparent" />
                                 <StackLayout  Grid.Row="2" Grid.Column="1" VerticalOptions="Center" Margin="0,10,0,0" Spacing="10"   >
                                     <Label Text="Bottiglie conferite" HorizontalOptions="Start" Style="{StaticResource UserFontGreen}" />
                                     <Label Text="Litri di olio conferiti" HorizontalOptions="Start" Style="{StaticResource UserFontGreen}" />
+                                    <Label Text="Vetro conferito" HorizontalOptions="Start" Style="{StaticResource UserFontGreen}" />
                                 </StackLayout>
                                 <BoxView Grid.Row="2" Grid.Column="2"  Color="Transparent" />
                                 <StackLayout  Grid.Row="2" Grid.Column="2" VerticalOptions="Center" Margin="0,10,0,0" Spacing="10" >
                                     <Label x:Name="TxtPetConferito" Text="..." HorizontalOptions="End" Style="{StaticResource UserFontGreen}" />
                                     <Label x:Name="TxtOilConferito" Text="..." HorizontalOptions="End" Style="{StaticResource UserFontGreen}" />
+                                    <Label x:Name="TxtVetroConferito" Text="..." HorizontalOptions="End" Style="{StaticResource UserFontGreen}" />
                                 </StackLayout>
-                                
-                                <Label Grid.Row="3" Grid.Column="0"  Grid.ColumnSpan="4" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center" Margin="10,10,10,10" Text="Il conferimento di bottiglie di plastica PET e olio vegetale esausto ti darà diritto ad accumulare Ecopunti che potrai spendere come preferisci!"  Style="{StaticResource  UserFont}" />
+
+                                <Label Grid.Row="3" Grid.Column="0"  Grid.ColumnSpan="4" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center" Margin="10,10,10,10" Text="Il conferimento di bottiglie di plastica PET, bottiglie di vetro e olio vegetale esausto (ove previsto) ti darà diritto ad accumulare Ecopunti che potrai spendere come preferisci!"  Style="{StaticResource  UserFont}" />
 
                             </Grid>
 

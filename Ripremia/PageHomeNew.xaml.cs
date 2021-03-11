@@ -51,18 +51,28 @@ namespace EcoServiceApp {
         void CreateStatisticheCollection() {
             Statistiche = new List<Statistica>();
 
-            Statistiche.Add(new Statistica {
-                Image = "oil",
-                Dati = UtenteDatiMemoria.UtenteOilRaccolto.ToString("0.00").Replace(".",","),
-            Dettagli = "Litri di olio raccolto",
-            });
 
-            Statistiche.Add(new Statistica {
-                Image = "plastica",
-                Dati = UtenteDatiMemoria.UtentePetRaccolto.ToString(),
-                Dettagli = "Bottiglie di plastica raccolte",
-            });
-
+            if (((Boolean)App.DataRowComune["ConferimentoPet"]) == true) {
+                Statistiche.Add(new Statistica {
+                    Image = "plastica",
+                    Dati = UtenteDatiMemoria.UtentePetRaccolto.ToString(),
+                    Dettagli = "Bottiglie di plastica raccolte",
+                });
+            }
+            if (((Boolean)App.DataRowComune["ConferimentoVetro"]) == true) {
+                Statistiche.Add(new Statistica {
+                    Image = "vetro",
+                    Dati = UtenteDatiMemoria.UtenteVetroRaccolto.ToString(),
+                    Dettagli = "Bottiglie di vetro raccolte",
+                });
+            }
+            if (((Boolean)App.DataRowComune["ConferimentoOlio"]) == true) {
+                Statistiche.Add(new Statistica {
+                    Image = "oil",
+                    Dati = UtenteDatiMemoria.UtenteOilRaccolto.ToString("0.00").Replace(".", ","),
+                    Dettagli = "Litri di olio raccolto",
+                });
+            }
             Statistiche.Add(new Statistica {
                 Image = "co2",
                 Dati = UtenteDatiMemoria.UtenteKgCO2Risparmiato.ToString("0.000").Replace(".",","),
@@ -74,7 +84,9 @@ namespace EcoServiceApp {
                 Dati = UtenteDatiMemoria.UtenteBariliPetrolioRisparmiato.ToString("0.000").Replace(".",","),
                 Dettagli = "Barili di petrolio risparmiati",
             });
+
             
+
         }
 
 

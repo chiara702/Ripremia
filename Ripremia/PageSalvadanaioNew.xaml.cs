@@ -53,6 +53,7 @@ namespace EcoServiceApp {
             //Task.Run(() => RiempiFrameCoupon());
             TxtPetConferito.Text = UtenteDatiMemoria.UtentePetRaccolto.ToString();
             TxtOilConferito.Text = UtenteDatiMemoria.UtenteOilRaccolto.ToString();
+            TxtVetroConferito.Text = UtenteDatiMemoria.UtenteVetroRaccolto.ToString();
             Device.StartTimer(TimeSpan.FromSeconds(20), () => {
                 RiempiDati();
                 return true;

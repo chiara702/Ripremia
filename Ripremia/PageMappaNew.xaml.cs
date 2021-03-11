@@ -57,16 +57,20 @@ namespace EcoServiceApp {
                     _ =  StkIconservice.TranslateTo(0, 0, 600, Easing.Linear);
                     LblDenominazione.Text = rigoPoint["Etichetta"].ToString();
                     LblIndirizzo.Text = rigoPoint["Via"].ToString() + ", " + rigoPoint["Comune"].ToString() + " (" + rigoPoint["Provincia"].ToString() + ")";
+                   
                     if ((Boolean)rigoPoint["FlagH2O"]==true) ImgH2O.IsVisible = true; else ImgH2O.IsVisible = false;
                     if ((Boolean)rigoPoint["FlagSoap"] == true) ImgSoap.IsVisible = true; else ImgSoap.IsVisible = false;
                     if ((Boolean)rigoPoint["FlagSacchetti"] == true) ImgSacchetti.IsVisible = true; else ImgSacchetti.IsVisible = false;
-                    if ((Boolean)rigoPoint["FlagOil"] == true) ImgOil.IsVisible = true; else ImgOil.IsVisible = false;
                     if ((Boolean)rigoPoint["FlagPet"] == true) ImgPet.IsVisible = true; else ImgPet.IsVisible = false;
+                    if ((Boolean)rigoPoint["FlagOil"] == true) ImgOil.IsVisible = true; else ImgOil.IsVisible = false;    
+                    if ((Boolean)rigoPoint["FlagVetro"] == true) ImgVetro.IsVisible = true; else ImgVetro.IsVisible = false;
                     if ((Boolean)rigoPoint["FlagBorracce"] == true) ImgBorracce.IsVisible = true; else ImgBorracce.IsVisible = false;
                     if ((Boolean)rigoPoint["FlagEbike"] == true) ImgEbike.IsVisible = true; else ImgEbike.IsVisible = false;
                     if ((Boolean)rigoPoint["FlagRicaricaCell"] == true) ImgRicaricaCell.IsVisible = true; else ImgRicaricaCell.IsVisible = false;
                     if ((Boolean)rigoPoint["FlagWifiFree"] == true) ImgWifiFree.IsVisible = true; else ImgWifiFree.IsVisible = false;
-                 };
+                    if ((Boolean)rigoPoint["FlagDog"] == true) ImgDog.IsVisible = true; else ImgDog.IsVisible = false;
+
+                };
                 map1.Pins.Add(pintmp);
 
             }

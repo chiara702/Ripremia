@@ -73,10 +73,11 @@
 
 
                     <Button x:Name="BtnModificaDati"  Margin="35,25,35,0" Text="MODIFICA I TUOI DATI"  VerticalOptions="End" HeightRequest="60" HorizontalOptions="FillAndExpand" Style="{StaticResource BtnLight}"  Clicked="BtnModificaDati_Clicked"  />
+
                     <Button x:Name="BtnShowPrivacy"  Margin="35,25,35,0" Text="Visualizza Informativa Privacy" TextTransform="None"  HeightRequest="60" VerticalOptions="End" HorizontalOptions="FillAndExpand" BorderWidth="2" FontSize="16" BackgroundColor="Transparent" TextColor="#7CA137" BorderColor="#7CA137" Clicked="BtnShowPrivacy_Clicked"  />
 
 
-                    <Frame  Margin="35,25,35,30" CornerRadius="0"  WidthRequest="310" BackgroundColor="#636159" >
+                    <Frame  Margin="35,25,35,15" CornerRadius="0"  WidthRequest="310" BackgroundColor="#636159" >
                         <Frame.HasShadow>
                             <OnPlatform x:TypeArguments="x:Boolean">
                                 <On Platform="iOS" Value="false" />
@@ -91,11 +92,15 @@
                             </StackLayout.GestureRecognizers>
                         </StackLayout>
                     </Frame>
-
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center"  Spacing="3" Margin="25,0,25,0">
+                        <Image Aspect="AspectFit" VerticalOptions="Center"  Source="LogoutB" HeightRequest="30"  />
+                        <Button x:Name="BtnLogout"  Text="Logout" TextTransform="None"  HeightRequest="60" VerticalOptions="Center" FontFamily="" HorizontalOptions="FillAndExpand" BorderWidth="0" FontSize="20" BackgroundColor="Transparent" TextColor="#636159" BorderColor="DarkRed" Clicked="BtnLogout_Clicked"  />
+                    </StackLayout>
+                    
                     <Label Grid.Row="3" Grid.Column="0"  Grid.ColumnSpan="4" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center" Margin="10,10,10,-85" Text="Questa è la tua pagina personale, qui potrai visualizzare i tuoi dati, il tuo punteggio, modificare il codice famiglia o generarne uno nuovo accedendo alla sezione modifica i tuoi dati. &#10;"  Style="{StaticResource  UserFont}" />
+                
 
-
-                    <Image   Aspect="AspectFit" VerticalOptions="EndAndExpand"  Source="onda" Rotation="180" Opacity="0.2" Margin="0,-50,0,-20" />
+                <Image   Aspect="AspectFit" VerticalOptions="EndAndExpand"  Source="onda" Rotation="180" Opacity="0.2" Margin="0,-50,0,-20" />
 
 
                 </StackLayout>
