@@ -32,7 +32,7 @@ namespace EcoServiceApp {
             ValoreCoupon = (double)rowAttivita["ValoreCoupon"];
             StepMinimo = (double)rowAttivita["SpesaMin"];
             MaxCoupon = (int)rowAttivita["MaxCouponSpesaMin"];
-            EntryCouponN.Text = MaxCoupon.ToString();
+            //EntryCouponN.Text = MaxCoupon.ToString();
         }
 
 
@@ -220,6 +220,10 @@ namespace EcoServiceApp {
             BtnVisualizzaDati.IsVisible = true;
             LblTotaleScontato.Text = "TOTALE SCONTATO PROVVISORIO";
 
+        }
+
+        async void BtnSettings_Clicked(object sender, EventArgs e) {
+            await Navigation.PushAsync(new PageModificaImpoCommercianti());
         }
     }
 }

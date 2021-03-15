@@ -4,7 +4,7 @@
              x:Class="EcoServiceApp.PageUtenteNew">
 
     <ContentPage.Content>
-        <Grid BackgroundColor="White">
+        <Grid BackgroundColor="#f0f0f0">
 
             <!-- menù grid -->
             <ecoserviceapp:ViewMenuTop x:Name="MenuTop" NascondiMenu="True"  ></ecoserviceapp:ViewMenuTop>

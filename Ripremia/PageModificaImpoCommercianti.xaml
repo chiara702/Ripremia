@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EcoServiceApp.PageModificaImpoCommercianti" NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <Grid BackgroundColor="#636159">
+
+            <Grid.RowDefinitions >
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <StackLayout Grid.Row="0" Orientation="Horizontal"  BackgroundColor="#eb6509" Padding="0,35,0,0"  >
+                <ImageButton Source="GoBack" HeightRequest="30" BackgroundColor="Transparent" Margin="20,15,10,20" Clicked="BtnIndietro_Clicked"/>
+                <Label Text="MODIFICA IMPOSTAZIONI" Style="{StaticResource UserFontGreen}" TextColor="White" VerticalOptions="Center" FontSize="22" />
+                <Image Source="RipremiaW" HeightRequest="20" Margin="5,0,15,10"  HorizontalOptions="Center" VerticalOptions="End" />
+            </StackLayout>
+
+            <!-- corpo centrale -->
+            <ScrollView  Grid.Row="1">
+                <StackLayout x:Name="StkCorpo" Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <StackLayout BackgroundColor="White" Margin="20,15,20,0" Padding="5">
+                        <Label Margin="20, 5,20,0" Padding="0" FontFamily="" HorizontalTextAlignment="Center" TextColor="#636159" Text="Sconti Coupon attivi?" TextTransform="Uppercase" FontSize="20"/>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center" Margin="20, 1,20,0">
+                            <RadioButton x:Name="RadioPushSi" Content="SI" TextColor="#636159"  />
+                            <RadioButton x:Name="RadioPushNo" Content="NO" TextColor="#636159" IsChecked="true"  />
+                        </StackLayout>
+                        <Label Margin="20, 5,20,5" Padding="0" FontFamily="" HorizontalTextAlignment="Center" TextColor="#636159" Text="Scegliendo NO decidi di non partecipare più a RIPREMIA COUPON. I clienti non potranno più richiedere lo sconto presso la tua attività e non verrai visualizzato nella pagina affiliati" FontSize="16"/>
+                    </StackLayout>
+
+                    <Frame BackgroundColor="Transparent" BorderColor="White" Margin="20,15,20,0" Padding="5">
+                        <StackLayout>
+                            <Label Margin="20, 5,20,0" Padding="0" FontFamily="" HorizontalOptions="Center" Style="{StaticResource LabRegRed}" HorizontalTextAlignment="Center" TextColor="White" Text="VALORE COUPON" FontSize="20"/>
+                            <Label x:Name="TxtValoreCoupon" Padding="5"  Margin="20,0,20,0" FontSize="40" Text="0,10 €" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"  Style="{StaticResource EntryReg}" TextColor="White" BackgroundColor="Transparent"/>
+                        </StackLayout>
+                    </Frame>
+
+                    <StackLayout>
+                        <Label Margin="20, 25,20,0" Padding="0" FontFamily="" HorizontalOptions="Center" Style="{StaticResource LabRegRed}" HorizontalTextAlignment="Center" TextColor="White" Text="SPESA MINIMA" FontSize="20"/>
+                        <Entry x:Name="TxtSpesaMin"  Margin="20,0,20,0" FontSize="40" Text="1,00 €" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"  Style="{StaticResource EntryReg}" TextColor="#636159"  BackgroundColor="White"/>
+                    </StackLayout>
+                    <StackLayout>
+                        <Label Margin="20, 25,20,0" Padding="0" FontFamily="" HorizontalOptions="Center" Style="{StaticResource LabRegRed}" HorizontalTextAlignment="Center" TextColor="White" Text="MAX COUPON PER STEP SPESA MINIMA" FontSize="20"/>
+                        <Entry x:Name="EntryMaxCouponUtilizzabili"   Margin="20,0,20,0" FontSize="40" Text="2" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"  Style="{StaticResource EntryReg}" TextColor="#636159" BackgroundColor="White"/>
+                        <Label Margin="20, 5,25,20" Padding="0" FontFamily="" HorizontalOptions="Center" Style="{StaticResource LabRegRed}" HorizontalTextAlignment="Center" TextColor="White" Text="In base alla percentuale di sconto che si vuole appplicare (per es. Spesa minima 1,00€, Max coupon 2, percentuale di sconto 20%)" FontSize="16"/>
+                    </StackLayout>
+                    <Button x:Name="BtnSalva" Margin="20,10,20,10" Text="SALVA LE IMPOSTAZIONI" HeightRequest="60" FontSize="18"  BorderColor="#eb6509" TextColor="White" BorderWidth="2" BackgroundColor="#eb6509" Clicked="BtnSalva_Clicked" />
+
+
+                </StackLayout>
+            </ScrollView>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
