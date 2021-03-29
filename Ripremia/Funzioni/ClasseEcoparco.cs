@@ -152,6 +152,15 @@ public class ClassApiParco { //vers. 1
             if (x.Value is DateTime) {
                 Output += "SET @" + x.Key + "=" + "'" + ((DateTime)x.Value).ToString("yyyy/MM/dd HH:mm:ss") + "';\n";
             }
+            if (x.Value is double) {
+                Output += "SET @" + x.Key + "=" + x.Value.ToString() + ";\n";
+            }
+            if (x.Value is Boolean) {
+                var valore = 0;
+                if ((Boolean)x.Value == false) valore = 0;
+                if ((Boolean)x.Value == true) valore = 1;
+                Output += "SET @" + x.Key + "=" + valore + ";\n";
+            }
         }
         return Output;
     }

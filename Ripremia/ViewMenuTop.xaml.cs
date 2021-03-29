@@ -14,6 +14,7 @@ namespace EcoServiceApp {
             InitializeComponent();
             BtnBell.IsVisible = _MostraBell;
 
+
         }
 
         //public event EventHandler<object> ThresholdReached;
@@ -21,8 +22,7 @@ namespace EcoServiceApp {
 
 
         private async void BtnMenu_Clicked(object sender, EventArgs e) {
-            //EventHandler<object> handler = ThresholdReached;
-            //if (handler != null) handler.Invoke(this, e);
+
             if (MenuLaterale!=null) await MenuLaterale.Mostra();
         }
         //private async void ImgMenu_Tapped(object sender, EventArgs e) {

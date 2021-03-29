@@ -26,7 +26,7 @@
             </Grid.RowDefinitions>
 
             <StackLayout Grid.Row="0"  Grid.Column="0" Grid.ColumnSpan="2"  Spacing="0" Margin="15,10,15,10" >
-                <Image Grid.Row="0"  Grid.Column="0" Grid.ColumnSpan="2" x:Name="ImgLogo"  Source="Ripremialogo" HeightRequest="150" VerticalOptions="FillAndExpand" Margin="{OnPlatform Android='10,35,10,20 ', iOS='10,100,10,20'}"  />
+                    <Image Grid.Row="0"  Grid.Column="0" Grid.ColumnSpan="2" x:Name="ImgLogo"  Source="Ripremialogo" HeightRequest="150" VerticalOptions="FillAndExpand" Margin="{OnPlatform Android='10,35,10,20 ', iOS='10,100,10,20'}"  />
                 <StackLayout.GestureRecognizers>
                     <TapGestureRecognizer x:Name="TapCloseMenu3" Tapped="TapCloseMenu_Tapped" />
                 </StackLayout.GestureRecognizers>

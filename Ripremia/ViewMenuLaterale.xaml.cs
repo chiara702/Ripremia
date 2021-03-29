@@ -23,9 +23,10 @@ namespace EcoServiceApp {
 
             if ((int)App.DataRowUtente["AdminComuneId"] > 0 || Funzioni.Antinull(App.DataRowUtente["AdminSuperuserCode"]) != "") StkAreaRiservata.IsVisible = true;
             if ((Boolean)App.DataRowUtente["AdminCommerciante"] == true) StkAreaCommercianti.IsVisible = true;
+
         }
 
- 
+
 
         public async Task Mostra() {
             await MenuLaterale.TranslateTo(-250, 0, 1, Easing.Linear);

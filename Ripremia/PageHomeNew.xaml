@@ -60,7 +60,7 @@
 
                                 <StackLayout Orientation="Vertical" VerticalOptions="Center" Grid.Column="0" Grid.Row="1"  >
                                     <Label HorizontalOptions="CenterAndExpand" VerticalOptions="Start" TextColor="#636159" HorizontalTextAlignment="Center" FontSize = "17"  Margin="10,5,0,15" LineBreakMode="WordWrap" Text="Avvicinati al lettore per scansionare il QR-CODE e segui le istruzioni sullo schermo " />
-                                    <Image Grid.Column="0" Grid.Row="1" Source="Scancode"  Margin="5,-25,0,8" HeightRequest="90" HorizontalOptions="End" VerticalOptions="End" Rotation="20"/>
+                                    <Image Grid.Column="0" Grid.Row="1" Source="Scancode"  Margin="5,-15,0,8" HeightRequest="90" HorizontalOptions="End" VerticalOptions="End" Rotation="20"/>
                                 </StackLayout>
 
 

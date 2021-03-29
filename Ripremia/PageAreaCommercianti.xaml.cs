@@ -21,35 +21,53 @@ namespace EcoServiceApp {
             PrendiDatiCommerciante(); //aggiungere task
         }
 
+        protected override void OnAppearing() {
+            base.OnAppearing();
+            PrendiDatiCommerciante();
+        }
+
         private ClassApiParco Parchetto = new ClassApiParco();
         private DataRow rowAttivita;
         private double ValoreCoupon;
         private double StepMinimo;
         private int MaxCoupon;
 
-        private void PrendiDatiCommerciante() {
-            rowAttivita = Parchetto.EseguiQueryRow("AttivitaCommerciali", (int)App.DataRowUtente["AttivitaCommercialiId"]);
+        private async void PrendiDatiCommerciante() {
+            rowAttivita = await Task.Run(()=> Parchetto.EseguiQueryRow("AttivitaCommerciali", (int)App.DataRowUtente["AttivitaCommercialiId"]));
             ValoreCoupon = (double)rowAttivita["ValoreCoupon"];
             StepMinimo = (double)rowAttivita["SpesaMin"];
             MaxCoupon = (int)rowAttivita["MaxCouponSpesaMin"];
-            //EntryCouponN.Text = MaxCoupon.ToString();
+            LblDenominazione.Text = "Nome: " + rowAttivita["Nome"].ToString();          
+            LblValCoupon.Text = "Valore di 1 coupon: " + rowAttivita["ValoreCoupon"].ToString().Replace(".", ",") + "€";
+            LblSpesaMin.Text = "Spesa minima: " + rowAttivita["SpesaMin"].ToString().Replace(".", ",") + "€";
+            LblMaxCouponXstep.Text = "Max Coupon: " + rowAttivita["MaxCouponSpesaMin"].ToString();
+            if((bool)rowAttivita["Attivo"] == true) {
+                LblStato.Text ="Stato: ATTIVO";
+            } else {
+                LblStato.Text = "Stato: NON ATTIVO";
+            }
+
+
         }
 
 
 
         double TotDaScontare;
-        int QntCouponUtilizzabili;
+       
         double TotScontato;
 
 
         private async void BtnScansiona_Tapped(object sender, EventArgs e) {
+
             if (TotDaScontare < StepMinimo) {
                 _ = DisplayAlert("Attenzione", "Inserire un valore valido da scontare", "OK");
                 return;
-
             }
 
-
+            if ((bool)rowAttivita["Attivo"] == false) {
+                _ = DisplayAlert("Attenzione", "E' necessario attivarsi come attività affiliata nella sezione MODIFICA IMPOSTAZIONI -> SCONTI COUPON ATTIVI -> SI", "OK");
+                return;
+            }
             var options = new MobileBarcodeScanningOptions {
                 AutoRotate = false,
                 UseFrontCameraIfAvailable = false,
@@ -90,8 +108,7 @@ namespace EcoServiceApp {
                 int MoltiplicatoreCoupon = (int)App.DataRowComune["MoltiplicatoreCoupon"];
                 int ComuneEcopuntiCoupon = (int)App.DataRowComune["EcopuntiCoupon"];
                 int CouponUtente = (int)rowCliente["Coupon"];
-                int CouponUtilizzabili = Convert.ToInt32(EntryCouponN.Text);
-                
+                int CouponUtilizzabili = Convert.ToInt32(EntryCouponN.Text);                
 
                 if (CouponUtente < 1) {
                     Device.BeginInvokeOnMainThread(() => DisplayAlert("Attenzione", "Il cliente non possiede coupon!", "OK"));
@@ -143,17 +160,17 @@ namespace EcoServiceApp {
 
 
         private void BtnUp_Clicked(object sender, EventArgs e) {
-            QntCouponUtilizzabiliValore = (int)(TotDaScontare / StepMinimo);
-            if (QntCouponUtilizzabiliValore < ((int)(TotDaScontare / StepMinimo))) {
-                QntCouponUtilizzabiliValore = QntCouponUtilizzabiliValore + 1;
+            QntCouponUtilizzabiliValore = (int)(TotDaScontare / StepMinimo)*MaxCoupon;
+            int ValoreEntryCoupon = Convert.ToInt32(EntryCouponN.Text);
+            if (ValoreEntryCoupon < (int)QntCouponUtilizzabiliValore) {
+                QntCouponUtilizzabiliValore = ValoreEntryCoupon + 1;
                 EntryCouponN.Text = QntCouponUtilizzabiliValore.ToString();
-            } else {
-                QntCouponUtilizzabiliValore = MaxCoupon;
-                EntryCouponN.Text = QntCouponUtilizzabiliValore.ToString();
-            }
+            } else return;
+
         }
 
         private void BtnDown_Clicked(object sender, EventArgs e) {
+            //QntCouponUtilizzabiliValore = (int)(TotDaScontare / StepMinimo) * MaxCoupon;
             if (QntCouponUtilizzabiliValore > 1) {
                 QntCouponUtilizzabiliValore = QntCouponUtilizzabiliValore - 1;
                 EntryCouponN.Text = QntCouponUtilizzabiliValore.ToString();
@@ -178,38 +195,19 @@ namespace EcoServiceApp {
 
         private void EntryTotaleDaScontare_TextChanged(object sender, TextChangedEventArgs e) {
             if (Funzioni.Antinull(EntryTotaleDaScontare.Text) == "") return;
-            MaxCoupon = (int)rowAttivita["MaxCouponSpesaMin"];
             TotDaScontare = Convert.ToDouble(EntryTotaleDaScontare.Text);
-
-
-            if ((TotDaScontare / StepMinimo) <= MaxCoupon) {
-                QntCouponUtilizzabiliValore = (int)(TotDaScontare / StepMinimo);
-                EntryCouponN.Text = QntCouponUtilizzabiliValore.ToString();
-            } else {
-                QntCouponUtilizzabiliValore = MaxCoupon;
-                EntryCouponN.Text = QntCouponUtilizzabiliValore.ToString();
-            }
-            if (QntCouponUtilizzabiliValore < MaxCoupon) {
-                MaxCoupon = QntCouponUtilizzabiliValore;
-            }
+            QntCouponUtilizzabiliValore = MaxCoupon * ((int)(TotDaScontare / StepMinimo));
+            EntryCouponN.Text = QntCouponUtilizzabiliValore.ToString();
             EntryCouponN_TextChanged(null, null);
-
+        }
+        private void EntryTotaleDaScontare_Unfocused(object sender, FocusEventArgs e) {
+            
         }
 
         private void EntryCouponN_TextChanged(object sender, TextChangedEventArgs e) {
-            QntCouponUtilizzabili = (int)(TotDaScontare / StepMinimo);
-            if (QntCouponUtilizzabiliValore >= QntCouponUtilizzabili) {
-                if (QntCouponUtilizzabili <= MaxCoupon) {
-                    TotScontato = TotDaScontare - (QntCouponUtilizzabili * ValoreCoupon);
-                    TxtTotaleScontato.Text = TotScontato.ToString("0.00 €").Replace(".",",");
-                } else {
-                    TotScontato = TotDaScontare - (MaxCoupon * ValoreCoupon);
-                    TxtTotaleScontato.Text = TotScontato.ToString("0.00 €").Replace(".", ",");
-                }
-            } else {
-                TotScontato = TotDaScontare - (QntCouponUtilizzabiliValore * ValoreCoupon);
-                TxtTotaleScontato.Text = TotScontato.ToString("0.00 €").Replace(".", ",");
-            }
+            //QntCouponUtilizzabili = MaxCoupon * ((int)(TotDaScontare / StepMinimo));
+            TotScontato = TotDaScontare - (QntCouponUtilizzabiliValore * ValoreCoupon);
+            TxtTotaleScontato.Text = TotScontato.ToString("0.00 €").Replace(".",",");
         }
 
         private void BtnNuovaOperazione_Clicked(object sender, EventArgs e) {
@@ -225,5 +223,7 @@ namespace EcoServiceApp {
         async void BtnSettings_Clicked(object sender, EventArgs e) {
             await Navigation.PushAsync(new PageModificaImpoCommercianti());
         }
+
+        
     }
 }
