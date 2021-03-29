@@ -9,6 +9,7 @@ using Android.OS;
 using Plugin.FirebasePushNotification;
 using Android.Content;
 using Java.Lang;
+using Android.Content.Res;
 
 namespace EcoServiceApp.Droid
 {
@@ -49,6 +50,17 @@ namespace EcoServiceApp.Droid
             int availableHeap = maxHeap - usedHeap;
 
         }
+
+        //aggiunto per i cellulari che hanno i font ingranditi
+        protected override void AttachBaseContext(Context @base) {
+            var configuration = new Configuration(@base.Resources.Configuration);
+
+            configuration.FontScale = 1.1f;
+            var config = Application.Context.CreateConfigurationContext(configuration);
+
+            base.AttachBaseContext(config);
+        }
+
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);

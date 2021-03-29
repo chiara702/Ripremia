@@ -720,7 +720,7 @@ public class Funzioni {
         MailAddress from = new MailAddress("ripremiasupport@ecocontrolgsm.it");
         // istanzia l'oggetto MailMessage
         MailMessage message = new MailMessage(from, sendTo);
-        message.To.Add("ripremianoreply@gmail.com");
+        //message.To.Add("ripremianoreply@gmail.com");
         
         // campi del messaggio
         message.IsBodyHtml = true;
