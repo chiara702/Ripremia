@@ -27,21 +27,21 @@ namespace EcoServiceApp {
         }
 
         private ClassApiParco Parchetto = new ClassApiParco();
-        private DataRow rowAttivita;
+        //private DataRow rowAttivita;
         private double ValoreCoupon;
         private double StepMinimo;
         private int MaxCoupon;
 
         private async void PrendiDatiCommerciante() {
-            rowAttivita = await Task.Run(()=> Parchetto.EseguiQueryRow("AttivitaCommerciali", (int)App.DataRowUtente["AttivitaCommercialiId"]));
-            ValoreCoupon = (double)rowAttivita["ValoreCoupon"];
-            StepMinimo = (double)rowAttivita["SpesaMin"];
-            MaxCoupon = (int)rowAttivita["MaxCouponSpesaMin"];
-            LblDenominazione.Text = "Nome: " + rowAttivita["Nome"].ToString();          
-            LblValCoupon.Text = "Valore di 1 coupon: " + rowAttivita["ValoreCoupon"].ToString().Replace(".", ",") + "€";
-            LblSpesaMin.Text = "Spesa minima: " + rowAttivita["SpesaMin"].ToString().Replace(".", ",") + "€";
-            LblMaxCouponXstep.Text = "Max Coupon: " + rowAttivita["MaxCouponSpesaMin"].ToString();
-            if((bool)rowAttivita["Attivo"] == true) {
+            App.DataRowCommerciante = await Task.Run(()=> Parchetto.EseguiQueryRow("AttivitaCommerciali", (int)App.DataRowUtente["AttivitaCommercialiId"]));
+            ValoreCoupon = (double)App.DataRowCommerciante["ValoreCoupon"];
+            StepMinimo = (double)App.DataRowCommerciante["SpesaMin"];
+            MaxCoupon = (int)App.DataRowCommerciante["MaxCouponSpesaMin"];
+            LblDenominazione.Text = "Nome: " + App.DataRowCommerciante["Nome"].ToString();          
+            LblValCoupon.Text = "Valore di 1 coupon: " + App.DataRowCommerciante["ValoreCoupon"].ToString().Replace(".", ",") + "€";
+            LblSpesaMin.Text = "Spesa minima: " + App.DataRowCommerciante["SpesaMin"].ToString().Replace(".", ",") + "€";
+            LblMaxCouponXstep.Text = "Max Coupon: " + App.DataRowCommerciante["MaxCouponSpesaMin"].ToString();
+            if((bool)App.DataRowCommerciante["Attivo"] == true) {
                 LblStato.Text ="Stato: ATTIVO";
             } else {
                 LblStato.Text = "Stato: NON ATTIVO";
@@ -64,7 +64,7 @@ namespace EcoServiceApp {
                 return;
             }
 
-            if ((bool)rowAttivita["Attivo"] == false) {
+            if ((bool)App.DataRowCommerciante["Attivo"] == false) {
                 _ = DisplayAlert("Attenzione", "E' necessario attivarsi come attività affiliata nella sezione MODIFICA IMPOSTAZIONI -> SCONTI COUPON ATTIVI -> SI", "OK");
                 return;
             }
@@ -98,9 +98,12 @@ namespace EcoServiceApp {
                 //Device.BeginInvokeOnMainThread(() => DisplayAlert("", "Codice Ok: " + x.Text, "OK"));
 
                 ClassApiParco Parchetto = new ClassApiParco();
-                var rowCliente = Parchetto.EseguiQueryRow("Utente", "CodiceMonetaVirtuale='" + codice + "'");
+                //var rowCliente = Parchetto.EseguiQueryRow("Utente", "CodiceMonetaVirtuale='" + codice + "'");
+                var TableCliente = Parchetto.EseguiQuery("Select * From Utente Where CodiceMonetaVirtuale='" + Funzioni.AntiAp(codice) + "'");
+                if (TableCliente.Rows.Count == 0) { await DisplayAlert("", "Nessun utente con codice moneta virtuale", "OK"); return; }
+                var rowCliente = TableCliente.Rows[0];
                 
-                if ((int)rowCliente["IdComune"] != (int)rowAttivita["ComuneId"]) {
+                if ((int)rowCliente["IdComune"] != (int)App.DataRowCommerciante["ComuneId"]) {
                     Device.BeginInvokeOnMainThread(() => DisplayAlert("ATTENZIONE", "Il cliente appartiene ad un comune diverso dall'attività!", "OK"));
                     return;
                 }
@@ -134,14 +137,14 @@ namespace EcoServiceApp {
                 CouponUtente = CouponUtente - CouponUtilizzabili;
                 Par.AddParameterInteger("Coupon", CouponUtente);            
                 Parchetto.EseguiUpdate("Utente", (int)rowCliente["Id"], Par);
-                int AggiornaCouponAttivita = (int)rowAttivita["CouponRaccolti"] + CouponUtilizzabili;
-                Parchetto.EseguiUpdate("CouponRaccolti", (int)rowAttivita["CouponRaccolti"], Par);
+                int AggiornaCouponAttivita = (int)App.DataRowCommerciante["CouponRaccolti"] + CouponUtilizzabili;
+                Parchetto.EseguiUpdate("CouponRaccolti", (int)App.DataRowCommerciante["CouponRaccolti"], Par);
 
                 if (Parchetto.LastError == true) {
                     await DisplayAlert("ATTENZIONE", "Errore nello scaricare i coupon!", "OK");
                     return;
                 }
-                Parchetto.EseguiCommand("Update AttivitaCommerciali SET CouponRaccolti=CouponRaccolti-(-" + CouponUtilizzabili + ") Where Id=" + rowAttivita["Id"]);
+                Parchetto.EseguiCommand("Update AttivitaCommerciali SET CouponRaccolti=CouponRaccolti-(-" + CouponUtilizzabili + ") Where Id=" + App.DataRowCommerciante["Id"]);
                 if (Parchetto.LastError == true) {
                     await DisplayAlert("ATTENZIONE", "Errore nel caricare i coupon sull'attività commerciale!", "OK");
                     return;
@@ -152,6 +155,7 @@ namespace EcoServiceApp {
                     FrmCoupon.IsVisible = true;
                     TxtCouponResidui.Text = ((int)rowCliente["Coupon"] - (int)CouponUtilizzabili).ToString();
                     BtnNuovaOperazione.IsVisible = true;
+                    DisplayAlert("", "OPERAZIONE CONCLUSA CON SUCCESSO", "OK");
                 });
      
             };
@@ -180,7 +184,7 @@ namespace EcoServiceApp {
 
         private void BtnVisualizzaDati_Clicked(object sender, EventArgs e) {
             try {
-                DisplayAlert("Coupon raccolti", "Fin ora hai raccolto " + Parchetto.EseguiCommand("Select CouponRaccolti From AttivitaCommerciali Where Id=" + rowAttivita["Id"]).ToString() + " coupon!", "OK");
+                DisplayAlert("Coupon raccolti", "Fin ora hai raccolto " + Parchetto.EseguiCommand("Select CouponRaccolti From AttivitaCommerciali Where Id=" + App.DataRowCommerciante["Id"]).ToString() + " coupon!", "OK");
             } catch (Exception) { }
         }
 
