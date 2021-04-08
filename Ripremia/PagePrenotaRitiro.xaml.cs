@@ -29,7 +29,6 @@ namespace EcoServiceApp {
             }
             if (status != PermissionStatus.Granted || status2 != PermissionStatus.Granted) return;
             try {
-
                 await CrossMedia.Current.Initialize();
                 if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported) {
                     await DisplayAlert("No Camera", ":( No camera available.", "OK");

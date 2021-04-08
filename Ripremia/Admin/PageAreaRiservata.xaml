@@ -50,7 +50,7 @@
                         <ImageButton x:Name="BtnCalendario" Grid.Row="2"  Grid.Column="0" Source="ARCalendario" VerticalOptions="Center"  WidthRequest="170" BackgroundColor="Transparent" Clicked="BtnCalendario_Clicked" />
                         <BoxView Grid.Row="2"  Grid.Column="0" x:Name="BoxCalendario" IsVisible="false" BackgroundColor="LightGray" Opacity="0.7"  WidthRequest="170" />
 
-                        <ImageButton x:Name="BtnCentroRiuso" Grid.Row="2"  Grid.Column="1" Source="ARCentroRiuso" VerticalOptions="Center"  WidthRequest="170" BackgroundColor="Transparent"  />
+                        <ImageButton x:Name="BtnStatistiche" Grid.Row="2"  Grid.Column="1" Source="ARStatistiche" VerticalOptions="Center"  WidthRequest="170" BackgroundColor="Transparent" Clicked="BtnStatistiche_Clicked" />
                         <BoxView Grid.Row="2"  Grid.Column="1" x:Name="BoxCentroRiuso" IsVisible="false" BackgroundColor="LightGray" Opacity="0.7"  WidthRequest="170" />
                         
                         <Button  Grid.Row="3"  Grid.Column="0" Grid.ColumnSpan="2" x:Name="BtnBack"  Text="ESCI DALL'AREA RISERVATA" FontFamily="SanzFont" Margin="10,20,10,20" HorizontalOptions="Center" Style="{StaticResource BtnDark}"  BackgroundColor="DarkRed" WidthRequest="310" Clicked="BtnBack_Clicked" />

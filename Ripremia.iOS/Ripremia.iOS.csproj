@@ -614,6 +614,45 @@
   <ItemGroup>
     <BundleResource Include="Resources\LogoutB.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ARStatistiche.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\StatOil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\StatPet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\StatSacc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\StatSoap.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\StatVetro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\StatH2O.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\StatVetroD.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\StatH2OD.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\StatOilD.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\StatPetD.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\StatSaccD.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\StatSoapD.png" />
+  </ItemGroup>
   <ProjectExtensions>
     <VisualStudio>
       <UserProperties TriggeredFromHotReload="False" />

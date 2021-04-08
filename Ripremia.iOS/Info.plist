@@ -36,6 +36,8 @@
 	<string>L&apos;app necessita di accedere alla fotocamera per scattare foto ai rifiuti abbandonati o da ritirare.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>L&apos;app necessita di accedere alla galleria per il salvataggio delle foto e per il caricamento di un&apos;immagine relativa al rifiuto.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>L&apos;app necessita di accedere alla galleria per il salvataggio delle foto e per il caricamento di un&apos;immagine relativa al rifiuto.</string>
 	<key>FirebaseAppDelegateProxyEnabled</key>
 	<false/>
 	<key>UIBackgroundModes</key>
@@ -45,7 +47,7 @@
 	<key>CFBundleDisplayName</key>
 	<string>Ripremia</string>
 	<key>CFBundleVersion</key>
-	<string>12.15</string>
+	<string>12.16</string>
 	<key>UIStatusBarStyle</key>
 	<string>UIStatusBarStyleLightContent</string>
 	<key>UIApplicationSceneManifest</key>
@@ -57,5 +59,7 @@
 	<string>LaunchScreen</string>
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
+	<key>UIRequiresFullScreen</key>
+	<true/>
 </dict>
 </plist>

@@ -38,6 +38,9 @@
     <EmbeddedResource Update="Admin\PageGestioneAbbandoni.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Admin\PageStatistiche.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="GestioneCalendario\PageCalendarioEccezzioni.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
