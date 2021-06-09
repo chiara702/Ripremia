@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microcharts;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -17,6 +18,7 @@ namespace EcoServiceApp.Admin {
             InitializeComponent();
             Task.Run(() => CaricaComuni());
         }
+
 
         private void CaricaComuni() {
             if (Funzioni.Antinull(App.DataRowUtente["AdminSuperUserCode"]) != "") {
@@ -45,7 +47,41 @@ namespace EcoServiceApp.Admin {
 
         private void PickerComune_SelectedIndexChanged(object sender, EventArgs e) {
             StkShowAll.IsVisible = true;
+            //Grafici
 
+            var entries = new[]{
+                new Microcharts.ChartEntry(1.0f){
+                    Label = "Data1",
+                    ValueLabel = "200",
+                    Color = SkiaSharp.SKColor.Parse("#ff0000")
+                },
+                new Microcharts.ChartEntry(2.0f){
+                    Label = "Data2",
+                    ValueLabel = "400",
+                    Color = SkiaSharp.SKColor.Parse("#fff600")
+
+                },
+                new Microcharts.ChartEntry(4.0f){
+                    Label = "Data2",
+                    ValueLabel = "400",
+                    Color = SkiaSharp.SKColor.Parse("#fef600")
+
+                },
+                new Microcharts.ChartEntry(1.0f){
+                    Label = "Data2",
+                    ValueLabel = "400",
+                    Color = SkiaSharp.SKColor.Parse("#eee600")
+
+                },
+                new Microcharts.ChartEntry(6.0f){
+                    Label = "Data2",
+                    ValueLabel = "400",
+                    Color = SkiaSharp.SKColor.Parse("#fff600")
+
+                }
+            };
+            var chart = new LineChart() { Entries = entries, LabelTextSize = 25, IsAnimated = true, AnimationProgress = 20 };
+            this.chartView.Chart = chart;
 
         }
 
@@ -57,7 +93,26 @@ namespace EcoServiceApp.Admin {
                 await DisplayAlert("", e.Message, "ok");
             }
 
-        }
+            
+
+        }//Grafici
+
+        //public virtual void ViewDidLoad() {
+        //    base.ViewDidLoad();
+
+        //    var entries = // ... see 1°) above
+        //    var chart = // ... see 2°) above
+
+        //    var chartView = new ChartView {
+        //        Frame = new CGRect(0, 32, this.View.Bounds.Width, 140),
+        //        AutoresizingMask = UIViewAutoresizing.FlexibleWidth,
+        //        Chart = chart,
+        //    };
+
+        //    this.View.Add(chartView);
+        //}
+
+
         private void BtnIndietro_Clicked(object sender, EventArgs e) {
             Application.Current.MainPage = new PageAreaRiservata();
         }
@@ -66,6 +121,12 @@ namespace EcoServiceApp.Admin {
             BtnIndietro_Clicked(null, null);
             return true;
         }
+
+
+        //Grafici
+
+
+        //var chart = new LineChart() { Entries = entries };
 
 
 

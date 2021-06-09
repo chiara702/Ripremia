@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="EcoServiceApp.Admin.PageStatistiche" NavigationPage.HasNavigationBar="False">
+             xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms" xmlns:forms="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
+             x:Class="EcoServiceApp.Admin.PageStatistiche" NavigationPage.HasNavigationBar="False" >
     <ContentPage.Content>
         <Grid BackgroundColor="#f0f0ef" VerticalOptions="FillAndExpand" Margin="0">
             <Grid.RowDefinitions>
@@ -55,14 +56,18 @@
                             <RowDefinition Height="auto" />
                             <RowDefinition Height="auto" />
                             <RowDefinition Height="auto" />
+                            <RowDefinition Height="100" />
                             <RowDefinition Height="auto" />
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="1*"/>
-                            <ColumnDefinition Width="3*"/>
+                            <ColumnDefinition Width="4*"/>
                         </Grid.ColumnDefinitions>
-                        <ImageButton Grid.Row="0" Grid.Column="0" Grid.RowSpan="4" Source="StatPet" BackgroundColor="Transparent" />
+                        <Image Grid.Row="0" Grid.Column="0" Grid.RowSpan="4" Source="StatPetD" HorizontalOptions="Center" BackgroundColor="Transparent" />
 
+                        
+                        <forms:ChartView x:Name="chartView" Grid.Row="0" Grid.Column="1" Grid.RowSpan="4"  />
+                        <Label Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" x:Name="LblTotPet" Text="Totale PET conferito dal ../../.. al ../../.. : ........" TextColor="DarkRed" FontSize = "16" Margin="0,5,0,5"/>
 
                     </Grid>
 

@@ -18,7 +18,6 @@
                     <Image x:Name="R9" Source="R9" HeightRequest="30" Margin="-3,0,0,0" />
                     <Image x:Name="R10" Source="R10" HeightRequest="30" Margin="-3,0,0,0" />
                     <Image x:Name="R11" Source="R11" HeightRequest="30" Margin="-12,-5,0,10" />
-                
                 </StackLayout>
 
 

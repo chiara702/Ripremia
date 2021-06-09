@@ -100,12 +100,6 @@ namespace EcoServiceApp {
             base.OnAppearing();
             var currentVersion = VersionTracking.CurrentVersion;
             LblVersion.Text = "vers." + currentVersion;
-            
-            
-            
-            
-
-
 
         }
 
@@ -131,13 +125,9 @@ namespace EcoServiceApp {
             PushApi.ResetTopics();
             return true;
 
-
-
-
             //Task.Delay(2400).Wait();
 
             //Device.BeginInvokeOnMainThread(() => App.Current.MainPage = new PageNavigatore());
-
 
 
         }

@@ -204,9 +204,7 @@ namespace EcoServiceApp {
             EntryCouponN.Text = QntCouponUtilizzabiliValore.ToString();
             EntryCouponN_TextChanged(null, null);
         }
-        private void EntryTotaleDaScontare_Unfocused(object sender, FocusEventArgs e) {
-            
-        }
+
 
         private void EntryCouponN_TextChanged(object sender, TextChangedEventArgs e) {
             //QntCouponUtilizzabili = MaxCoupon * ((int)(TotDaScontare / StepMinimo));
