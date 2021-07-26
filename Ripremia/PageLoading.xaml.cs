@@ -23,58 +23,59 @@ namespace EcoServiceApp {
         }
 
         private async void Animazione() {
+            
             var t2 = Task.Run(Funzione);
-            await R1.FadeTo(0, 1);
-            await R11.FadeTo(0, 1);
-            await R3.FadeTo(0, 1);
-            await R4.FadeTo(0, 1);
-            await R5.FadeTo(0, 1);
-            await R6.FadeTo(0, 1);
-            await R7.FadeTo(0, 1);
-            await R8.FadeTo(0, 1);
-            await R10.FadeTo(0, 1);
-            await R9.FadeTo(0, 1);
+            //await R1.FadeTo(0, 1);
+            //await R11.FadeTo(0, 1);
+            //await R3.FadeTo(0, 1);
+            //await R4.FadeTo(0, 1);
+            //await R5.FadeTo(0, 1);
+            //await R6.FadeTo(0, 1);
+            //await R7.FadeTo(0, 1);
+            //await R8.FadeTo(0, 1);
+            //await R10.FadeTo(0, 1);
+            //await R9.FadeTo(0, 1);
 
-            await R3.TranslateTo(-15, 0, 1);
-            await R3.FadeTo(1, 100);
-            await R3.TranslateTo(0, 0, 100);
+            //await R3.TranslateTo(-15, 0, 1);
+            //await R3.FadeTo(1, 100);
+            //await R3.TranslateTo(0, 0, 100);
 
-            await R4.TranslateTo(-15, 0, 1);
-            await R4.FadeTo(1, 100);
-            await R4.TranslateTo(0, 0, 100);
+            //await R4.TranslateTo(-15, 0, 1);
+            //await R4.FadeTo(1, 100);
+            //await R4.TranslateTo(0, 0, 100);
 
-            await R5.TranslateTo(-15, 0, 1);
-            await R5.FadeTo(1, 100);
-            await R5.TranslateTo(0, 0, 100);
+            //await R5.TranslateTo(-15, 0, 1);
+            //await R5.FadeTo(1, 100);
+            //await R5.TranslateTo(0, 0, 100);
 
-            await R6.TranslateTo(-15, 0, 1);
-            await R6.FadeTo(1, 100);
-            await R6.TranslateTo(0, 0, 100);
+            //await R6.TranslateTo(-15, 0, 1);
+            //await R6.FadeTo(1, 100);
+            //await R6.TranslateTo(0, 0, 100);
 
-            await R7.TranslateTo(-15, 0, 1);
-            await R7.FadeTo(1, 100);
-            await R7.TranslateTo(0, 0, 100);
+            //await R7.TranslateTo(-15, 0, 1);
+            //await R7.FadeTo(1, 100);
+            //await R7.TranslateTo(0, 0, 100);
 
-            await R8.TranslateTo(-15, 0, 1);
-            await R8.FadeTo(1, 100);
-            await R8.TranslateTo(0, 0, 100);
+            //await R8.TranslateTo(-15, 0, 1);
+            //await R8.FadeTo(1, 100);
+            //await R8.TranslateTo(0, 0, 100);
 
-            await R9.TranslateTo(-15, 0, 1);
-            await R9.FadeTo(1, 100);
-            await R9.TranslateTo(0, 0, 100);
+            //await R9.TranslateTo(-15, 0, 1);
+            //await R9.FadeTo(1, 100);
+            //await R9.TranslateTo(0, 0, 100);
 
-            await R10.TranslateTo(-15, 0, 1);
-            await R10.FadeTo(1, 100);
-            await R10.TranslateTo(0, 0, 100);
+            //await R10.TranslateTo(-15, 0, 1);
+            //await R10.FadeTo(1, 100);
+            //await R10.TranslateTo(0, 0, 100);
 
-            _ = R1.FadeTo(1, 100);
-            await R1.RotateTo(15, 100);
-            await R1.RotateTo(-15, 100);
-            await R1.RotateTo(0, 100);
-            _ = R11.FadeTo(1, 100);
-            await R11.RotateTo(15, 100);
-            await R11.RotateTo(-15, 100);
-            await R11.RotateTo(0, 100);
+            //_ = R1.FadeTo(1, 100);
+            //await R1.RotateTo(15, 100);
+            //await R1.RotateTo(-15, 100);
+            //await R1.RotateTo(0, 100);
+            //_ = R11.FadeTo(1, 100);
+            //await R11.RotateTo(15, 100);
+            //await R11.RotateTo(-15, 100);
+            //await R11.RotateTo(0, 100);
  
             
             if (await t2 == true) {
