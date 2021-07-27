@@ -22,7 +22,14 @@ namespace EcoServiceApp {
             //LblCoupon.Text = App.DataRowUtente["Coupon"].ToString();
 
         }
+
+        public PageHomeLight(bool v) {
+            this.v = v;
+        }
+
         ClassApiParco Parchetto = new ClassApiParco();
+        private bool v;
+
         private void BtnHomeFull_Clicked(object sender, EventArgs e) {
             Application.Current.MainPage = new PageNavigatore();
             Task.Run(() => { Parchetto.EseguiCommand("Update Utente Set VersLight=0 Where Id=" + App.DataRowUtente["Id"]); });

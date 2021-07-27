@@ -22,8 +22,8 @@
                     <Image x:Name="R11" Source="R11" HeightRequest="30" Margin="-12,-5,0,10" /> -->
                 </StackLayout>
 
-
-            <ActivityIndicator IsRunning="True" WidthRequest="100"  HorizontalOptions="Center" Margin="0,10,0, 0" />
+                <!--<Image  Source="loading" IsAnimationPlaying="True" HeightRequest="30" Margin="0,10,0,10" />
+                <ActivityIndicator IsRunning="True" WidthRequest="100"  HorizontalOptions="Center" Margin="0,10,0, 0" />-->
             </StackLayout>
             <Label x:Name="LblVersion" Text="ver." HorizontalOptions="Center" VerticalOptions="EndAndExpand" Margin="0,0,0, 35" TextColor="White" />
         </StackLayout>

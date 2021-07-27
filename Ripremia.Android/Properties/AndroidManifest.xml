@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1216" android:versionName="12.16" package="com.companyname.ecolanappandroid" android:installLocation="auto">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1218" android:versionName="12.18" package="com.companyname.ecolanappandroid" android:installLocation="auto">
 	<uses-sdk android:minSdkVersion="23" android:targetSdkVersion="30" />
 	<application android:theme="@style/MainTheme" android:icon="@drawable/RipremiaLogoApp" android:label="Ripremia" android:largeHeap="false">
 		<meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyA65sNRgaMjKdaS7JmfpHGA5l2qAIOZDjU" />
