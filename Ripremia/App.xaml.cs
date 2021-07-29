@@ -26,6 +26,7 @@ namespace EcoServiceApp {
             //MainPage = new MainPage();
             //MainPage = new Pagemap();
             //return;
+            
 
             if (Xamarin.Essentials.Preferences.Get("Loggato", false) == false) {
                 MainPage = new NavigationPage(new PagePresentazione());
@@ -34,6 +35,7 @@ namespace EcoServiceApp {
             } else {
                 //MainPage = new PageLoading();
                 MainPage = new NavigationPage(new PageLoading());
+                
             }
 
             PushApi.Inizializza();

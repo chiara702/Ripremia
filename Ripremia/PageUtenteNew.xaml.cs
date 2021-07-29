@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
+
 namespace EcoServiceApp {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PageUtenteNew : ContentPage {
@@ -32,7 +33,10 @@ namespace EcoServiceApp {
                 RiempiDati();
                 return true;
             });
+            
         }
+
+        
         public void RiempiDati() {
             try {
                 var ecocontrol = new ClassApiEcoControl();
