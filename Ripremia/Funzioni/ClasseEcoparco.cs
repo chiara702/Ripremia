@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySqlConnector;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
@@ -10,13 +11,13 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Web;
 
-public class ClassApiParco { //vers. 1
+public class ClassApiParco3 { //vers. 1
     const String BaseUrl = "https://www.ecocontrolgsm.cloud/WebService/WebServiceEcoServiceApp.asmx/";
     public Boolean LastError;
     public String LastErrorDescrizione;
 
     //public List<KeyValuePair<String, Object>> Param = new List<KeyValuePair<String, Object>>();
-    public ClassApiParco() {}
+    public ClassApiParco3() {}
     private string TestFirma(string Messaggio) {
         Messaggio = "fabio123456" + Messaggio;
         var md5 = System.Security.Cryptography.MD5.Create();
@@ -225,6 +226,231 @@ public class ClassApiParco { //vers. 1
     }
 
     public void InviaNotificaFCM(String Topics,String Titolo,String Messaggio,Boolean Flash) {
+        LastError = false;
+        LastErrorDescrizione = "";
+        try {
+            String URLSqlQuery = BaseUrl + "InviaNotificaFCM";
+            var req = (HttpWebRequest)WebRequest.Create(URLSqlQuery);
+            var ContentString = "Topics=" + HttpUtility.UrlPathEncode(Topics) + "&Titolo=" + HttpUtility.UrlPathEncode(Titolo) + "&Messaggio=" + HttpUtility.UrlPathEncode(Messaggio) + "&Flash=" + Flash.ToString();
+            req.Method = "POST";
+            req.ContentType = "application/x-www-form-urlencoded";
+            var ContentStream = req.GetRequestStream();
+            ContentStream.Write(UTF8Encoding.UTF8.GetBytes(ContentString));
+            ContentStream.Close();
+            var gr = req.GetResponse();
+            var st = gr.GetResponseStream();
+            var stRead = new System.IO.StreamReader(st, UTF8Encoding.UTF8);
+            var rit = stRead.ReadToEnd();
+            gr.Close();
+        } catch (WebException e) {
+            if (e.Response == null) {
+                LastError = true;
+                LastErrorDescrizione = e.Message;
+            }
+            if (e.Response != null) {
+                var stRead = new System.IO.StreamReader(e.Response.GetResponseStream());
+                var rit = stRead.ReadToEnd();
+                LastError = true;
+                LastErrorDescrizione = rit;
+            }
+        }
+    }
+
+}
+
+public class ClassApiParco { //vers. 1
+    const String BaseUrl = "https://www.ecocontrolgsm.cloud/WebService/WebServiceEcoServiceApp.asmx/";
+    public Boolean LastError;
+    public String LastErrorDescrizione;
+
+    //public List<KeyValuePair<String, Object>> Param = new List<KeyValuePair<String, Object>>();
+    public ClassApiParco() { }
+    
+
+    
+
+    public DataTable EseguiQuery(String Query) {
+        LastError = false;
+        try {
+            var Conn = new MySqlConnection("Server=80.211.95.99;Database=ecoserviceapp;Uid=fabio;Pwd=Fabio03081983!; convert zero datetime=True; Allow User Variables=True; Connect Timeout=10;");
+            Conn.Open();
+            var Adat = new MySqlDataAdapter(Query, Conn);
+            var Tabella = new DataTable("tabella");
+            Adat.Fill(Tabella);
+            Conn.Close();
+            return Tabella;
+        } catch(Exception e) {
+            LastError = true;
+            LastErrorDescrizione = e.Message;
+            return null;
+        }
+
+
+    }
+
+
+    public DataRow EseguiQueryRow(String Tabella, int Id) {
+        var Table=EseguiQuery($"Select * From {Tabella} Where Id={Id.ToString()}");
+        if (Table == null) return null;
+        if (Table.Rows.Count != 1) {
+            LastError = true;
+            LastErrorDescrizione = "Esegui query row con più di un rigo!";
+            return null;
+        }
+        return Table.Rows[0];
+    }
+    public DataRow EseguiQueryRow(String Tabella, string Where) {
+        var Table = EseguiQuery($"Select * From {Tabella} Where {Where}");
+        if (Table == null) return null;
+        if (Table.Rows.Count != 1) {
+            LastError = true;
+            LastErrorDescrizione = "Esegui query row con più di un rigo!";
+            return null;
+        }
+        return Table.Rows[0];
+    }
+
+
+    public Object EseguiCommand(String Command) {
+        LastError = false;
+        try {
+            var Conn = new MySqlConnection("Server=80.211.95.99;Database=ecoserviceapp;Uid=fabio;Pwd=Fabio03081983!; convert zero datetime=True; Allow User Variables=True; Connect Timeout=10;");
+            Conn.Open();
+            var Cmd = new MySqlCommand("", Conn);
+            object LastReturn = null;
+            foreach (String x in Command.Split(new char[]{';'})){
+                Cmd.CommandText = x;
+                LastReturn = Cmd.ExecuteScalar();
+            }
+            Conn.Close();
+            return LastReturn;
+        } catch (Exception e) {
+            LastError = true;
+            LastErrorDescrizione = e.Message;
+            return null;
+        }
+
+
+
+
+    }
+
+
+
+
+    public class Parametri {
+        public List<KeyValuePair<String, Object>> Param = new List<KeyValuePair<String, Object>>();
+        public Parametri() { }
+        public void AddParameterString(string Parametro, string Valore) {
+            Param.Add(new KeyValuePair<string, object>(Parametro, Valore));
+        }
+        public void AddParameterObject(string Parametro, Object Valore) {
+            Param.Add(new KeyValuePair<string, object>(Parametro, Valore));
+        }
+
+        public void AddParameterInteger(String Parametro, int Valore) {
+            Param.Add(new KeyValuePair<string, object>(Parametro, Valore));
+        }
+        public void AddParameterDecimal(String Parametro, Decimal Valore) {
+            Param.Add(new KeyValuePair<string, object>(Parametro, Valore));
+        }
+
+    }
+
+    public Parametri GetParam() {
+        return new Parametri();
+    }
+
+
+
+
+    private string SqlParameterGenerator(Parametri Param) {
+        String Output = "";
+        foreach (KeyValuePair<string, object> x in Param.Param) {
+            if (x.Value is String) {
+                Output += "SET @" + x.Key + "='" + x.Value.ToString().Replace("'", "\\'") + "';\n";
+            }
+            if (x.Value is int) {
+                Output += "SET @" + x.Key + "=" + x.Value.ToString() + ";\n";
+            }
+            if (x.Value is byte[]) {
+                Output += "SET @" + x.Key + "=" + "X'" + ToHex((byte[])x.Value) + "';\n";
+            }
+            if (x.Value is DateTime) {
+                Output += "SET @" + x.Key + "=" + "'" + ((DateTime)x.Value).ToString("yyyy/MM/dd HH:mm:ss") + "';\n";
+            }
+            if (x.Value is double) {
+                Output += "SET @" + x.Key + "=" + x.Value.ToString() + ";\n";
+            }
+            if (x.Value is Boolean) {
+                var valore = 0;
+                if ((Boolean)x.Value == false) valore = 0;
+                if ((Boolean)x.Value == true) valore = 1;
+                Output += "SET @" + x.Key + "=" + valore + ";\n";
+            }
+        }
+        return Output;
+    }
+
+    public object EseguiInsert(string Tabella, Parametri Parameters) {
+        string Sql = "INSERT INTO " + Tabella + " (";
+        foreach (KeyValuePair<String, Object> x in Parameters.Param)
+            Sql += x.Key + ",";
+        Sql = Sql.TrimEnd(',');
+        Sql += ") VALUES(";
+        foreach (KeyValuePair<String, Object> x in Parameters.Param)
+            // Sql &= "?,"
+            Sql += "@" + x.Key + ",";
+        Sql = Sql.TrimEnd(',');
+        Sql += ");";
+        Sql += "SELECT LAST_INSERT_ID();"; //"SELECT @@IDENTITY;";
+        var commandtotale = SqlParameterGenerator(Parameters) + Sql;
+        var rit = EseguiCommand(commandtotale);
+        return rit;
+    }
+    public object EseguiUpdate(string Tabella, long Id, Parametri Parameters) {
+        string Sql = "UPDATE " + Tabella + " SET ";
+        foreach (KeyValuePair<String, Object> x in Parameters.Param)
+            Sql += x.Key + "=@" + x.Key + ",";
+        Sql = Sql.TrimEnd(',');
+        Sql += " WHERE Id=" + Id;
+        var commandtotale = SqlParameterGenerator(Parameters) + Sql + ";SELECT ROW_COUNT();";
+        var rit = EseguiCommand(commandtotale);
+        return rit;
+    }
+    public object EseguiUpdateWhere(string Tabella, string WhereUpdate, Parametri Parameters) {
+        string Sql = "UPDATE " + Tabella + " SET ";
+        foreach (KeyValuePair<String, Object> x in Parameters.Param)
+            Sql += x.Key + "=@" + x.Key + ",";
+        Sql = Sql.TrimEnd(',');
+        Sql += " WHERE " + WhereUpdate;
+        var commandtotale = SqlParameterGenerator(Parameters) + Sql + ";SELECT ROW_COUNT();";
+        var rit = EseguiCommand(commandtotale);
+        return rit;
+    }
+
+    public object EseguiDelete(string Tabella, long Id) {
+        string Sql = "DELETE FROM " + Tabella + " Where Id=" + Id.ToString() + ";SELECT ROW_COUNT();";
+        return EseguiCommand(Sql);
+    }
+    public object EseguiDeleteWhere(string Tabella, string Where) {
+        string Sql = "DELETE FROM " + Tabella + " Where " + Where + ";SELECT ROW_COUNT();";
+        return EseguiCommand(Sql);
+    }
+
+    private string ToHex(byte[] bytes) {
+        char[] c = new char[bytes.Length * 2];
+        byte b;
+        for (int bx = 0, cx = 0; bx < bytes.Length; ++bx, ++cx) {
+            b = ((byte)(bytes[bx] >> 4));
+            c[cx] = (char)(b > 9 ? b + 0x37 + 0x20 : b + 0x30);
+            b = ((byte)(bytes[bx] & 0x0F));
+            c[++cx] = (char)(b > 9 ? b + 0x37 + 0x20 : b + 0x30);
+        }
+        return new string(c);
+    }
+
+    public void InviaNotificaFCM(String Topics, String Titolo, String Messaggio, Boolean Flash) {
         LastError = false;
         LastErrorDescrizione = "";
         try {
