@@ -4,7 +4,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -79,6 +79,9 @@ namespace EcoServiceApp {
             }
             if ((bool)rowUtente["ConfermaEmail"] == true) {
                 Xamarin.Essentials.Preferences.Set("Loggato", true);
+                var Par = Parchetto.GetParam();
+                Par.AddParameterString("DeviceInfo", DeviceInfo.Platform.ToString() + " " + DeviceInfo.Model + " OS:" + DeviceInfo.Version);
+                Parchetto.EseguiUpdateWhere("Utente", "Id=" + rowUtente["Id"].ToString(), Par);
                 if ((bool)CheckRipremiaLight.IsChecked == true) {
                     Application.Current.MainPage = new PageHomeLight();
                 } else { 

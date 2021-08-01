@@ -6,9 +6,11 @@
         <StackLayout BackgroundColor="#636159" VerticalOptions="FillAndExpand">
 
             <StackLayout VerticalOptions="CenterAndExpand">
-                <StackLayout x:Name="StackLoading" Orientation="Horizontal"  HorizontalOptions="CenterAndExpand" Margin="0,0,0, 0">
-                    <Image x:Name="R1" Source="R1" HeightRequest="28" />
-                    <!--<Image Source="R2" HeightRequest="28" />-->
+                <StackLayout x:Name="StackLoading" Orientation="Horizontal"  HorizontalOptions="CenterAndExpand" Margin="20,0">
+
+                    <Image x:Name="R1" Source="RipremiaW" HeightRequest="35"/>
+                   
+                    <!-- <Image x:Name="R1" Source="R1" HeightRequest="28" />
                     <Image x:Name="R3" Source="R3" HeightRequest="30" Margin="-3,0,0,0" />
                     <Image x:Name="R4" Source="R4" HeightRequest="30" Margin="-3,0,0,0" />
                     <Image x:Name="R5" Source="R5" HeightRequest="30" Margin="-3,0,0,0" />
@@ -17,12 +19,11 @@
                     <Image x:Name="R8" Source="R8" HeightRequest="30" Margin="-3,0,0,0" />
                     <Image x:Name="R9" Source="R9" HeightRequest="30" Margin="-3,0,0,0" />
                     <Image x:Name="R10" Source="R10" HeightRequest="30" Margin="-3,0,0,0" />
-                    <Image x:Name="R11" Source="R11" HeightRequest="30" Margin="-12,-5,0,10" />
-                
+                    <Image x:Name="R11" Source="R11" HeightRequest="30" Margin="-12,-5,0,10" /> -->
                 </StackLayout>
 
-
-            <ActivityIndicator IsRunning="True" WidthRequest="100"  HorizontalOptions="Center" Margin="0,10,0, 0" />
+                <!--<Image  Source="loading" IsAnimationPlaying="True" HeightRequest="30" Margin="0,10,0,10" />
+                <ActivityIndicator IsRunning="True" WidthRequest="100"  HorizontalOptions="Center" Margin="0,10,0, 0" />-->
             </StackLayout>
             <Label x:Name="LblVersion" Text="ver." HorizontalOptions="Center" VerticalOptions="EndAndExpand" Margin="0,0,0, 35" TextColor="White" />
         </StackLayout>

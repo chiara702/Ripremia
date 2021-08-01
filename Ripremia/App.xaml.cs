@@ -13,6 +13,7 @@ namespace EcoServiceApp {
         public static DataRow DataRowUtente;
         public static DataRow DataRowComune;
         public static DataRow DataRowSuperUser;
+        public static DataRow DataRowCommerciante;
         //internal static object DataRowCliente;
 
 
@@ -25,6 +26,7 @@ namespace EcoServiceApp {
             //MainPage = new MainPage();
             //MainPage = new Pagemap();
             //return;
+            
 
             if (Xamarin.Essentials.Preferences.Get("Loggato", false) == false) {
                 MainPage = new NavigationPage(new PagePresentazione());
@@ -33,6 +35,7 @@ namespace EcoServiceApp {
             } else {
                 //MainPage = new PageLoading();
                 MainPage = new NavigationPage(new PageLoading());
+                
             }
 
             PushApi.Inizializza();
@@ -48,7 +51,7 @@ namespace EcoServiceApp {
             if (DataRowComune == null) return;
             DataRowSuperUser = Parchetto.EseguiQueryRow("SuperUser", "Codice='" + DataRowComune["CodiceSuperUser"].ToString() + "'");
             Task t1=Task.Run(() => UtenteDatiMemoria.Inizializza());
-
+            DataRowCommerciante = Parchetto.EseguiQueryRow("AttivitaCommerciali", (int)App.DataRowUtente["AttivitaCommercialiId"]);
         }
 
         protected override void OnStart() {

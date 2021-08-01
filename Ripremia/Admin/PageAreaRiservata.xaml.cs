@@ -27,7 +27,10 @@ namespace EcoServiceApp {
             
             if (((Boolean)App.DataRowUtente["PermessoCalendario"]) == false) BtnCalendario.IsEnabled = false;
 
-            if (((Boolean)App.DataRowUtente["PermessoCentroRiuso"]) == false) { BtnCentroRiuso.IsEnabled = false;}
+            //if (((Boolean)App.DataRowUtente["PermessoCentroRiuso"]) == false) BtnCentroRiuso.IsEnabled = false;
+
+            if (((Boolean)App.DataRowUtente["PermessoStatistiche"]) == false) BtnStatistiche.IsEnabled = false;
+
 
         }
 
@@ -72,6 +75,10 @@ namespace EcoServiceApp {
 
         private void BtnAbbandoni_Clicked(object sender, EventArgs e) {
             Application.Current.MainPage = new Admin.PageGestioneAbbandoni();
+        }
+
+        private void BtnStatistiche_Clicked(object sender, EventArgs e) {
+            Application.Current.MainPage = new Admin.PageStatistiche();
         }
     }
 }

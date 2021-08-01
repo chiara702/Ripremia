@@ -83,7 +83,7 @@
             </Grid.RowDefinitions>
             <Image HorizontalOptions="FillAndExpand" Grid.Row="0" Grid.RowSpan="2" Margin="0" Source="Introdark5.jpg" />
             <StackLayout Grid.Row="1" VerticalOptions="Start" HorizontalOptions="Center" Margin="50,40,50,5">
-                <Entry  x:Name="TxtComuneTari" VerticalTextAlignment="Center" Placeholder="Comune di residenza" PlaceholderColor="LightGray" TextColor="#636159" TextTransform="Uppercase" BackgroundColor="White" FontSize="Medium"  />
+                <Entry  x:Name="TxtComuneTari" VerticalTextAlignment="Center" Placeholder="Comune di residenza" Keyboard="Plain" PlaceholderColor="LightGray" TextColor="#636159" TextTransform="Uppercase" BackgroundColor="White" FontSize="Medium"  />
                 <Button x:Name="BtnConfermaComune" Text="PROCEDI" HorizontalOptions="Center" Margin="0"  Style="{StaticResource BtnLight}" WidthRequest="310" Clicked="BtnConfermaComune_Clicked" />
 
             </StackLayout>

@@ -18,6 +18,7 @@ namespace EcoServiceApp {
             InitializeComponent();
         }
 
+
         private MediaFile file = null;
         private async void BtnScattaFoto_Clicked(object sender, EventArgs e) {          
             var status = await Permissions.CheckStatusAsync<Permissions.Camera>();

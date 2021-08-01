@@ -33,7 +33,7 @@ namespace EcoServiceApp {
             LblValoreCoupon.Text = ((double)rowAttivita["ValoreCoupon"]).ToString("0.00").Replace(".", ",") + " €";
             LblSpesaMin.Text = ((double)rowAttivita["SpesaMin"]).ToString("0.00").Replace(".", ",") + " €";
             LblCouponMax.Text = rowAttivita["MaxCouponSpesaMin"].ToString();
-            LblSpiegazione.Text = "*Numero di coupon utilizzabili per ogni multiplo di spesa minima. Per esempio ogni " + ((double)rowAttivita["SpesaMin"]).ToString("0.00").Replace(".", ",") + " € di spesa avrai diritto ad utilizzare un coupon di sconto pari a " + ((double)rowAttivita["ValoreCoupon"]).ToString("0.00").Replace(".", ",") + " €";
+            LblSpiegazione.Text = "*Numero di coupon utilizzabili per ogni multiplo di spesa minima. Per esempio ogni " + ((double)rowAttivita["SpesaMin"]).ToString("0.00").Replace(".", ",") + " € di spesa avrai diritto ad utilizzare " + ((int)rowAttivita["MaxCouponSpesaMin"]).ToString() + " coupon di sconto pari a " + (((int)rowAttivita["MaxCouponSpesaMin"]) * (double)rowAttivita["ValoreCoupon"]).ToString("0.00").Replace(".", ",") + " €";
             LblDettagli.Text = (string)rowAttivita["Dettagli"];
         }
     }

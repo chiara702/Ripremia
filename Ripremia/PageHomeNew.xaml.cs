@@ -1,11 +1,13 @@
-﻿using System;
+﻿using Plugin.StoreReview;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Plugin.StoreReview;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Xamarin.Essentials;
 
 namespace EcoServiceApp {
     [XamlCompilation(XamlCompilationOptions.Compile)]
@@ -20,18 +22,18 @@ namespace EcoServiceApp {
         }
         protected override void OnAppearing() {
             base.OnAppearing();
-            //Task.Run(() => {
-            //    for (var x = 0; x <= 100; x++) {
-            //        System.Threading.Thread.Sleep(3000);
-            //        Carosel1.Position = x % 4;
-            //    }
-            //});
 
             Task.Run(() => {
                 Task.Delay(5000); //5000
                 Device.BeginInvokeOnMainThread(() => BtnShowQR_Tapped(null, null));
 
             });
+            
+            try {
+                if (CrossStoreReview.IsSupported == true) {
+                    BtnVoteAppFrame.IsVisible = true;
+                } else BtnVoteAppFrame.IsVisible = false;
+            } catch (Exception) { }
 
         }
 
@@ -101,6 +103,12 @@ namespace EcoServiceApp {
 
         int Stato = 0;
         private async void BtnShowQR_Tapped(object sender, EventArgs e) {
+
+            //CrossStoreReview.Current.OpenStoreReviewPage("com.companyname.ecolanappandroid");
+            //
+            
+
+                //return;
             try {
                 BarCodeId.BarcodeValue = Xamarin.Essentials.Preferences.Get("QrCodeNew", "1");
                 if (Stato == 0) {
@@ -140,6 +148,8 @@ namespace EcoServiceApp {
             } catch (Exception) {
                 var b=0;
             }
+
+            
         }
 
         private void BtnInfoUser_Clicked(object sender, EventArgs e) {
@@ -159,6 +169,23 @@ namespace EcoServiceApp {
             Application.Current.MainPage = new PageHomeLight();
             Task.Run(() => { Parchetto.EseguiCommand("Update Utente Set VersLight=1 Where Id=" + App.DataRowUtente["Id"]); });
         }
+
+        private async void BtnVoteApp_Tapped(object sender, EventArgs e) {
+            try {
+                if (CrossStoreReview.IsSupported == true) {
+                    if (Preferences.ContainsKey("votato")) {
+                        CrossStoreReview.Current.OpenStoreReviewPage("com.companyname.ecolanappandroid");
+                    } else {
+                        await CrossStoreReview.Current.RequestReview(false);
+                        Preferences.Set("votato", true);
+                    }
+                }
+            } catch (Exception) {
+                BtnVoteAppFrame.IsVisible = false;
+            }
+            
+        }
+    
     }
 
 }

@@ -23,7 +23,7 @@
                     <!--<Label  FontAttributes="Bold" TextColor="White" Margin="30,20,30,5"  Style="{StaticResource NewFont}" FontSize = "18" Text="COMPLETA I CAMPI SOTTOSTANTI" HorizontalTextAlignment="Center" />-->
                     <StackLayout x:Name="StkImpostazioneValori">
                         <Label Margin="20, 10,25,0" Padding="0" FontFamily="" HorizontalOptions="Center" Style="{StaticResource LabRegRed}" TextColor="White" Text="Inserisci l'importo da scontare" FontSize="20"/>
-                        <Entry x:Name="EntryTotaleDaScontare" Unfocused="EntryTotaleDaScontare_Unfocused" TextChanged="EntryTotaleDaScontare_TextChanged" Keyboard="Numeric"  HeightRequest="80" Margin="20,1,20,5" FontSize="38" HorizontalTextAlignment="End" Placeholder="0,00 €" Style="{StaticResource EntryReg}" BackgroundColor="White" />
+                        <Entry x:Name="EntryTotaleDaScontare"  TextChanged="EntryTotaleDaScontare_TextChanged" Keyboard="Numeric"  HeightRequest="80" Margin="20,1,20,5" FontSize="38" HorizontalTextAlignment="End" Placeholder="0,00 €" Style="{StaticResource EntryReg}" BackgroundColor="White" />
                         <Label Margin="20, 10,25,0" Padding="0" FontFamily="" HorizontalOptions="Center" Style="{StaticResource LabRegRed}" TextColor="White" Text="Quantità di coupon da utilizzare" FontSize="20"/>
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Center" >
                         <ImageButton x:Name="BtnDown" Source="Meno" HeightRequest="80" WidthRequest="80" BackgroundColor="Transparent" CornerRadius="5" Clicked="BtnDown_Clicked"/>
