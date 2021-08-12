@@ -299,10 +299,10 @@ public class ClassApiParco { //vers. 1
         }
         return Table.Rows[0];
     }
-    public DataRow EseguiQueryRow(String Tabella, string Where) {
+    public DataRow EseguiQueryRow(String Tabella, string Where, Boolean FirstOnly = false) {
         var Table = EseguiQuery($"Select * From {Tabella} Where {Where}");
         if (Table == null) return null;
-        if (Table.Rows.Count != 1) {
+        if (Table.Rows.Count != 1 && FirstOnly==false) {
             LastError = true;
             LastErrorDescrizione = "Esegui query row con più di un rigo!";
             return null;

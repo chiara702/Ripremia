@@ -73,9 +73,8 @@ namespace EcoServiceApp {
             if (Err1 == true) return;
 
             var Parchetto = new ClassApiParco();
-
-
-            var row = Parchetto.EseguiQueryRow("Utente", "Email='" + Funzioni.Antinull(TxtEmail.Text) + "'");
+            var TotEmail = Convert.ToInt32(Parchetto.EseguiCommand("Select Count(*) From Utente Where Email='" + Funzioni.AntiAp(TxtEmail.Text) + "'"));
+            var row = Parchetto.EseguiQueryRow("Utente", "Email='" + Funzioni.AntiAp(TxtEmail.Text) + "'",true);
             if (row != null) {
                 if (((Boolean)row["ConfermaEmail"]) == true) {
                     AlertEmail.IsVisible = true;
