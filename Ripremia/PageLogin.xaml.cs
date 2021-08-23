@@ -91,7 +91,7 @@ namespace EcoServiceApp {
                 Application.Current.MainPage = new PageConfermaEmail();
             }
             Task.Run(() => { Parchetto.EseguiCommand("Update Utente Set VersLight=" + ((CheckRipremiaLight.IsChecked==true)?"1":"0") + " where Id=" + App.DataRowUtente["Id"]); });
-
+            PushApi.ResetTopics();
         }
 
         private void BtnRecuperaPass_Clicked(object sender, EventArgs e) {

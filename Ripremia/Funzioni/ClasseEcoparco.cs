@@ -299,10 +299,11 @@ public class ClassApiParco { //vers. 1
         }
         return Table.Rows[0];
     }
-    public DataRow EseguiQueryRow(String Tabella, string Where) {
+    public DataRow EseguiQueryRow(String Tabella, string Where, Boolean FirstOnly = false) {
         var Table = EseguiQuery($"Select * From {Tabella} Where {Where}");
         if (Table == null) return null;
-        if (Table.Rows.Count != 1) {
+        if (Table.Rows.Count == 0) return null;
+        if (Table.Rows.Count != 1 && FirstOnly==false) {
             LastError = true;
             LastErrorDescrizione = "Esegui query row con più di un rigo!";
             return null;
@@ -318,10 +319,11 @@ public class ClassApiParco { //vers. 1
             Conn.Open();
             var Cmd = new MySqlCommand("", Conn);
             object LastReturn = null;
-            foreach (String x in Command.Split(new char[]{';'})){
+            foreach (String x in Command.Split(new char[] { ';' },StringSplitOptions.RemoveEmptyEntries)) {
                 Cmd.CommandText = x;
                 LastReturn = Cmd.ExecuteScalar();
             }
+            //Cmd.CommandText = Command;
             Conn.Close();
             return LastReturn;
         } catch (Exception e) {
@@ -393,6 +395,7 @@ public class ClassApiParco { //vers. 1
     }
 
     public object EseguiInsert(string Tabella, Parametri Parameters) {
+        LastError = false;
         string Sql = "INSERT INTO " + Tabella + " (";
         foreach (KeyValuePair<String, Object> x in Parameters.Param)
             Sql += x.Key + ",";
@@ -409,6 +412,7 @@ public class ClassApiParco { //vers. 1
         return rit;
     }
     public object EseguiUpdate(string Tabella, long Id, Parametri Parameters) {
+        LastError = false;
         string Sql = "UPDATE " + Tabella + " SET ";
         foreach (KeyValuePair<String, Object> x in Parameters.Param)
             Sql += x.Key + "=@" + x.Key + ",";
@@ -419,6 +423,7 @@ public class ClassApiParco { //vers. 1
         return rit;
     }
     public object EseguiUpdateWhere(string Tabella, string WhereUpdate, Parametri Parameters) {
+        LastError = false;
         string Sql = "UPDATE " + Tabella + " SET ";
         foreach (KeyValuePair<String, Object> x in Parameters.Param)
             Sql += x.Key + "=@" + x.Key + ",";

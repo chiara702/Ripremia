@@ -17,14 +17,32 @@ namespace EcoServiceApp {
             //Task.WaitAll(new Task[]{t1,t2});
             Task.Run(Animazione);
             //R3.RotateTo(360, 200);
-          
+            var t2 = Task.Run(()=> {
+                Funzione();
+                ContinuaCaricamento();
+            });
+            //t2.ContinueWith(() => ContinuaCaricamento(),);
+           
 
-
+        }
+        private void ContinuaCaricamento() {
+            if (App.DataRowUtente != null && (Boolean)App.DataRowUtente["VersLight"] == true) {
+                //Device.BeginInvokeOnMainThread(() => App.Current.MainPage = new PageHomeLight());
+                Device.BeginInvokeOnMainThread(() => {
+                    //Navigation.PopAsync();
+                    Navigation.PushAsync(new PageHomeLight());
+                });
+            } else {
+                //Device.BeginInvokeOnMainThread(() => App.Current.MainPage = new PageNavigatore());
+                Device.BeginInvokeOnMainThread(() => {
+                    //Navigation.PopAsync();
+                    Navigation.PushAsync(new PageNavigatore());
+                });
+            }
         }
 
         private async void Animazione() {
             
-            var t2 = Task.Run(Funzione);
             //await R1.FadeTo(0, 1);
             //await R11.FadeTo(0, 1);
             //await R3.FadeTo(0, 1);
@@ -78,21 +96,7 @@ namespace EcoServiceApp {
             //await R11.RotateTo(0, 100);
  
             
-            if (await t2 == true) {
-                if (App.DataRowUtente != null && (Boolean)App.DataRowUtente["VersLight"] == true) {
-                    //Device.BeginInvokeOnMainThread(() => App.Current.MainPage = new PageHomeLight());
-                    Device.BeginInvokeOnMainThread(() => {
-                        //Navigation.PopAsync();
-                        Navigation.PushAsync(new PageHomeLight());
-                    });
-                } else {
-                    //Device.BeginInvokeOnMainThread(() => App.Current.MainPage = new PageNavigatore());
-                    Device.BeginInvokeOnMainThread(() => {
-                            //Navigation.PopAsync();
-                            Navigation.PushAsync(new PageNavigatore());
-                        });
-                }
-            }
+            
 
             //await StackLoading.FadeTo(0, 400);
         }
