@@ -665,6 +665,9 @@
   <ItemGroup>
     <BundleResource Include="Resources\voteAppOr.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Segnala.png" />
+  </ItemGroup>
   <ProjectExtensions>
     <VisualStudio>
       <UserProperties TriggeredFromHotReload="False" />

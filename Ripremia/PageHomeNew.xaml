@@ -19,6 +19,20 @@
 
 					</StackLayout>
 
+                    <Frame CornerRadius="10" BackgroundColor="Transparent" BorderColor="#636159"  Margin="5,0,5,0" Padding="0,0,0,0"   >
+                        <Frame.HasShadow>
+                            <OnPlatform x:TypeArguments="x:Boolean">
+                                <On Platform="iOS" Value="false" />
+                                <On Platform="Android" Value="true" />
+                            </OnPlatform>
+                        </Frame.HasShadow>
+                        
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="5,5,10,5">
+                        <Image Grid.Row="0" Grid.Column="0" Source="Attenzione" RotationY="180" Margin="10,0,5,0" HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="30" />
+                        <Label Grid.Row="0" Grid.Column="1"  Grid.ColumnSpan="3" x:Name="LblWarning" VerticalOptions="Center" Text="Sono stati segnalati malfunzionamenti da altri utenti" HorizontalOptions="Start" TextColor="Black" Style="{StaticResource UserFont}"  />
+                    </StackLayout>
+                    </Frame>
+                    
                     <Frame CornerRadius="10" BackgroundColor="White" Margin="5,0,5,0" Padding="0,0,0,0" HeightRequest="280"  >
                         <Frame.HasShadow>
                             <OnPlatform x:TypeArguments="x:Boolean">
@@ -68,7 +82,8 @@
 
 						</Grid>
 					</Frame>
-					<Frame x:Name="BtnShowQRFrame" CornerRadius="10" BackgroundColor="#7ca137" Margin="5,10,5,0" Padding="0,0,0,0"  HeightRequest="120" >
+					
+                    <Frame x:Name="BtnShowQRFrame" CornerRadius="10" BackgroundColor="#7ca137" Margin="5,10,5,0" Padding="0,0,0,0"  HeightRequest="120" >
                         <Frame.HasShadow>
                             <OnPlatform x:TypeArguments="x:Boolean">
                                 <On Platform="iOS" Value="false" />
@@ -85,7 +100,10 @@
 							</StackLayout.GestureRecognizers>
 						</StackLayout>
 					</Frame>
-                    <Frame BackgroundColor="White" Margin="5,10,5,15" Padding="0,0,0,15" HeightRequest="280" CornerRadius="5"  >
+                   
+                    
+                    
+                    <Frame BackgroundColor="White" Margin="5,10,5,15" Padding="0,0,0,15" HeightRequest="280" CornerRadius="10"  >
                         <Frame.HasShadow>
                             <OnPlatform x:TypeArguments="x:Boolean">
                                 <On Platform="iOS" Value="false" />
@@ -131,7 +149,7 @@
                         </StackLayout>
 					</Frame>
 
-
+                   
                     <Frame x:Name="BtnVoteAppFrame" CornerRadius="10" IsVisible="false" BackgroundColor="White" Margin="5,0,5,10" Padding="0,0,0,0"  HeightRequest="100" >
                         <Frame.HasShadow>
                             <OnPlatform x:TypeArguments="x:Boolean">
@@ -148,7 +166,21 @@
                         </StackLayout>
                     </Frame>
 
-
+                    <Frame x:Name="FrmSegnala" CornerRadius="10" BackgroundColor="#ea6509" BorderColor="#ea6509"  Margin="5,5,5,10" Padding="0,0,0,0" >
+                        <Frame.HasShadow>
+                            <OnPlatform x:TypeArguments="x:Boolean">
+                                <On Platform="iOS" Value="false" />
+                                <On Platform="Android" Value="true" />
+                            </OnPlatform>
+                        </Frame.HasShadow>
+                        <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" Spacing="0" >
+                            <Image Source="DenunciaAbbandono" Margin="20,5,0,5" HeightRequest="40"/>
+                            <Label  HorizontalOptions="CenterAndExpand" VerticalOptions="Center" TextColor="White" HorizontalTextAlignment="Center" FontSize = "18"  Margin="5,5,15,5" LineBreakMode="WordWrap" Text="Segnala un malfunzionamento della macchina" FontAttributes="Bold" />
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer x:Name="BtnSegnala" Tapped="BtnSegnala_Tapped"/>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                    </Frame>
 
                     <Button x:Name="BtnHomeLight"  Margin="20,0,20,20" Text="Passa alla versione LIGHT" WidthRequest="310" HorizontalOptions="Center" VerticalOptions="End" TextColor="#7ca137" BackgroundColor="Transparent" BorderColor="#7ca137" BorderWidth="2" TextTransform="None" FontSize="18" Clicked="BtnHomeLight_Clicked" />
 

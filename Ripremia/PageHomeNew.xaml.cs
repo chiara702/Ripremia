@@ -185,7 +185,11 @@ namespace EcoServiceApp {
             }
             
         }
-    
+
+        private void BtnSegnala_Tapped(object sender, EventArgs e) {
+            Application.Current.MainPage = new PageSegnalazioni();
+
+        }
     }
 
 }

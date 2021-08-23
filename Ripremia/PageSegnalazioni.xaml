@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:ecoserviceapp="clr-namespace:EcoServiceApp"
+             x:Class="EcoServiceApp.PageSegnalazioni">
+    <ContentPage.Content>
+        <Grid>
+            <!-- menù grid -->
+            <ecoserviceapp:ViewMenuTop x:Name="MenuTop" NascondiMenu="True" ></ecoserviceapp:ViewMenuTop>
+
+
+            <!--corpo centrale-->
+            <ScrollView Style="{StaticResource Scrollbackground}">
+
+
+                <StackLayout HorizontalOptions="CenterAndExpand"  >
+
+
+                    <Label Margin="15, 15,1,0" Padding="0" FontFamily="" Style="{StaticResource LabReg}" Text="Seleziona il punto di interesse"/>
+                    <Entry x:Name="TxtPoint" TextTransform="Uppercase" Margin="10,1,10,5" Placeholder="Seleziona" Style="{StaticResource EntryReg}" BackgroundColor="White" />
+
+                    
+                    <Button x:Name="BtnInviaSegnalazione" IsEnabled="False" Text="INVIA SEGNALAZIONE" Margin="10,35,10,0" HorizontalOptions="Center" Style="{StaticResource BtnDarkDisable}" WidthRequest="310" Clicked="BtnInviaSegnalazione_Clicked" />
+                    <Button x:Name="BtnAnnulla"  Text="ANNULLA" Margin="10,20,10,0" HorizontalOptions="Center" Style="{StaticResource BtnDark}" BackgroundColor="DarkRed" WidthRequest="310" Clicked="BtnAnnulla_Clicked" />
+
+                </StackLayout>
+            </ScrollView>
+
+
+            </Grid>
+            
+    </ContentPage.Content>
+</ContentPage>

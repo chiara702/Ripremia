@@ -23233,112 +23233,115 @@ namespace Ripremia.Droid
 			public const int Sconto5 = 2131165476;
 			
 			// aapt resource value: 0x7F070125
-			public const int sfondo1 = 2131165477;
+			public const int Segnala = 2131165477;
 			
 			// aapt resource value: 0x7F070126
-			public const int Sfondo2 = 2131165478;
+			public const int sfondo1 = 2131165478;
 			
 			// aapt resource value: 0x7F070127
-			public const int ShowAll = 2131165479;
+			public const int Sfondo2 = 2131165479;
 			
 			// aapt resource value: 0x7F070128
-			public const int ShowLess = 2131165480;
+			public const int ShowAll = 2131165480;
 			
 			// aapt resource value: 0x7F070129
-			public const int Slogan = 2131165481;
+			public const int ShowLess = 2131165481;
 			
 			// aapt resource value: 0x7F07012A
-			public const int Slogan2 = 2131165482;
+			public const int Slogan = 2131165482;
 			
 			// aapt resource value: 0x7F07012B
-			public const int soap = 2131165483;
+			public const int Slogan2 = 2131165483;
 			
 			// aapt resource value: 0x7F07012C
-			public const int SoapW = 2131165484;
+			public const int soap = 2131165484;
 			
 			// aapt resource value: 0x7F07012D
-			public const int StatH2O = 2131165485;
+			public const int SoapW = 2131165485;
 			
 			// aapt resource value: 0x7F07012E
-			public const int StatH2OD = 2131165486;
+			public const int StatH2O = 2131165486;
 			
 			// aapt resource value: 0x7F07012F
-			public const int Statistiche = 2131165487;
+			public const int StatH2OD = 2131165487;
 			
 			// aapt resource value: 0x7F070130
-			public const int StatOil = 2131165488;
+			public const int Statistiche = 2131165488;
 			
 			// aapt resource value: 0x7F070131
-			public const int StatOilD = 2131165489;
+			public const int StatOil = 2131165489;
 			
 			// aapt resource value: 0x7F070132
-			public const int StatPet = 2131165490;
+			public const int StatOilD = 2131165490;
 			
 			// aapt resource value: 0x7F070133
-			public const int StatPetD = 2131165491;
+			public const int StatPet = 2131165491;
 			
 			// aapt resource value: 0x7F070134
-			public const int StatSacc = 2131165492;
+			public const int StatPetD = 2131165492;
 			
 			// aapt resource value: 0x7F070135
-			public const int StatSaccD = 2131165493;
+			public const int StatSacc = 2131165493;
 			
 			// aapt resource value: 0x7F070136
-			public const int StatSoap = 2131165494;
+			public const int StatSaccD = 2131165494;
 			
 			// aapt resource value: 0x7F070137
-			public const int StatSoapD = 2131165495;
+			public const int StatSoap = 2131165495;
 			
 			// aapt resource value: 0x7F070138
-			public const int StatVetro = 2131165496;
+			public const int StatSoapD = 2131165496;
 			
 			// aapt resource value: 0x7F070139
-			public const int StatVetroD = 2131165497;
+			public const int StatVetro = 2131165497;
 			
 			// aapt resource value: 0x7F07013A
-			public const int swipe1 = 2131165498;
+			public const int StatVetroD = 2131165498;
 			
 			// aapt resource value: 0x7F07013B
-			public const int test_custom_background = 2131165499;
+			public const int swipe1 = 2131165499;
 			
 			// aapt resource value: 0x7F07013C
-			public const int tooltip_frame_dark = 2131165500;
+			public const int test_custom_background = 2131165500;
 			
 			// aapt resource value: 0x7F07013D
-			public const int tooltip_frame_light = 2131165501;
+			public const int tooltip_frame_dark = 2131165501;
 			
 			// aapt resource value: 0x7F07013E
-			public const int user = 2131165502;
-			
-			// aapt resource value: 0x7F070140
-			public const int Usericon = 2131165504;
-			
-			// aapt resource value: 0x7F070141
-			public const int UserIcon2 = 2131165505;
+			public const int tooltip_frame_light = 2131165502;
 			
 			// aapt resource value: 0x7F07013F
-			public const int user_1 = 2131165503;
+			public const int user = 2131165503;
+			
+			// aapt resource value: 0x7F070141
+			public const int Usericon = 2131165505;
 			
 			// aapt resource value: 0x7F070142
-			public const int Verde = 2131165506;
+			public const int UserIcon2 = 2131165506;
+			
+			// aapt resource value: 0x7F070140
+			public const int user_1 = 2131165504;
 			
 			// aapt resource value: 0x7F070143
-			public const int vetro = 2131165507;
+			public const int Verde = 2131165507;
 			
 			// aapt resource value: 0x7F070144
-			public const int VoteApp = 2131165508;
+			public const int vetro = 2131165508;
 			
 			// aapt resource value: 0x7F070145
-			public const int voteAppOr = 2131165509;
+			public const int VoteApp = 2131165509;
 			
 			// aapt resource value: 0x7F070146
-			public const int water = 2131165510;
+			public const int voteAppOr = 2131165510;
 			
 			// aapt resource value: 0x7F070147
-			public const int WaterW = 2131165511;
+			public const int water = 2131165511;
 			
 			// aapt resource value: 0x7F070148
-			public const int www = 2131165512;
+			public const int WaterW = 2131165512;
+			
+			// aapt resource value: 0x7F070149
+			public const int www = 2131165513;
 			
 			static Drawable()
 			{
