@@ -34,7 +34,7 @@ namespace EcoServiceApp {
                 await DisplayAlert("Attenzione", "Nessun superuser assegnato al comune!", "OK");
                 return;
             }
-            await DisplayAlert("Perfetto", "Ora non ti resta che registrarti per accedere ai servizi!", "ok");
+            //await DisplayAlert("Perfetto", "Ora non ti resta che registrarti per accedere ai servizi!", "ok");
             Xamarin.Essentials.Preferences.Set("IdComune", int.Parse(rigoComune["Id"].ToString()));
             Xamarin.Essentials.Preferences.Set("CodiceSuperUser", rigoComune["CodiceSuperUser"].ToString());
             //Memorizzazione Logo SuperUser
