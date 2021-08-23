@@ -73,7 +73,7 @@ namespace EcoServiceApp {
             if (Err1 == true) return;
 
             var Parchetto = new ClassApiParco();
-            var TotEmail = Convert.ToInt32(Parchetto.EseguiCommand("Select Count(*) From Utente Where Email='" + Funzioni.AntiAp(TxtEmail.Text) + "'"));
+            //var TotEmail = Convert.ToInt32(Parchetto.EseguiCommand("Select Count(*) From Utente Where Email='" + Funzioni.AntiAp(TxtEmail.Text) + "'"));
             var row = Parchetto.EseguiQueryRow("Utente", "Email='" + Funzioni.AntiAp(TxtEmail.Text) + "'",true);
             if (row != null) {
                 if (((Boolean)row["ConfermaEmail"]) == true) {
@@ -171,7 +171,7 @@ namespace EcoServiceApp {
             Par.AddParameterObject("DataRegistrazione", System.DateTime.Now);
             FunzDb.EseguiInsert("Utente", Par);
             if (FunzDb.LastError == true) {
-                DisplayAlert("Errore", "Errore durante la registrazione!", "OK");
+                DisplayAlert("Errore", "Errore durante la registrazione! " + FunzDb.LastErrorDescrizione, "OK");
                 return;
             }
             DisplayAlert("Registrazione effettuata con successo!", "Ultimo passo!\nOra non ti resta che effettuare il primo accesso ed inserire il numero di conferma che ti abbiamo mandato all'indirizzo e-mail!", "Ok");
