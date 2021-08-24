@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Net;
 using System.Net.Http;
 using System.Net.Mail;
@@ -329,6 +330,9 @@ public class ClassApiParco { //vers. 1
         } catch (Exception e) {
             LastError = true;
             LastErrorDescrizione = e.Message;
+            if (Debugger.IsAttached == true) {
+                throw new Exception();
+            }
             return null;
         }
 
