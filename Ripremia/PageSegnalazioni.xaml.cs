@@ -47,12 +47,16 @@ namespace EcoServiceApp {
 
 
         private void BtnInviaSegnalazione_Clicked(object sender, EventArgs e) {
+            if (PickerPoint.SelectedItem == null) {
+                DisplayAlert("Attenzione", "Inserisci il punto che necessita di intervento", "OK");
+                return;
+            }
+            
             var RiempiSegnalazioni = new ClassApiParco();
             var Par = RiempiSegnalazioni.GetParam();
             Par.AddParameterObject("Data", DateTime.Now);
-            
             Par.AddParameterInteger("IdUtente", int.Parse(App.DataRowUtente["Id"].ToString()));
-            Par.AddParameterInteger("IdComune", int.Parse(App.DataRowUtente["IdComune"].ToString()));
+            Par.AddParameterInteger("IdComune", int.Parse(App.DataRowUtente["IdComune"].ToString()));              
             Par.AddParameterInteger("IdPoint", Point.FirstOrDefault(x => x.Value == PickerPoint.SelectedItem.ToString()).Key);
             Par.AddParameterString("Note", "" + TxtMessaggio.Text);
             if (RadioIcon0.IsChecked == true) Par.AddParameterString("Problema", RadioIcon0.Content.ToString());
@@ -62,16 +66,13 @@ namespace EcoServiceApp {
             if (RadioIcon4.IsChecked == true) Par.AddParameterString("Problema", RadioIcon4.Content.ToString());
             if (RadioIcon5.IsChecked == true) Par.AddParameterString("Problema", RadioIcon5.Content.ToString());
 
-            RiempiSegnalazioni.EseguiInsert("Segnalazioni", Par);
 
-            //if (IdRit == null || IdRit is String) {
-            //    DisplayAlert("Errore", "Errore invio richiesta!", "OK");
-            //} else {
-            //    var Page = new PageNavigatore();
-            //    Page.CurrentPage = Page.Children[0];
-            //    DisplayAlert("Richiesta inviata correttamente", "Ti ringraziamo per la segnalazione provvederemo il prima possibile alla risoluzione del problema!", "OK");
-            //    Application.Current.MainPage = Page;
-            //}
+            RiempiSegnalazioni.EseguiInsert("Segnalazioni", Par);
+            DisplayAlert("Richiesta inviata correttamente", "Ti ringraziamo per la segnalazione provvederemo il prima possibile alla risoluzione del problema!", "OK");
+            Xamarin.Essentials.Preferences.Set("SegnalazioneInviata", DateTime.Now);
+            var Page = new PageNavigatore();
+            Page.CurrentPage = Page.Children[0];
+            Application.Current.MainPage = Page;
         }
 
         private void BtnAnnulla_Clicked(object sender, EventArgs e) {

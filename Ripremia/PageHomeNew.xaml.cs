@@ -22,13 +22,11 @@ namespace EcoServiceApp {
         }
         protected override void OnAppearing() {
             base.OnAppearing();
-
             Task.Run(() => {
                 Task.Delay(5000); //5000
                 Device.BeginInvokeOnMainThread(() => BtnShowQR_Tapped(null, null));
-
             });
-            
+
             try {
                 if (CrossStoreReview.IsSupported == true) {
                     BtnVoteAppFrame.IsVisible = true;
@@ -43,13 +41,31 @@ namespace EcoServiceApp {
                 Task.Delay(1500); //1500
                 CreateStatisticheCollection();
                 Device.BeginInvokeOnMainThread(() => BindingContext = this);
+                ControllaSegnalazioni();
             });
 
 
             LblUtente.Text = "Ciao, " + App.DataRowUtente["Nome"].ToString() + "!";
             MenuTop.MenuLaterale = MenuLaterale;
         }
-        
+        public void ControllaSegnalazioni() {
+            if (App.DataRowComune["AvvisoAbilitaAutomatico"].ToString() == "1") {
+                var parchetto = new ClassApiParco();
+                var NumSegn = Convert.ToInt32(parchetto.EseguiCommand($"Select Count(*) From Segnalazioni Where Data>'{DateTime.Now.ToString("yyyy-MM-dd")}' And Data<'{DateTime.Now.AddDays(2).ToString("yyyy-MM-dd")}' And IdComune={App.DataRowUtente["IdComune"]} And Problema!='Altro'"));
+                if (NumSegn >= 2) {
+                    FrmAvviso.IsVisible = true;
+                    var TableSegnalazioni = parchetto.EseguiQuery($"Select *,(Select Via From Point Where Id=Segnalazioni.IdPoint) as Via From Segnalazioni Where IdComune={App.DataRowUtente["IdComune"]} And Problema!='Altro' Order By Data desc  limit 3");
+                    if (TableSegnalazioni.Rows.Count > 0) {
+                        LblWarning.Text = $"Sono state segnalate anomalie nel funzionamento del point sito in {TableSegnalazioni.Rows[0]["Via"]} che riguardano: {TableSegnalazioni.Rows[0]["Problema"]}";
+                    }
+                }
+            }
+            if (App.DataRowComune["AvvisoMalfunzionamenti"].ToString().Length > 1) {
+                FrmAvviso.IsVisible = true;
+                LblWarning.Text = App.DataRowComune["AvvisoMalfunzionamenti"].ToString();
+            }
+        }
+
         void CreateStatisticheCollection() {
             Statistiche = new List<Statistica>();
 
@@ -77,17 +93,17 @@ namespace EcoServiceApp {
             }
             Statistiche.Add(new Statistica {
                 Image = "co2",
-                Dati = UtenteDatiMemoria.UtenteKgCO2Risparmiato.ToString("0.000").Replace(".",","),
+                Dati = UtenteDatiMemoria.UtenteKgCO2Risparmiato.ToString("0.000").Replace(".", ","),
                 Dettagli = "Kg di CO2 risparmiati",
             });
 
             Statistiche.Add(new Statistica {
                 Image = "petrolio",
-                Dati = UtenteDatiMemoria.UtenteBariliPetrolioRisparmiato.ToString("0.000").Replace(".",","),
+                Dati = UtenteDatiMemoria.UtenteBariliPetrolioRisparmiato.ToString("0.000").Replace(".", ","),
                 Dettagli = "Barili di petrolio risparmiati",
             });
 
-            
+
 
         }
 
@@ -106,9 +122,9 @@ namespace EcoServiceApp {
 
             //CrossStoreReview.Current.OpenStoreReviewPage("com.companyname.ecolanappandroid");
             //
-            
 
-                //return;
+
+            //return;
             try {
                 BarCodeId.BarcodeValue = Xamarin.Essentials.Preferences.Get("QrCodeNew", "1");
                 if (Stato == 0) {
@@ -146,10 +162,10 @@ namespace EcoServiceApp {
 
                 }
             } catch (Exception) {
-                var b=0;
+                var b = 0;
             }
 
-            
+
         }
 
         private void BtnInfoUser_Clicked(object sender, EventArgs e) {
@@ -183,13 +199,19 @@ namespace EcoServiceApp {
             } catch (Exception) {
                 BtnVoteAppFrame.IsVisible = false;
             }
-            
+
         }
 
         private void BtnSegnala_Tapped(object sender, EventArgs e) {
+            if (Preferences.ContainsKey("SegnalazioneInviata") == true) {
+                if (Preferences.Get("SegnalazioneInviata", DateTime.MinValue).Day == DateTime.Now.Day) {
+                    DisplayAlert("", "Segnalazione già inviata!", "OK");
+                    return;
+                }
+            }
             Application.Current.MainPage = new PageSegnalazioni();
 
         }
-    }
 
+    }
 }
