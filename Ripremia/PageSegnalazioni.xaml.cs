@@ -58,7 +58,7 @@ namespace EcoServiceApp {
             Par.AddParameterInteger("IdUtente", int.Parse(App.DataRowUtente["Id"].ToString()));
             Par.AddParameterInteger("IdComune", int.Parse(App.DataRowUtente["IdComune"].ToString()));              
             Par.AddParameterInteger("IdPoint", Point.FirstOrDefault(x => x.Value == PickerPoint.SelectedItem.ToString()).Key);
-            Par.AddParameterString("Note", "" + TxtMessaggio.Text);
+            Par.AddParameterString("Note", Funzioni.Antinull(TxtMessaggio.Text));
             if (RadioIcon0.IsChecked == true) Par.AddParameterString("Problema", RadioIcon0.Content.ToString());
             if (RadioIcon1.IsChecked == true) Par.AddParameterString("Problema", RadioIcon1.Content.ToString());
             if (RadioIcon2.IsChecked == true) Par.AddParameterString("Problema", RadioIcon2.Content.ToString());
@@ -69,6 +69,8 @@ namespace EcoServiceApp {
 
             RiempiSegnalazioni.EseguiInsert("Segnalazioni", Par);
             DisplayAlert("Richiesta inviata correttamente", "Ti ringraziamo per la segnalazione provvederemo il prima possibile alla risoluzione del problema!", "OK");
+            Funzioni.SendEmail("ripremiasupport@ecocontrolgsm.it", "ripremiasupport@ecocontrolgsm.it", "Segnalazione nuova", $"Data: {DateTime.Now}, IdUtente: {App.DataRowUtente["Id"].ToString()}, IdComune: {App.DataRowUtente["IdComune"].ToString()}, IdPoint: {Point.FirstOrDefault(x => x.Value == PickerPoint.SelectedItem.ToString()).Key}, Note: {Funzioni.Antinull(TxtMessaggio.Text)}");
+
             Xamarin.Essentials.Preferences.Set("SegnalazioneInviata", DateTime.Now);
             var Page = new PageNavigatore();
             Page.CurrentPage = Page.Children[0];

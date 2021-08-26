@@ -51,12 +51,15 @@ namespace EcoServiceApp {
         public void ControllaSegnalazioni() {
             if (App.DataRowComune["AvvisoAbilitaAutomatico"].ToString() == "1") {
                 var parchetto = new ClassApiParco();
-                var NumSegn = Convert.ToInt32(parchetto.EseguiCommand($"Select Count(*) From Segnalazioni Where Data>'{DateTime.Now.ToString("yyyy-MM-dd")}' And Data<'{DateTime.Now.AddDays(2).ToString("yyyy-MM-dd")}' And IdComune={App.DataRowUtente["IdComune"]} And Problema!='Altro'"));
+                var NumSegn = Convert.ToInt32(parchetto.EseguiCommand($"Select Count(*) From Segnalazioni Where Data>'{DateTime.Now.AddDays(-2).ToString("yyyy-MM-dd")}' And Data<'{DateTime.Now.ToString("yyyy-MM-dd")}' And IdComune={App.DataRowUtente["IdComune"]} And Problema!='Altro'"));
                 if (NumSegn >= 2) {
                     FrmAvviso.IsVisible = true;
-                    var TableSegnalazioni = parchetto.EseguiQuery($"Select *,(Select Via From Point Where Id=Segnalazioni.IdPoint) as Via From Segnalazioni Where IdComune={App.DataRowUtente["IdComune"]} And Problema!='Altro' Order By Data desc  limit 3");
+                    var TableSegnalazioni = parchetto.EseguiQuery($"Select *,(Select Via From Point Where Id=Segnalazioni.IdPoint) as Via,(Select Comune From Point Where Id=Segnalazioni.IdPoint) as Comune From Segnalazioni Where IdComune={App.DataRowUtente["IdComune"]} And Problema!='Altro' Order By Data desc  limit 3");
                     if (TableSegnalazioni.Rows.Count > 0) {
-                        LblWarning.Text = $"Sono state segnalate anomalie nel funzionamento del point sito in {TableSegnalazioni.Rows[0]["Via"]} che riguardano: {TableSegnalazioni.Rows[0]["Problema"]}";
+                        var sito = "";
+                        sito = Funzioni.Antinull(TableSegnalazioni.Rows[0]["Via"]);
+                        if (sito.Length < 4) sito= Funzioni.Antinull(TableSegnalazioni.Rows[0]["Comune"]);
+                        LblWarning.Text = $"Sono state segnalate anomalie nel funzionamento del point sito in {sito} che riguardano: {TableSegnalazioni.Rows[0]["Problema"]}";
                     }
                 }
             }
