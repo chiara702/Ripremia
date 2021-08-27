@@ -158,7 +158,7 @@
                             </OnPlatform>
                         </Frame.HasShadow>
                         <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" Spacing="0" >
-                            <Image Source="VoteAppOr" Margin="20,5,0,5" HeightRequest="70"/>
+                            <Image Source="voteAppOr2" Margin="20,5,0,5" HeightRequest="70"/>
                             <Label  HorizontalOptions="CenterAndExpand" VerticalOptions="Center" TextColor="#ea6509" HorizontalTextAlignment="Center" FontSize = "20"  Margin="5,0,5,0" LineBreakMode="WordWrap" Text="VOTA, COMMENTA e ottieni ecopunti!"  FontAttributes="Bold"/>
                             <StackLayout.GestureRecognizers>
                                 <TapGestureRecognizer x:Name="BtnVoteApp" Tapped="BtnVoteApp_Tapped"/>
@@ -166,7 +166,7 @@
                         </StackLayout>
                     </Frame>
 
-                    <Frame x:Name="FrmSegnala" CornerRadius="10" BackgroundColor="#ea6509" BorderColor="#ea6509"  Margin="5,5,5,10" Padding="0,0,0,0" >
+                    <Frame x:Name="FrmSegnala" CornerRadius="10" BackgroundColor="#ea6509" BorderColor="#ea6509"  Margin="10,5,10,10" Padding="0,0,0,0" >
                         <Frame.HasShadow>
                             <OnPlatform x:TypeArguments="x:Boolean">
                                 <On Platform="iOS" Value="false" />
