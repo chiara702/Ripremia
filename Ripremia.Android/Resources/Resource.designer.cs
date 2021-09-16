@@ -23335,13 +23335,16 @@ namespace Ripremia.Droid
 			public const int voteAppOr = 2131165510;
 			
 			// aapt resource value: 0x7F070147
-			public const int water = 2131165511;
+			public const int voteAppOr2 = 2131165511;
 			
 			// aapt resource value: 0x7F070148
-			public const int WaterW = 2131165512;
+			public const int water = 2131165512;
 			
 			// aapt resource value: 0x7F070149
-			public const int www = 2131165513;
+			public const int WaterW = 2131165513;
+			
+			// aapt resource value: 0x7F07014A
+			public const int www = 2131165514;
 			
 			static Drawable()
 			{
