@@ -16,7 +16,6 @@
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
-    <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
     <TargetFrameworkVersion>v11.0</TargetFrameworkVersion>
     <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
     <AndroidUseAapt2>true</AndroidUseAapt2>
@@ -135,7 +134,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Ripremia\Ripremia.csproj">
-      <Project>{97EB13D2-9435-4A56-9420-2401FAA931FC}</Project>
+      <Project>{E4E2F3AA-0E48-4861-AE33-7152EC123862}</Project>
       <Name>Ripremia</Name>
     </ProjectReference>
   </ItemGroup>
