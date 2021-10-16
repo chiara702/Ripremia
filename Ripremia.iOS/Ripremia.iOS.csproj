@@ -673,6 +673,27 @@
   <ItemGroup>
     <BundleResource Include="Resources\voteAppOr2.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Ble.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\BleW.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\centoperc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\cinquantaperc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\settantaperc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ventiperc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Successo.png" />
+  </ItemGroup>
   <ProjectExtensions>
     <VisualStudio>
       <UserProperties TriggeredFromHotReload="False" />

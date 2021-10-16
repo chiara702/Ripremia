@@ -216,5 +216,30 @@ namespace EcoServiceApp {
 
         }
 
-    }
+        private void BtnConferisciRifiuti_Clicked(object sender, EventArgs e) {
+
+        }
+
+        private void BtnPrelevaH2o_Clicked(object sender, EventArgs e) {
+
+        }
+
+        private void BtnPrelevaProdotti_Clicked(object sender, EventArgs e) {
+
+        }
+
+        private void BtnCollegaBle_Tapped(object sender, EventArgs e) {
+            StkStatusBidone.IsVisible = true;
+            FrmOpacity.IsVisible = true;
+        }
+ 
+        private void BtnCancella_Clicked(object sender, EventArgs e) {
+            StkStatusBidone.IsVisible = false;
+            FrmOpacity.IsVisible = false;
+        }
+        private void BtnOk_Clicked(object sender, EventArgs e) {
+            StkStatusBidone.IsVisible = false;
+            FrmOpacity.IsVisible = false;
+        }
+}
 }
