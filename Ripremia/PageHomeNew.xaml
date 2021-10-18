@@ -84,7 +84,7 @@
 					</Frame>
 
 
-                    <Frame x:Name="BtnShowBle" CornerRadius="10" BackgroundColor="#22569f" Margin="5,10,5,0" Padding="0,0,0,0"  HeightRequest="70" >
+                    <Frame x:Name="FrameShowBle" IsVisible="false" CornerRadius="10" BackgroundColor="#22569f" Margin="5,10,5,0" Padding="0,0,0,0"  HeightRequest="70" >
                         <Frame.HasShadow>
                             <OnPlatform x:TypeArguments="x:Boolean">
                                 <On Platform="iOS" Value="false" />
@@ -93,7 +93,7 @@
                         </Frame.HasShadow>
 
                         <StackLayout Grid.Row="1"  Orientation="Horizontal" VerticalOptions="FillAndExpand" Spacing="0"   Margin="5,5,5,5"  >
-                            <Image HorizontalOptions="EndAndExpand" Source="BleW" Margin="5,5,5,5" HeightRequest="30"/>
+                            <Image HorizontalOptions="EndAndExpand" x:Name="ImgBle" Source="BleW" Margin="5,5,5,5" HeightRequest="30"/>
                             <Label HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextColor="White"  HorizontalTextAlignment="Start" FontSize = "22"  Margin="5,0,5,0" LineBreakMode="WordWrap" Text="ACCESSO AD ISECO" FontAttributes="Bold"/>
                             <StackLayout.GestureRecognizers>
                                 <TapGestureRecognizer x:Name="BtnCollegaBle" Tapped="BtnCollegaBle_Tapped"/>
@@ -135,7 +135,7 @@
                                 <On Platform="Android" Value="true" />
                             </OnPlatform>
                         </Frame.HasShadow>
-						<StackLayout  >
+						<StackLayout>
                             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="10,10,10,0">
                                 <Image Grid.Row="0" Grid.Column="0" Source="Statistiche" Margin="10,0,5,0" HorizontalOptions="Center" VerticalOptions="Center" />
                                 <Label Grid.Row="0" Grid.Column="1"  Grid.ColumnSpan="3" VerticalOptions="Center" Text="Statistiche personali*" HorizontalOptions="Start"  Style="{StaticResource UserFontGreen}"  TextTransform="Uppercase" />

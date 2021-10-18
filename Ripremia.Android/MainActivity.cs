@@ -10,6 +10,7 @@ using Plugin.FirebasePushNotification;
 using Android.Content;
 using Java.Lang;
 using Android.Content.Res;
+using Plugin.Permissions;
 
 namespace EcoServiceApp.Droid
 {
@@ -49,6 +50,7 @@ namespace EcoServiceApp.Droid
             //get amount of free heap remaining for app
             int availableHeap = maxHeap - usedHeap;
 
+
         }
 
         //aggiunto per i cellulari che hanno i font ingranditi
@@ -63,8 +65,8 @@ namespace EcoServiceApp.Droid
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
-            Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
 
+            Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
     }
