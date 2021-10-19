@@ -16,8 +16,10 @@ namespace EcoServiceApp {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     
     public partial class PageHomeNew : ContentPage {
-        const int RSSImin = -70;
+        const int RSSIShow = -70;
+        const int RSSIHide = -80;
         private class _DeviceBle : IEquatable<_DeviceBle> {
+            public Boolean Show = false;
             public String NomeBle = "";
             public int RSSI = 0;
             public IDevice scanResult;
@@ -79,12 +81,14 @@ namespace EcoServiceApp {
                 }
             });
             while (true) {
-                System.Threading.Thread.Sleep(1000);
+                System.Threading.Thread.Sleep(500);
                 
                 lock (ListaDeviceBle) {
                     int count = 0;
                     foreach (var x in ListaDeviceBle) {
-                        if (x.RSSI > RSSImin) count++;
+                        if (x.RSSI > RSSIShow) x.Show = true;
+                        if (x.RSSI < RSSIHide) x.Show = false;
+                        if (x.Show == true) count++;
                     }
                     if (count > 0) Device.BeginInvokeOnMainThread(() => {
                         FrameShowBle.IsVisible = true;
@@ -309,19 +313,17 @@ namespace EcoServiceApp {
 
         }
 
-        private Thread thConn=null;
         private async void BtnCollegaBle_Tapped(object sender, EventArgs e) {
-            
-            if (thConn != null && thConn.ThreadState == ThreadState.Running) {
-                return;
-            }
             if (ListaDeviceBle.Count == 0) return;
-            if (ListaDeviceBle[0].RSSI < RSSImin) {
-                await DisplayAlert("", "Sei troppo distante da dispositivo! Avvicinati!" + ListaDeviceBle[0].RSSI.ToString(), "OK");
-                return;
-            }
-            var DeviceSelezionato = ListaDeviceBle[0];
-            var CurrentBle = ListaDeviceBle[0].scanResult;
+            var ListaDeviceOrder = ListaDeviceBle.OrderByDescending((x) => x.RSSI);
+            var DeviceSelezionato = ListaDeviceOrder.First();
+            
+            //if (DeviceSelezionato.RSSI < RSSIShow) {
+            //    await DisplayAlert("", "Sei troppo distante da dispositivo! Avvicinati! Power:" + DeviceSelezionato.RSSI.ToString(), "OK");
+            //    return;
+            //}
+            
+            var CurrentBle = DeviceSelezionato.scanResult;
             try { 
                 CurrentBle.CancelConnection();
                 await CurrentBle.ConnectWait();
