@@ -94,7 +94,7 @@
 
                         <StackLayout Grid.Row="1"  Orientation="Horizontal" VerticalOptions="FillAndExpand" Spacing="0"   Margin="5,5,5,5"  >
                             <Image HorizontalOptions="EndAndExpand" x:Name="ImgBle" Source="BleW" Margin="5,5,5,5" HeightRequest="30"/>
-                            <Label HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextColor="White"  HorizontalTextAlignment="Start" FontSize = "22"  Margin="5,0,5,0" LineBreakMode="WordWrap" Text="ACCESSO AD ISECO" FontAttributes="Bold"/>
+                            <Label HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextColor="White"  HorizontalTextAlignment="Start" FontSize = "22"  Margin="5,0,5,0" LineBreakMode="WordWrap" Text="ACCESSO BLE" FontAttributes="Bold"/>
                             <StackLayout.GestureRecognizers>
                                 <TapGestureRecognizer x:Name="BtnCollegaBle" Tapped="BtnCollegaBle_Tapped"/>
                             </StackLayout.GestureRecognizers>
@@ -212,23 +212,7 @@
                 </StackLayout>
 			</ScrollView>
 
-            <Frame x:Name="FrmOpacity" HeightRequest="50"  BackgroundColor="White" IsVisible="false" Opacity="0.8"  AbsoluteLayout.LayoutBounds="0.5,0.5,110,25" AbsoluteLayout.LayoutFlags="PositionProportional" >
-
-            </Frame>
-            <StackLayout x:Name="StkStatusBidone" IsVisible="false" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="White" WidthRequest="300">
-                <Image Source="Successo" HeightRequest="50" Margin="0,-25,0,0" />
-                <Label  Margin="15, 20,15,0" FontFamily="" Style="{StaticResource LabReg}"  HorizontalTextAlignment="Center" Text="Identificazione avvenuta correttamente!" FontSize="20" FontAttributes="Bold" />
-                <Label  Margin="15, 5,15,20" FontFamily="" Style="{StaticResource LabReg}" HorizontalTextAlignment="Center"  Text="Stato del bidone" FontSize="20" />
-                <Image Source="settantaperc" HeightRequest="150" Margin="0,0,0,0" />
-                <Label  Margin="15, -75,15,30" FontFamily="" Style="{StaticResource LabReg}" TextColor="Black" HorizontalTextAlignment="Center"  Text="75%" FontSize="25" />
-                <Label  Margin="15, 5,15,10" FontFamily="" Style="{StaticResource LabReg}" HorizontalTextAlignment="Center"  Text="Nessun problema rilevato" FontSize="18" />
-
-
-                <StackLayout Orientation="Horizontal" Spacing="0" VerticalOptions="End">
-                    <!--<Button x:Name="BtnCancella"  Text="ANNULLA" Margin="0,0,0,0" VerticalOptions="End" Style="{StaticResource BtnDark}" BackgroundColor="DarkRed" WidthRequest="150" Clicked="BtnCancella_Clicked" />-->
-                    <Button x:Name="BtnOk" Text="OK" Margin="0,0,0,0" VerticalOptions="End" HorizontalOptions="FillAndExpand" Style="{StaticResource BtnLight}"  Clicked="BtnOk_Clicked" />
-                </StackLayout>
-            </StackLayout>
+            
 
 
             <!--Menu Laterale-->

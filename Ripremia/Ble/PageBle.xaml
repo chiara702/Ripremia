@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:ble="clr-namespace:EcoServiceApp.Ble"
+             x:Class="EcoServiceApp.PageBle">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="FillAndExpand">
+            <StackLayout x:Name="StkStatusBidone" IsVisible="true" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" BackgroundColor="White" Margin="10,10,10,10">
+                    <Image Source="Successo" HeightRequest="50" Margin="0,0,0,0" />
+                    <Label  Margin="15, 20,15,0" FontFamily="" Style="{StaticResource LabReg}"  HorizontalTextAlignment="Center" Text="Identificazione avvenuta correttamente!" FontSize="20" FontAttributes="Bold" />
+                    <Label  Margin="15, 5,15,20" FontFamily="" Style="{StaticResource LabReg}" HorizontalTextAlignment="Center"  Text="Stato del bidone" FontSize="20" />
+                <ActivityIndicator x:Name="Act1" IsRunning="True" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="80" IsVisible="false"/>
+                <Grid x:Name="GridBidoni" HorizontalOptions="FillAndExpand">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                    </Grid>
+                    <Button IsVisible="false" x:Name="BtnOk" Text="OK" Margin="0,0,0,0" VerticalOptions="End" HorizontalOptions="FillAndExpand" Style="{StaticResource BtnLight}"  Clicked="BtnOk_Clicked" />
+                    <Label HorizontalOptions="Center" VerticalOptions="End" x:Name="TxtIdBidone" FontSize="Small"/>
+                </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

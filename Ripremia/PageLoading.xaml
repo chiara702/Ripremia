@@ -26,6 +26,7 @@
                 <ActivityIndicator IsRunning="True" WidthRequest="100"  HorizontalOptions="Center" Margin="0,10,0, 0" />-->
             </StackLayout>
             <Label x:Name="LblVersion" Text="ver." HorizontalOptions="Center" VerticalOptions="EndAndExpand" Margin="0,0,0, 35" TextColor="White" />
+            <Label Text="BETA" FontSize="Medium" TextColor="AntiqueWhite" HorizontalOptions="Center"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

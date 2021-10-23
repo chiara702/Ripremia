@@ -324,42 +324,8 @@ namespace EcoServiceApp {
             //}
             
             var CurrentBle = DeviceSelezionato.scanResult;
-            try { 
-                CurrentBle.CancelConnection();
-                await CurrentBle.ConnectWait();
-                Console.WriteLine("---> Connesso");
-                var Services = await CurrentBle.DiscoverServices();
-                Console.WriteLine("---> DiscoveryServices");
-                var Characteristics = await Services.DiscoverCharacteristics();
-                Console.WriteLine("---> DiscoveryChar");
-                var currentChar = await Services.GetKnownCharacteristics(new Guid("a8261b36-07ea-f5b7-8846-e1363f48b5be"));
-                Console.WriteLine("---> ConnectChar");
-                await currentChar.EnableNotifications(true);
-                Console.WriteLine("---> NotifyOk");
-                await CurrentBle.RequestMtu(128);
-                Console.WriteLine("---> MtuOk");
-                await currentChar.Write(UTF8Encoding.UTF8.GetBytes("OPEN " + App.DataRowUtente["CodiceFiscale"].ToString()));
-                Console.WriteLine("---> WriteOk");
-
-                currentChar.WhenNotificationReceived().Subscribe(n => {
-                    Console.WriteLine("---> ReadOk: " + UTF8Encoding.UTF8.GetString(n.Data));
-                    var api = new ClassApiEcoControl();
-                    var TableIs=api.EseguiQuery($"Select Perc0,Perc1,Perc2,Perc3,Perc4,Perc5 From IsoleBidoni Where NomeBidone='{DeviceSelezionato.NomeBle.Remove(0, 3)}'");
-                    Console.WriteLine("---> Request Ok");
-                    if (TableIs != null && TableIs.Rows.Count>0) {
-                        Device.BeginInvokeOnMainThread(async() => {
-                            StkStatusBidone.IsVisible = true;
-                            FrmOpacity.IsVisible = true;
-                            await DisplayAlert("", "Perc0:" + TableIs.Rows[0]["Perc0"].ToString(), "OK");
-                        });
-                    }
-                });
-                await Task.Delay(20000);
-                CurrentBle.CancelConnection();
-            } catch(Exception err) {
-                var z = 0;
-                CurrentBle.CancelConnection();
-            }
+            var Page = new PageBle(CurrentBle);
+            await Navigation.PushAsync(Page);
 
             
 
@@ -387,13 +353,6 @@ namespace EcoServiceApp {
 
         }
 
-        private void BtnCancella_Clicked(object sender, EventArgs e) {
-            StkStatusBidone.IsVisible = false;
-            FrmOpacity.IsVisible = false;
-        }
-        private void BtnOk_Clicked(object sender, EventArgs e) {
-            StkStatusBidone.IsVisible = false;
-            FrmOpacity.IsVisible = false;
-        }
+        
     }
 }
