@@ -69,6 +69,12 @@ namespace EcoServiceApp {
             config.ScanType = BleScanType.Balanced;
             ListaDeviceBle.Clear();
             //return; //DA TOGLIERE
+            CrossBleAdapter.Current.StopScan();
+            Task.Delay(3000).Wait(); //Necessario per ios
+            if (CrossBleAdapter.Current.Status == AdapterStatus.PoweredOff){
+                Device.BeginInvokeOnMainThread(() =>DisplayAlert("","Bluetooth non attivo!","Ok"));
+                return;
+            }
             ScanBle = CrossBleAdapter.Current.Scan(config).Subscribe(scanresult => {
                 if (scanresult.Device.Name == null) return;
                 if (scanresult.Device.Name.StartsWith("EC")==false) return;
@@ -78,7 +84,7 @@ namespace EcoServiceApp {
                     dev.NomeBle = scanresult.Device.Name;
                     dev.RSSI = scanresult.Rssi;
                     dev.scanResult = scanresult.Device;
-                }
+                } 
             });
             while (true) {
                 System.Threading.Thread.Sleep(500);
@@ -96,6 +102,9 @@ namespace EcoServiceApp {
                     if (count == 0) Device.BeginInvokeOnMainThread(() => {
                         FrameShowBle.IsVisible = false;
                     });
+                    //if (CrossBleAdapter.Current.IsScanning==false) Device.BeginInvokeOnMainThread(() => {
+                     //   FrameShowBle.IsVisible = false;
+                    //});
                 }
             }
 
@@ -106,6 +115,7 @@ namespace EcoServiceApp {
 
         public PageHomeNew() {
             InitializeComponent();
+            var statusBle = CrossBleAdapter.Current.Status; //Necessario per ios
             Task.Run(() => {
                 Task.Delay(1500); //1500
                 CreateStatisticheCollection();
