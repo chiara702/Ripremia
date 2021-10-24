@@ -78,7 +78,7 @@ namespace EcoServiceApp {
                     dev.NomeBle = scanresult.Device.Name;
                     dev.RSSI = scanresult.Rssi;
                     dev.scanResult = scanresult.Device;
-                } 
+                }
             });
             while (true) {
                 System.Threading.Thread.Sleep(500);
