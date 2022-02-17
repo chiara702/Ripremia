@@ -1,34 +1,122 @@
 {
   "project_info": {
-    "project_number": "315026205059",
-    "project_id": "ripremia",
-    "storage_bucket": "ripremia.appspot.com"
+    "project_number": "781449343837",
+    "firebase_url": "https://ecocontroladmin.firebaseio.com",
+    "project_id": "ecocontroladmin",
+    "storage_bucket": "ecocontroladmin.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:315026205059:android:86f21db8cbe4accf38eeb6",
+        "mobilesdk_app_id": "1:781449343837:android:e4a1376dfb5ec90e59eeb4",
         "android_client_info": {
-          "package_name": "com.companyname.ecolanappandroid"
+          "package_name": "com.companyname.TestAndroid3"
         }
       },
       "oauth_client": [
         {
-          "client_id": "315026205059-ktl41590e2406snr6e8eqdn4lrbrvla1.apps.googleusercontent.com",
+          "client_id": "781449343837-5shvkttn0ssvpve6lsq1qdhsr3u2gi56.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.companyname.TestAndroid3",
+            "certificate_hash": "836ff576af05e6b1313b2b6508948e8ef9543e5f"
+          }
+        },
+        {
+          "client_id": "781449343837-6p474a7limd9iunr3itq234oi9bgasda.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAwr5Ly_BESMAPmtID4IUPZpY330M0AJjo"
+          "current_key": "AIzaSyDkK79G_EUb9Kb1cS7Hl_9pmOr9chzqrc0"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "315026205059-ktl41590e2406snr6e8eqdn4lrbrvla1.apps.googleusercontent.com",
+              "client_id": "781449343837-6p474a7limd9iunr3itq234oi9bgasda.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "781449343837-b8fdulleoabrmpmsshr872hh9fk84hn9.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.companyname.EcolanAppAndroid"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:781449343837:android:2b6a75534b7e5cb359eeb4",
+        "android_client_info": {
+          "package_name": "com.companyname.ecolanappandroid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "781449343837-6p474a7limd9iunr3itq234oi9bgasda.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDkK79G_EUb9Kb1cS7Hl_9pmOr9chzqrc0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "781449343837-6p474a7limd9iunr3itq234oi9bgasda.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "781449343837-b8fdulleoabrmpmsshr872hh9fk84hn9.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.companyname.EcolanAppAndroid"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:781449343837:android:9f5b9c90801edee859eeb4",
+        "android_client_info": {
+          "package_name": "com.companyname.ecopuntiappandroid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "781449343837-6p474a7limd9iunr3itq234oi9bgasda.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDkK79G_EUb9Kb1cS7Hl_9pmOr9chzqrc0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "781449343837-6p474a7limd9iunr3itq234oi9bgasda.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "781449343837-b8fdulleoabrmpmsshr872hh9fk84hn9.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.companyname.EcolanAppAndroid"
+              }
             }
           ]
         }

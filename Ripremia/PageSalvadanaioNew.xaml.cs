@@ -51,9 +51,9 @@ namespace EcoServiceApp {
             base.OnAppearing();
             Task.Run(() => RiempiDati());
             //Task.Run(() => RiempiFrameCoupon());
-            TxtPetConferito.Text = UtenteDatiMemoria.UtentePetRaccolto.ToString();
-            TxtOilConferito.Text = UtenteDatiMemoria.UtenteOilRaccolto.ToString();
-            TxtVetroConferito.Text = UtenteDatiMemoria.UtenteVetroRaccolto.ToString();
+            TxtPetConferito.Text = App.DataRowUtente["CountPet"].ToString(); //UtenteDatiMemoria.UtentePetRaccolto.ToString();
+            TxtOilConferito.Text = App.DataRowUtente["KgOlio"].ToString(); //UtenteDatiMemoria.UtenteOilRaccolto.ToString();
+            TxtVetroConferito.Text = App.DataRowUtente["CountVetro"].ToString(); //UtenteDatiMemoria.UtenteVetroRaccolto.ToString();
             Device.StartTimer(TimeSpan.FromSeconds(20), () => {
                 RiempiDati();
                 return true;

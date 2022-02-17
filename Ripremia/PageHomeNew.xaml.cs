@@ -44,7 +44,7 @@ namespace EcoServiceApp {
         protected override void OnAppearing() {
             base.OnAppearing();
             Task.Run(() => {
-                Task.Delay(5000); //5000
+                Task.Delay(6000); //5000
                 Device.BeginInvokeOnMainThread(() => BtnShowQR_Tapped(null, null));
             });
 
@@ -84,6 +84,7 @@ namespace EcoServiceApp {
                     dev.NomeBle = scanresult.Device.Name;
                     dev.RSSI = scanresult.Rssi;
                     dev.scanResult = scanresult.Device;
+                    
                 } 
             });
             while (true) {
@@ -116,12 +117,20 @@ namespace EcoServiceApp {
         public PageHomeNew() {
             InitializeComponent();
             var statusBle = CrossBleAdapter.Current.Status; //Necessario per ios
-            Task.Run(() => {
+            CreateStatisticheCollection();
+            BindingContext = this;
+            Device.StartTimer(TimeSpan.FromSeconds(20), () => {
+                App.UpdateRowUtente();
+                CreateStatisticheCollection();
+                BindingContext = this;
+                return true;
+            });
+            /*Task.Run(() => {
                 Task.Delay(1500); //1500
                 CreateStatisticheCollection();
                 Device.BeginInvokeOnMainThread(() => BindingContext = this);
                 ControllaSegnalazioni();
-            });
+            });*/
             //BLE
             Device.BeginInvokeOnMainThread(async () => {
                 PermissionStatus r = await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
@@ -160,40 +169,40 @@ namespace EcoServiceApp {
             }
         }
 
-        void CreateStatisticheCollection() {
+        public void CreateStatisticheCollection() {
             Statistiche = new List<Statistica>();
 
 
             if (((Boolean)App.DataRowComune["ConferimentoPet"]) == true) {
                 Statistiche.Add(new Statistica {
                     Image = "plastica",
-                    Dati = UtenteDatiMemoria.UtentePetRaccolto.ToString(),
+                    Dati = App.DataRowUtente["CountPet"].ToString(),//UtenteDatiMemoria.UtentePetRaccolto.ToString(),
                     Dettagli = "Bottiglie di plastica raccolte",
                 });
             }
             if (((Boolean)App.DataRowComune["ConferimentoVetro"]) == true) {
                 Statistiche.Add(new Statistica {
                     Image = "vetro",
-                    Dati = UtenteDatiMemoria.UtenteVetroRaccolto.ToString(),
+                    Dati = App.DataRowUtente["CountVetro"].ToString(),//UtenteDatiMemoria.UtenteVetroRaccolto.ToString(),
                     Dettagli = "Bottiglie di vetro raccolte",
                 });
             }
             if (((Boolean)App.DataRowComune["ConferimentoOlio"]) == true) {
                 Statistiche.Add(new Statistica {
                     Image = "oil",
-                    Dati = UtenteDatiMemoria.UtenteOilRaccolto.ToString("0.00").Replace(".", ","),
+                    Dati = Convert.ToDouble(App.DataRowUtente["KgOlio"]).ToString("0.00").Replace(".", ","),//UtenteDatiMemoria.UtenteOilRaccolto.ToString("0.00").Replace(".", ","),
                     Dettagli = "Litri di olio raccolto",
                 });
             }
             Statistiche.Add(new Statistica {
                 Image = "co2",
-                Dati = UtenteDatiMemoria.UtenteKgCO2Risparmiato.ToString("0.000").Replace(".", ","),
+                Dati = CalcoloStatistiche.UtenteKgCO2Risparmiato().ToString("0.000").Replace(".", ","), //UtenteDatiMemoria.UtenteKgCO2Risparmiato.ToString("0.000").Replace(".", ","),
                 Dettagli = "Kg di CO2 risparmiati",
             });
 
             Statistiche.Add(new Statistica {
                 Image = "petrolio",
-                Dati = UtenteDatiMemoria.UtenteBariliPetrolioRisparmiato.ToString("0.000").Replace(".", ","),
+                Dati = CalcoloStatistiche.UtenteBariliPetrolioRisparmiato().ToString("0.000").Replace(".", ","),//UtenteDatiMemoria.UtenteBariliPetrolioRisparmiato.ToString("0.000").Replace(".", ","),
                 Dettagli = "Barili di petrolio risparmiati",
             });
 
