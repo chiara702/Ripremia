@@ -116,7 +116,7 @@ namespace EcoServiceApp {
 
         public PageHomeNew() {
             InitializeComponent();
-            var statusBle = CrossBleAdapter.Current.Status; //Necessario per ios
+            //var statusBle = CrossBleAdapter.Current.Status; //Necessario per ios
             CreateStatisticheCollection();
             BindingContext = this;
             Device.StartTimer(TimeSpan.FromSeconds(20), () => {
@@ -125,14 +125,14 @@ namespace EcoServiceApp {
                 BindingContext = this;
                 return true;
             });
-            /*Task.Run(() => {
+            Task.Run(() => {
                 Task.Delay(1500); //1500
-                CreateStatisticheCollection();
-                Device.BeginInvokeOnMainThread(() => BindingContext = this);
+                //CreateStatisticheCollection();
+                //Device.BeginInvokeOnMainThread(() => BindingContext = this);
                 ControllaSegnalazioni();
-            });*/
+            });
             //BLE
-            Device.BeginInvokeOnMainThread(async () => {
+            /*Device.BeginInvokeOnMainThread(async () => {
                 PermissionStatus r = await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
                 if (r != PermissionStatus.Granted) r = await Permissions.RequestAsync<Permissions.LocationWhenInUse>();
                 if (r != PermissionStatus.Granted) {
@@ -141,7 +141,7 @@ namespace EcoServiceApp {
                 }
                 var ThBleScan = new System.Threading.Thread(StartBleScan);
                 ThBleScan.Start();
-            });
+            });*/
 
 
 
@@ -372,6 +372,9 @@ namespace EcoServiceApp {
 
         }
 
-        
+        private void BtnShowLivelli_Tapped(object sender, EventArgs e){
+            var page = new Livelli.PageListaIsole();
+            Navigation.PushAsync(page);
+        }
     }
 }

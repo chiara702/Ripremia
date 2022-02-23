@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EcoServiceApp.Livelli.ViewListaIsole">
+    <ContentView.Content>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+            <Frame CornerRadius="10" Margin="5,10,5,0" Padding="0,0,0,0"  HeightRequest="50" >
+                <Frame.HasShadow>
+                    <OnPlatform x:TypeArguments="x:Boolean">
+                        <On Platform="iOS" Value="false" />
+                        <On Platform="Android" Value="true" />
+                    </OnPlatform>
+                </Frame.HasShadow>
+                <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" Spacing="0" >
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="BtnClick" Tapped="BtnClick_Tapped"/>
+                    </StackLayout.GestureRecognizers>
+                    <StackLayout Orientation="Vertical">
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Nome: "/>
+                            <Label x:Name="LblNomeBidone" Text="LblNomeBidone" x:FieldModifier="public"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Ind.: "/>
+                            <Label x:Name="LblIndirizzo" Text="LblIndirizzo" x:FieldModifier="public"/>
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical">
+                        <Label Text="Distance:"/>
+                        <Label x:Name="LblDistance" Text="...mt" x:FieldModifier="public"/>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+            <ImageButton x:Name="BtnPreferito" Source="Come.png" Clicked="BtnPreferito_Clicked"/>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

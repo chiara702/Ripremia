@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:ecoserviceapp="clr-namespace:EcoServiceApp"
+             x:Class="EcoServiceApp.Livelli.PageLivelloIsola">
+    <ContentPage.Content>
+        <Grid>
+            <!-- menù grid -->
+            <ecoserviceapp:ViewMenuTop x:Name="MenuTop" NascondiMenu="True" ></ecoserviceapp:ViewMenuTop>
+
+            <!--corpo centrale-->
+            <ScrollView Style="{StaticResource Scrollbackground}">
+                <StackLayout Orientation="Vertical">
+                    <Frame>
+                        <StackLayout Orientation="Vertical">
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Isola: "/>
+                                <Label x:Name="LblNomeIsola"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Indirizzo: "/>
+                                <Label x:Name="LblIndirizzo"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Stato: "/>
+                                <Label x:Name="LblStato"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+                    <FlexLayout x:Name="StackBidoni" Wrap="Wrap" HeightRequest="300">
+
+                    </FlexLayout>
+                </StackLayout>
+            </ScrollView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
