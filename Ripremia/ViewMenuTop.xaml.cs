@@ -80,6 +80,9 @@ namespace EcoServiceApp {
             App.DataLetturaNotifiche = DateTime.Now;
         }
 
-       
+        private void ImageButton_Clicked(object sender, EventArgs e)
+        {
+            Application.Current.MainPage = new PageNavigatore();
+        }
     }
 }

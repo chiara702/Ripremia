@@ -3,9 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="EcoServiceApp.Livelli.ViewBidoni">
   <ContentView.Content>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
+        <Grid   Margin="0,0,0,10">
+            <Grid.RowDefinitions >
+                <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
@@ -17,7 +17,7 @@
                     <TapGestureRecognizer x:Name="RifiutoDettagli" Tapped="ImgSfondo_Clicked" />
                 </Label.GestureRecognizers>
             </Label>
-            <Label x:FieldModifier="public" TextColor="DarkBlue" FontAttributes="Bold" x:Name="TxtInApertura" HorizontalOptions="Center" VerticalOptions="Center" IsVisible="false" Text="In Apertura..." Margin="0,20,0,0"/>
+            <Label x:FieldModifier="public" TextColor="DarkGray" FontAttributes="Italic" x:Name="TxtInApertura" HorizontalOptions="Center" VerticalOptions="End"  IsVisible="false" Text="In apertura..." Margin="0,20,0,2" FontSize="15"/>
         </Grid>
     </ContentView.Content>
 </ContentView>

@@ -8,9 +8,9 @@
             <ecoserviceapp:ViewMenuTop x:Name="MenuTop" NascondiMenu="True" ></ecoserviceapp:ViewMenuTop>
 
             <!--corpo centrale-->
-            <ScrollView Style="{StaticResource Scrollbackground}">
-                <StackLayout Orientation="Vertical">
-                    <Frame>
+            <ScrollView Style="{StaticResource Scrollbackground}" BackgroundColor="Transparent">
+                <StackLayout Orientation="Vertical" BackgroundColor="Transparent">
+                    <Frame BackgroundColor="Transparent">
                         <StackLayout Orientation="Vertical">
                             <StackLayout Orientation="Horizontal">
                                 <Label Text="Isola: "/>
@@ -26,7 +26,7 @@
                             </StackLayout>
                         </StackLayout>
                     </Frame>
-                    <FlexLayout x:Name="StackBidoni" Wrap="Wrap" HeightRequest="300">
+                    <FlexLayout x:Name="StackBidoni" Wrap="Wrap" HeightRequest="300" >
 
                     </FlexLayout>
                 </StackLayout>
