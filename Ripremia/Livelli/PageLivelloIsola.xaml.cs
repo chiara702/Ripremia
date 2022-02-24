@@ -38,6 +38,7 @@ namespace EcoServiceApp.Livelli {
             for (NumeroBidoni = 0; NumeroBidoni<=20; NumeroBidoni++) {
                 if (Ini.GetSection("Bidoni" + NumeroBidoni.ToString())==null) return;
             }
+            var c = 0;
         }
     }
 }
