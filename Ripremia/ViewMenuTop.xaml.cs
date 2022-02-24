@@ -99,5 +99,10 @@ namespace EcoServiceApp {
         {
             Application.Current.MainPage = new PageNavigatore();
         }
+
+        private void BtnGoBack_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }
