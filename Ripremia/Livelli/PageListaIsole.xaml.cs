@@ -30,7 +30,8 @@ namespace EcoServiceApp.Livelli {
                 StackIsole.Children.Add(v);
                 v.Clicked+=(s, e) => {
                     var page = new PageLivelloIsola((int)x["Id"]);
-                    Navigation.PushAsync(page);
+                    //Navigation.PushAsync(page);
+                    App.Current.MainPage = page;
                 };
             }
         }

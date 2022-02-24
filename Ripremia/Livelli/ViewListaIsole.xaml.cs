@@ -16,7 +16,7 @@ namespace EcoServiceApp.Livelli {
         }
         public void SetPreferito() {
             Preferito=true;
-            BtnPreferito.Source="collapse.png";
+            BtnPreferito.Source="heartGr_yes.png";
         }
         public EventHandler Clicked;
         private void BtnClick_Tapped(object sender, EventArgs e) {
@@ -28,7 +28,7 @@ namespace EcoServiceApp.Livelli {
                 SetPreferito();
             } else {
                 Preferito=false;
-                BtnPreferito.Source="Come.png";
+                BtnPreferito.Source="heart_no.png";
             }
         }
     }

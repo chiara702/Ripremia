@@ -374,7 +374,8 @@ namespace EcoServiceApp {
 
         private void BtnShowLivelli_Tapped(object sender, EventArgs e){
             var page = new Livelli.PageListaIsole();
-            Navigation.PushAsync(page);
+            //Navigation.PushAsync(page);
+            App.Current.MainPage = page;
         }
     }
 }

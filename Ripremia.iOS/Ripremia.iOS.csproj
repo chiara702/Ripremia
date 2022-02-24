@@ -727,6 +727,21 @@
   <ItemGroup>
     <BundleResource Include="Resources\Perc25.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\heartGr_yes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\heartOr_yes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\heart_no.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\heartGr_no.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ecoisolaBN.png" />
+  </ItemGroup>
   <ProjectExtensions>
     <VisualStudio>
       <UserProperties TriggeredFromHotReload="False" />
