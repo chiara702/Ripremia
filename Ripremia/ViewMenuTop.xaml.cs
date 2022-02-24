@@ -13,7 +13,7 @@ namespace EcoServiceApp {
         public ViewMenuTop() {
             InitializeComponent();
             BtnBell.IsVisible = _MostraBell;
-
+            BtnGoBack.IsVisible = _MostraGoBack;
 
         }
 
@@ -41,6 +41,21 @@ namespace EcoServiceApp {
                 Task.Run(() => GetNotifiche());
             }
         }
+
+        public Boolean _MostraGoBack=false;
+        public Boolean MostraGoBack{
+            get
+            {
+                return _MostraGoBack;
+            }
+            set
+            {
+                _MostraGoBack = value;
+                BtnGoBack.IsVisible = _MostraGoBack;
+               
+            }
+        }
+
 
         public Boolean NascondiMenu {
             set {
