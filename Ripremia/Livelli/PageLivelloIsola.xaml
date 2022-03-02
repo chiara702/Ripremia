@@ -5,7 +5,7 @@
     <ContentPage.Content>
         <Grid>
             <!-- menù grid -->
-            <ecoserviceapp:ViewMenuTop x:Name="MenuTop" NascondiMenu="True" ></ecoserviceapp:ViewMenuTop>
+            <ecoserviceapp:ViewMenuTop x:Name="MenuTop" NascondiMenu="True" MostraGoBack="True" ></ecoserviceapp:ViewMenuTop>
 
             <!--corpo centrale-->
             <ScrollView Style="{StaticResource Scrollbackground}" BackgroundColor="Transparent">

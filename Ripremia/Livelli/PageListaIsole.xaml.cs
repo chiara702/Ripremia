@@ -23,6 +23,7 @@ namespace EcoServiceApp.Livelli {
             var TableIs = await Task.Run(() => {
                 return api.EseguiQuery($"Select * From IsoleBidoni Where Paese='{Funzioni.AntiAp(Paese)}'");
             });
+            StackIsole.Children.Clear();
             foreach (DataRow x in TableIs.Rows) {
                 var v = new ViewListaIsole();
                 v.LblNomeBidone.Text = x["NomeBidone"].ToString();
@@ -30,8 +31,8 @@ namespace EcoServiceApp.Livelli {
                 StackIsole.Children.Add(v);
                 v.Clicked+=(s, e) => {
                     var page = new PageLivelloIsola((int)x["Id"]);
-                    //Navigation.PushAsync(page);
-                    App.Current.MainPage = page;
+                    Navigation.PushAsync(page);
+                    //App.Current.MainPage = page;
                 };
             }
       
