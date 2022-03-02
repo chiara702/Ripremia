@@ -34,6 +34,7 @@ namespace EcoServiceApp.Livelli {
                     App.Current.MainPage = page;
                 };
             }
+      
         }
     }
 }
