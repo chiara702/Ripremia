@@ -15,21 +15,21 @@ namespace EcoServiceApp.Livelli {
         public PageLivelloIsola(int BidoneId) {
             InitializeComponent();
             bidoneId = BidoneId;
-            //Device.BeginInvokeOnMainThread(() => CaricaIsola());
-            ViewBidoni b1 = new ViewBidoni("Carta", "Ok", "Ok2", 30);
-            ViewBidoni b2 = new ViewBidoni("Plastica", "Ok", "Ok2", 30);
-            ViewBidoni b3 = new ViewBidoni("Secco", "Ok", "Ok2", 30);
-            ViewBidoni b4 = new ViewBidoni("Umido", "Ok", "Ok2", 30);
-            StackBidoni.Children.Add(b1);
-            StackBidoni.Children.Add(b2);
-            StackBidoni.Children.Add(b3);
-            StackBidoni.Children.Add(b4);
+            Device.BeginInvokeOnMainThread(() => CaricaIsola());
+            //ViewBidoni b1 = new ViewBidoni("Carta", "Ok", "Ok2", 30);
+            //ViewBidoni b2 = new ViewBidoni("Plastica", "Ok", "Ok2", 30);
+            //ViewBidoni b3 = new ViewBidoni("Secco", "Ok", "Ok2", 30);
+            //ViewBidoni b4 = new ViewBidoni("Umido", "Ok", "Ok2", 30);
+            //StackBidoni.Children.Add(b1);
+            //StackBidoni.Children.Add(b2);
+            //StackBidoni.Children.Add(b3);
+            //StackBidoni.Children.Add(b4);
         }
 
         public async void CaricaIsola() {
             var api = new ClassApiEcoControl();
             var rowIsola = await Task.Run(() => {
-                return api.EseguiQueryRow("Select * From IsoleBidoni",bidoneId);
+                return api.EseguiQueryRow("IsoleBidoni",bidoneId);
             });
             System.IO.MemoryStream IniMemSt = new System.IO.MemoryStream(System.Text.UTF8Encoding.UTF8.GetBytes(rowIsola["Impostazioni"].ToString()));
             IniFile Ini = new IniFile();
