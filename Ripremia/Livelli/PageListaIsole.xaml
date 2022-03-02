@@ -5,7 +5,7 @@
     <ContentPage.Content>
         <Grid>
             <!-- menù grid -->
-            <ecoserviceapp:ViewMenuTop x:Name="MenuTop" NascondiMenu="True" ></ecoserviceapp:ViewMenuTop>
+            <ecoserviceapp:ViewMenuTop x:Name="MenuTop" NascondiMenu="True" MostraGoBack="True" ></ecoserviceapp:ViewMenuTop>
 
             <!--corpo centrale  -->
             <ScrollView Style="{StaticResource Scrollbackground}">
@@ -17,7 +17,7 @@
                         <RadioButton x:Name="RadioOrdineVicino" Style="{StaticResource UserFont}" GroupName="Ordine" Content="vicinanza" VerticalOptions="Center" FontSize="16" />
                     </StackLayout>
                     <StackLayout Orientation="Vertical" x:Name="StackIsole" HorizontalOptions="FillAndExpand" Margin="10,0,10,0">
-                        
+                        <ActivityIndicator x:Name="Act1" IsVisible="true" IsRunning="True" />
 
                     </StackLayout>
                    

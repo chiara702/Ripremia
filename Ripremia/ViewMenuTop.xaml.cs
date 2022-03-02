@@ -28,9 +28,9 @@ namespace EcoServiceApp {
         //private async void ImgMenu_Tapped(object sender, EventArgs e) {
         //}
 
-        
 
-        public Boolean _MostraBell=false;
+
+        public Boolean _MostraBell = false;
         public Boolean MostraBell {
             get {
                 return _MostraBell;
@@ -42,17 +42,14 @@ namespace EcoServiceApp {
             }
         }
 
-        public Boolean _MostraGoBack=false;
-        public Boolean MostraGoBack{
-            get
-            {
+        public Boolean _MostraGoBack = false;
+        public Boolean MostraGoBack {
+            get {
                 return _MostraGoBack;
             }
-            set
-            {
+            set {
                 _MostraGoBack = value;
                 BtnGoBack.IsVisible = _MostraGoBack;
-               
             }
         }
 
@@ -61,11 +58,11 @@ namespace EcoServiceApp {
             set {
                 BtnMenu.IsVisible = !value;
             }
-            
-        }
-         
 
-        public void GetNotifiche(){
+        }
+
+
+        public void GetNotifiche() {
             //return; //Da togliere
 
             var Table = PageNotifiche.TabellaNotifiche();
@@ -80,7 +77,7 @@ namespace EcoServiceApp {
 
         private void MuoviCampanella() {
             Device.BeginInvokeOnMainThread(async () => {
-                for (int z=0; z<=100; z++) { 
+                for (int z = 0; z<=100; z++) {
                     for (int x = 0; x <= 5; x++) {
                         await BtnBell.RotateTo(-10, 300);
                         await BtnBell.RotateTo(10, 300);
@@ -95,14 +92,12 @@ namespace EcoServiceApp {
             App.DataLetturaNotifiche = DateTime.Now;
         }
 
-        private void ImageButton_Clicked(object sender, EventArgs e)
-        {
+        private void ImageButton_Clicked(object sender, EventArgs e) {
             Application.Current.MainPage = new PageNavigatore();
         }
 
-        private void BtnGoBack_Clicked(object sender, EventArgs e)
-        {
-
+        private void BtnGoBack_Clicked(object sender, EventArgs e) {
+            App.Current.MainPage.Navigation.PopAsync(true);
         }
     }
 }
