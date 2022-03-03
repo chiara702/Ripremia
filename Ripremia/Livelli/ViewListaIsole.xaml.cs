@@ -11,6 +11,7 @@ namespace EcoServiceApp.Livelli {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ViewListaIsole : ContentView {
         private Boolean Preferito = false;
+        public string Coordinate="";
         public ViewListaIsole() {
             InitializeComponent();
         }

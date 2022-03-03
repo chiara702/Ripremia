@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="EcoServiceApp.Livelli.ViewBidoni">
   <ContentView.Content>
-        <Grid   Margin="0,0,0,10">
+        <Grid Margin="5,5,5,5" WidthRequest="130" HorizontalOptions="Center">
             <Grid.RowDefinitions >
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>

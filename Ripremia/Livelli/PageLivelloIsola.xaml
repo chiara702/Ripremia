@@ -26,9 +26,14 @@
                             </StackLayout>
                         </StackLayout>
                     </Frame>
-                    <FlexLayout x:Name="StackBidoni" Wrap="Wrap" HeightRequest="300" >
+                    <FlexLayout x:Name="StackBidoni" Wrap="Wrap" HorizontalOptions="Center" Margin="5,5,5,5">
 
                     </FlexLayout>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="10,10,10,10">
+                        <Label Text="" x:Name="LblProblema" TextColor="Red"/>
+                        <Label Text="" x:Name="LblProblema2" TextColor="Red"/>
+                        <Label Text="" x:Name="LblProblema3" TextColor="Red"/>
+                    </StackLayout>
                 </StackLayout>
             </ScrollView>
         </Grid>
