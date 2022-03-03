@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -24,7 +25,7 @@ namespace EcoServiceApp.Livelli {
         public List<ViewListaIsole> ListaViewIsole = new List<ViewListaIsole>();
         public async void CaricaIsole() {
             var Paese = "Bastia Umbra";
-            Paese=App.DataRowComune["Comune"].ToString();
+            if (Debugger.IsAttached==false) Paese=App.DataRowComune["Nome"].ToString();
             var api = new ClassApiEcoControl();
             var TableIs = await Task.Run(() => {
                 return api.EseguiQuery($"Select * From IsoleBidoni Where Paese='{Funzioni.AntiAp(Paese)}'");
