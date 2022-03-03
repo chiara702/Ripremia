@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -84,7 +85,7 @@ namespace EcoServiceApp.Livelli {
             }
             //Add Other
             if (RadioOrdineStd.IsChecked == true) {
-                foreach (ViewListaIsole x in listaControlli.OrderBy<ViewListaIsole, String>(y => { return y.LblNomeBidone.ToString(); })) {
+                foreach (ViewListaIsole x in listaControlli.OrderBy<ViewListaIsole, int>(y => { return int.Parse(Regex.Match(y.LblNomeBidone.Text, @"\d+").Value); })) {
                     if (x.Preferito==false) StackIsole.Children.Add(x);
                 }
             } else {

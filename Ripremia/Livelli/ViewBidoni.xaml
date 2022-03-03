@@ -12,7 +12,7 @@
             </Grid.ColumnDefinitions>
             <ImageButton Source="BinGiallo" x:Name="ImgSfondo" Grid.Column="0" Grid.Row="0" BackgroundColor="Transparent"/>
             <ImageButton Source="Perc25" x:Name="ImgRiempimento" Grid.Column="0" Grid.Row="0" BackgroundColor="Transparent"/>
-            <Label x:Name="Txt1" HorizontalTextAlignment="Center" Grid.Column="0" Grid.Row="0" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="Transparent" TextColor="Black">
+            <Label x:Name="Txt1" FontSize="16" HorizontalTextAlignment="Center" Grid.Column="0" Grid.Row="0" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="Transparent" TextColor="Black">
                 <Label.GestureRecognizers>
                     <TapGestureRecognizer x:Name="RifiutoDettagli" />
                 </Label.GestureRecognizers>

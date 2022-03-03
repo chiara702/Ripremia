@@ -84,8 +84,9 @@ namespace EcoServiceApp {
                 Parchetto.EseguiUpdateWhere("Utente", "Id=" + rowUtente["Id"].ToString(), Par);
                 if ((bool)CheckRipremiaLight.IsChecked == true) {
                     Application.Current.MainPage = new PageHomeLight();
-                } else { 
-                    Application.Current.MainPage=new PageNavigatore();
+                } else {
+                    //Application.Current.MainPage=new PageNavigatore();
+                    App.Current.MainPage=new NavigationPage(new PageNavigatore());
                 }
             } else {
                 Application.Current.MainPage = new PageConfermaEmail();

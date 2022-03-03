@@ -55,7 +55,7 @@ namespace EcoServiceApp.Livelli {
                 var Tipo = Ini.GetKeyValue("Bidone" + x.ToString(), "Tipo");
                 var SottoTipo = Ini.GetKeyValue("Bidone" + x.ToString(), "SottoTipo");
                 if (SottoTipo=="") SottoTipo=Tipo;
-                ViewBidoni bidone = new ViewBidoni(SottoTipo, rowIsola["Perc" + x.ToString()].ToString() + "%", "", (int)rowIsola["Perc" + x.ToString()]);
+                ViewBidoni bidone = new ViewBidoni(SottoTipo, SottoTipo, rowIsola["Perc" + x.ToString()].ToString() + "%", (int)rowIsola["Perc" + x.ToString()]);
                 StackBidoni.Children.Add(bidone);
             }
             var SelectProbVol = TableProblemi.Select("Problema='Volumetrico'");
