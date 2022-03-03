@@ -127,7 +127,7 @@
 					</Frame>
 
                     <!-- MOSTRA LIVELLI BUTTON -->
-                    <Frame x:Name="FrameMostraLivelli" CornerRadius="10" BackgroundColor="White" BorderColor="#636159" Margin="5,10,5,0" Padding="0,0,0,0"  HeightRequest="120" >
+                    <Frame x:Name="FrameMostraLivelli" CornerRadius="10" BackgroundColor="White" BorderColor="#636159" Margin="5,10,5,0" Padding="0,0,0,0"  HeightRequest="120" IsVisible="false" >
                         <Frame.HasShadow>
                             <OnPlatform x:TypeArguments="x:Boolean">
                                 <On Platform="iOS" Value="false" />

@@ -116,6 +116,7 @@ namespace EcoServiceApp {
 
         public PageHomeNew() {
             InitializeComponent();
+            if ((Boolean)App.DataRowComune["ServizioStatoEcoisole"]==true) FrameMostraLivelli.IsVisible=true;
             //var statusBle = CrossBleAdapter.Current.Status; //Necessario per ios
             CreateStatisticheCollection();
             BindingContext = this;
