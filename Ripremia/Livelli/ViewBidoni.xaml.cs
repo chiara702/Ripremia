@@ -29,11 +29,6 @@ namespace EcoServiceApp.Livelli {
             Txt1.Text = Testo1 + '\n' + Testo2;
 
         }
-        public EventHandler Clicked;
-
-
-        private void ImgSfondo_Clicked(object sender, EventArgs e) {
-            Clicked.Invoke(sender, e);
-        }
+        
     }
 }

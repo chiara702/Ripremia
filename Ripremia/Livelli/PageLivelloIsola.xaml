@@ -14,19 +14,19 @@
                         <StackLayout Orientation="Vertical">
                             <StackLayout Orientation="Horizontal">
                                 <Label Text="Isola: "/>
-                                <Label x:Name="LblNomeIsola"/>
+                                <Label x:Name="LblNomeIsola" FontAttributes="Bold"/>
                             </StackLayout>
                             <StackLayout Orientation="Horizontal">
                                 <Label Text="Indirizzo: "/>
-                                <Label x:Name="LblIndirizzo"/>
+                                <Label x:Name="LblIndirizzo" FontAttributes="Bold"/>
                             </StackLayout>
                             <StackLayout Orientation="Horizontal">
                                 <Label Text="Stato: "/>
-                                <Label x:Name="LblStato"/>
+                                <Label x:Name="LblStato" FontAttributes="Bold"/>
                             </StackLayout>
                         </StackLayout>
                     </Frame>
-                    <FlexLayout x:Name="StackBidoni" Wrap="Wrap" HorizontalOptions="Center" Margin="5,5,5,5">
+                    <FlexLayout x:Name="StackBidoni" Wrap="Wrap" HorizontalOptions="FillAndExpand" Margin="5,5,5,5" JustifyContent="SpaceEvenly">
 
                     </FlexLayout>
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="10,10,10,10">
