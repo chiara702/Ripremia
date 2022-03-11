@@ -8,6 +8,9 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace EcoServiceApp {
+    public interface IMultiPlatform {
+        public Task<int> RequestTrackingAuth();
+    }
     public partial class App : Application {
         //public static DataRow RowUtente;
         public static DataRow DataRowUtente;
@@ -16,11 +19,14 @@ namespace EcoServiceApp {
         public static DataRow DataRowCommerciante;
         //internal static object DataRowCliente;
 
+        public static IMultiPlatform multiPlatform = DependencyService.Get<IMultiPlatform>();
+        
 
         public App() {
+            
             InitializeComponent();
             //Application.Current.UserAppTheme = OSAppTheme.Light;
-
+            
             Device.SetFlags(new string[] { "Expander_Experimental" });
 
             //MainPage = new MainPage();

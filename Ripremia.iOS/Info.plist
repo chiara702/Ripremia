@@ -27,11 +27,15 @@
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Vogliamo conoscere la tua posizione mentre l&apos;app è in funzione per geolocalizzare il luogo in cui effettuare i ritiri e visualizzare i servizi disponibili nella tua area di interesse</string>
+	<string>Vogliamo conoscere la tua posizione mentre l&apos;app è in funzione per visualizzare i servizi disponibili nella tua area di interesse</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Possiamo conoscere la tua posizione per la localizzazione? </string>
+	<string>Vogliamo conoscere la tua posizione per visualizzare i servizi disponibili nella tua zona.</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Vogliamo conoscere la tua posizione mentre l&apos;app è in funzione per geolocalizzare il luogo in cui effettuare il ritiro</string>
+	<key>NSLocationUsageDescription </key>
+	<string>Vogliamo conoscere la tua posizione per visualizzare i servizi disponibili nella tua area.</string>
+	<key>NSUserTrackingUsageDescription</key>
+	<string>Vogliamo conoscere la tua posizione per visualizzare i servizi più vicini disponibili nella tua area.</string>
 	<key>NSCameraUsageDescription</key>
 	<string>L&apos;app necessita di accedere alla fotocamera per scattare foto ai rifiuti abbandonati o da ritirare.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
@@ -48,7 +52,7 @@
 	<key>CFBundleDisplayName</key>
 	<string>Ripremia</string>
 	<key>CFBundleVersion</key>
-	<string>12.34</string>
+	<string>12.36</string>
 	<key>UIStatusBarStyle</key>
 	<string>UIStatusBarStyleLightContent</string>
 	<key>UIApplicationSceneManifest</key>

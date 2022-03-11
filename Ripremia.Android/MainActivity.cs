@@ -11,6 +11,7 @@ using Android.Content;
 using Java.Lang;
 using Android.Content.Res;
 using Plugin.Permissions;
+using System.Threading.Tasks;
 
 namespace EcoServiceApp.Droid
 {
@@ -20,6 +21,7 @@ namespace EcoServiceApp.Droid
         
         protected override void OnCreate(Bundle savedInstanceState)
         {
+            Xamarin.Forms.DependencyService.Register<MultiPlatform>();
             //TabLayoutResource = Resource.Layout.Tabbar;
             //ToolbarResource = Resource.Layout.Toolbar;
 
@@ -68,6 +70,14 @@ namespace EcoServiceApp.Droid
 
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+    }
+    public class MultiPlatform : IMultiPlatform {
+
+        public Task<int> RequestTrackingAuth() {
+            var t=Task.FromResult(1);
+            
+            return t;
         }
     }
 }

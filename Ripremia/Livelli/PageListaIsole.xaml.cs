@@ -17,6 +17,7 @@ namespace EcoServiceApp.Livelli {
         private List<String> ListaIsolePreferite;
         public PageListaIsole() {
             InitializeComponent();
+            
             RadioOrdineVicino.IsEnabled = false;
             Device.BeginInvokeOnMainThread(()=>CaricaIsole());
             ListaIsolePreferite=Preferences.Get("ListaIsolePreferite", "").Split(",",StringSplitOptions.RemoveEmptyEntries).ToList();
@@ -53,6 +54,7 @@ namespace EcoServiceApp.Livelli {
             }
             RiordinaIsole();
             //get localizzazione
+            await App.multiPlatform.RequestTrackingAuth();
             if (await CheckAndRequestLocationPermission()!=PermissionStatus.Granted) return;
             var loc = await Xamarin.Essentials.Geolocation.GetLocationAsync();
             
