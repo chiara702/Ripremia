@@ -18,6 +18,10 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+
+
+  
+
 	<key>MinimumOSVersion</key>
 	<string>9.0</string>
 	<key>CFBundleIdentifier</key>
@@ -33,9 +37,9 @@
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Vogliamo conoscere la tua posizione mentre l&apos;app è in funzione per geolocalizzare il luogo in cui effettuare il ritiro</string>
 	<key>NSLocationUsageDescription </key>
-	<string>Vogliamo conoscere la tua posizione per visualizzare i servizi disponibili nella tua area.</string>
+	<string>L&apos;app vuole conoscere la tua posizione per visualizzare i servizi disponibili nella tua area.</string>
 	<key>NSUserTrackingUsageDescription</key>
-	<string>Vogliamo conoscere la tua posizione per visualizzare i servizi più vicini disponibili nella tua area.</string>
+	<string>L&apos;app vuole conoscere la tua posizione per trovare le stazioni ecologiche più vicine a te.</string>
 	<key>NSCameraUsageDescription</key>
 	<string>L&apos;app necessita di accedere alla fotocamera per scattare foto ai rifiuti abbandonati o da ritirare.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
@@ -45,6 +49,7 @@
 	<key>FirebaseAppDelegateProxyEnabled</key>
 	<false/>
 	<key>UIBackgroundModes</key>
+
 	<array>
 		<string>remote-notification</string>
 		<string>bluetooth-central</string>
