@@ -52,10 +52,13 @@ namespace EcoServiceApp {
             AlertPrivacy.IsVisible = false;
 
             var Err1 = false;
-            if (Funzioni.VerificaCodiceFiscale(TxtCodFiscale.Text) == false) {
-                TxtCodFiscale.TextColor = Color.Red;
-                AlertCodFisc.IsVisible = true;
-                Err1 = true;
+
+            if (Device.RuntimePlatform==Device.Android) {
+                if (Funzioni.VerificaCodiceFiscale(TxtCodFiscale.Text) == false) {
+                    TxtCodFiscale.TextColor = Color.Red;
+                    AlertCodFisc.IsVisible = true;
+                    Err1 = true;
+                }
             }
             if (Funzioni.Antinull(TxtNome.Text).Length < 2) {
                 AlertNome.IsVisible = true;

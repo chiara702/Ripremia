@@ -45,6 +45,7 @@ namespace EcoServiceApp {
             base.OnAppearing();
             Task.Run(() => {
                 Task.Delay(6000); //5000
+                if ((bool)App.DataRowComune["ServizioRipremia"]==false) return;
                 Device.BeginInvokeOnMainThread(() => BtnShowQR_Tapped(null, null));
             });
 
@@ -117,6 +118,13 @@ namespace EcoServiceApp {
         public PageHomeNew() {
             InitializeComponent();
             if ((Boolean)App.DataRowComune["ServizioStatoEcoisole"]==true) FrameMostraLivelli.IsVisible=true;
+            if ((Boolean)App.DataRowComune["ServizioRipremia"]==false) {
+                BtnShowQRFrame.IsVisible=false;
+                FrameStatistiche.IsVisible=false;
+            }
+            if ((Boolean)App.DataRowComune["ServizioSegnalazioni"]==false) {
+                FrmSegnala.IsVisible=false;
+            }
             //var statusBle = CrossBleAdapter.Current.Status; //Necessario per ios
             CreateStatisticheCollection();
             BindingContext = this;

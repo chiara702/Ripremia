@@ -145,7 +145,7 @@
 
 
 
-                    <Frame BackgroundColor="White" Margin="5,10,5,15" Padding="0,0,0,15" HeightRequest="280" CornerRadius="10"  >
+                    <Frame x:Name="FrameStatistiche" BackgroundColor="White" Margin="5,10,5,15" Padding="0,0,0,15" HeightRequest="280" CornerRadius="10"  >
                         <Frame.HasShadow>
                             <OnPlatform x:TypeArguments="x:Boolean">
                                 <On Platform="iOS" Value="false" />

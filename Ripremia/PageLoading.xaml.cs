@@ -127,9 +127,9 @@ namespace EcoServiceApp {
                 Parchetto.EseguiCommand("Update Utente SET NumeroAccessi=NumeroAccessi+1, DataUltimoAccesso='" + DateTime.Now.ToString("dd/MM/yyyy HH:mm") + "',VersioneApp='" + VersionTracking.CurrentVersion + "' Where Id=" + App.DataRowUtente["Id"].ToString());
             }
             if (App.DataRowUtente == null || App.DataRowSuperUser == null || App.DataRowComune == null) {
-                DisplayAlert("Errore", "Errore connessione e recupero dati", "OK");
-                App.Current.MainPage=new PageOffLine();
-                return false;
+                //DisplayAlert("Errore", "Errore connessione e recupero dati", "OK");
+                //App.Current.MainPage=new PageOffLine();
+                //return false;
             }
             PushApi.ResetTopics();
             return true;

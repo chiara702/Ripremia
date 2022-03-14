@@ -11,15 +11,15 @@
 
     
 
-    <ecoserviceapp:PageHomeNew Title="Home" IconImageSource="home" ></ecoserviceapp:PageHomeNew>
+    <ecoserviceapp:PageHomeNew x:Name="TabHome" Title="Home" IconImageSource="home" ></ecoserviceapp:PageHomeNew>
 
-    <ecoserviceapp:PageMappaNew Title="Mappa" IconImageSource="mappa" ></ecoserviceapp:PageMappaNew>
+    <ecoserviceapp:PageMappaNew x:Name="TabMappa" Title="Mappa" IconImageSource="mappa" ></ecoserviceapp:PageMappaNew>
 
-    <ecoserviceapp:PageSalvadanaioNew Title="Borsellino" IconImageSource="salvadanaio"></ecoserviceapp:PageSalvadanaioNew>
+    <ecoserviceapp:PageSalvadanaioNew x:Name="TabBorsellino" Title="Borsellino" IconImageSource="salvadanaio"></ecoserviceapp:PageSalvadanaioNew>
     
-    <ecoserviceapp:PageServiziNew Title="Servizi" IconImageSource="ambiente"></ecoserviceapp:PageServiziNew>
+    <ecoserviceapp:PageServiziNew x:Name="TabServizi" Title="Servizi" IconImageSource="ambiente"></ecoserviceapp:PageServiziNew>
 
-    <ecoserviceapp:PageUtenteNew Title="Account" IconImageSource="user"></ecoserviceapp:PageUtenteNew>
+    <ecoserviceapp:PageUtenteNew x:Name="TabAccount" Title="Account" IconImageSource="user"></ecoserviceapp:PageUtenteNew>
 
 
 </TabbedPage>

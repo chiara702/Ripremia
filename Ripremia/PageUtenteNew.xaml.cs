@@ -33,7 +33,12 @@ namespace EcoServiceApp {
                 RiempiDati();
                 return true;
             });
-            
+            if ((Boolean)App.DataRowComune["ServizioRipremia"]==false) {
+                FramePunteggioFamiglia.IsVisible=false;
+            }
+            if ((Boolean)App.DataRowComune["ServizioRitiro"]==false) {
+                FrameVisualizzaPrenotazioni.IsVisible=false;
+            }
         }
 
         

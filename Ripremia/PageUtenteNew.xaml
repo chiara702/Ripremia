@@ -50,7 +50,7 @@
                         </StackLayout>
                         <Image Grid.Row="1"  Grid.RowSpan="2" Grid.Column="2" Source="UserIcon2" Margin="0,0,0,0"  />
 
-                        <StackLayout Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="5"   Margin="20,20,20,0" VerticalOptions="End" BackgroundColor="Transparent" >
+                        <StackLayout x:Name="FramePunteggioFamiglia" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="5"   Margin="20,20,20,0" VerticalOptions="End" BackgroundColor="Transparent" >
                             <Label  Text="PUNTEGGIO FAMIGLIA" HorizontalOptions="Center" FontSize="22"  Style="{StaticResource UserFontGreen}" />
                             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="10,5,10,0">
                                 <Label x:Name="LblPunteggioFamiglia" Text="..." VerticalOptions="Center" FontSize="27"  Style="{StaticResource UserFontGreen}" />
@@ -77,7 +77,7 @@
                     <Button x:Name="BtnShowPrivacy"  Margin="35,25,35,0" Text="Visualizza Informativa Privacy" TextTransform="None"  HeightRequest="60" VerticalOptions="End" HorizontalOptions="FillAndExpand" BorderWidth="2" FontSize="16" BackgroundColor="Transparent" TextColor="#7CA137" BorderColor="#7CA137" Clicked="BtnShowPrivacy_Clicked"  />
 
 
-                    <Frame  Margin="35,25,35,15" CornerRadius="0"  WidthRequest="310" BackgroundColor="#636159" >
+                    <Frame x:Name="FrameVisualizzaPrenotazioni" Margin="35,25,35,15" CornerRadius="0"  WidthRequest="310" BackgroundColor="#636159" >
                         <Frame.HasShadow>
                             <OnPlatform x:TypeArguments="x:Boolean">
                                 <On Platform="iOS" Value="false" />

@@ -10,25 +10,25 @@
                     <StackLayout HorizontalOptions="CenterAndExpand" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0.5,0" >
                         <Label  FontSize = "Large" FontAttributes="Bold" Margin="{OnPlatform Android='10, 15,10,10 ', iOS='10,35,10,0'}"   Style="{StaticResource NewFont}" Text="Crea un nuovo account&#10;per accedere ai servizi Ripremia" HorizontalTextAlignment="Center"/>
 
-                        <Label Margin="15, 10,1,0" Padding="0" FontFamily="" Style="{StaticResource LabReg}" Text="Nome"/>
+                        <Label Margin="15, 10,1,0" Padding="0" FontFamily="" Style="{StaticResource LabReg}" Text="Nome *"/>
                         <Entry x:Name="TxtNome" TextTransform="Uppercase" Margin="10,1,10,5" Placeholder="Nome" Style="{StaticResource EntryReg}" />
                         <Label x:Name="AlertNome" Margin="15, 0,1,0" FontFamily="" TextColor="Red" FontSize = "Small"   Text="Inserire un nome!" IsVisible="false"/>
 
 
-                        <Label  Margin="15, 10,1,0" FontFamily="" Style="{StaticResource LabReg}"  Text="Cognome"/>
+                        <Label  Margin="15, 10,1,0" FontFamily="" Style="{StaticResource LabReg}"  Text="Cognome *"/>
                         <Entry x:Name="TxtCognome" TextTransform="Uppercase" Margin="10,1,10,0" Placeholder="Cognome" Style="{StaticResource EntryReg}" />
                         <Label  x:Name="AlertCognome" Margin="15, 0,1,0" FontFamily="" TextColor="Red" FontSize = "Small"   Text="Inserire un cognome!" IsVisible="false"/>
 
-                        <Label  Margin="15, 10,1,0" FontFamily="" Style="{StaticResource LabReg}"  Text="Codice fiscale"/>
+                        <Label  Margin="15, 10,1,0" FontFamily="" Style="{StaticResource LabReg}"  Text="Codice fiscale *2"/>
                         <Entry x:Name="TxtCodFiscale" TextTransform="Uppercase" Margin="10,1,10,0" Placeholder="Codice fiscale"  TextChanged="TxtCodFiscale_TextChanged" Style="{StaticResource EntryReg}" />
                         <Label x:Name="AlertCodFisc" Margin="15, 0,1,0" FontFamily="" TextColor="Red" FontSize = "Small"   Text="Inserire un codice fiscale valido!" IsVisible="false"/>
 
 
-                        <Label  Margin="15, 10,1,0" FontFamily="" Style="{StaticResource LabReg}" Text="E-mail"/>
+                        <Label  Margin="15, 10,1,0" FontFamily="" Style="{StaticResource LabReg}" Text="E-mail *"/>
                         <Entry x:Name="TxtEmail" Margin="10,1,10,0" Placeholder="E-mail" Style="{StaticResource EntryReg}" TextTransform="Lowercase"  Keyboard="Email"/>
                         <Label  x:Name="AlertEmail" Margin="15, 0,1,0" FontFamily="" TextColor="Red" FontSize = "Small"   Text="Inserire una e-mail valida!" IsVisible="false"/>
 
-                        <Label  Margin="15, 10,1,0" FontFamily=""  Style="{StaticResource LabReg}"  Text="Password"/>
+                        <Label  Margin="15, 10,1,0" FontFamily=""  Style="{StaticResource LabReg}"  Text="Password *"/>
 
                         <StackLayout Orientation="Horizontal" Margin="10,1,10,0" >
                             <Entry  x:Name="TxtPassword" HorizontalOptions="FillAndExpand" IsPassword="True"  Placeholder="Password" Style="{StaticResource EntryReg}" />
@@ -60,13 +60,13 @@
                             </Label>
                         </StackLayout>
                         <Label x:Name="AlertPrivacy" Margin="15, 0,1,0" FontFamily="" TextColor="Red" FontSize = "Small"   Text="Per proseguire devi accettare l'informativa sulla privacy" IsVisible="false"/>
-
-                       
+                        <Label FontSize="Micro" Text="*: Campi Obbligatori. &#10; *2: Il codice fiscale permette il conferimento alle isole ecologiche."/>
 
                         <Button x:Name="BtnRegistrati" IsEnabled="False" Text="REGISTRATI" Margin="10,35,10,0" HorizontalOptions="Center" Style="{StaticResource BtnDarkDisable}" WidthRequest="310" Clicked="BtnRegistrati_Clicked"/>
                         
                         <Button x:Name="BtnReturnLog" Margin="10,10,10,10" Text="Sei già registrato? ACCEDI"  HorizontalOptions="Center" VerticalOptions="FillAndExpand"  Style="{StaticResource BtnTranspGreen}" Clicked="BtnReturnLog_Clicked"/>
 
+                        
                     </StackLayout>
 
 

@@ -14,6 +14,12 @@ namespace EcoServiceApp {
         public PageNavigatore() {
             InitializeComponent();
             this.On<Xamarin.Forms.PlatformConfiguration.Android>().SetIsSwipePagingEnabled(false);
+            if ((Boolean)App.DataRowComune["ServizioRipremia"]==false) {
+                TabBorsellino.IsEnabled=false;
+            }
+            if ((Boolean)App.DataRowComune["ServizioRitiro"]==false && (Boolean)App.DataRowComune["ServizioCentroRiuso"]==false && (Boolean)App.DataRowComune["ServizioAbbandono"]==false && (Boolean)App.DataRowComune["ServizioCalendario"]==false) {
+                TabServizi.IsEnabled=false;
+            }
         }
 
         protected override bool OnBackButtonPressed() {
