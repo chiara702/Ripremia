@@ -750,10 +750,13 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\ecoisolaBN.png" />
   </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Multi_H2o.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties XamarinHotReloadUnhandledDeviceExceptionRipremiaAndroidHideInfoBar="True" TriggeredFromHotReload="False" />
+      <UserProperties TriggeredFromHotReload="False" XamarinHotReloadUnhandledDeviceExceptionRipremiaAndroidHideInfoBar="True" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

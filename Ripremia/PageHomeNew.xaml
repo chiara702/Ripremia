@@ -127,7 +127,7 @@
 					</Frame>
 
                     <!--BOTTONE EROGAZIONE MULTILITRO-->
-                    <Frame x:Name="BtnMultilitro" CornerRadius="10" BackgroundColor="#52a5ab" Margin="5,10,5,0" Padding="0,0,0,0"  HeightRequest="120" >
+                    <Frame x:Name="BtnMultilitro" CornerRadius="10" BackgroundColor="#52a5ab" Margin="5,10,5,0" Padding="0,0,0,0"  HeightRequest="80" >
                         <Frame.HasShadow>
                             <OnPlatform x:TypeArguments="x:Boolean">
                                 <On Platform="iOS" Value="false" />
@@ -135,8 +135,8 @@
                             </OnPlatform>
                         </Frame.HasShadow>
                         <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" Spacing="0" >
-                            <Image Source="cellcode" Margin="20,5,0,5" HeightRequest="100"/>
-                            <Label HorizontalOptions="CenterAndExpand" VerticalOptions="Center" TextColor="White" HorizontalTextAlignment="Center" FontSize = "22"  Margin="5,0,5,0" LineBreakMode="WordWrap" Text="EROGAZIONE ACQUA&#10;MULTILITRO" FontAttributes="Bold"/>
+                            <Image HorizontalOptions="CenterAndExpand"  Source="Multi_H2o" Margin="10,7,0,7" HeightRequest="100" />
+                            <Label HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextColor="White"  HorizontalTextAlignment="Center" FontSize = "22"  Margin="0,5,5,5" LineBreakMode="WordWrap" Text="Seleziona i litri di acqua&#10; da erogare " FontAttributes="Bold"/>
                             <StackLayout.GestureRecognizers>
                                 <TapGestureRecognizer x:Name="TapMultilitro" Tapped="TapMultilitro_Tapped"/>
                             </StackLayout.GestureRecognizers>

@@ -742,6 +742,9 @@
   <ItemGroup>
     <BundleResource Include="Resources\ecoisolaBN.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Multi_H2o.png" />
+  </ItemGroup>
   <ProjectExtensions>
     <VisualStudio>
       <UserProperties TriggeredFromHotReload="False" />
