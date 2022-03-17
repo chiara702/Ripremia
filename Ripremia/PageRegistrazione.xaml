@@ -19,7 +19,7 @@
                         <Entry x:Name="TxtCognome" TextTransform="Uppercase" Margin="10,1,10,0" Placeholder="Cognome" Style="{StaticResource EntryReg}" />
                         <Label  x:Name="AlertCognome" Margin="15, 0,1,0" FontFamily="" TextColor="Red" FontSize = "Small"   Text="Inserire un cognome!" IsVisible="false"/>
 
-                        <Label  Margin="15, 10,1,0" FontFamily="" Style="{StaticResource LabReg}"  Text="Codice fiscale *2"/>
+                        <Label x:Name="LblCodFiscale" Margin="15, 10,1,0" FontFamily="" Style="{StaticResource LabReg}"  Text="Codice fiscale *2"/>
                         <Entry x:Name="TxtCodFiscale" TextTransform="Uppercase" Margin="10,1,10,0" Placeholder="Codice fiscale"  TextChanged="TxtCodFiscale_TextChanged" Style="{StaticResource EntryReg}" />
                         <Label x:Name="AlertCodFisc" Margin="15, 0,1,0" FontFamily="" TextColor="Red" FontSize = "Small"   Text="Inserire un codice fiscale valido!" IsVisible="false"/>
 
@@ -60,7 +60,7 @@
                             </Label>
                         </StackLayout>
                         <Label x:Name="AlertPrivacy" Margin="15, 0,1,0" FontFamily="" TextColor="Red" FontSize = "Small"   Text="Per proseguire devi accettare l'informativa sulla privacy" IsVisible="false"/>
-                        <Label FontSize="Micro" Text="*: Campi Obbligatori. &#10; *2: Il codice fiscale permette il conferimento alle isole ecologiche."/>
+                        <Label FontSize="Micro" Text="*: Campi Obbligatori. &#10; *2: Pultroppo per vincoli molto restrittivi imposti da IOS non ci viene permesso inserimento del codice fiscale che permette il conferimento sulle ecoisole utilizzando lo stesso QRCODE."/>
 
                         <Button x:Name="BtnRegistrati" IsEnabled="False" Text="REGISTRATI" Margin="10,35,10,0" HorizontalOptions="Center" Style="{StaticResource BtnDarkDisable}" WidthRequest="310" Clicked="BtnRegistrati_Clicked"/>
                         

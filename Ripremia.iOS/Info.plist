@@ -44,15 +44,10 @@
 	<string>L&apos;app necessita di accedere alla galleria per il salvataggio delle foto e per il caricamento di un&apos;immagine relativa al rifiuto.</string>
 	<key>FirebaseAppDelegateProxyEnabled</key>
 	<false/>
-	<key>UIBackgroundModes</key>
-	<array>
-		<string>remote-notification</string>
-		<string>bluetooth-central</string>
-	</array>
 	<key>CFBundleDisplayName</key>
 	<string>Ripremia</string>
 	<key>CFBundleVersion</key>
-	<string>12.37</string>
+	<string>12.39</string>
 	<key>UIStatusBarStyle</key>
 	<string>UIStatusBarStyleLightContent</string>
 	<key>UIApplicationSceneManifest</key>
@@ -64,7 +59,5 @@
 	<string>LaunchScreen</string>
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
-	<key>NSBluetoothAlwaysUsageDescription</key>
-	<string>Accesso BLE richiesto per autenticazione alle macchine ecocontrolgsm.</string>
 </dict>
 </plist>

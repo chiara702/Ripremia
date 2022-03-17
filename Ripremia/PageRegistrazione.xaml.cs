@@ -14,6 +14,10 @@ namespace EcoServiceApp {
     public partial class PageRegistrazione : ContentPage {
         public PageRegistrazione() {
             InitializeComponent();
+            if (Device.RuntimePlatform==Device.iOS) {
+                LblCodFiscale.IsVisible = false;
+                TxtCodFiscale.IsVisible = false;
+            }
         }
 
         //crittografia password Chiara
@@ -88,7 +92,7 @@ namespace EcoServiceApp {
                 }
             }
             row = Parchetto.EseguiQueryRow("Utente", "CodiceFiscale='" + Funzioni.AntiAp(TxtCodFiscale.Text) + "'");
-            if (row != null) {
+            if (row != null && TxtCodFiscale.Text != "") {
                 if (await DisplayAlert("", "Codice Fiscale già presente nei nostri sistemi. Vuoi registrarti ugualmente?", "OK", "ANNULLA") == false) return;
             }
 
@@ -174,10 +178,10 @@ namespace EcoServiceApp {
             Par.AddParameterObject("DataRegistrazione", System.DateTime.Now);
             FunzDb.EseguiInsert("Utente", Par);
             if (FunzDb.LastError == true) {
-                DisplayAlert("Errore", "Errore durante la registrazione! " + FunzDb.LastErrorDescrizione, "OK");
+                await DisplayAlert("Errore", "Errore durante la registrazione! " + FunzDb.LastErrorDescrizione, "OK");
                 return;
             }
-            DisplayAlert("Registrazione effettuata con successo!", "Ultimo passo!\nOra non ti resta che effettuare il primo accesso ed inserire il numero di conferma che ti abbiamo mandato all'indirizzo e-mail!", "Ok");
+            await DisplayAlert("Registrazione effettuata con successo!", "Ultimo passo!\nOra non ti resta che effettuare il primo accesso ed inserire il numero di conferma che ti abbiamo mandato all'indirizzo e-mail!", "Ok");
 
             Funzioni.SendEmail(TxtEmail.Text, "ripremiasupport@ecocontrolgsm.it", "RIPREMIA -Conferma la tua e-mail per accedere ai servizi", "Benvenuto, come ultimo passo non ti resta che inserire il seguente numero all'interno dell'app RIPREMIA per confermare la tua email.\n " + CodConferma);
 

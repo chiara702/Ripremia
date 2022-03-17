@@ -25,11 +25,11 @@
                         <Label Margin="20, 10,25,0" Padding="0" FontFamily="" HorizontalOptions="Center" Style="{StaticResource LabRegRed}" TextColor="White" Text="Inserisci l'importo da scontare" FontSize="20"/>
                         <Entry x:Name="EntryTotaleDaScontare"  TextChanged="EntryTotaleDaScontare_TextChanged" Keyboard="Numeric"  HeightRequest="80" Margin="20,1,20,5" FontSize="38" HorizontalTextAlignment="End" Placeholder="0,00 €" Style="{StaticResource EntryReg}" BackgroundColor="White" />
                         <Label Margin="20, 10,25,0" Padding="0" FontFamily="" HorizontalOptions="Center" Style="{StaticResource LabRegRed}" TextColor="White" Text="Quantità di coupon da utilizzare" FontSize="20"/>
-                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center" >
-                        <ImageButton x:Name="BtnDown" Source="Meno" HeightRequest="80" WidthRequest="80" BackgroundColor="Transparent" CornerRadius="5" Clicked="BtnDown_Clicked"/>
-                        <Entry x:Name="EntryCouponN" TextChanged="EntryCouponN_TextChanged" Keyboard="Numeric" Margin="5,0,5,0" FontSize="32" HorizontalTextAlignment="End" HeightRequest="80" WidthRequest="100" Placeholder="1" Style="{StaticResource EntryReg}" BackgroundColor="White" />
-                        <ImageButton x:Name="BtnUp"  Source="Piu" HeightRequest="80" WidthRequest="80"  BackgroundColor="Transparent" CornerRadius="5" Clicked="BtnUp_Clicked"/>
-                    </StackLayout>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" >
+                            <ImageButton x:Name="BtnDown" Source="Meno" HeightRequest="80" WidthRequest="80" BackgroundColor="Transparent" CornerRadius="5" Clicked="BtnDown_Clicked"/>
+                            <Entry x:Name="EntryCouponN" TextChanged="EntryCouponN_TextChanged" Keyboard="Numeric" Margin="5,0,5,0" FontSize="32" HorizontalTextAlignment="End" HeightRequest="80" WidthRequest="100" Placeholder="1" Style="{StaticResource EntryReg}" BackgroundColor="White" />
+                            <ImageButton x:Name="BtnUp"  Source="Piu" HeightRequest="80" WidthRequest="80"  BackgroundColor="Transparent" CornerRadius="5" Clicked="BtnUp_Clicked"/>
+                        </StackLayout>
                     </StackLayout>
                     <!--<Button x:Name="BtnAzzera" IsEnabled="True" Margin="15,10,20,20" Text="AZZERA" HeightRequest="60" FontSize="24" TextColor="White" BorderColor="#eb6509" BorderWidth="2" BackgroundColor="#eb6509" Clicked="BtnAzzera_Clicked" />-->
 

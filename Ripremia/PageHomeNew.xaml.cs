@@ -125,6 +125,9 @@ namespace EcoServiceApp {
             if ((Boolean)App.DataRowComune["ServizioSegnalazioni"]==false) {
                 FrmSegnala.IsVisible=false;
             }
+            if ((Boolean)App.DataRowComune["ServizioMultiLitro"]==false ) {
+                BtnMultilitro.IsVisible=false;
+            }
             //var statusBle = CrossBleAdapter.Current.Status; //Necessario per ios
             CreateStatisticheCollection();
             BindingContext = this;
@@ -386,6 +389,11 @@ namespace EcoServiceApp {
             var n = Navigation;
             Navigation.PushAsync(page);
             //App.Current.MainPage = page;
+        }
+
+        private void TapMultilitro_Tapped(object sender, EventArgs e) {
+            var page = new PageAcquaMultilitro();
+            Navigation.PushAsync(page);
         }
     }
 }

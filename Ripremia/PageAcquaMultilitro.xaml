@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:ecoserviceapp="clr-namespace:EcoServiceApp" xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms" xmlns:zxcm="clr-namespace:ZXing.Common;assembly=zxing.portable"
+             x:Class="EcoServiceApp.PageAcquaMultilitro" NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <Grid>
+            <!-- menù grid -->
+            <ecoserviceapp:ViewMenuTop x:Name="MenuTop" NascondiMenu="True" MostraGoBack="True" ></ecoserviceapp:ViewMenuTop>
+
+            <!--corpo centrale  -->
+            <ScrollView Style="{StaticResource Scrollbackground}">
+                <StackLayout HorizontalOptions="FillAndExpand" Margin="0,10,0,10" Padding="0,0,0,0"  >
+
+                    <StackLayout Margin="10,30,10,10">
+                        <Label FontSize="Medium" HorizontalOptions="Center" TextColor="#7ca137" FontAttributes="Bold">EROGAZIONE MULTI-LITRO ACQUA</Label>
+                        <Frame x:Name="ZoomQRcode" Grid.Column="1" Grid.Row="1" HorizontalOptions="Center" VerticalOptions="Center" BorderColor="Transparent" BackgroundColor="Transparent" HasShadow="False" >
+                            <zxing:ZXingBarcodeImageView x:Name="BarCodeId" HorizontalOptions="Start"
+										BarcodeFormat="QR_CODE" 
+										BarcodeValue="1" WidthRequest="150" HeightRequest="150"
+										InputTransparent="True" IsVisible="true">
+                                <zxing:ZXingBarcodeImageView.BarcodeOptions>
+                                    <zxcm:EncodingOptions PureBarcode="True" Width="150" Height="150" />
+                                </zxing:ZXingBarcodeImageView.BarcodeOptions>
+                            </zxing:ZXingBarcodeImageView>
+                        </Frame>
+
+                        <Label Margin="20, 10,25,0" Padding="0" FontFamily="" HorizontalOptions="Center" Style="{StaticResource LabRegRed}" TextColor="#7ca137" Text="Litri da erogare:" FontSize="20"/>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" >
+                            <ImageButton x:Name="BtnDown" Source="Meno" HeightRequest="80" WidthRequest="80" BackgroundColor="#7ca137" CornerRadius="5" Clicked="BtnDown_Clicked"/>
+                            <Entry x:Name="EntryLitri" Keyboard="Numeric" Margin="5,0,5,0" FontSize="32" HorizontalTextAlignment="Center" HeightRequest="80" WidthRequest="100" Placeholder="1" Style="{StaticResource EntryReg}" BackgroundColor="White" />
+                            <ImageButton x:Name="BtnUp"  Source="Piu" HeightRequest="80" WidthRequest="80"  BackgroundColor="#7ca137" CornerRadius="5" Clicked="BtnUp_Clicked"/>
+                        </StackLayout>
+                        <Label TextColor="#7ca137" Margin="30,10,30,0">Impostare la quantità di litri che si vuole erogare e passare il QR-CODE davanti al lettore del distributore di acqua.</Label>
+                    </StackLayout>
+
+                </StackLayout>
+            </ScrollView>
+
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
