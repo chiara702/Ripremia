@@ -12,18 +12,21 @@ namespace EcoServiceApp {
     public partial class ViewMenuLaterale : Grid {
         public ViewMenuLaterale() {
             InitializeComponent();
-            var PathLogo = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "LogoComune.png";
-            if (System.IO.File.Exists(PathLogo) == true) {
-                ImgLogoComune.Source = ImageSource.FromFile(PathLogo);
-            }
-            PathLogo = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "Logo.png";
-            if (System.IO.File.Exists(PathLogo) == true) {
-                ImgLogo.Source = ImageSource.FromFile(PathLogo);
-            }
+            try {
+                var PathLogo = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "LogoComune.png";
+                if (System.IO.File.Exists(PathLogo) == true) {
+                    ImgLogoComune.Source = ImageSource.FromFile(PathLogo);
+                }
+                PathLogo = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "Logo.png";
+                if (System.IO.File.Exists(PathLogo) == true) {
+                    ImgLogo.Source = ImageSource.FromFile(PathLogo);
+                }
 
-            if ((int)App.DataRowUtente["AdminComuneId"] > 0 || Funzioni.Antinull(App.DataRowUtente["AdminSuperuserCode"]) != "") StkAreaRiservata.IsVisible = true;
-            if ((Boolean)App.DataRowUtente["AdminCommerciante"] == true) StkAreaCommercianti.IsVisible = true;
-
+                if ((int)App.DataRowUtente["AdminComuneId"] > 0 || Funzioni.Antinull(App.DataRowUtente["AdminSuperuserCode"]) != "") StkAreaRiservata.IsVisible = true;
+                if ((Boolean)App.DataRowUtente["AdminCommerciante"] == true) StkAreaCommercianti.IsVisible = true;
+            } catch (Exception ex) {
+                
+            }
         }
 
 

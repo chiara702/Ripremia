@@ -132,9 +132,11 @@ namespace EcoServiceApp {
             CreateStatisticheCollection();
             BindingContext = this;
             Device.StartTimer(TimeSpan.FromSeconds(20), () => {
-                App.UpdateRowUtente();
-                CreateStatisticheCollection();
-                BindingContext = this;
+                try {
+                    App.UpdateRowUtente();
+                    CreateStatisticheCollection();
+                    BindingContext = this;
+                } catch (Exception ex) { }
                 return true;
             });
             Task.Run(() => {
