@@ -33,13 +33,13 @@ namespace EcoServiceApp.Droid
             ZXing.Net.Mobile.Forms.Android.Platform.Init(); //zxing init
 
             //Firebase Messaging
-            if (Build.VERSION.SdkInt >= Android.OS.BuildVersionCodes.O) {
-                //Change for your default notification channel id here
-                FirebasePushNotificationManager.DefaultNotificationChannelId = "FirebasePushNotificationChannel";
-                //Change for your default notification channel name here
-                FirebasePushNotificationManager.DefaultNotificationChannelName = "General";
-            }
-            FirebasePushNotificationManager.Initialize(this, false);
+            //if (Build.VERSION.SdkInt >= Android.OS.BuildVersionCodes.O) {
+            //    //Change for your default notification channel id here
+            //    FirebasePushNotificationManager.DefaultNotificationChannelId = "FirebasePushNotificationChannel";
+            //    //Change for your default notification channel name here
+            //    FirebasePushNotificationManager.DefaultNotificationChannelName = "General";
+            //}
+            //FirebasePushNotificationManager.Initialize(this, false);
 
             //get max heap available to app
             var activityManager = (ActivityManager)GetSystemService(Context.ActivityService);
