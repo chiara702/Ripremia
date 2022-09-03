@@ -326,6 +326,7 @@ public class ClassApiParco { //vers. 1
             }
             //Cmd.CommandText = Command;
             Conn.Close();
+            Conn.Dispose();
             return LastReturn;
         } catch (Exception e) {
             LastError = true;
