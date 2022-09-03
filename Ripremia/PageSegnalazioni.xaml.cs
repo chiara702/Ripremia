@@ -69,7 +69,7 @@ namespace EcoServiceApp {
 
             RiempiSegnalazioni.EseguiInsert("Segnalazioni", Par);
             DisplayAlert("Richiesta inviata correttamente", "Ti ringraziamo per la segnalazione provvederemo il prima possibile alla risoluzione del problema!", "OK");
-            Funzioni.SendEmail("ripremiasupport@ecocontrolgsm.it", "ripremiasupport@ecocontrolgsm.it", "Segnalazione nuova", $"Data: {DateTime.Now}, IdUtente: {App.DataRowUtente["Id"].ToString()}, IdComune: {App.DataRowUtente["IdComune"].ToString()}, IdPoint: {Point.FirstOrDefault(x => x.Value == PickerPoint.SelectedItem.ToString()).Key}, Note: {Funzioni.Antinull(TxtMessaggio.Text)}");
+            Funzioni.SendEmail("ripremiasupport@ecocontrolgsm.it", "ripremiasupport@ecocontrolgsm.it", "Segnalazione nuova", $"Data: {DateTime.Now}, Email: {App.DataRowUtente["Email"].ToString()}, Comune: {App.DataRowComune["Nome"].ToString()}, IdPoint: {Point.FirstOrDefault(x => x.Value == PickerPoint.SelectedItem.ToString()).Key} - {PickerPoint.SelectedItem.ToString()}, Note: {Funzioni.Antinull(TxtMessaggio.Text)}");
 
             Xamarin.Essentials.Preferences.Set("SegnalazioneInviata", DateTime.Now);
             var Page = new PageNavigatore();

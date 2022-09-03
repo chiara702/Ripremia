@@ -25,7 +25,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microcharts.Forms" Version="0.9.5.9" />
-    <PackageReference Include="MySqlConnector" Version="2.1.10" />
+    <PackageReference Include="MySqlConnector" Version="2.1.13" />
     <PackageReference Include="Plugin.BluetoothLE" Version="6.3.0.19" />
     <PackageReference Include="Plugin.FirebasePushNotification" Version="3.4.22" />
     <PackageReference Include="Plugin.StoreReview" Version="3.3.1" />

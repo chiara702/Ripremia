@@ -56,6 +56,7 @@ namespace EcoServiceApp {
             } catch (Exception) { }
 
         }
+        
 
         public void StartBleScan() {
             //Animazione
@@ -140,7 +141,7 @@ namespace EcoServiceApp {
                 return true;
             });
             Task.Run(() => {
-                Task.Delay(1500); //1500
+                Task.Delay(1500).Wait(); //1500
                 //CreateStatisticheCollection();
                 //Device.BeginInvokeOnMainThread(() => BindingContext = this);
                 ControllaSegnalazioni();
@@ -161,10 +162,28 @@ namespace EcoServiceApp {
 
             LblUtente.Text = "Ciao, " + App.DataRowUtente["Nome"].ToString() + "!";
             MenuTop.MenuLaterale = MenuLaterale;
+
+            Task.Run(() => {
+                try {
+                    CheckCodiceFiscale();
+                } catch (Exception ex) { DisplayAlert("Errore", ex.Message,"OK"); }
+            });
+        }
+        public async void CheckCodiceFiscale() {
+            if ((int)App.DataRowComune["CodiceFiscaleNecessario"]==1 && App.DataRowUtente["CodiceFiscale"].ToString().Length!=16) {
+                String cf = await DisplayPromptAsync("Codice Fiscale", "Per l'utilizzo corretto della premialità occorre indicare il codice fiscale!", "OK", "ANNULLA", "Codice Fiscale");
+                if (cf.Length==16) {
+                    var Parchetto = new ClassApiParco();
+                    var Par = Parchetto.GetParam();
+                    Par.AddParameterString("CodiceFiscale", cf);
+                    Parchetto.EseguiUpdate("Utente", (int)App.DataRowUtente["Id"], Par);
+                }
+            }
         }
         public void ControllaSegnalazioni() {
             if (App.DataRowComune["AvvisoAbilitaAutomatico"].ToString() == "1") {
                 var parchetto = new ClassApiParco();
+                var a = parchetto.EseguiCommand("Select Count(*) From Segnalazioni");
                 var NumSegn = Convert.ToInt32(parchetto.EseguiCommand($"Select Count(*) From Segnalazioni Where Data>'{DateTime.Now.AddDays(-2).ToString("yyyy-MM-dd")}' And Data<'{DateTime.Now.ToString("yyyy-MM-dd")}' And IdComune={App.DataRowUtente["IdComune"]} And Problema!='Altro'"));
                 if (NumSegn >= 2) {
                     FrmAvviso.IsVisible = true;

@@ -185,29 +185,29 @@ namespace EcoServiceApp {
     public static class PushApi {
         public static void Inizializza() {
             //Handle notification when app is open
-            CrossFirebasePushNotification.Current.OnNotificationReceived += (s, p) => {
-                var Messaggio = p.Data["body"].ToString();
-                Boolean Flash = true;
-                if (p.Data.ContainsKey("flash")==true) Flash=Boolean.Parse(p.Data["flash"].ToString());
-                if (Flash == true) {
-                    Device.BeginInvokeOnMainThread(async () => {
-                        try {
-                            await Application.Current.MainPage.DisplayAlert("", Messaggio, "OK");
-                        } catch (Exception) { }
-                    });
-                } else {
-                    Device.BeginInvokeOnMainThread(() => {
-                        App.Current.MainPage = new PageNotifiche();
-                    });
-                }
-            };
+            //CrossFirebasePushNotification.Current.OnNotificationReceived += (s, p) => {
+            //    var Messaggio = p.Data["body"].ToString();
+            //    Boolean Flash = true;
+            //    if (p.Data.ContainsKey("flash")==true) Flash=Boolean.Parse(p.Data["flash"].ToString());
+            //    if (Flash == true) {
+            //        Device.BeginInvokeOnMainThread(async () => {
+            //            try {
+            //                await Application.Current.MainPage.DisplayAlert("", Messaggio, "OK");
+            //            } catch (Exception) { }
+            //        });
+            //    } else {
+            //        Device.BeginInvokeOnMainThread(() => {
+            //            App.Current.MainPage = new PageNotifiche();
+            //        });
+            //    }
+            //};
             /*CrossFirebasePushNotification.Current.OnTokenRefresh += (s, p) => {
                 CrossFirebasePushNotification.Current.Subscribe("SUPERADMIN");
             };*/
-            CrossFirebasePushNotification.Current.OnNotificationOpened += (s, p) =>{
-                var Messaggio = p.Data["body"].ToString();
+            //CrossFirebasePushNotification.Current.OnNotificationOpened += (s, p) =>{
+            //    var Messaggio = p.Data["body"].ToString();
                 
-            };
+            //};
 
         }
 

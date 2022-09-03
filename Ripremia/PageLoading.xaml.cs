@@ -131,7 +131,7 @@ namespace EcoServiceApp {
                 //App.Current.MainPage=new PageOffLine();
                 //return false;
             }
-            PushApi.ResetTopics();
+            //PushApi.ResetTopics();
             return true;
 
             //Task.Delay(2400).Wait();
