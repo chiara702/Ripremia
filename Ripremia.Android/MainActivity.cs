@@ -40,6 +40,7 @@ namespace EcoServiceApp.Droid
                 FirebasePushNotificationManager.DefaultNotificationChannelName = "General";
             }
             FirebasePushNotificationManager.Initialize(this, false);
+            
 
             //get max heap available to app
             var activityManager = (ActivityManager)GetSystemService(Context.ActivityService);

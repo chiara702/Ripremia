@@ -32,6 +32,7 @@ namespace EcoServiceApp {
             //MainPage = new MainPage();
             //MainPage = new Pagemap();
             //return;
+
             
 
             if (Xamarin.Essentials.Preferences.Get("Loggato", false) == false) {
@@ -211,6 +212,8 @@ namespace EcoServiceApp {
         }
 
         public static void ResetTopics() {
+            return; //Da togliere
+
             CrossFirebasePushNotification.Current.UnsubscribeAll();
             CrossFirebasePushNotification.Current.Subscribe("SUPERADMIN");
             if (App.DataRowUtente != null) {
