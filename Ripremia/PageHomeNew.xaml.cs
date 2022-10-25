@@ -129,7 +129,7 @@ namespace EcoServiceApp {
             if ((Boolean)App.DataRowComune["ServizioMultiLitro"]==false ) {
                 BtnMultilitro.IsVisible=false;
             }
-            //var statusBle = CrossBleAdapter.Current.Status; //Necessario per ios
+            var statusBle = CrossBleAdapter.Current.Status; //Necessario per ios
             CreateStatisticheCollection();
             BindingContext = this;
             Device.StartTimer(TimeSpan.FromSeconds(20), () => {
@@ -147,7 +147,7 @@ namespace EcoServiceApp {
                 ControllaSegnalazioni();
             });
             //BLE
-            /*Device.BeginInvokeOnMainThread(async () => {
+            Device.BeginInvokeOnMainThread(async () => {
                 PermissionStatus r = await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
                 if (r != PermissionStatus.Granted) r = await Permissions.RequestAsync<Permissions.LocationWhenInUse>();
                 if (r != PermissionStatus.Granted) {
@@ -156,29 +156,27 @@ namespace EcoServiceApp {
                 }
                 var ThBleScan = new System.Threading.Thread(StartBleScan);
                 ThBleScan.Start();
-            });*/
+            });
 
 
 
             LblUtente.Text = "Ciao, " + App.DataRowUtente["Nome"].ToString() + "!";
             MenuTop.MenuLaterale = MenuLaterale;
 
-            Task.Run(() => {
-                try {
-                    CheckCodiceFiscale();
-                } catch (Exception ex) { DisplayAlert("Errore", ex.Message,"OK"); }
-            });
+            CheckCodiceFiscale();
         }
         public async void CheckCodiceFiscale() {
-            if ((int)App.DataRowComune["CodiceFiscaleNecessario"]==1 && App.DataRowUtente["CodiceFiscale"].ToString().Length!=16) {
-                String cf = await DisplayPromptAsync("Codice Fiscale", "Per l'utilizzo corretto della premialità occorre indicare il codice fiscale!", "OK", "ANNULLA", "Codice Fiscale");
-                if (cf.Length==16) {
-                    var Parchetto = new ClassApiParco();
-                    var Par = Parchetto.GetParam();
-                    Par.AddParameterString("CodiceFiscale", cf);
-                    Parchetto.EseguiUpdate("Utente", (int)App.DataRowUtente["Id"], Par);
+            try {
+                if ((Boolean)App.DataRowComune["CodiceFiscaleNecessario"]==true && App.DataRowUtente["CodiceFiscale"].ToString().Length!=16) {
+                    String cf = await DisplayPromptAsync("Codice Fiscale", "Per l'utilizzo corretto della premialità occorre indicare il codice fiscale!", "OK", "ANNULLA", "Codice Fiscale");
+                    if (cf.Length==16) {
+                        var Parchetto = new ClassApiParco();
+                        var Par = Parchetto.GetParam();
+                        Par.AddParameterString("CodiceFiscale", cf);
+                        Parchetto.EseguiUpdate("Utente", (int)App.DataRowUtente["Id"], Par);
+                    }
                 }
-            }
+            } catch (Exception) { }
         }
         public void ControllaSegnalazioni() {
             if (App.DataRowComune["AvvisoAbilitaAutomatico"].ToString() == "1") {
