@@ -80,7 +80,7 @@ namespace EcoServiceApp {
                 currentChar.WhenNotificationReceived().Subscribe(n => {
                     Console.WriteLine("---> ReadOk: " + UTF8Encoding.UTF8.GetString(n.Data));
                 });
-                await Task.Delay(15000);
+                await Task.Delay(30000);
                 CurrentBle.CancelConnection();
                 Device.BeginInvokeOnMainThread(()=> { 
                     Navigation.PopAsync(); 
