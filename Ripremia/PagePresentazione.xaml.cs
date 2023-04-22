@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,6 +32,21 @@ namespace EcoServiceApp {
                 Parchetto.EseguiUpdateWhere("Utente", "Email='z'", par);
             }
             var rigoComune = Parchetto.EseguiQueryRow("Comune", "Upper(Nome)='" + Funzioni.AntiAp(ComuneInserito) + "'");
+            //Cerca Comune con Levenshtein
+            if (rigoComune == null) {
+                var tableComune = Parchetto.EseguiQuery("Select * From Comune");
+                tableComune.Columns.Add("peso");
+                foreach (DataRow x in tableComune.Rows) {
+                    x["peso"]=LevenshteinDistance.Calculate(x["Nome"].ToString().ToUpper(), ComuneInserito.ToUpperInvariant());
+                }
+                var ricerca = tableComune.Select("peso<=1");
+                if (ricerca.Length==1) rigoComune=ricerca[0];
+                else {
+                    ricerca=tableComune.Select("peso<=2");
+                    if (ricerca.Length==1) rigoComune=ricerca[0];
+                }
+            }
+            if (Debugger.IsAttached==true && rigoComune!=null) await DisplayAlert("",rigoComune["Nome"].ToString(),"OK");
             if (Parchetto.LastError == true) {
                 await DisplayAlert("Attenzione", "Errore connessione!", "ok");
                 return;

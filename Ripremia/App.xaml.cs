@@ -212,7 +212,7 @@ namespace EcoServiceApp {
         }
 
         public static void ResetTopics() {
-            return; //Da togliere
+            //return; //Da togliere
 
             CrossFirebasePushNotification.Current.UnsubscribeAll();
             CrossFirebasePushNotification.Current.Subscribe("SUPERADMIN");
