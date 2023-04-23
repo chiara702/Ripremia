@@ -932,12 +932,12 @@ public class Funzioni {
         //-2:la password richiede almeno un carattere maiuscolo
         //-3:la password richiede almeno un carattere minuscolo
         //-4:la password richiede almeno un numero
-        //-5:la password richiede almeno un carattere speciale tra: !,@,#,$,%,*,.,-,_
+        //TOLTO -5:la password richiede almeno un carattere speciale tra: !,@,#,$,%,*,.,-,_
         if (Regex.IsMatch(Password, "^[A-Za-z0-9/!/@/#/$/&/*/%/./-/_/+/?/</>]{8,20}$") == false) return -1;
         if (Regex.IsMatch(Password, "[A-Z]{1,}") == false) return -2; //controllo della presenza di almeno una lettera maiuscola
         if (Regex.IsMatch(Password, "[a-z]{1,}") == false) return -3; //controllo della presenza di almeno una lettera minuscola
         if (Regex.IsMatch(Password, "[0-9]{1,}") == false) return -4; //controllo della presenza di almeno un numero
-        if (Regex.IsMatch(Password, "[/!/@/#/$/&/*/%/./-/_/+/?/</>]") == false) return -5;
+        //if (Regex.IsMatch(Password, "[/!/@/#/$/&/*/%/./-/_/+/?/</>]") == false) return -5;
         return 0;
     }
     
