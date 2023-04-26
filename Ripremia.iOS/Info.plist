@@ -31,7 +31,7 @@
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Vogliamo conoscere la tua posizione per visualizzare i servizi disponibili nella tua zona.</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Vogliamo conoscere la tua posizione mentre l&apos;app è in funzione per geolocalizzare il luogo in cui effettuare il ritiro</string>
+	<string>Vogliamo conoscere la tua posizione mentre l&apos;app è in funzione per geolocalizzare il luogo in cui effettuare il ritiro o conferimento.</string>
 	<key>NSLocationUsageDescription </key>
 	<string>L&apos;app vuole conoscere la tua posizione per visualizzare i servizi disponibili nella tua area.</string>
 	<key>NSUserTrackingUsageDescription</key>
@@ -47,7 +47,7 @@
 	<key>CFBundleDisplayName</key>
 	<string>Ripremia</string>
 	<key>CFBundleVersion</key>
-	<string>12.53</string>
+	<string>12.54</string>
 	<key>UIStatusBarStyle</key>
 	<string>UIStatusBarStyleLightContent</string>
 	<key>UIApplicationSceneManifest</key>
@@ -60,12 +60,14 @@
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
 	<key>NSBluetoothAlwaysUsageDescription</key>
-	<string>The app uses bluetooth to find, connect and transfer data between different devices</string>
+	<string>The app uses bluetooth to find, connect and transfer data to machinery</string>
 	<key>NSBluetoothPeripheralUsageDescription</key>
-	<string>The app uses bluetooth to find, connect and transfer data between different devices</string>
+	<string>The app uses bluetooth to find, connect and transfer data to machinery</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>bluetooth-central</string>
 	</array>
+	<key>Privacy - Tracking Usage Description</key>
+	<string>Per offrirti una migliore esperienza utente, la nostra applicazione richiede l'accesso alla tua posizione al fine di visualizzare i servizi disponibili nella tua zona e consentirti di collegarti alla macchina in Bluetooth Low Energy (BLE) per conferire i rifiuti. La tua posizione verrà utilizzata solo per questi scopi e non verrà condivisa con terze parti senza il tuo consenso.</string>
 </dict>
 </plist>
