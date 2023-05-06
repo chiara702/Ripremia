@@ -67,7 +67,7 @@
 	<array>
 		<string>bluetooth-central</string>
 	</array>
-	<key>Privacy - Tracking Usage Description</key>
+	<key>NSUserTrackingUsageDescription</key>
 	<string>Per offrirti una migliore esperienza utente, la nostra applicazione richiede l'accesso alla tua posizione al fine di visualizzare i servizi disponibili nella tua zona e consentirti di collegarti alla macchina in Bluetooth Low Energy (BLE) per conferire i rifiuti. La tua posizione verrà utilizzata solo per questi scopi e non verrà condivisa con terze parti senza il tuo consenso.</string>
 </dict>
 </plist>

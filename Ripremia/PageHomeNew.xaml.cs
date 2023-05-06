@@ -11,6 +11,7 @@ using Xamarin.Essentials;
 using Plugin.BluetoothLE;
 using System.Reactive.Linq;
 using System.Threading;
+using System.ComponentModel;
 
 namespace EcoServiceApp {
     [XamlCompilation(XamlCompilationOptions.Compile)]
@@ -54,6 +55,8 @@ namespace EcoServiceApp {
                     BtnVoteAppFrame.IsVisible = true;
                 } else BtnVoteAppFrame.IsVisible = false;
             } catch (Exception) { }
+
+            
 
         }
         

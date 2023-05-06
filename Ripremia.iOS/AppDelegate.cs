@@ -71,6 +71,32 @@ namespace EcoServiceApp.iOS {
 
             completionHandler(UIBackgroundFetchResult.NewData);
         }
+
+        public override void OnActivated(UIApplication uiApplication) {
+            base.OnActivated(uiApplication);
+            ATTrackingManager.RequestTrackingAuthorization(async (status) =>
+            {
+                string message = "";
+                // Handle the user's authorization status here
+                switch (status) {
+                    case ATTrackingManagerAuthorizationStatus.Authorized:
+                        message = "Authorized";
+                        break;
+
+                    case ATTrackingManagerAuthorizationStatus.Denied:
+                        message = "Denied";
+                        break;
+
+                    case ATTrackingManagerAuthorizationStatus.Restricted:
+                        message = "Restricted";
+                        break;
+
+                    case ATTrackingManagerAuthorizationStatus.NotDetermined:
+                        message = "NotDetermined";
+                        break;
+                }
+            });
+        }
     }
 
     public class MultiPlatform : IMultiPlatform {
