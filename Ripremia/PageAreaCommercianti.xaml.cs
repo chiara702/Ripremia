@@ -56,7 +56,71 @@ namespace EcoServiceApp {
        
         double TotScontato;
 
+        private void CodiceScansionato(String codice) {
 
+            ClassApiParco Parchetto = new ClassApiParco();
+            //var rowCliente = Parchetto.EseguiQueryRow("Utente", "CodiceMonetaVirtuale='" + codice + "'");
+            var TableCliente = Parchetto.EseguiQuery("Select * From Utente Where CodiceMonetaVirtuale='" + Funzioni.AntiAp(codice) + "'");
+            if (TableCliente.Rows.Count == 0) { DisplayAlert("", "Nessun utente con codice moneta virtuale", "OK"); return; }
+            var rowCliente = TableCliente.Rows[0];
+
+            if ((int)rowCliente["IdComune"] != (int)App.DataRowCommerciante["ComuneId"]) {
+                Device.BeginInvokeOnMainThread(() => DisplayAlert("ATTENZIONE", "Il cliente appartiene ad un comune diverso dall'attività!", "OK"));
+                return;
+            }
+            //Verifiche
+            int MoltiplicatoreCoupon = (int)App.DataRowComune["MoltiplicatoreCoupon"];
+            int ComuneEcopuntiCoupon = (int)App.DataRowComune["EcopuntiCoupon"];
+            int CouponUtente = (int)rowCliente["Coupon"];
+            int CouponUtilizzabili = Convert.ToInt32(EntryCouponN.Text);
+
+            if (CouponUtente < 1) {
+                Device.BeginInvokeOnMainThread(() => DisplayAlert("Attenzione", "Il cliente non possiede coupon!", "OK"));
+                return;
+            }
+            if (CouponUtente < CouponUtilizzabili) {
+                CouponUtilizzabili = CouponUtente;
+            }
+
+
+            Device.BeginInvokeOnMainThread(() => {
+                StkImpostazioneValori.IsVisible = false;
+                BtnVisualizzaDati.IsVisible = false;
+                LblTotaleScontato.Text = "TOTALE SCONTATO EFFETTIVO";
+                TotScontato = TotDaScontare - (CouponUtilizzabili * ValoreCoupon);
+                TxtTotaleScontato.Text = TotScontato.ToString("0.00 €").Replace(".", ",");
+                TxtCouponUsati.Text = CouponUtilizzabili.ToString();
+            });
+
+            //BtnVisualizzaDati.IsEnabled = false;
+
+            var Par = Parchetto.GetParam();
+            CouponUtente = CouponUtente - CouponUtilizzabili;
+            Par.AddParameterInteger("Coupon", CouponUtente);
+            Parchetto.EseguiUpdate("Utente", (int)rowCliente["Id"], Par);
+            int AggiornaCouponAttivita = (int)App.DataRowCommerciante["CouponRaccolti"] + CouponUtilizzabili;
+            var ParComm = Parchetto.GetParam();
+            ParComm.AddParameterInteger("CouponRaccolti", AggiornaCouponAttivita);
+            Parchetto.EseguiUpdate("AttivitaCommerciali", (int)App.DataRowCommerciante["id"], ParComm);
+
+            if (Parchetto.LastError == true) {
+                DisplayAlert("ATTENZIONE", "Errore nello scaricare i coupon!", "OK");
+                return;
+            }
+            Parchetto.EseguiCommand("Update AttivitaCommerciali SET CouponRaccolti=CouponRaccolti-(-" + CouponUtilizzabili + ") Where Id=" + App.DataRowCommerciante["Id"]);
+            if (Parchetto.LastError == true) {
+                DisplayAlert("ATTENZIONE", "Errore nel caricare i coupon sull'attività commerciale!", "OK");
+                return;
+            }
+            Device.BeginInvokeOnMainThread(() => {
+                FrmNomeCliente.IsVisible = true;
+                TxtNomeCliente.Text = rowCliente["Nome"].ToString() + " " + rowCliente["Cognome"].ToString();
+                FrmCoupon.IsVisible = true;
+                TxtCouponResidui.Text = ((int)rowCliente["Coupon"] - (int)CouponUtilizzabili).ToString();
+                BtnNuovaOperazione.IsVisible = true;
+                DisplayAlert("", "OPERAZIONE CONCLUSA CON SUCCESSO", "OK");
+            });
+        }
         private async void BtnScansiona_Tapped(object sender, EventArgs e) {
 
             if (TotDaScontare < StepMinimo) {
@@ -93,71 +157,15 @@ namespace EcoServiceApp {
             await Navigation.PushAsync(Pagescanner);
             Pagescanner.OnScanResult += async (x) => {
                 Pagescanner.IsScanning = false;
-                Device.BeginInvokeOnMainThread(async () => await Navigation.PopAsync());
+//                Device.BeginInvokeOnMainThread(async () => await Navigation.PopAsync());
                 var codice = x.Text;
-                //Device.BeginInvokeOnMainThread(() => DisplayAlert("", "Codice Ok: " + x.Text, "OK"));
-
-                ClassApiParco Parchetto = new ClassApiParco();
-                //var rowCliente = Parchetto.EseguiQueryRow("Utente", "CodiceMonetaVirtuale='" + codice + "'");
-                var TableCliente = Parchetto.EseguiQuery("Select * From Utente Where CodiceMonetaVirtuale='" + Funzioni.AntiAp(codice) + "'");
-                if (TableCliente.Rows.Count == 0) { await DisplayAlert("", "Nessun utente con codice moneta virtuale", "OK"); return; }
-                var rowCliente = TableCliente.Rows[0];
-                
-                if ((int)rowCliente["IdComune"] != (int)App.DataRowCommerciante["ComuneId"]) {
-                    Device.BeginInvokeOnMainThread(() => DisplayAlert("ATTENZIONE", "Il cliente appartiene ad un comune diverso dall'attività!", "OK"));
-                    return;
-                }
-                //Verifiche
-                int MoltiplicatoreCoupon = (int)App.DataRowComune["MoltiplicatoreCoupon"];
-                int ComuneEcopuntiCoupon = (int)App.DataRowComune["EcopuntiCoupon"];
-                int CouponUtente = (int)rowCliente["Coupon"];
-                int CouponUtilizzabili = Convert.ToInt32(EntryCouponN.Text);                
-
-                if (CouponUtente < 1) {
-                    Device.BeginInvokeOnMainThread(() => DisplayAlert("Attenzione", "Il cliente non possiede coupon!", "OK"));
-                    return;
-                }
-                if (CouponUtente < CouponUtilizzabili) {
-                    CouponUtilizzabili = CouponUtente;
-                }
-              
-
                 Device.BeginInvokeOnMainThread(() => {
-                    StkImpostazioneValori.IsVisible = false;
-                    BtnVisualizzaDati.IsVisible = false;
-                    LblTotaleScontato.Text = "TOTALE SCONTATO EFFETTIVO";
-                    TotScontato = TotDaScontare - (CouponUtilizzabili * ValoreCoupon);
-                    TxtTotaleScontato.Text = TotScontato.ToString("0.00 €").Replace(".",",");
-                    TxtCouponUsati.Text = CouponUtilizzabili.ToString();
+                    CodiceScansionato(codice);
+                    Navigation.PopAsync();
                 });
 
-                //BtnVisualizzaDati.IsEnabled = false;
 
-                var Par = Parchetto.GetParam();
-                CouponUtente = CouponUtente - CouponUtilizzabili;
-                Par.AddParameterInteger("Coupon", CouponUtente);            
-                Parchetto.EseguiUpdate("Utente", (int)rowCliente["Id"], Par);
-                int AggiornaCouponAttivita = (int)App.DataRowCommerciante["CouponRaccolti"] + CouponUtilizzabili;
-                Parchetto.EseguiUpdate("CouponRaccolti", (int)App.DataRowCommerciante["CouponRaccolti"], Par);
 
-                if (Parchetto.LastError == true) {
-                    await DisplayAlert("ATTENZIONE", "Errore nello scaricare i coupon!", "OK");
-                    return;
-                }
-                Parchetto.EseguiCommand("Update AttivitaCommerciali SET CouponRaccolti=CouponRaccolti-(-" + CouponUtilizzabili + ") Where Id=" + App.DataRowCommerciante["Id"]);
-                if (Parchetto.LastError == true) {
-                    await DisplayAlert("ATTENZIONE", "Errore nel caricare i coupon sull'attività commerciale!", "OK");
-                    return;
-                }
-                Device.BeginInvokeOnMainThread(() => {
-                    FrmNomeCliente.IsVisible = true;
-                    TxtNomeCliente.Text = rowCliente["Nome"].ToString() + " " + rowCliente["Cognome"].ToString();
-                    FrmCoupon.IsVisible = true;
-                    TxtCouponResidui.Text = ((int)rowCliente["Coupon"] - (int)CouponUtilizzabili).ToString();
-                    BtnNuovaOperazione.IsVisible = true;
-                    DisplayAlert("", "OPERAZIONE CONCLUSA CON SUCCESSO", "OK");
-                });
-     
             };
 
         }
