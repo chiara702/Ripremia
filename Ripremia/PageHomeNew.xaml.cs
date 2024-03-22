@@ -80,7 +80,7 @@ namespace EcoServiceApp {
                 Device.BeginInvokeOnMainThread(() =>DisplayAlert("","Bluetooth non attivo!","Ok"));
                 return;
             }
-            ScanBle = CrossBleAdapter.Current.Scan(config).Subscribe(scanresult => {
+            /*ScanBle = CrossBleAdapter.Current.Scan(config).Subscribe(scanresult => {
                 if (scanresult.Device.Name == null) return;
                 if (scanresult.Device.Name.StartsWith("EC")==false) return;
                 lock (ListaDeviceBle) {
@@ -91,7 +91,7 @@ namespace EcoServiceApp {
                     dev.scanResult = scanresult.Device;
                     
                 } 
-            });
+            });*/
             while (true) {
                 System.Threading.Thread.Sleep(500);
                 
