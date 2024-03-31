@@ -27,15 +27,15 @@
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Vogliamo conoscere la tua posizione mentre l&apos;app è in funzione per visualizzare i servizi disponibili nella tua area di interesse</string>
+	<string>Per offrirti una migliore esperienza di servizio, questa app richiede accesso alla tua posizione anche quando non è in uso attivo. La tua posizione sarà utilizzata per fornirti servizi basati sulla localizzazione.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Vogliamo conoscere la tua posizione per visualizzare i servizi disponibili nella tua zona.</string>
+	<string>Per offrirti una migliore esperienza di servizio, questa app richiede accesso alla tua posizione quando è in uso attivo. La tua posizione sarà utilizzata per fornirti servizi basati sulla localizzazione.</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Vogliamo conoscere la tua posizione mentre l&apos;app è in funzione per geolocalizzare il luogo in cui effettuare il ritiro o conferimento.</string>
+	<string>Per fornirti una migliore esperienza di servizio, questa app richiede accesso alla tua posizione sia quando è in uso attivo che quando non lo è. La tua posizione sarà utilizzata per fornirti servizi basati sulla localizzazione.</string>
 	<key>NSLocationUsageDescription </key>
-	<string>L&apos;app vuole conoscere la tua posizione per visualizzare i servizi disponibili nella tua area.</string>
+	<string>Per offrirti una migliore esperienza, questa app utilizza la tua posizione per fornire servizi basati sulla localizzazione, come la ricerca di luoghi vicini.</string>
 	<key>NSUserTrackingUsageDescription</key>
-	<string>L&apos;app vuole conoscere la tua posizione per trovare le stazioni ecologiche più vicine a te.</string>
+	<string>Per offrirti annunci personalizzati e migliorare la tua esperienza, questa app utilizza l&apos;IDFA per tracciare il tuo comportamento attraverso le applicazioni. I tuoi dati saranno utilizzati in conformità con la nostra politica sulla privacy.</string>
 	<key>NSCameraUsageDescription</key>
 	<string>L&apos;app necessita di accedere alla fotocamera per scattare foto ai rifiuti abbandonati o da ritirare.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
@@ -44,10 +44,12 @@
 	<string>L&apos;app necessita di accedere alla galleria per il salvataggio delle foto e per il caricamento di un&apos;immagine relativa al rifiuto.</string>
 	<key>FirebaseAppDelegateProxyEnabled</key>
 	<false/>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
 	<key>CFBundleDisplayName</key>
 	<string>Ripremia</string>
 	<key>CFBundleVersion</key>
-	<string>12.54</string>
+	<string>12.61</string>
 	<key>UIStatusBarStyle</key>
 	<string>UIStatusBarStyleLightContent</string>
 	<key>UIApplicationSceneManifest</key>
@@ -67,7 +69,19 @@
 	<array>
 		<string>bluetooth-central</string>
 	</array>
-	<key>NSUserTrackingUsageDescription</key>
-	<string>Per offrirti una migliore esperienza utente, la nostra applicazione richiede l'accesso alla tua posizione al fine di visualizzare i servizi disponibili nella tua zona e consentirti di collegarti alla macchina in Bluetooth Low Energy (BLE) per conferire i rifiuti. La tua posizione verrà utilizzata solo per questi scopi e non verrà condivisa con terze parti senza il tuo consenso.</string>
+
+	<!-- New Key Privacy 2024 -->
+	<key>NSPrivacyAccessedAPITypes</key>
+	<array>
+		<dict>
+			<key>NSPrivacyAccessedAPIType</key>
+			<string>NSPrivacyAccessedAPICategoryDiskSpace</string>
+			<key>NSPrivacyAccessedAPIReasons</key>
+			<array>
+				<string>NSPrivacyAccessReasonAppFunctionality</string>
+			</array>
+		</dict>
+	</array>
+	
 </dict>
 </plist>
